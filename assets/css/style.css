@@ -73,8 +73,8 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   transition: all 0.5s;
   z-index: 997;
   transition: all 0.5s;
-  background: #fff;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  background: #282c34;
+  box-shadow: 0px 2px 15px rgba(221, 121, 121, 0.1);
 }
 #header .logo h1 {
   font-size: 30px;
@@ -84,7 +84,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   letter-spacing: 2px;
 }
 #header .logo h1 a, #header .logo h1 a:hover {
-  color: #7a6960;
+  color: #7a6060;
   text-decoration: none;
 }
 #header .logo img {
@@ -122,7 +122,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   justify-content: space-between;
   padding: 10px 0 10px 30px;
   font-size: 15px;
-  color: #4e4039;
+  color: #ec3d3d;
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -132,10 +132,10 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   margin-left: 5px;
 }
 .navbar a:hover, .navbar .active, .navbar .active:focus, .navbar li:hover > a {
-  color: #eb5d1e;
+  color: #ffffff;
 }
 .navbar .getstarted, .navbar .getstarted:focus {
-  background: #eb5d1e;
+  background: #dc0708;
   color: #fff;
   padding: 10px 25px;
   margin-left: 30px;
@@ -293,8 +293,8 @@ h1, h2, h3, h4, h5, h6, .font-primary {
 #hero {
   width: 100%;
   height: 70vh;
-  background: #fef8f5;
-  border-bottom: 2px solid #fcebe3;
+  background: #202020;
+  border-bottom: 2px solid #dc0708;
   margin: 72px 0 -72px 0;
 }
 #hero h1 {
@@ -302,10 +302,10 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   font-size: 48px;
   font-weight: 700;
   line-height: 56px;
-  color: #4e4039;
+  color: #dc0708;
 }
 #hero h2 {
-  color: #a08f86;
+  color: #ffffff;
   margin: 15px 0 0 0;
   font-size: 24px;
 }
@@ -320,7 +320,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   transition: 0.5s;
   margin-top: 30px;
   color: #fff;
-  background: #eb5d1e;
+  background: #dc0708;
 }
 #hero .btn-get-started:hover {
   background: #ef7f4d;
@@ -393,7 +393,7 @@ section {
 }
 
 .section-bg {
-  background-color: #fef8f5;
+  background-color: #202020;
 }
 
 .section-title {
