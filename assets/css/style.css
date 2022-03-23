@@ -3,6 +3,9 @@
 * Template URL: https://bootstrapmade.com/ninestars-free-bootstrap-3-theme-for-creative/
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
+
+* COLOR ROJO: #dc0708
+* COLOR NEGRO: #282c34
 */
 
 /*--------------------------------------------------------------
@@ -14,12 +17,12 @@ body {
 }
 
 a {
-  color: #eb5d1e;
+  color: #f03535;
   text-decoration: none;
 }
 
 a:hover {
-  color: #ef7f4d;
+  color: #f03535;
   text-decoration: none;
 }
 
@@ -37,7 +40,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   right: 15px;
   bottom: 15px;
   z-index: 99999;
-  background: #eb5d1e;
+  background: #dc0708;
   width: 40px;
   height: 40px;
   border-radius: 4px;
@@ -49,7 +52,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   line-height: 0;
 }
 .back-to-top:hover {
-  background: #ee7843;
+  background: #282c34;
   color: #fff;
 }
 .back-to-top.active {
@@ -84,7 +87,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   letter-spacing: 2px;
 }
 #header .logo h1 a, #header .logo h1 a:hover {
-  color: #7a6060;
+  color: #f03535;
   text-decoration: none;
 }
 #header .logo img {
@@ -143,7 +146,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
 }
 .navbar .getstarted:hover, .navbar .getstarted:focus:hover {
   color: #fff;
-  background: #ee7843;
+  background: #dc0708;
 }
 .navbar .dropdown ul {
   display: block;
@@ -171,7 +174,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   font-size: 12px;
 }
 .navbar .dropdown ul a:hover, .navbar .dropdown ul .active:hover, .navbar .dropdown ul li:hover > a {
-  color: #eb5d1e;
+  color: #282c34;
 }
 .navbar .dropdown:hover > ul {
   opacity: 1;
@@ -202,7 +205,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
 * Mobile Navigation 
 */
 .mobile-nav-toggle {
-  color: #7a6960;
+  color: #dc0708;
   font-size: 28px;
   cursor: pointer;
   display: none;
@@ -229,8 +232,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   right: 0;
   left: 0;
   bottom: 0;
-  background: rgba(78, 64, 57, 0.9);
-  transition: 0.3s;
+  background: #282c34
 }
 .navbar-mobile .mobile-nav-toggle {
   position: absolute;
@@ -255,7 +257,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   color: #7a6960;
 }
 .navbar-mobile a:hover, .navbar-mobile .active, .navbar-mobile li:hover > a {
-  color: #eb5d1e;
+  color: #dc0708;
 }
 .navbar-mobile .getstarted, .navbar-mobile .getstarted:focus {
   margin: 15px;
@@ -281,7 +283,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   font-size: 12px;
 }
 .navbar-mobile .dropdown ul a:hover, .navbar-mobile .dropdown ul .active:hover, .navbar-mobile .dropdown ul li:hover > a {
-  color: #eb5d1e;
+  color: #282c34;
 }
 .navbar-mobile .dropdown > .dropdown-active {
   display: block;
@@ -323,7 +325,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   background: #dc0708;
 }
 #hero .btn-get-started:hover {
-  background: #ef7f4d;
+  background: #dc0708;
 }
 #hero .animated {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
@@ -406,15 +408,16 @@ section {
   padding-bottom: 0;
   line-height: 1px;
   margin-bottom: 15px;
-  color: #c2b7b1;
+  color: #f5d7d7;
 }
+
 .section-title p {
   padding-bottom: 15px;
   margin-bottom: 15px;
   position: relative;
   font-size: 32px;
   font-weight: 700;
-  color: #4e4039;
+  color: #f03535;
 }
 .section-title p::after {
   content: "";
@@ -422,7 +425,7 @@ section {
   display: block;
   width: 60px;
   height: 2px;
-  background: #eb5d1e;
+  background: #dc0708;
   bottom: 0;
   left: calc(50% - 30px);
 }
