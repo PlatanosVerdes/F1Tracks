@@ -112,7 +112,6 @@ h1, h2, h3, h4, h5, h6, .font-primary {
 */
 .navbar {
   padding: 0;
-
 }
 .navbar ul {
   margin: 0;
@@ -120,7 +119,6 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   display: flex;
   list-style: none;
   align-items: center;
-
   margin-right: 10vw;
 }
 .navbar li {
@@ -505,17 +503,16 @@ section {
   color: #5a6570;
 }
 .track .tile{
-  color: #ffffff
-}
-.track .row{
-  /* background: rgb(255, 255, 255); */
-  border-radius: 25px;
-}
-.track .row .col-md-5.a{
-  background: red
+  color: #ffffff;
+  margin-left: 9vw;
 }
 
-@media (max-width: 991px) {
+.track-item{
+  margin: 10px;
+  border-bottom: 2px solid #ff0000;
+}
+
+/* @media (max-width: 991px) {
   .track .track-img img {
     max-width: 70%;
   }
@@ -524,17 +521,48 @@ section {
   .track .track-img img {
     max-width: 90%;
   }
+} */
+
+/*--------------------------------------------------------------
+# API MAPS
+--------------------------------------------------------------*/
+.maps {
+  background-color: rgb(8, 8, 8);
+  border:2px solid #dc0708;
+  position: static;
+  
+  
 }
 
+.maps, title{
+  color: #ffffff;
+}
+
+/*--------------------------------------------------------------
+# API MAPS
+--------------------------------------------------------------*/
+.twit {
+  background-color: rgb(8, 8, 8);
+  border:2px solid #dc0708;
+  position: static;
+  
+  
+}
+
+.twit, title{
+  color: #ffffff;
+}
 
 /*--------------------------------------------------------------
 # Footer
 --------------------------------------------------------------*/
 .footer {
-  background-color: #202126;
+  background-color: #202020;
+  border-top: 2px solid #dc0708;
   padding: 7rem 0;
   color: #888;
   font-size: 16px; }
+  
   .footer, .footer h3 {
     font-family: "Poppins", sans-serif; }
   .footer h3 {
@@ -635,3 +663,43 @@ section {
   .footer .site-logo {
     color: #fff;
     font-size: 20px; }
+    
+/*--------------------------------------------------------------
+# trackView 
+--------------------------------------------------------------*/
+
+.trackView{
+  background: #202020;
+  color: #fff;
+}
+.trackView .title{
+  background: #282c34;
+  padding: 10px;
+}
+.trackView .title img{
+  width: 7vw;
+  height: 3vw;
+  
+}
+.trackView .title img .pushImg{
+  margin-right: 1vw;
+  border-radius: 25px;
+}
+.trackView .title h1{
+  text-align: left;
+  font-style: Monaco;
+  font-size: medium;
+  text-indent: 0;
+  margin: 0.5em;
+  padding: 0.5em;
+  width: 70%;
+}
+/* .trackView .tiempo{
+  
+  
+} */
+
+.trackView img {
+  width: 100%;
+  height: 100%;
+}
