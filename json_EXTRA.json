@@ -1,0 +1,1747 @@
+[
+    {
+        "nom": "Excursión Tramuntana",
+        "descripcio": "La excursión circular desde Sóller a Biniaraix es una ruta cortita y muy agradable que nos llevará por diferentes localizaciones de la Vall de Sóller entre naranjos, olivos y limoneros. El tramo de ida no dura más de 40 minutos hasta llegar a la maravillosa aldea de Biniaraix a través de un camino de montaña muy accesible. Para el punto de partida os recomendamos aparcar por la zona del centro de Sóller, cerca del mercado hay un parking público, aunque entre semana es tarifado. Como no tenemos la certeza de dónde podremos aparcar lo ideal es empezar la excursión en la Plaza de la Costitució donde se ubica la majestuosa Iglesia parroquial de Sant Bartolomé. Uno de los iconos del Sóller.",
+        "detall": "",
+        "tipus": "Montaña",
+        "identificador": "ExcTramun",
+        "preu": {
+            "import": "0.00 €",
+            "coment-preu": ""
+        },
+        "contacte": {
+            "telf": "+34 971 21 97 35",
+            "email": "serradetramuntana@conselldemallorca.net",
+            "xarxes": {
+                "web": "https://www.serradetramuntana.net/es/",
+                "facebook": "https://www.facebook.com/SerradeTramuntanaPatrimoniMundialUNESCO",
+                "twitter": "https://twitter.com/SdeTramuntana",
+                "instagram": "https://www.instagram.com/serratramuntana/"
+            }
+        },
+        "puntuacio": 4.5,
+        "visualitzacions": "200",
+        "likes": 3,
+        "icones": [
+            ""
+        ],
+        "imatges": [
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/tramuntana1.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/tramuntana2.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/tramuntana3.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/tramuntana4.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/tendencias/tramuntanatend.png"
+        ],
+        "videos": [
+            {
+                "tipus": "mp4",
+                "url": "assets/video/ExcursionTramuntana.mp4"
+            },
+            {
+                "tipus": "ogg",
+                "url": "assets/video/ExcursionTramuntana.ogg"
+            }
+        ],
+        "audio": [
+            {
+                "tipus": "",
+                "url": ""
+            }
+        ],
+        "geoposicionament1": {
+            "address": "Deyá, 07179, Islas Baleares",
+            "lat": 39.73745948463849,
+            "long": 2.6614295404938146,
+            "city": "Deyá",
+            "Country": "España",
+            "zip": ""
+        },
+        "geoposicionament2": {
+            "address": "",
+            "lat": 0,
+            "long": 0,
+            "city": "",
+            "Country": "",
+            "zip": ""
+        },
+        "horari": {
+            "di": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dm": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dx": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dj": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dv": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "ds": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dg": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ]
+        },
+        "calendari": {
+            "startDataEvent": "",
+            "startTimeEvent": "",
+            "endDataEvent": "",
+            "endTimeEvent": ""
+        },
+        "dadesPropies": {
+            "categories": [
+                "Actividades",
+                "Excursiones",
+                "Montana"
+            ],
+            "duracio": "4h",
+            "disponible": true,
+            "numPersonasMax": 6,
+            "numPersonasMin": 1,
+            "cancelacio": true,
+            "mascotes": true,
+            "nins": true,
+            "inclos": "",
+            "access": false
+        }
+    },
+    {
+        "nom": "Visita Catedral",
+        "descripcio": "La Catedral-Basílica de Santa María en Palma (Mallorca) también llamada Catedral de Mallorca es el principal edificio religioso de la isla de Mallorca. En catalán, se la conoce como La Seu (Seu o Seo es el nombre que reciben las catedrales en la Corona de Aragón). Consiste en un templo de estilo gótico levantino construido a la orilla de la bahía de Palma.1​ Se asoma al mar sobre las murallas romana y renacentistas que protegían a la ciudad, siendo la única catedral gótica que cumple con esta peculiaridad. Consiste también en la sede de la diócesis de Mallorca, su titular es la Asunción de María.",
+        "detall": "",
+        "tipus": "Monumento",
+        "identificador": "VisCatedral",
+        "preu": {
+            "import": "10.00 €",
+            "coment-preu": ""
+        },
+        "contacte": {
+            "telf": "971 71 31 33",
+            "email": "",
+            "xarxes": {
+                "web": "https://catedraldemallorca.org/es/",
+                "facebook": "https://es-la.facebook.com/catedralmca/",
+                "twitter": "https://twitter.com/catedralmca?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
+                "instagram": "https://www.instagram.com/catedralmca/?hl=es"
+            }
+        },
+        "puntuacio": 3,
+        "visualitzacions": "45",
+        "likes": 3,
+        "icones": [
+            ""
+        ],
+        "imatges": [
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/catedraldemallorca1.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/catedraldemallorca2.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/catedraldemallorca3.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/catedraldemallorca4.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/tendencias/catedraldemallorcatend.png"
+        ],
+        "videos": [
+            {
+                "tipus": "",
+                "url": ""
+            },
+            {
+                "tipus": "",
+                "url": ""
+            }
+        ],
+        "audio": [
+            {
+                "tipus": "",
+                "url": ""
+            }
+        ],
+        "geoposicionament1": {
+            "address": "Plaça de la Seu, s/n, 07001 Palma, Illes Balears",
+            "lat": 39.56816944972592,
+            "long": 2.6483423153426124,
+            "city": "Palma de Mallorca",
+            "Country": "España",
+            "zip": ""
+        },
+        "geoposicionament2": {
+            "address": "",
+            "lat": 0,
+            "long": 0,
+            "city": "",
+            "Country": "",
+            "zip": ""
+        },
+        "horari": {
+            "di": [
+                {
+                    "in": "10:00",
+                    "out": "18:15"
+                },
+                {
+                    "in": "10:00",
+                    "out": "14:30"
+                }
+            ],
+            "dm": [
+                {
+                    "in": "10:00",
+                    "out": "18:15"
+                },
+                {
+                    "in": "10:00",
+                    "out": "14:30"
+                }
+            ],
+            "dx": [
+                {
+                    "in": "10:00",
+                    "out": "18:15"
+                },
+                {
+                    "in": "10:00",
+                    "out": "14:30"
+                }
+            ],
+            "dj": [
+                {
+                    "in": "10:00",
+                    "out": "18:15"
+                },
+                {
+                    "in": "10:00",
+                    "out": "14:30"
+                }
+            ],
+            "dv": [
+                {
+                    "in": "10:00",
+                    "out": "18:15"
+                },
+                {
+                    "in": "10:00",
+                    "out": "14:30"
+                }
+            ],
+            "ds": [
+                {
+                    "in": "10:00",
+                    "out": "18:15"
+                },
+                {
+                    "in": "10:00",
+                    "out": "14:30"
+                }
+            ],
+            "dg": [
+                {
+                    "in": "10:00",
+                    "out": "18:15"
+                },
+                {
+                    "in": "10:00",
+                    "out": "14:30"
+                }
+            ]
+        },
+        "calendari": {
+            "startDataEvent": "",
+            "startTimeEvent": "",
+            "endDataEvent": "",
+            "endTimeEvent": ""
+        },
+        "dadesPropies": {
+            "categories": [
+                "Actividades",
+                "Cultura",
+                "Monumento"
+            ],
+            "duracio": "2h",
+            "disponible": true,
+            "numPersonasMax": 6,
+            "numPersonasMin": 1,
+            "cancelacio": true,
+            "mascotes": false,
+            "nins": true,
+            "inclos": "",
+            "access": true
+        }
+    },
+    {
+        "nom": "Excursión Enduro MTB",
+        "descripcio": "Preciosa ruta de Enduro junto al mar",
+        "tipus": "MTB",
+        "identificador": "MtbEnduro",
+        "preu": {
+            "import": "23.00 €",
+            "coment-preu": ""
+        },
+        "contacte": {
+            "telf": "615 27 00 64",
+            "email": "",
+            "xarxes": {
+                "web": "https://freetimemallorca.com/es/que-ver/63-rutas-guiadas-con-bici-nivel-enduro.html",
+                "facebook": "https://www.facebook.com/freetimemallorca/",
+                "twitter": "https://twitter.com/FreeTimeMallorc",
+                "instagram": ""
+            }
+        },
+        "puntuacio": 2.5,
+        "visualitzacions": "215",
+        "likes": 3,
+        "icones": [
+            ""
+        ],
+        "imatges": [
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/enduro1.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/enduro2.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/enduro3.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/enduro4.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/tendencias/endurotend.png"
+        ],
+        "videos": [
+            {
+                "tipus": "",
+                "url": ""
+            },
+            {
+                "tipus": "",
+                "url": ""
+            }
+        ],
+        "audio": [
+            {
+                "tipus": "",
+                "url": ""
+            }
+        ],
+        "geoposicionament1": {
+            "address": "Avinguda del Rei Jaume I, 54, 07183 Santa Ponça, Illes Balears",
+            "lat": 39.51202247505876,
+            "long": 2.4742342539721633,
+            "city": "Palma de Mallorca",
+            "Country": "España",
+            "zip": ""
+        },
+        "geoposicionament2": {
+            "address": "",
+            "lat": 0,
+            "long": 0,
+            "city": "",
+            "Country": "",
+            "zip": ""
+        },
+        "horari": {
+            "di": [
+                {
+                    "in": "9:00",
+                    "out": "22:00"
+                },
+                {
+                    "in": "10:00",
+                    "out": "17:00"
+                }
+            ],
+            "dm": [
+                {
+                    "in": "9:00",
+                    "out": "22:00"
+                },
+                {
+                    "in": "10:00",
+                    "out": "17:00"
+                }
+            ],
+            "dx": [
+                {
+                    "in": "9:00",
+                    "out": "22:00"
+                },
+                {
+                    "in": "10:00",
+                    "out": "17:00"
+                }
+            ],
+            "dj": [
+                {
+                    "in": "9:00",
+                    "out": "22:00"
+                },
+                {
+                    "in": "10:00",
+                    "out": "17:00"
+                }
+            ],
+            "dv": [
+                {
+                    "in": "9:00",
+                    "out": "22:00"
+                },
+                {
+                    "in": "10:00",
+                    "out": "17:00"
+                }
+            ],
+            "ds": [
+                {
+                    "in": "9:00",
+                    "out": "22:00"
+                },
+                {
+                    "in": "10:00",
+                    "out": "17:00"
+                }
+            ],
+            "dg": [
+                {
+                    "in": "9:00",
+                    "out": "22:00"
+                },
+                {
+                    "in": "10:00",
+                    "out": "17:00"
+                }
+            ]
+        },
+        "calendari": {
+            "startDataEvent": "",
+            "startTimeEvent": "",
+            "endDataEvent": "",
+            "endTimeEvent": ""
+        },
+        "dadesPropies": {
+            "categories": [
+                "Actividades",
+                "Deportes",
+                "MTB"
+            ],
+            "duracio": "4,5h",
+            "disponible": true,
+            "numPersonasMax": 3,
+            "numPersonasMin": 1,
+            "cancelacio": false,
+            "mascotes": false,
+            "nins": true,
+            "inclos": "",
+            "access": false
+        }
+    },
+    {
+        "nom": "Motos de Agua",
+        "descripcio": "Descubra la costa de la Bahía de Palma en un safari guiado en moto de agua cerca de Palma de Mallorca. Un profesional guiará la excursión de menor duración en moto de agua hasta posicionarse frente de la favulosa Catedral de Palma y de nuevo mar abierto para hacer el regreso. La ruta en jet ski de mayor duración le llevará a los deltas y tendrá una breve pausa para un chapuzón en Cala Vella. No se requiere titulación náutica.",
+        "tipus": "Acuaticas",
+        "identificador": "MotAguas",
+        "preu": {
+            "import": "90.00 €",
+            "coment-preu": ""
+        },
+        "contacte": {
+            "telf": "",
+            "email": "",
+            "xarxes": {
+                "web": "https://www.sunbonoo.com/es/palma-jet-ski-tour-moto-de-agua-mallorca-4790",
+                "facebook": "https://www.facebook.com/sunbonoo",
+                "twitter": "https://twitter.com/sunbonoo",
+                "instagram": "https://www.instagram.com/sunbonoo/"
+            }
+        },
+        "puntuacio": 3.5,
+        "visualitzacions": "201",
+        "likes": 3,
+        "icones": [
+            ""
+        ],
+        "imatges": [
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/motosdeagua1.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/motosdeagua2.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/motosdeagua3.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/motosdeagua4.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/tendencias/motosdeaguatend.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/tendencias/motosdeaguanov.png"
+        ],
+        "videos": [
+            {
+                "tipus": "",
+                "url": ""
+            },
+            {
+                "tipus": "",
+                "url": ""
+            }
+        ],
+        "audio": [
+            {
+                "tipus": "",
+                "url": ""
+            }
+        ],
+        "geoposicionament1": {
+            "address": "Avinguda del Rei Jaume I, 54, 07183 Santa Ponça, Illes Balears",
+            "lat": 39.51202247505876,
+            "long": 2.4742342539721633,
+            "city": "Palma de Mallorca",
+            "Country": "España",
+            "zip": ""
+        },
+        "geoposicionament2": {
+            "address": "",
+            "lat": 0,
+            "long": 0,
+            "city": "",
+            "Country": "",
+            "zip": ""
+        },
+        "horari": {
+            "di": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dm": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dx": [
+                {
+                    "in": "9:00",
+                    "out": "20:00"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dj": [
+                {
+                    "in": "9:00",
+                    "out": "20:00"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dv": [
+                {
+                    "in": "9:00",
+                    "out": "20:00"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "ds": [
+                {
+                    "in": "9:00",
+                    "out": "20:00"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dg": [
+                {
+                    "in": "9:00",
+                    "out": "20:00"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ]
+        },
+        "calendari": {
+            "startDataEvent": "",
+            "startTimeEvent": "",
+            "endDataEvent": "",
+            "endTimeEvent": ""
+        },
+        "dadesPropies": {
+            "categories": [
+                "Actividades",
+                "Actividades",
+                "Acuaticas"
+            ],
+            "duracio": "0,5h",
+            "disponible": true,
+            "numPersonasMax": 2,
+            "numPersonasMin": 1,
+            "cancelacio": true,
+            "mascotes": false,
+            "nins": false,
+            "inclos": "",
+            "access": false
+        }
+    },
+    {
+        "nom": "Parapente Mallorca",
+        "descripcio": "Si siempre has deseado volar, ahora es tu momento. Disfruta el vuelo libre con un parapente biplaza, una forma sencilla pero inolvidable de volar .",
+        "tipus": "Aereas",
+        "identificador": "ParMallorca",
+        "preu": {
+            "import": "65.00 €",
+            "coment-preu": ""
+        },
+        "contacte": {
+            "telf": "+34 654 564 737",
+            "email": "mallorcafly@gmail.com",
+            "xarxes": {
+                "web": "http://mallorcafly.es/inicio/",
+                "facebook": "https://www.facebook.com/MallorcaFly/",
+                "twitter": "",
+                "instagram": "https://www.instagram.com/mallorcafly/"
+            }
+        },
+        "puntuacio": 4,
+        "visualitzacions": "153",
+        "likes": 3,
+        "icones": [
+            ""
+        ],
+        "imatges": [
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/parapente1.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/parapente2.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/parapente3.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/parapente4.png"
+        ],
+        "videos": [
+            {
+                "tipus": "",
+                "url": ""
+            },
+            {
+                "tipus": "",
+                "url": ""
+            }
+        ],
+        "audio": [
+            {
+                "tipus": "",
+                "url": ""
+            }
+        ],
+        "geoposicionament1": {
+            "address": "Alcúdia, Balearic Islands",
+            "lat": 39.842603684142226,
+            "long": 3.0906344576720493,
+            "city": "Palma de Mallorca",
+            "Country": "España",
+            "zip": ""
+        },
+        "geoposicionament2": {
+            "address": "",
+            "lat": 0,
+            "long": 0,
+            "city": "",
+            "Country": "",
+            "zip": ""
+        },
+        "horari": {
+            "di": [
+                {
+                    "in": "10",
+                    "out": "12"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dm": [
+                {
+                    "in": "10",
+                    "out": "12"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dx": [
+                {
+                    "in": "10",
+                    "out": "12"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dj": [
+                {
+                    "in": "10",
+                    "out": "12"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dv": [
+                {
+                    "in": "10",
+                    "out": "12"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "ds": [
+                {
+                    "in": "10",
+                    "out": "12"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dg": [
+                {
+                    "in": "10",
+                    "out": "12"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ]
+        },
+        "calendari": {
+            "startDataEvent": "",
+            "startTimeEvent": "",
+            "endDataEvent": "",
+            "endTimeEvent": ""
+        },
+        "dadesPropies": {
+            "categories": [
+                "Actividades",
+                "Actividades",
+                "Aereas"
+            ],
+            "duracio": "0,5h",
+            "disponible": true,
+            "numPersonasMax": 2,
+            "numPersonasMin": 1,
+            "cancelacio": true,
+            "mascotes": false,
+            "nins": false,
+            "inclos": "",
+            "access": true
+        }
+    },
+    {
+        "nom": "Discoteca Titos Mallorca",
+        "descripcio": "Las Islas Baleares, especialmente Mallorca e Ibiza se caracterizan por tener el mejor ambiente de fiesta y noche de España. TITO’S es la discoteca de Mallorca por excelencia. Una de las grandes ventajas de esta magnífica discoteca de Palma, es la gran variedad que ofrece: distintos ambientes, diferentes estilos de música, varias salas y la posibilidad de ver y disfrutar de los mejores DJs y artistas del momento.",
+        "tipus": "Fiesta",
+        "identificador": "DiscTitos",
+        "preu": {
+            "import": "25.00 €",
+            "coment-preu": ""
+        },
+        "contacte": {
+            "telf": "+34 971 73 00 17",
+            "email": "comercial@titosmallorca.com",
+            "xarxes": {
+                "web": "https://titosmallorca.com/",
+                "facebook": "https://www.facebook.com/titosmallorca/?rf=175267079170750",
+                "twitter": "https://twitter.com/TitosMallorca",
+                "instagram": ""
+            }
+        },
+        "puntuacio": 4.5,
+        "visualitzacions": "223",
+        "likes": 3,
+        "icones": [
+            ""
+        ],
+        "imatges": [
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/titos1.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/titos2.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/titos3.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/titos4.png"
+        ],
+        "videos": [
+            {
+                "tipus": "",
+                "url": ""
+            },
+            {
+                "tipus": "",
+                "url": ""
+            }
+        ],
+        "audio": [
+            {
+                "tipus": "",
+                "url": ""
+            }
+        ],
+        "geoposicionament1": {
+            "address": "Avinguda de Gabriel Roca, 31, 07014 Palma, Illes Balears",
+            "lat": 39.56362239853684,
+            "long": 2.6265183386295514,
+            "city": "Palma de Mallorca",
+            "Country": "España",
+            "zip": ""
+        },
+        "geoposicionament2": {
+            "address": "",
+            "lat": 0,
+            "long": 0,
+            "city": "",
+            "Country": "",
+            "zip": ""
+        },
+        "horari": {
+            "di": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dm": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dx": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dj": [
+                {
+                    "in": "10",
+                    "out": "6"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dv": [
+                {
+                    "in": "10",
+                    "out": "6"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "ds": [
+                {
+                    "in": "10",
+                    "out": "6"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dg": [
+                {
+                    "in": "10",
+                    "out": "6"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ]
+        },
+        "calendari": {
+            "startDataEvent": "",
+            "startTimeEvent": "",
+            "endDataEvent": "",
+            "endTimeEvent": ""
+        },
+        "dadesPropies": {
+            "categories": [
+                "Actividades",
+                "Actividades",
+                "Fiestas"
+            ],
+            "duracio": "5h",
+            "disponible": true,
+            "numPersonasMax": 6,
+            "numPersonasMin": 1,
+            "cancelacio": true,
+            "mascotes": false,
+            "nins": false,
+            "inclos": "",
+            "access": false
+        }
+    },
+    {
+        "nom": "Parque de sa Feixina",
+        "descripcio": "Es uno de los más concurridos de la ciudad, dada su ubicación estratégica cerca del puerto donde desembarcan los cruceros de turistas, así como su proximidad al barrio de Santa Catalina y al Paseo Marítimo, destacados puntos de ocio nocturno de la ciudad.",
+        "tipus": "Parque",
+        "identificador": "ParFeixina",
+        "preu": {
+            "import": "0.00 €",
+            "coment-preu": ""
+        },
+        "contacte": {
+            "telf": "+34 971 22 59 00",
+            "email": "",
+            "xarxes": {
+                "web": "https://www.palma.cat/portal/PALMA/home.jsp?codResi=1",
+                "facebook": "",
+                "twitter": "",
+                "instagram": ""
+            }
+        },
+        "puntuacio": 3,
+        "visualitzacions": "45",
+        "likes": 3,
+        "icones": [
+            ""
+        ],
+        "imatges": [
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/parcfeix1.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/parcfeix2.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/parcfeix3.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/parcfeix4.png"
+        ],
+        "videos": [
+            {
+                "tipus": "",
+                "url": ""
+            },
+            {
+                "tipus": "",
+                "url": ""
+            }
+        ],
+        "audio": [
+            {
+                "tipus": "",
+                "url": ""
+            }
+        ],
+        "geoposicionament1": {
+            "address": "Avinguda de l'Argentina, s/n, 07011 Palma, Illes Balears",
+            "lat": 39.57094747137753,
+            "long": 2.640217402213888,
+            "city": "Palma de Mallorca",
+            "Country": "España",
+            "zip": ""
+        },
+        "geoposicionament2": {
+            "address": "",
+            "lat": 0,
+            "long": 0,
+            "city": "",
+            "Country": "",
+            "zip": ""
+        },
+        "horari": {
+            "di": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dm": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dx": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dj": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dv": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "ds": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dg": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ]
+        },
+        "calendari": {
+            "startDataEvent": "",
+            "startTimeEvent": "",
+            "endDataEvent": "",
+            "endTimeEvent": ""
+        },
+        "dadesPropies": {
+            "categories": [
+                "Actividades",
+                "Actividades",
+                "Parques"
+            ],
+            "duracio": "24h",
+            "disponible": true,
+            "numPersonasMax": 6,
+            "numPersonasMin": 1,
+            "cancelacio": true,
+            "mascotes": true,
+            "nins": true,
+            "inclos": "",
+            "access": true
+        }
+    },
+    {
+        "nom": "Teatre Principal De Palma",
+        "descripcio": "El teatro Principal de Palma de Mallorca es un centro de arte dramático situado en la capital de las Islas Baleares. Fue inaugurado en 1857.",
+        "tipus": "Teatro",
+        "identificador": "TeaPalma",
+        "preu": {
+            "import": "20.00 €",
+            "coment-preu": ""
+        },
+        "contacte": {
+            "telf": "+34 971 21 97 00",
+            "email": "info@teatreprincipal.com",
+            "xarxes": {
+                "web": "https://www.teatreprincipal.com/es/",
+                "facebook": "https://www.facebook.com/Teatreprincipaldepalma",
+                "twitter": "https://twitter.com/teatreprincipal",
+                "instagram": "https://www.instagram.com/teatreprincipal/"
+            }
+        },
+        "puntuacio": 2,
+        "visualitzacions": "120",
+        "likes": 3,
+        "icones": [
+            ""
+        ],
+        "imatges": [
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/teatroprincipal1.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/teatroprincipal2.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/teatroprincipal3.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/teatroprincipal4.png"
+        ],
+        "videos": [
+            {
+                "tipus": "",
+                "url": ""
+            },
+            {
+                "tipus": "",
+                "url": ""
+            }
+        ],
+        "audio": [
+            {
+                "tipus": "",
+                "url": ""
+            }
+        ],
+        "geoposicionament1": {
+            "address": "Carrer de la Riera, 2, 07003 Palma, Illes Balears",
+            "lat": 39.57201012988064,
+            "long": 2.6505858652580523,
+            "city": "Palma de Mallorca",
+            "Country": "España",
+            "zip": ""
+        },
+        "geoposicionament2": {
+            "address": "",
+            "lat": 0,
+            "long": 0,
+            "city": "",
+            "Country": "",
+            "zip": ""
+        },
+        "horari": {
+            "di": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dm": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dx": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dj": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dv": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "ds": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dg": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ]
+        },
+        "calendari": {
+            "startDataEvent": "",
+            "startTimeEvent": "",
+            "endDataEvent": "",
+            "endTimeEvent": ""
+        },
+        "dadesPropies": {
+            "categories": [
+                "Actividades",
+                "Cultura",
+                "Teatro"
+            ],
+            "duracio": "2h",
+            "disponible": true,
+            "numPersonasMax": 6,
+            "numPersonasMin": 1,
+            "cancelacio": true,
+            "mascotes": false,
+            "nins": true,
+            "inclos": "",
+            "access": true
+        }
+    },
+    {
+        "nom": "Padel Uib",
+        "descripcio": "El pádel es un deporte que se juega por parejas, dos contra dos, y cuyo objetivo es que, mediante un solo golpe, la pelota pase al campo contrario.",
+        "tipus": "Padel",
+        "identificador": "UibPadel",
+        "preu": {
+            "import": "10.00 €",
+            "coment-preu": ""
+        },
+        "contacte": {
+            "telf": "+34 971 17 25 54",
+            "email": "recepcio@campusesport.com",
+            "xarxes": {
+                "web": "https://campusesport.com/es/campusesport/32/tenis-y-padel",
+                "facebook": "https://www.facebook.com/Campusesport/",
+                "twitter": "https://twitter.com/Campusesport",
+                "instagram": "https://www.instagram.com/campusesport/"
+            }
+        },
+        "puntuacio": 5,
+        "visualitzacions": "300",
+        "likes": 3,
+        "icones": [
+            ""
+        ],
+        "imatges": [
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/padeluib1.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/padeluib2.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/padeluib3.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/padeluib4.png"
+        ],
+        "videos": [
+            {
+                "tipus": "",
+                "url": ""
+            },
+            {
+                "tipus": "",
+                "url": ""
+            }
+        ],
+        "audio": [
+            {
+                "tipus": "",
+                "url": ""
+            }
+        ],
+        "geoposicionament1": {
+            "address": "Carr. de Valldemossa, km 7, 5, 07120, Balearic Islands",
+            "lat": 39.64325258960218,
+            "long": 2.6462543386295514,
+            "city": "Palma de Mallorca",
+            "Country": "España",
+            "zip": ""
+        },
+        "geoposicionament2": {
+            "address": "",
+            "lat": 0,
+            "long": 0,
+            "city": "",
+            "Country": "",
+            "zip": ""
+        },
+        "horari": {
+            "di": [
+                {
+                    "in": "7",
+                    "out": "22"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dm": [
+                {
+                    "in": "7",
+                    "out": "22"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dx": [
+                {
+                    "in": "7",
+                    "out": "22"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dj": [
+                {
+                    "in": "7",
+                    "out": "22"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dv": [
+                {
+                    "in": "7",
+                    "out": "22"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "ds": [
+                {
+                    "in": "9",
+                    "out": "21"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dg": [
+                {
+                    "in": "9",
+                    "out": "21"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ]
+        },
+        "calendari": {
+            "startDataEvent": "",
+            "startTimeEvent": "",
+            "endDataEvent": "",
+            "endTimeEvent": ""
+        },
+        "dadesPropies": {
+            "categories": [
+                "Actividades",
+                "Deportes",
+                "Padel"
+            ],
+            "duracio": "1h",
+            "disponible": true,
+            "numPersonasMax": 4,
+            "numPersonasMin": 1,
+            "cancelacio": true,
+            "mascotes": false,
+            "nins": true,
+            "inclos": "",
+            "access": false
+        }
+    },
+    {
+        "nom": "Excursion Alcudia",
+        "descripcio": "Hoy os proponemos una excursión sencilla en la históricamente fortificada península de Alcudia, en la zona noreste de la isla de Mallorca. El mirador de la Penya des Migdia o Penya Roja es un impresionante mirador situado a 354m de altitud entre las bahías de Alcúdia y Pollença. Desde esta atalaya podremos disfrutar de una de las mejores panorámicas de Mallorca e incluso, en los días claros, se puede divisar la isla de Menorca.",
+        "tipus": "Ciudad",
+        "identificador": "ExcAlcudia",
+        "preu": {
+            "import": "0.00 €",
+            "coment-preu": ""
+        },
+        "contacte": {
+            "telf": "+34 971 89 71 00",
+            "email": "",
+            "xarxes": {
+                "web": "https://www.alcudia.net/ajuntament/es",
+                "facebook": "https://www.facebook.com/ajtalcudia/",
+                "twitter": "https://twitter.com/ajtalcudia",
+                "instagram": "https://www.instagram.com/ajuntamentalcudia/"
+            }
+        },
+        "puntuacio": 3,
+        "visualitzacions": "270",
+        "likes": 4,
+        "icones": [
+            ""
+        ],
+        "imatges": [
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/alcudia1.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/alcudia2.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/alcudia3.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/alcudia4.png"
+        ],
+        "videos": [
+            {
+                "tipus": "",
+                "url": ""
+            },
+            {
+                "tipus": "",
+                "url": ""
+            }
+        ],
+        "audio": [
+            {
+                "tipus": "",
+                "url": ""
+            }
+        ],
+        "geoposicionament1": {
+            "address": "Camí de Ronda, 35, 07400 Alcúdia, Illes Balears",
+            "lat": 39.8553242867269,
+            "long": 3.120590047871714,
+            "city": "Alcudia",
+            "Country": "España",
+            "zip": ""
+        },
+        "geoposicionament2": {
+            "address": "",
+            "lat": 0,
+            "long": 0,
+            "city": "",
+            "Country": "",
+            "zip": ""
+        },
+        "horari": {
+            "di": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dm": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dx": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dj": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dv": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "ds": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dg": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ]
+        },
+        "calendari": {
+            "startDataEvent": "",
+            "startTimeEvent": "",
+            "endDataEvent": "",
+            "endTimeEvent": ""
+        },
+        "dadesPropies": {
+            "categories": [
+                "Actividades",
+                "Excursiones",
+                "Ciudad"
+            ],
+            "duracio": "3h",
+            "disponible": true,
+            "numPersonasMax": 6,
+            "numPersonasMin": 1,
+            "cancelacio": true,
+            "mascotes": true,
+            "nins": true,
+            "inclos": "",
+            "access": true
+        }
+    },
+    {
+        "nom": "Concierto los 40 principales",
+        "descripcio": "En LOS40 apostamos por la cultura segura, y es por ello por lo que LOS40 Primavera Pop seguirá con todas las medidas de seguridad para hacer frente al virus. Es recomendable acudir al evento al menos con una hora y media de antelación para así acceder a él con tranquilidad y seguridad, ya que el acceso se hará de forma escalonada. La toma de temperatura y el reparto de gel hidroalcóholico son algunas de las medidas que tomará la organización. Para seguir con el protocolo, el ropero y las consignas no estarán disponibles y el uso de la mascarilla será obligatorio. Es preferible que sea la FPP2. Por supuesto, se ha de mantener la distancia de seguridad en todo momento.",
+        "tipus": "Concierto",
+        "identificador": "Conc40",
+        "preu": {
+            "import": "0.00 €",
+            "coment-preu": ""
+        },
+        "contacte": {
+            "telf": "+34 620 58 16 80",
+            "email": "",
+            "xarxes": {
+                "web": "https://los40.com/",
+                "facebook": "https://www.facebook.com/los40",
+                "twitter": "https://twitter.com/LOS40",
+                "instagram": "https://www.instagram.com/los40spain/?hl=es"
+            }
+        },
+        "puntuacio": 3.5,
+        "visualitzacions": "270",
+        "likes": 4,
+        "icones": [
+            ""
+        ],
+        "imatges": [
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/40_1.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/40_2.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/40_3.png",
+            "https://sweetmallorca.netlify.app/assets/img/portfolio/general/40_4.png"
+        ],
+        "videos": [
+            {
+                "tipus": "",
+                "url": ""
+            },
+            {
+                "tipus": "",
+                "url": ""
+            }
+        ],
+        "audio": [
+            {
+                "tipus": "",
+                "url": ""
+            }
+        ],
+        "geoposicionament1": {
+            "address": "Gran Via Puig de Galatzó, 1, 07180 Santa Ponça, Illes Balears",
+            "lat": 39.51627819931378,
+            "long": 2.4796117663944934,
+            "city": "Calvia",
+            "Country": "España",
+            "zip": ""
+        },
+        "geoposicionament2": {
+            "address": "",
+            "lat": 0,
+            "long": 0,
+            "city": "",
+            "Country": "",
+            "zip": ""
+        },
+        "horari": {
+            "di": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dm": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dx": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dj": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dv": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "ds": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ],
+            "dg": [
+                {
+                    "in": "-",
+                    "out": "-"
+                },
+                {
+                    "in": "-",
+                    "out": "-"
+                }
+            ]
+        },
+        "calendari": {
+            "startDataEvent": "",
+            "startTimeEvent": "",
+            "endDataEvent": "",
+            "endTimeEvent": ""
+        },
+        "dadesPropies": {
+            "categories": [
+                "Actividades",
+                "Eventos",
+                "Conciertos"
+            ],
+            "duracio": "2h",
+            "disponible": true,
+            "numPersonasMax": 6,
+            "numPersonasMin": 1,
+            "cancelacio": true,
+            "mascotes": true,
+            "nins": false,
+            "inclos": "",
+            "access": true
+        }
+    }
+]

@@ -1,0 +1,86 @@
+.
+{
+    /* like a TouristAttraction */
+    "F1tracks": {
+        "participant": [
+            {
+                "id": "",
+                "name": "",
+                "alternateName": "",
+                "lastName": "",
+                "nationality": "",
+                "memberOf": "ID" /* ID Escuderia */
+            },
+            {
+                /* OTRO PARTICIPANTE */
+            }
+        ],
+        "touristAttraction": [
+            {
+                "name": "Circuit de Barcelona-Catalunya",
+                "identifier": "CBC",
+                "image": [
+                    "imagen_principal.png",
+                    ""
+                ],
+                "video": [
+                    "main_video.mp4",
+                    "resume_video.mp4"
+                ],
+                "alternateName": "FORMULA 1 PIRELLI GRAN PREMIO DE ESPAÑA 2022",
+                "description": "",
+                "GeoCoordinates": {
+                    "longitude": "",
+                    "latitude": "",
+                    "addressCountry": "España",
+                    "addresRegion": "Cataluña",
+                    "addressLocality": "Barcelona"
+                },
+                "datos-extra": {
+                    "numberLaps": "66",
+                    "raceDistance": "308.424",
+                    "years": [
+                        "1991",
+                        "1991"
+                    ],
+                    "lapRecord": {
+                        "time": "1:18.149",
+                        "pilot": [
+                            "ID"
+                        ],
+                        "year": "2019"
+                    },
+                    "classification": [
+                        "ID", /* ID del participant */
+                        "ID"
+                    ]
+                },
+            },
+        ],
+        /*ESCUDERIA*/
+        "organitation": [
+            {
+                "id": "",
+                "name": "",
+                "logo": "",
+                "participant": [
+                    "ID",
+                    "ID"
+                ],
+                "addressCountry": ""
+            },
+            {
+                /* OTRA ESCUDERIA */
+            }
+        ],
+        /* Likes, puntuacion, etc..*/
+        "contadores": [
+            {
+                "id": ""
+            },
+            {
+                /* OTRO CONTADOR */
+            }
+        ],
+    }
+}
