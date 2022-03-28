@@ -173,19 +173,24 @@
 
 })()
 
-$('.carousel[data-type="multi"] .item').each(function() {
-  var next = $(this).next();
-  if (!next.length) {
-    next = $(this).siblings(':first');
-  }
-  next.children(':first-child').clone().appendTo($(this));
+$('#recipeCarousel').carousel({
+  interval: 10000
+})
 
-  for (var i = 0; i < 3; i++) {
-    next = next.next();
+$('.carousel .carousel-item').each(function(){
+    var minPerSlide = 4;
+    var next = $(this).next();
     if (!next.length) {
-      next = $(this).siblings(':first');
+    next = $(this).siblings(':first');
     }
-
     next.children(':first-child').clone().appendTo($(this));
-  }
+    
+    for (var i=0;i<minPerSlide;i++) {
+        next=next.next();
+        if (!next.length) {
+        	next = $(this).siblings(':first');
+      	}
+        
+        next.children(':first-child').clone().appendTo($(this));
+      }
 });
