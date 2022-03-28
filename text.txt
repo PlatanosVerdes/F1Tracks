@@ -1,0 +1,27 @@
+.f1-stat {
+    border-right: solid 2px #d0d0d2;
+    border-bottom: solid 2px #d0d0d2;
+    border-bottom-right-radius: 15px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    min-height: 72px;
+}
+
+.misc--label {
+    font-family: "Titillium Web";
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: .5px;
+    font-weight: 400;
+}
+
+.f1-bold--stat {
+    font-family: F1Bold;
+    font-size: 36px;
+    line-height: 36px;
+}
+
+‹div class="f1-stat">
+‹p class="misc--label">First Grand Prix‹/p>
+‹p class="f1-bold--stat"»1991</p>
+</div>

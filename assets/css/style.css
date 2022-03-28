@@ -356,9 +356,9 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
 }
 @media (max-width: 991px) {
-  #hero {
-    height: calc(100vh - 72px);
-  }
+  /* #hero {
+    height: calc(100vh - 72px); 
+  } */
   #hero .animated {
     -webkit-animation: none;
     animation: none;
