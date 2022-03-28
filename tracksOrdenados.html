@@ -19,6 +19,10 @@
     rel="stylesheet">
 
   <!-- Bootstrap CSS Files -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+    integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link href="assets/vendor/aos/aos.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
@@ -26,10 +30,6 @@
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-    <!-- Carousel CSS file -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
@@ -58,7 +58,7 @@
           <ul>
             <li class="dropdown"><a href="#track"><span>Circuitos</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
-                <li><a href="tracksOrdenados.html">A-Z</a></li>
+                <li><a href="#">A-Z</a></li>
                 <li class="dropdown"><a href="#"><span>Por temporadas</span> <i class="bi bi-chevron-right"></i></a>
                   <ul>
                     <li><a href="track.html">2018</a></li>
@@ -66,16 +66,11 @@
                     <li><a href="#">2020</a></li>
                     <li><a href="#">2021</a></li>
                     <li><a href="#">2022</a></li>
-                    <!--<li><a href="track.html">17-18</a></li>
-                    <li><a href="#">18/19</a></li>
-                    <li><a href="#">19/20</a></li>
-                    <li><a href="#">20/21</a></li>
-                    <li><a href="#">21/22</a></li>-->
                   </ul>
                 </li>
               </ul>
             </li>
-            <li><a class="nav-link scrollto" href="#escuderias">Equipos</a></li>
+            <li><a class="nav-link scrollto" href="#team">Equipos</a></li>
             <li><a class="nav-link scrollto" href="#hero">Home</a></li>
             <!-- <li><a class="getstarted scrollto" href="#about">Get Started</a></li> -->
           </ul>
@@ -87,29 +82,12 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
-
+  <section id="hero">
     <div class="container-fluid">
-      <div class="row gy-5">
-        <div class="col-lg-1 order-2 order-lg-1 d-flex flex-column justify-content-center">
-
-        </div>
-        <div class="col-lg-4 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1>Todos los circutos de la F1</h1>
-          <h2>¡Encuentra toda la información sobre ellos!</h2>
-          <div>
-            <a href="#tracks" class="btn-get-started scrollto">Próximo circuito</a>
-          </div>
-        </div>
-        <div class="col-lg-6 order-1 order-lg-2 ">
-          <video width="100%" height="100%" autoplay muted loop>
-            <source src="/assets/video/intro_F1_2022.mp4" type="video/mp4">
-            <source src="/assets/video/intro_F1_2022.webm" type="video/webm">
-          </video>
-        </div>
-      </div>
+        <h4>CIRCUITOS</h4>
+        <br>
+        <h3>TEMPORADA XX/XX</h3>
     </div>
-
   </section><!-- End Hero -->
 
   <main id="main">
@@ -119,15 +97,7 @@
 
       <!-- Page Content -->
       <div class="container-fluid">
-        <div class="row">
-          
-          <div clas="col">
-            <h1 class="tile">Circuitos 
-              <small>Temporada Actual</small>
-            </h1>
-          </div>
-        </div>  
-      </div>
+        
         <div class="row align-items-start">
           
           <!-- RIGHT  -->
@@ -242,56 +212,7 @@
     <!-- Equipos/Escuderias -->
     <section class="escuderias" id="escuderias">
 
-      <div class="container-fluid">
 
-        <h1 class="tile">Escuderias 
-          <small>Temporada Actual</small>
-        </h1>
-
-        <div class="row">
-          <div class="col-xs-11 col-md-10 col-centered">
-      
-            <div id="carousel" class="carousel slide" data-ride="carousel" data-type="multi" data-interval="10000">
-              <div class="carousel-inner">
-                <div class="item active">
-                  <div class="carousel-col">
-                    <div class="block red img-responsive"></div>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="carousel-col">
-                    <div class="block green img-responsive"></div>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="carousel-col">
-                    <div class="block blue img-responsive"></div>
-                  </div>
-                </div>
-                <div class="item">
-                  <div class="carousel-col">
-                    <div class="block yellow img-responsive"></div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Controls -->
-              <div class="left carousel-control">
-                <a href="#carousel" role="button" data-slide="prev">
-                  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-              </div>
-              <div class="right carousel-control">
-                <a href="#carousel" role="button" data-slide="next">
-                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
     </section>
 
@@ -305,8 +226,6 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-  <script src="jquery.min.js"></script>
-  <script src="bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 

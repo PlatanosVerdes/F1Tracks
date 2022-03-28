@@ -112,6 +112,7 @@ h1, h2, h3, h4, h5, h6, .font-primary {
 */
 .navbar {
   padding: 0;
+  
 }
 .navbar ul {
   margin: 0;
@@ -304,6 +305,25 @@ h1, h2, h3, h4, h5, h6, .font-primary {
   border-bottom: 2px solid #dc0708;
   margin: 72px 0 -72px 0;
 }
+
+#hero h3 {
+  margin: 0;
+  font-size: x-large;
+  font-weight: 700;
+  line-height: 56px;
+  color: #ffffff;
+  padding: 0 30px;
+}
+
+#hero h4 {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #dc0708;
+  padding: 0 30px;
+}
+
 #hero h1 {
   margin: 0;
   font-size: 48px;
@@ -504,7 +524,8 @@ section {
 }
 .track .tile{
   color: #ffffff;
-  margin-left: 9vw;
+  margin-left: 7vw;
+
 }
 
 .track-item{
@@ -524,34 +545,15 @@ section {
 } */
 
 /*--------------------------------------------------------------
-# API MAPS
+# Positions
 --------------------------------------------------------------*/
-.maps {
-  background-color: rgb(8, 8, 8);
-  border:2px solid #dc0708;
-  position: static;
-  
-  
-}
+/* .positions {
+  /* background-color:#ffffff;  
+} 
+*/
 
-.maps, title{
-  color: #ffffff;
-}
 
-/*--------------------------------------------------------------
-# API MAPS
---------------------------------------------------------------*/
-.twit {
-  background-color: rgb(8, 8, 8);
-  border:2px solid #dc0708;
-  position: static;
-  
-  
-}
 
-.twit, title{
-  color: #ffffff;
-}
 
 /*--------------------------------------------------------------
 # Footer
@@ -694,20 +696,170 @@ section {
   padding: 0.5em;
   width: 70%;
 }
-/* .trackView .tiempo{
-  
-  
-} */
-
 .trackView img {
   width: 100%;
   height: 100%;
 }
 
-.trackView .details{
-  background: #28282b
+.trackView .posicion .card{
+
+  background-color: #202020;
+  border-color: #202020;
+  
 }
 
-.trackView .details .h3{
-  background: #28282b
+.trackView .posicion .card p1{
+  color:#FFD700;
 }
+
+.trackView .posicion .card p2{
+  color:#C0C0C0;
+}
+
+.trackView .posicion .card p3{
+  color:#CD7F32;
+}
+
+.trackView .posicion .card p4{
+  color:white;
+}
+
+.trackView .title-track{
+  font-weight: bold;
+  font-size:xx-large;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+  border-bottom-color: #dc0708;
+}
+
+
+/*--------------------------------------------------------------
+# DETAIL OF TRACK
+--------------------------------------------------------------*/
+
+.detail .detail-info{
+  margin: 5px;
+}
+
+.detail .detail-info{
+  border-radius: 0px 0px 20px 0px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
+  border-bottom-color: #dc0708;
+  border-right-color: #dc0708;
+}
+
+.detail .detail-info .detail-info-title{
+  color: white;
+  font-weight: bold;
+}
+
+.detail .detail-info .detail-info-content{
+  color: rgb(143, 143, 143);
+}
+.detail .detail-info .detail-info-content2{
+  color: rgb(161, 161, 161);
+  font-size: 12px;
+}
+
+/*--------------------------------------------------------------
+# Escuderias
+--------------------------------------------------------------*/
+.escuderias {
+  background: #282c34
+}
+
+.escuderias .tile{
+  color: #ffffff;
+  margin-left: 7vw;
+  
+}
+
+.escuderias .col-centered {
+  float: none;
+  margin: 0 auto;
+}
+
+.escuderias .carousel-control { 
+  width: 8%;
+  width: 0px;
+}
+.escuderias .carousel-control.left,
+.escuderias .carousel-control.right { 
+  margin-right: 40px;
+  margin-left: 32px; 
+  background-image: none;
+  opacity: 1;
+}
+.escuderias .carousel-control > a > span {
+  color: white;
+  font-size: 29px !important;
+}
+
+.escuderias .carousel-col { 
+  position: relative; 
+  min-height: 1px; 
+  padding: 5px; 
+  float: left;
+}
+
+.escuderias .active > div { display:none; }
+.escuderias .active > div:first-child { display:block; }
+
+/*xs*/
+@media (max-width: 767px) {
+  .escuderias .carousel-inner .active.left { left: -50%; }
+  .escuderias .carousel-inner .active.right { left: 50%; }
+  .escuderias .carousel-inner .next        { left:  50%; }
+  .escuderias .carousel-inner .prev		     { left: -50%; }
+  .escuderias .carousel-col                { width: 50%; }
+  .escuderias .active > div:first-child + div { display:block; }
+}
+
+/*sm*/
+@media (min-width: 768px) and (max-width: 991px) {
+  .escuderias .carousel-inner .active.left { left: -50%; }
+  .escuderias .carousel-inner .active.right { left: 50%; }
+  .escuderias .carousel-inner .next        { left:  50%; }
+  .escuderias .carousel-inner .prev		     { left: -50%; }
+  .escuderias .carousel-col                { width: 50%; }
+  .escuderias .active > div:first-child + div { display:block; }
+}
+
+/*md*/
+@media (min-width: 992px) and (max-width: 1199px) {
+  .escuderias .carousel-inner .active.left { left: -33%; }
+  .escuderias .carousel-inner .active.right { left: 33%; }
+  .escuderias .carousel-inner .next        { left:  33%; }
+  .escuderias .carousel-inner .prev		     { left: -33%; }
+  .escuderias .carousel-col                { width: 33%; }
+  .escuderias .active > div:first-child + div { display:block; }
+  .escuderias .active > div:first-child + div + div { display:block; }
+}
+
+/*lg*/
+@media (min-width: 1200px) {
+  .escuderias .carousel-inner .active.left { left: -25%; }
+  .escuderias .carousel-inner .active.right{ left:  25%; }
+  .escuderias .carousel-inner .next        { left:  25%; }
+  .escuderias .carousel-inner .prev		     { left: -25%; }
+  .escuderias .carousel-col                { width: 25%; }
+  .escuderias .active > div:first-child + div { display:block; }
+  .escuderias .active > div:first-child + div + div { display:block; }
+  .escuderias .active > div:first-child + div + div + div { display:block; }
+}
+
+.escuderias .block {
+width: 306px;
+height: 230px;
+}
+
+.escuderias .red {background: red;}
+
+.escuderias .blue {background: blue;}
+
+.escuderias .green {background: green;}
+
+.escuderias .yellow {background: yellow;}
