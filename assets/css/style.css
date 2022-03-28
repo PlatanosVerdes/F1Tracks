@@ -703,3 +703,11 @@ section {
   width: 100%;
   height: 100%;
 }
+
+.trackView .details{
+  background: #28282b
+}
+
+.trackView .details .h3{
+  background: #28282b
+}
