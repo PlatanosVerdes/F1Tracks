@@ -505,7 +505,7 @@ section {
 .track h3 {
   font-weight: 700;
   font-size: 34px;
-  color: #000000;
+  color: #fff;
 }
 .track h4 {
   font-size: 20px;
@@ -520,7 +520,7 @@ section {
 }
 .track p {
   font-size: 15px;
-  color: #5a6570;
+  color: #e0e0e0;
 }
 .track .tile{
   color: #ffffff;
@@ -564,6 +564,22 @@ section {
   padding: 7rem 0;
   color: #888;
   font-size: 16px; }
+
+  .footer .description{
+    font-size: small;
+    text-align: center;
+  }
+
+  .footer .description p{
+    font-family: "Poppins", sans-serif;
+  }
+
+  .footer .bottom{
+    font-size: small;
+    text-align: center;
+    vertical-align: bottom;
+    
+  }
   
   .footer, .footer h3 {
     font-family: "Poppins", sans-serif; }
@@ -749,6 +765,14 @@ section {
   border-color: transparent;
   border-bottom-color: #dc0708;
   border-right-color: #dc0708;
+  
+}
+
+.detail .detail-info img{
+  /* width: 2.5vw;
+  height: 1.5vw; */
+  width: 2rem;
+  height: 1rem;
 }
 
 .detail .detail-info .detail-info-title{
