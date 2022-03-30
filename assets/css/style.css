@@ -690,6 +690,10 @@ section {
   background: #202020;
   color: #fff;
 }
+.trackView img {
+  width: 100%;
+  height: 100%;
+}
 .trackView .title{
   background: #282c34;
   padding: 10px;
@@ -697,45 +701,38 @@ section {
 .trackView .title img{
   width: 7vw;
   height: 3vw;
-  
 }
 .trackView .title img .pushImg{
   margin-right: 1vw;
   border-radius: 25px;
 }
 .trackView .title h1{
-  text-align: left;
+  text-align: justify;
   font-style: Monaco;
   font-size: medium;
   text-indent: 0;
-  margin: 0.5em;
-  padding: 0.5em;
-  width: 70%;
+  margin: 0;
+  font-size: 1rem;
+  padding: 0.5em 0.5em 0.5em 0;
+  width: 80%;
 }
-.trackView img {
-  width: 100%;
-  height: 100%;
+.trackView .title .sub-title-track h1{
+  font-size: 1.1rem;
 }
 
 .trackView .posicion .card{
-
   background-color: #202020;
   border-color: #202020;
-  
 }
-
 .trackView .posicion .card p1{
   color:#FFD700;
 }
-
 .trackView .posicion .card p2{
   color:#C0C0C0;
 }
-
 .trackView .posicion .card p3{
   color:#CD7F32;
 }
-
 .trackView .posicion .card p4{
   color:white;
 }
