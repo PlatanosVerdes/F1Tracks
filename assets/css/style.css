@@ -651,7 +651,7 @@ section {
 .footer {
   background-color: #202020;
   border-top: 2px solid #dc0708;
-  padding: 7rem 0;
+  padding: 3rem 0;
   color: #888;
   font-size: 16px;
 }
@@ -671,7 +671,7 @@ section {
   vertical-align: bottom;
 
 }
-
+/*
 .footer,
 .footer h3 {
   font-family: "Poppins", sans-serif;
@@ -800,18 +800,18 @@ section {
 .footer .footer-menu li {
   display: inline-block;
 }
-
+*/
 @media (max-width: 767.98px) {
   .footer .footer-menu li {
     display: block;
   }
 }
 
-.footer .footer-menu li a {
+/*.footer .footer-menu li a {
   padding: 10px;
   display: inline-block;
   color: #fff;
-}
+}*/
 
 @media (max-width: 767.98px) {
   .footer .footer-menu li a {
@@ -820,14 +820,14 @@ section {
   }
 }
 
-.footer .footer-menu li:first-child a {
+/*.footer .footer-menu li:first-child a {
   padding-left: 0;
 }
 
 .footer .site-logo {
   color: #fff;
   font-size: 20px;
-}
+}*/
 
 /*--------------------------------------------------------------
 # trackView 
