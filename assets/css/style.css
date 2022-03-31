@@ -671,6 +671,20 @@ section {
   vertical-align: bottom;
 
 }
+
+.ir-arriba-titulo {
+  
+  font-family: "Poppins", sans-serif;
+}
+
+.ir-arriba-flecha {
+  color: white;
+  font-size: 3rem;
+}
+
+.ir-arriba-flecha:hover {
+  color: #dc0708;
+}
 /*
 .footer,
 .footer h3 {
