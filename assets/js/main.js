@@ -173,7 +173,7 @@
 
 })()
 
-$('#recipeCarousel').carousel({
+ $('#recipeCarousel').carousel({
   interval: 10000
 })
 
@@ -193,4 +193,4 @@ $('.carousel .carousel-item').each(function(){
         
         next.children(':first-child').clone().appendTo($(this));
       }
-});
+});s 
