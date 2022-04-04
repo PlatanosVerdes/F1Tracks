@@ -15,7 +15,7 @@
                 /* OTRO PARTICIPANTE */
             }
         ],
-        "touristAttraction": [
+        "track": [
             {
                 "name": "Circuit de Barcelona-Catalunya",
                 "identifier": "CBC",
