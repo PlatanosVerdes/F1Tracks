@@ -36,9 +36,12 @@
     <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-    <!-- Template Main CSS File -->
+    <!-- Main CSS Files -->
     <link href="assets/css/style.css" rel="stylesheet">
 
+    <!-- Main JS Files -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/index.js"></script>
 
     <!-- =======================================================
   * Template Name: Ninestars - v4.7.0
@@ -48,7 +51,13 @@
     ======================================================== -->
 </head>
 
-<body>
+<body onload="playAudio()">
+
+    <audio id="index-audio">
+        <source src="assets/audio/audio_formula-1_short.wav" type="audio/wav">
+        <source src="assets/audio/audio_formula-1_short.ogg" type="audio/ogg">
+        ¡Lo sentimos! :( Tu navegador no soporta wav ni ogg.
+    </audio>
 
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top d-flex align-items-center">
@@ -386,13 +395,6 @@
             </div>
         </div>
     </footer><!-- End Footer -->
-
-
-    <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
-    <!-- <script src="assets/jquery.min.js"></script> -->
-    <script src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-
 </body>
 
 </html>

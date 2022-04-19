@@ -4,12 +4,12 @@
     "F1tracks": {
         "participant": [
             {
-                "id": "",
-                "name": "",
-                "alternateName": "",
-                "lastName": "",
-                "nationality": "",
-                "memberOf": "ID" /* ID Escuderia */
+                "id": "000",
+                "name": "EJEMPLO",
+                "alternateName": "EJP00",
+                "lastName": "APELLIDO1 APELLIDO2",
+                "nationality": "ES",
+                "memberOf": "EJESC01" /* ID Escuderia */
             },
             {
                 /* OTRO PARTICIPANTE */
