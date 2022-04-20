@@ -129,33 +129,44 @@ h6,
   border-bottom: 1px solid #f48fb1;
   box-shadow: 0 1px 0 0 #f48fb1;
 }
+
 .active-pink input[type=text] {
   border-bottom: 1px solid #f48fb1;
   box-shadow: 0 1px 0 0 #f48fb1;
 }
+
 .active-purple-2 input[type=text]:focus:not([readonly]) {
   border-bottom: 1px solid #ce93d8;
   box-shadow: 0 1px 0 0 #ce93d8;
 }
+
 .active-purple input[type=text] {
   border-bottom: 1px solid #ce93d8;
   box-shadow: 0 1px 0 0 #ce93d8;
 }
+
 .active-cyan-2 input[type=text]:focus:not([readonly]) {
   border-bottom: 1px solid #4dd0e1;
   box-shadow: 0 1px 0 0 #4dd0e1;
 }
+
 .active-cyan input[type=text] {
   border-bottom: 1px solid #4dd0e1;
   box-shadow: 0 1px 0 0 #4dd0e1;
 }
-.active-cyan .fa, .active-cyan-2 .fa {
+
+.active-cyan .fa,
+.active-cyan-2 .fa {
   color: #4dd0e1;
 }
-.active-purple .fa, .active-purple-2 .fa {
+
+.active-purple .fa,
+.active-purple-2 .fa {
   color: #ce93d8;
 }
-.active-pink .fa, .active-pink-2 .fa {
+
+.active-pink .fa,
+.active-pink-2 .fa {
   color: #f48fb1;
 }
 
@@ -691,8 +702,15 @@ section {
 .trackView .title {
   background: #282c34;
   padding: 10px;
+  border-radius: 2px;
+  margin-bottom: 2px;
 }
+/* 
+.trackView .title .button{
 
+  margin-right: auto;
+}
+ */
 .trackView .title img {
   width: 7vw;
   height: 3vw;
@@ -712,10 +730,6 @@ section {
   font-size: 1rem;
   padding: 0.5em 0.5em 0.5em 0;
   width: 80%;
-}
-
-.trackView .title .sub-title-track h1 {
-  font-size: 1.1rem;
 }
 
 .trackView .posicion .card {
@@ -739,7 +753,7 @@ section {
   color: white;
 }
 
-.trackView .title-track {
+.title-track {
   font-weight: bold;
   font-size: xx-large;
   border-width: 2px;
@@ -748,10 +762,31 @@ section {
   border-bottom-color: #dc0708;
 }
 
+.title-track .bi{
+  width: 1rem;
+  height: 1rem;
+  color: #141414;
+}
+
+.title-track .bi:hover{
+  color: #dc0708;
+}
+
+.title-track .bi-star-fill{
+  color: #ffe81d;
+}
+
+.sub-title-track h1 {
+  font-size: 1.1rem;
+}
+
 
 /*--------------------------------------------------------------
 # DETAIL OF TRACK
 --------------------------------------------------------------*/
+.detail {
+  margin-bottom: 10px;
+}
 
 .detail .detail-info {
   margin: 5px;
@@ -805,7 +840,7 @@ section {
 }
 
 .escuderias img {
-  display:block;
+  display: block;
   margin-left: auto;
   margin-right: auto;
 }

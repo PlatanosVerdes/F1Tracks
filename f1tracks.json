@@ -290,7 +290,7 @@
                     "https://www.youtube.com/embed/H5IJ2JobGdY?controls=0"
                 ],
                 "alternateName": "FORMULA 1 GULF AIR BAHRAIN GRAND PRIX 2022",
-                "description": "El Gran Premio de Baréin es una carrera de automovilismo de velocidad válida para el campeonato de Fórmula 1 que se disputó por primera vez el 4 de abril de 2004 en el Circuito Internacional de Baréin. La Fórmula 1 tuvo como compañía a la GP2 Series en 2007 y 2012 y a la GP2 Asia Series desde 2008 hasta 2010.\n\nEl Gran Premio de Baréin de 2004 fue la primera carrera de Fórmula 1 a disputarse en la región de Oriente Medio.\n\nPara la edición 2010, se eligió un nuevo trazado con ocho curvas más (\"Endurance circuit\"), aumentando la longitud del circuito de 5,4 a 6,3 kilómetros.1\u200b En dicha remodelación, los monoplazas enlazan el circuito original con la sección nueva después de la curva 4, y pisan de nuevo el asfalto conocido antes de la curva que antes era la 4, y que ahora es la 14.\n\nLa edición 2011 se suspendió debido a la tensa situación política de Baréin. Es la primera vez que se produjo una suspensión en la Fórmula 1, que se inició el 13 de mayo de 1950 en el circuito británico de Silverstone. Hasta entonces, solo uno de los 839 grandes premios que se han disputado se cambió de fecha, el de Bélgica de 1985 que se debía disputar en el circuito de Spa-Fracorchamps el 2 de junio.\n\nDesde la edición 2014, se realiza en horas nocturnas. Este cambio se produjo debido al 10º aniversario del Gran Premio en Fórmula 1.",
+                "description": "El Gran Premio de Baréin es una carrera de automovilismo de velocidad válida para el campeonato de Fórmula 1 que se disputó por primera vez el 4 de abril de 2004 en el Circuito Internacional de Baréin. La Fórmula 1 tuvo como compañía a la GP2 Series en 2007 y 2012 y a la GP2 Asia Series desde 2008 hasta 2010.\n\nEl Gran Premio de Baréin de 2004 fue la primera carrera de Fórmula 1 a disputarse en la región de Oriente Medio.\n\nPara la edición 2010, se eligió un nuevo trazado con ocho curvas más (\"Endurance circuit\"), aumentando la longitud del circuito de 5,4 a 6,3 kilómetros. En dicha remodelación, los monoplazas enlazan el circuito original con la sección nueva después de la curva 4, y pisan de nuevo el asfalto conocido antes de la curva que antes era la 4, y que ahora es la 14.\n\nLa edición 2011 se suspendió debido a la tensa situación política de Baréin. Es la primera vez que se produjo una suspensión en la Fórmula 1, que se inició el 13 de mayo de 1950 en el circuito británico de Silverstone. Hasta entonces, solo uno de los 839 grandes premios que se han disputado se cambió de fecha, el de Bélgica de 1985 que se debía disputar en el circuito de Spa-Fracorchamps el 2 de junio.\n\nDesde la edición 2014, se realiza en horas nocturnas. Este cambio se produjo debido al 10º aniversario del Gran Premio en Fórmula 1.",
                 "date": "2022-03-20",
                 "GeoCoordinates": {
                     "latitude": "50.51077910848671",
@@ -431,6 +431,7 @@
                     ]
                 }
             },
+
             {
                 "name": "Circuit de Barcelona-Catalunya",
                 "identifier": "CBC",
@@ -469,6 +470,306 @@
                         "D010",
                         "D016"
                     ]
+                }
+            },
+            {
+                "name": "Baku City Circuit",
+                "identifier": "BCC",
+                "image": [
+                    "BCC.png"
+                ],
+                "video": [
+                    "",
+                    ""
+                ],
+                "alternateName": "FORMULA 1 AZERBAIJAN GRAND PRIX 2022",
+                "description": "El Gran Premio de Azerbaiyán, es una carrera puntuable en el Campeonato Mundial de Fórmula 1 desde la temporada 2017, que se disputa en la ciudad de Bakú, capital de Azerbaiyán, en el Circuito callejero de Bakú (un circuito urbano de carreras).\n\nDebido a los resultados favorables en la carrera disputada en 2016, la FIA decidió dotar a este Gran Premio de una denominación propia a partir del siguiente año.\n\nEl trazado del circuito fue diseñado por el arquitecto Hermann Tilke y utiliza la plaza Azadliq, la Avenida Neftchilar, parte de la Casa de Gobierno y la Torre de la Doncella.",
+                "date": "2022-06-12",
+                "GeoCoordinates": {
+                    "longitude": "49.85324597023271",
+                    "latitude": "40.373073379592306",
+                    "addressCountry": "Azerbaijyán",
+                    "addresRegion": null,
+                    "addressLocality": "Bakú"
+                },
+                "datos-extra": {
+                    "numberLaps": "51",
+                    "trackDistance": "6.003",
+                    "years": [
+                        "2017-2019",
+                        "2021-2022"
+                    ],
+                    "lapRecord": {
+                        "time": "1:43.009",
+                        "pilot": "D003",
+                        "year": "2019"
+                    },
+                    "classification": []
+                }
+            },
+            {
+                "name": "Circuit Gilles-Villeneuve",
+                "identifier": "CGV",
+                "image": [
+                    "CGV.png"
+                ],
+                "video": [
+                    "",
+                    ""
+                ],
+                "alternateName": "FORMULA 1 GRAND PRIX DU CANADA 2022",
+                "description": "Es un circuito urbano de carreras localizado en la Île Notre-Dame, una isla artificial situada en el río San Lorenzo.\n\nEl circuito originalmente tenía la denominación Circuit Île Notre-Dame. Su nombre actual debe al piloto canadiense Gilles Villeneuve, nacido en Quebec y vencedor del Gran Premio de Canadá de 1978, luego de fallecer durante las pruebas de calificación del Gran Premio de Bélgica de 1982.",
+                "date": "2022-06-19",
+                "GeoCoordinates": {
+                    "longitude": "-73.52804483140238",
+                    "latitude": "45.50176899449679",
+                    "addressCountry": "Canadá",
+                    "addresRegion": "Quebec",
+                    "addressLocality": "Montreal"
+                },
+                "datos-extra": {
+                    "numberLaps": "70",
+                    "trackDistance": "4.361",
+                    "years": [
+                        "1967-1974",
+                        "1976-1986",
+                        "1988-2008",
+                        "2010-2019",
+                        "2021-2022"
+                    ],
+                    "lapRecord": {
+                        "time": "1:13.078",
+                        "pilot": "D011",
+                        "year": "2019"
+                    },
+                    "classification": []
+                }
+            },
+            {
+                "name": "Silverstone Circuit",
+                "identifier": "SC",
+                "image": [
+                    "SC.png"
+                ],
+                "video": [
+                    "",
+                    ""
+                ],
+                "alternateName": "FORMULA 1 BRITISH GRAND PRIX 2022",
+                "description": "Es un autódromo localizado en Silverstone y es uno de los circuitos más prestigiosos de Europa, al haber albergado el Gran Premio de Gran Bretaña de Fórmula 1, los 1000 km de Silverstone del Campeonato Mundial de Resistencia, y el Gran Premio de Gran Bretaña de Motociclismo, entre otras pruebas internacionales.\n\nLa finca era un aeródromo inactivo luego de la Segunda Guerra Mundial, y las pistas de aterrizaje comenzaron a utilizarse para carreras en 1947. Las tres pistas de despegue, trazadas en el clásico formato triangular de la época, aún pueden apreciarse dentro del circuito.",
+                "date": "2022-07-03",
+                "GeoCoordinates": {
+                    "longitude": "-1.0146571312353585",
+                    "latitude": "52.073351629757624",
+                    "addressCountry": "Reino Unido",
+                    "addresRegion": null,
+                    "addressLocality": "Towcester"
+                },
+                "datos-extra": {
+                    "numberLaps": "52",
+                    "trackDistance": "5.891",
+                    "years": [
+                        "1950-2022"
+                    ],
+                    "lapRecord": {
+                        "time": "1:27.097",
+                        "pilot": "D006",
+                        "year": "2020"
+                    },
+                    "classification": []
+                }
+            },
+            {
+                "name": "Red Bull Ring",
+                "identifier": "RBR",
+                "image": [
+                    "RBR.png"
+                ],
+                "video": [
+                    "",
+                    ""
+                ],
+                "alternateName": "FORMULA 1 GROSSER PREIS VON ÖSTERREICH 2022",
+                "description": "Autódromo ubicado en la villa de Spielberg. El nombre original del circuito fue Österreichring, que traducido sería \"circuito de Austria\".\n\nDespués de su remodelación en 1996, fue renombrado a A1-Ring debido al patrocinio de la telefónica A1 Mobilkom. En 2010, el fabricante de bebidas Red Bull GmbH adquirió el circuito y le puso el nombre actual. \n\nSe usó para celebrar el Gran Premio de Austria de Fórmula 1 hasta 1987, cuando dejó de albergarlo por su alta peligrosidad pero, entre 1995 y 1996 el circuito fue remodelado y pudo volver a recibir el Gran Premio de Austria",
+                "date": "2022-07-10",
+                "GeoCoordinates": {
+                    "longitude": "14.765197126344567",
+                    "latitude": "47.22023198702369",
+                    "addressCountry": "Austria",
+                    "addresRegion": null,
+                    "addressLocality": "Spielberg"
+                },
+                "datos-extra": {
+                    "numberLaps": "71",
+                    "trackDistance": "4.318",
+                    "years": [
+                        "1964",
+			            "1970-1987",
+			            "1997-2003",
+			            "2014-2022"
+                    ],
+                    "lapRecord": {
+                        "time": "1:05.619",
+                        "pilot": "D004",
+                        "year": "2020"
+                    },
+                    "classification": []
+                }
+            },
+            {
+                "name": "Circuit Paul Ricard",
+                "identifier": "CPR",
+                "image": [
+                    "CPR.png"
+                ],
+                "video": [
+                    "",
+                    ""
+                ],
+                "alternateName": "FORMULA 1 GRAND PRIX DE FRANCE 2022",
+                "description": "El Circuito Paul Ricard es un autódromo situado en Le Castellet (Alpes de Alta Provenza) en la región de Provenza-Alpes-Costa Azul, Francia.\n\nDurante años fue considerado el circuito más seguro de su época. El circuito tenía tres posibles trazados, un aeropuerto y una zona industrial. La zona más prominente del trazado es la recta Mistral, de más de kilómetro y medio de longitud, que va seguida de la curva abierta Signes.\n\nFue sede de numerosas ediciones del Gran Premio de Francia de Fórmula 1 desde 1971 hasta 1990.\n\nRecibe el nombre de su creador, el magnate de las bebidas que vivía en la comunidad cercana de Signes (Var) y fue construido en el año 1969 e inaugurado en 1970",
+                "date": "2022-07-24",
+                "GeoCoordinates": {
+                    "longitude": "5.788382099185308",
+                    "latitude": "43.24913902889378",
+                    "addressCountry": "Francia",
+                    "addresRegion": null,
+                    "addressLocality": "Le Castellet"
+                },
+                "datos-extra": {
+                    "numberLaps": "53",
+                    "trackDistance": "5.842",
+                    "years": [
+                        "1906-1908",
+                        "1912-1914",
+                        "1921-1939",
+                        "1947-1954",
+                        "1956-2008",
+                        "2018-2022"
+                    ],
+                    "lapRecord": {
+                        "time": "1:32.740",
+                        "pilot": "D019",
+                        "year": "2019"
+                    },
+                    "classification": []
+                }
+            },
+            {
+                "name": "Hungaroring",
+                "identifier": "H",
+                "image": [
+                    "H.png"
+                ],
+                "video": [
+                    "",
+                    ""
+                ],
+                "alternateName": "FORMULA 1 MAGYAR NAGYDÍJ 2022",
+                "description": "Las rectas más cortas que las de otros circuitos semejantes hacen que los adelantamientos en carrera no sean frecuentes.\n\nHungaroring es el primer circuito tras el Telón de Acero que visitó la Fórmula 1.\n\nDebido al poco uso, la pista generalmente está cubierta de polvo y carece de la típica huella engomada de otros autódromos más activos.",
+                "date": "2022-07-31",
+                "GeoCoordinates": {
+                    "longitude": "19.250632055196302",
+                    "latitude": "47.58174726421163",
+                    "addressCountry": "Hungría",
+                    "addresRegion": null,
+                    "addressLocality": "Mogyoród"
+                },
+                "datos-extra": {
+                    "numberLaps": "70",
+                    "trackDistance": "4.381",
+                    "years": [
+                        "1936",
+			            "1986-2022"
+                    ],
+                    "lapRecord": {
+                        "time": "1:16.627",
+                        "pilot": "D001",
+                        "year": "2020"
+                    },
+                    "classification": []
+                }
+            },
+            {
+                "name": "Circuit de Spa-Francorchamps",
+                "identifier": "CSF",
+                "image": [
+                    "CSF.png"
+                ],
+                "video": [
+                    "",
+                    ""
+                ],
+                "alternateName": "FORMULA 1 ROLEX BELGIAN GRAND PRIX 2022",
+                "description": "Es el circuito más importante del país. El Gran Premio de Bélgica se disputó por primera vez en Spa-Francorchamps en 1925 y se corre allí sin interrupciones desde 2007.\n\nSe han realizado eventos muy importantes y conocidos como las 24 Horas de Spa y 1000km de Spa-Francorchamps.",
+                "date": "2022-08-28",
+                "GeoCoordinates": {
+                    "longitude": "5.971839475327928",
+                    "latitude": "50.437504211456655",
+                    "addressCountry": "Bélgica",
+                    "addresRegion": "Lieja",
+                    "addressLocality": "Francorchamps"
+                },
+                "datos-extra": {
+                    "numberLaps": "44",
+                    "trackDistance": "7.004",
+                    "years": [
+                        "1925",
+                        "1930-1931",
+                        "1933-1935",
+                        "1937",
+                        "1939",
+                        "1946-1947",
+                        "1949-1956",
+                        "1958",
+                        "1960-2002",
+                        "2004-2005",
+                        "2007-2022"
+                    ],
+                    "lapRecord": {
+                        "time": "1:46.286",
+                        "pilot": "D011",
+                        "year": "2018"
+                    },
+                    "classification": []
+                }
+            },
+            {
+                "name": "Circuit Zandvoort",
+                "identifier": "CZ",
+                "image": [
+                    "CZ.png"
+                ],
+                "video": [
+                    "",
+                    ""
+                ],
+                "alternateName": "FORMULA 1 HEINEKEN DUTCH GRAND PRIX 2022",
+                "description": "Fue inaugurado el 7 de agosto de 1948 pero a finales de los 1980, Zandvoort se remodelado de forma radical.\n\nEl circuito de Zandvoort fue el foco de las carreras de vehículos por muchas décadas en los Países Bajos.\n\nDurante los años 1930 hubo varias competiciones en circuitos de calles, pero fue durante la invasión alemana que se inició la vocación de carreras de Zandvoort.",
+                "date": "2022-09-04",
+                "GeoCoordinates": {
+                    "longitude": "4.544223528719333",
+                    "latitude": "52.387747387807195",
+                    "addressCountry": "Países Bajos",
+                    "addresRegion": null,
+                    "addressLocality": "Zandvoort"
+                },
+                "datos-extra": {
+                    "numberLaps": "72",
+                    "trackDistance": "4.259",
+                    "years": [
+                        "1948-1953",
+                        "1955",
+                        "1958-1971",
+                        "1973-1985",
+                        "2021-2022"
+                    ],
+                    "lapRecord": {
+                        "time": "1:11.097",
+                        "pilot": "D001",
+                        "year": "2021"
+                    },
+                    "classification": []
                 }
             },
             {
@@ -556,7 +857,7 @@
                     "latitude": "34.84563750588475",
                     "addressCountry": "Japon",
                     "addresRegion": "Mie",
-                    "addressLocality": "suzuka"
+                    "addressLocality": "Suzuka"
                 },
                 "datos-extra": {
                     "numberLaps": "53",
