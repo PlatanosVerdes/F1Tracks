@@ -395,9 +395,9 @@
                 "GeoCoordinates": {
                     "latitude": "",
                     "longitude": "",
-                    "addressCountry": "",
-                    "addresRegion": null,
-                    "addressLocality": ""
+                    "addressCountry": "Australia",
+                    "addresRegion": "Victoria",
+                    "addressLocality": "Melburne"
                 },
                 "datos-extra": {
                     "numberLaps": "58",
