@@ -311,10 +311,22 @@
                         "year": "2005"
                     },
                     "classification": [
-                        ["D003", "2:06:15.118"],
-                        ["D004","21.825"],
-                        ["D001","27.531"],
-                        ["D002","27.633"]
+                        [
+                            "D003",
+                            "2:06:15.118"
+                        ],
+                        [
+                            "D004",
+                            "21.825"
+                        ],
+                        [
+                            "D001",
+                            "27.531"
+                        ],
+                        [
+                            "D002",
+                            "27.633"
+                        ]
                     ]
                 }
             },
@@ -325,7 +337,6 @@
                     "JCC.png"
                 ],
                 "video": [
-                    "",
                     ""
                 ],
                 "alternateName": "FORMULA 1 STC SAUDI ARABIAN GRAND PRIX 2022",
@@ -350,10 +361,22 @@
                         "year": "2021"
                     },
                     "classification": [
-                        ["D006", "1:24:19.293"],
-                        ["D003","0.549"],
-                        ["D004","8.097"],
-                        ["D005","10.800"]
+                        [
+                            "D006",
+                            "1:24:19.293"
+                        ],
+                        [
+                            "D003",
+                            "0.549"
+                        ],
+                        [
+                            "D004",
+                            "8.097"
+                        ],
+                        [
+                            "D005",
+                            "10.800"
+                        ]
                     ]
                 }
             },
@@ -364,7 +387,6 @@
                     "JCC.png"
                 ],
                 "video": [
-                    "",
                     ""
                 ],
                 "alternateName": "FORMULA 1 HEINEKEN AUSTRALIAN GRAND PRIX 2022",
@@ -390,10 +412,22 @@
                         "year": "2022"
                     },
                     "classification": [
-                        ["D003", "1:27:46.548"],
-                        ["D005","20.524"],
-                        ["D002","25.593"],
-                        ["D001","28.543"]
+                        [
+                            "D003",
+                            "1:27:46.548"
+                        ],
+                        [
+                            "D005",
+                            "20.524"
+                        ],
+                        [
+                            "D002",
+                            "25.593"
+                        ],
+                        [
+                            "D001",
+                            "28.543"
+                        ]
                     ]
                 }
             },
@@ -401,8 +435,7 @@
                 "name": "Circuit de Barcelona-Catalunya",
                 "identifier": "CBC",
                 "image": [
-                    "imagen_principal.png",
-                    ""
+                    "imagen_principal.png"
                 ],
                 "video": [
                     "main_video.mp4",
@@ -442,12 +475,10 @@
                 "name": "Marina Bay Street Circuit",
                 "identifier": "MBS",
                 "image": [
-                    "MBS.png",
-                    ""
+                    "MBS.png"
                 ],
                 "video": [
-                    "https://www.youtube.com/embed/MtSHVONw6Yk",
-                    null
+                    "https://www.youtube.com/embed/MtSHVONw6Yk"
                 ],
                 "alternateName": "FORMULA 1 SINGAPORE GRAND PRIX 2022",
                 "description": "El circuito de Marina Bay apareció en escena en 2008. Una pista callejera con el famoso horizonte de la ciudad como telón de fondo espectacular, el plan inicial del circuito de Herman Tilke fue perfeccionado por KBR Inc, mientras que el evento se ha establecido rápidamente como uno de los destacados en el calendario de F1.",
@@ -468,25 +499,20 @@
                     ],
                     "lapRecord": {
                         "time": "1:41.905",
-                        "pilot": 
-                            "D014",
+                        "pilot": "D014",
                         "year": "2018"
                     },
-                    "classification": [
-                        null
-                    ]
+                    "classification": []
                 }
             },
             {
                 "name": "Autodromo Nazionale Monza",
                 "identifier": "ANM",
                 "image": [
-                    "ANM.png",
-                    ""
+                    "ANM.png"
                 ],
                 "video": [
-                    "https://www.youtube.com/embed/Xbhi2Vnk36Q",
-                    null
+                    "https://www.youtube.com/embed/Xbhi2Vnk36Q"
                 ],
                 "alternateName": "FORMULA 1 PIRELLI GRAN PREMIO D’ITALIA 2022",
                 "description": "Construido en solo 110 días en 1922, el Autodromo Nazionale Monza fue la tercera pista de carreras especialmente diseñada del mundo, después de Brooklands en el Reino Unido e Indianápolis en los EE. UU. Al igual que esas dos pistas, el circuito original presentaba una serie abrumadora de curvas peraltadas, así como gran parte de la sección de campo abierto que todavía se usa en la actualidad.",
@@ -507,25 +533,20 @@
                     ],
                     "lapRecord": {
                         "time": "1:21.046",
-                        "pilot": 
-                            "D022",
+                        "pilot": "D022",
                         "year": "2004"
                     },
-                    "classification": [
-                        null
-                    ]
+                    "classification": []
                 }
             },
             {
                 "name": "Suzuka International Racing Course",
                 "identifier": "SIR",
                 "image": [
-                    "SIR.png",
-                    ""
+                    "SIR.png"
                 ],
                 "video": [
-                    "https://www.youtube.com/embed/ZSULgoWXHps",
-                    null
+                    "https://www.youtube.com/embed/ZSULgoWXHps"
                 ],
                 "alternateName": "FORMULA 1 JAPANESE GRAND PRIX 2022",
                 "description": "En 1962. Soichiro Honda, de cuya compañía de automóviles quizás haya oído hablar, era un hombre con grandes ambiciones. Buscando convertir a Honda en una potencia automotriz, decidió que su compañía debería tener su propia pista de pruebas. El holandés John Hugenholtz recibió el visto bueno y dibujó la ahora icónica pista 'crossover' de Suzuka, aunque los dibujos originales vieron la pista pasar por encima y por debajo de sí misma tres veces, ¡lo que hubiera sido genial!",
@@ -547,25 +568,20 @@
                     ],
                     "lapRecord": {
                         "time": "1:30.983",
-                        "pilot": 
-                            "D001",
+                        "pilot": "D001",
                         "year": "2019"
                     },
-                    "classification": [
-                        null
-                    ]
+                    "classification": []
                 }
             },
             {
                 "name": "Circuit of The Americas",
                 "identifier": "CTA",
                 "image": [
-                    "CTA.png",
-                    ""
+                    "CTA.png"
                 ],
                 "video": [
-                    "https://www.youtube.com/embed/-FMcClTosAI",
-                    null
+                    "https://www.youtube.com/embed/-FMcClTosAI"
                 ],
                 "alternateName": "FORMULA 1 ARAMCO UNITED STATES GRAND PRIX 2022",
                 "description": "El Circuito de las Américas, diseñado por Hermann Tilke en colaboración con el estudio de arquitectura estadounidense HKS, tuvo un comienzo algo nervioso, y la construcción sufrió varios contratiempos. Sin embargo, la espera valió la pena cuando el campeón de F1 de 1978, Mario Andretti, abrió la pista el 21 de octubre de 2012.",
@@ -586,25 +602,20 @@
                     ],
                     "lapRecord": {
                         "time": "1:36.169",
-                        "pilot": 
-                            "D003",
+                        "pilot": "D003",
                         "year": "2019"
                     },
-                    "classification": [
-                        null
-                    ]
+                    "classification": []
                 }
             },
             {
                 "name": "Autódromo Hermanos Rodríguez",
                 "identifier": "AHR",
                 "image": [
-                    "AHR.png",
-                    ""
+                    "AHR.png"
                 ],
                 "video": [
-                    "https://www.youtube.com/embed/0rHTUJM-wlk",
-                    null
+                    "https://www.youtube.com/embed/0rHTUJM-wlk"
                 ],
                 "alternateName": "FORMULA 1 GRAN PREMIO DE LA CIUDAD DE MÉXICO 2022",
                 "description": "En 1959, el padre de los hermanos automovilistas más famosos de México, Ricardo y Pedro Rodríguez, fue asesor del presidente mexicano Adolfo López Mateo, y le habló al oído de su jefe sobre la construcción de un circuito de carreras en el parque deportivo Magdalena Mixiuhca de la Ciudad de México utilizando los caminos internos. Al Presidente le gustó la idea y el trabajo en la vía se completó en menos de un año.",
@@ -627,25 +638,20 @@
                     ],
                     "lapRecord": {
                         "time": "1:17.774",
-                        "pilot": 
-                            "D011",
+                        "pilot": "D011",
                         "year": "2021"
                     },
-                    "classification": [
-                        null
-                    ]
+                    "classification": []
                 }
             },
             {
                 "name": "Autódromo José Carlos Pace",
                 "identifier": "AJC",
                 "image": [
-                    "AJC.png",
-                    ""
+                    "AJC.png"
                 ],
                 "video": [
-                    "https://www.youtube.com/embed/4AWD4YHceTM",
-                    null
+                    "https://www.youtube.com/embed/4AWD4YHceTM"
                 ],
                 "alternateName": "FORMULA 1 HEINEKEN GRANDE PRÊMIO DE SÃO PAULO 2022",
                 "description": "El trabajo de construcción comenzó en lo que terminó llamándose el Autódromo José Carlos Pace, pero más comúnmente conocido como Interlagos, en 1938. Los diseñadores de pistas se inspiraron en tres circuitos principales: Brooklands en el Reino Unido, Roosevelt Raceway en Estados Unidos y Montlhery en Francia.",
@@ -668,25 +674,20 @@
                     ],
                     "lapRecord": {
                         "time": "1:10.540",
-                        "pilot": 
-                            "D011",
+                        "pilot": "D011",
                         "year": "2018"
                     },
-                    "classification": [
-                        null
-                    ]
+                    "classification": []
                 }
             },
             {
                 "name": "Yas Marina Circuit",
                 "identifier": "YMC",
                 "image": [
-                    "YMC.png",
-                    ""
+                    "YMC.png"
                 ],
                 "video": [
-                    "https://www.youtube.com/embed/XtS1eH7irbk",
-                    null
+                    "https://www.youtube.com/embed/XtS1eH7irbk"
                 ],
                 "alternateName": "FORMULA 1 ETIHAD AIRWAYS ABU DHABI GRAND PRIX 2022",
                 "description": "En 2006, se anunciaron planes para convertir Yas Island, ubicada justo al este de Abu Dhabi, en un nuevo destino turístico, y la mayor parte de los planes se centraron en una pista de carreras de 5,5 km. Las excavadoras llegaron a lo que se convertiría en el circuito de Yas Marina en mayo de 2007 y el proyecto se completó en octubre de 2009.",
@@ -706,13 +707,10 @@
                     ],
                     "lapRecord": {
                         "time": "1:26.103",
-                        "pilot": 
-                            "D006",
+                        "pilot": "D006",
                         "year": "2021"
                     },
-                    "classification": [
-                        null
-                    ]
+                    "classification": []
                 }
             }
         ],
