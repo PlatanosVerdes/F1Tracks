@@ -1,5 +1,6 @@
-{
-    "F1tracks": {
+[
+    {
+        "@context": "https://schema.org",
         "organitation": [
             {
                 "id": "T01",
@@ -1120,4 +1121,4 @@
             }
         ]
     }
-}
+]

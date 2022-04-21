@@ -1,4 +1,30 @@
 //Funcion que reproduce el audio al entrar en la página
+function leerJSON(){
+    const xhttp = new XMLHttpRequest();
+    xhttp.open('GET','f1tracks.json', true);
+    xhttp.send(null);
+    xhttp.onreadystatechange = function(){
+        if(this.readyState==4 && this.status==200){
+            console.log(this.responseText);
+
+            let datos = JSON.parse(this.responseText);
+            console.log(datos);
+            /* let res = document.querySelector('#res');
+            res.innerHTML = ''; */
+
+            for(let item of datos){
+                console.log(item.track);
+                console.log(item.participant);
+                console.log(item.participant.name);
+
+                /* res.innerHTML +=`
+                    <>..
+                ` */
+            }
+        }
+    }
+}
+
 function playAudio() {
     audio = document.getElementById("index-audio");
     audio.muted = false;
@@ -33,5 +59,3 @@ const T = new Twit({
         console.log(data)
     })
 });
-
-
