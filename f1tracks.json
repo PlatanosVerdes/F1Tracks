@@ -340,7 +340,7 @@
                     ""
                 ],
                 "alternateName": "FORMULA 1 STC SAUDI ARABIAN GRAND PRIX 2022",
-                "description": "",
+                "description": "Fue anunciado en diciembre de 2020 y es sede del Gran Premio de Arabia Saudita de Fórmula 1 desde 2021.\n\nLa confirmación de la celebración del Gran Premio de Arabia Saudita trajo consigo críticas hacia la F1 por temas relacionados de los derechos humanos en este país, entre otros, por parte de Amnistía Internacional y Human Rights Watch.",
                 "date": "2022-03-27",
                 "GeoCoordinates": {
                     "latitude": "21.637910381841824",
@@ -431,45 +431,150 @@
                     ]
                 }
             },
+            {
+                "name": "Autodromo Enzo e Dino Ferrari",
+                "identifier": "AEDF",
+                "image": [
+                    "AEDF.png"
+                ],
+                "video": [
+                    "",
+                    ""
+                ],
+                "alternateName": "FORMULA 1 ROLEX GRAN PREMIO DEL MADE IN ITALY E DELL'EMILIA-ROMAGNA 2022",
+                "description": "Es uno de los principales de su país, habiendo albergado carreras de numerosos campeonatos mundiales y europeos de automovilismo de velocidad y motociclismo de velocidad además de italianos. El circuito llevaba originalmente el nombre de Autodromo di Castellaccio. Luego se llamó Autodromo Dino Ferrari en honor a Dino Ferrari, hijo de Enzo Ferrari",
+                "date": "2022-04-24",
+                "GeoCoordinates": {
+                    "longitude": "11.714340168608794",
+                    "latitude": "44.344135161344425",
+                    "addressCountry": "Italia",
+                    "addresRegion": "Bolonia",
+                    "addressLocality": "Imola"
+                },
+                "datos-extra": {
+                    "numberLaps": "63",
+                    "trackDistance": "4909",
+                    "years": [
+                        "1980-2006",
+			            "2021-2022"
+                    ],
+                    "lapRecord": {
+                        "time": "1:15.484",
+                        "pilot": "D001",
+                        "year": "2020"
+                    },
+                    "classification": []
+                }
+            },
+
+            {
+                "name": "Miami International Autodrome",
+                "identifier": "MIA",
+                "image": [
+                    "MIA.png"
+                ],
+                "video": [
+                    "",
+                    ""
+                ],
+                "alternateName": "FORMULA 1 CRYPTO.COM MIAMI GRAND PRIX 2022",
+                "description": "Fue anunciado en abril de 2021 y es la sede del Gran Premio de Miami de Fórmula 1 en 2022.\n\nEl circuito se había propuesto ya en octubre de 2019 con un diseño inicial, habiéndose considerado hasta 75 diseños de circuitos y 36 siendo simulados.\n\nEl propietario del estadio es Stephen Ross.",
+                "date": "2022-05-08",
+                "GeoCoordinates": {
+                    "longitude": "-80.2369525800426",
+                    "latitude": "25.961887622031632",
+                    "addressCountry": "Estados Unidos",
+                    "addresRegion": "Florida",
+                    "addressLocality": "Miami Gardens"
+                },
+                "datos-extra": {
+                    "numberLaps": "57",
+                    "trackDistance": "5.41",
+                    "years": [
+                        "2022"
+                    ],
+                    "lapRecord": {
+                        "time": null,
+                        "pilot": null,
+                        "year": null
+                    },
+                    "classification": []
+                }
+            },
 
             {
                 "name": "Circuit de Barcelona-Catalunya",
                 "identifier": "CBC",
                 "image": [
-                    "imagen_principal.png"
+                    "CBC.png"
                 ],
                 "video": [
-                    "main_video.mp4",
-                    "resume_video.mp4"
+                    "",
+                    ""
                 ],
                 "alternateName": "FORMULA 1 PIRELLI GRAN PREMIO DE ESPAÑA 2022",
-                "description": "",
-                "date": "",
+                "description": "Inaugurado en el año 1991, tiene un aforo de 131.000 espectadores, y acoge diversas competiciones entre las que destacan el Gran Premio de España de Fórmula 1 y el Gran Premio de Cataluña de Motociclismo del Campeonato Mundial de Motociclismo. También es uno de los circuitos más utilizados para los ensayos de los diferentes equipos europeos durante el receso de invierno.\n\nDurante los Juegos Olímpicos de Barcelona 1992, el Circuito fue el punto de partida y la meta de la prueba de 100 kilómetros contrarreloj por equipos de ciclismo en ruta. También se utilizó como final de la última etapa de la Volta a Cataluña de 2009 y 2010.",
+                "date": "2022-05-22",
                 "GeoCoordinates": {
-                    "longitude": "",
-                    "latitude": "",
+                    "longitude": "2.2573011973465458",
+                    "latitude": "41.56848367925261",
                     "addressCountry": "España",
                     "addresRegion": "Cataluña",
                     "addressLocality": "Barcelona"
                 },
                 "datos-extra": {
                     "numberLaps": "66",
-                    "trackDistance": "4.424",
+                    "trackDistance": "4.675",
                     "years": [
-                        "1991",
-                        "1991"
+                        "1951",
+                        "1954",
+                        "1968-1979",
+                        "1981",
+                        "1986-2022"
                     ],
                     "lapRecord": {
                         "time": "1:18.149",
-                        "pilot": "D011",
-                        "year": "2019"
+                        "pilot": "D006",
+                        "year": "2021"
                     },
-                    "classification": [
-                        "D017",
-                        "D011",
-                        "D010",
-                        "D016"
-                    ]
+                    "classification": []
+                }
+            },
+
+            {
+                "name": "Circuit de Monaco",
+                "identifier": "CM",
+                "image": [
+                    "CM.png"
+                ],
+                "video": [
+                    "",
+                    ""
+                ],
+                "alternateName": "FORMULA 1 GRAND PRIX DE MONACO 2022",
+                "description": "Es uno de los grandes premios más antiguos y prestigiosos de Fórmula 1. El fundador de este circuito fue Antony Noghès, y a pesar de que este se terminó de construir en el año 1920, no fue hasta 1929 que se corrió la primera carrera.\n\nDesde 2001 el Gran Premio se celebra siempre el último domingo de mayo, por motivos publicitarios, comerciales y logísticos.\n\nEl circuito de Mónaco tiene gran cantidad de subidas y bajadas, rectas cortas, curvas cerradas y estrechas vías, por lo que es un circuito muy agotador para pilotos y vehículos.",
+                "date": "2022-05-29",
+                "GeoCoordinates": {
+                    "longitude": "7.421293345731561",
+                    "latitude": "43.73551980188449",
+                    "addressCountry": "Mónaco",
+                    "addresRegion": "",
+                    "addressLocality": "Montecarlo"
+                },
+                "datos-extra": {
+                    "numberLaps": "78",
+                    "trackDistance": "3.337",
+                    "years": [
+                        "1950",
+                        "1955-2019",
+                        "2021-2022"
+                    ],
+                    "lapRecord": {
+                        "time": "1:12.909",
+                        "pilot": "D001",
+                        "year": "2021"
+                    },
+                    "classification": []
                 }
             },
             {
