@@ -1,27 +1,49 @@
 //Funcion que reproduce el audio al entrar en la página
 function leerJSON() {
+    var datos ='';
     const xhttp = new XMLHttpRequest();
     xhttp.open('GET', 'f1tracks.json', true);
     xhttp.send(null);
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            console.log(this.responseText);
+            /* console.log(this.responseText); */
 
-            let datos = JSON.parse(this.responseText);
-            console.log(datos);
+            datos = JSON.parse(this.responseText);
+            console.log(datos); 
+
             /* let res = document.querySelector('#res');
             res.innerHTML = ''; */
+            
 
             for (let item of datos) {
-                console.log(item.track);
+               /*  console.log(item.track);
                 console.log(item.participant);
-                console.log(item.participant.name);
+                console.log(item.participant[0].name); */
+
+                /* data += item; */
 
                 /* res.innerHTML +=`
                     <>..
-                ` */
+                ` 
+                */
             }
         }
+    }
+    return datos;
+}
+
+function getTracksByCurrentDate() {
+    var data = leerJSON();
+    console.log(data);
+
+    var tracks;
+
+    for (let item of data) {
+        console.log(item.length);
+        /* var tracks = item.track;
+        tracks.sort(function (a, b) {
+            return a.getTime() - b.getTime();
+        }); */
     }
 }
 
@@ -30,12 +52,12 @@ function currentDate() {
     let cDay = currentDate.getDate();
     let cMonth = currentDate.getMonth() + 1;
     let cYear = currentDate.getFullYear();
-    
+
     console.log(cDay);
     console.log(cMonth);
     console.log(cYear);
 
-    console.log("<b>" + cDay + "/" + cMonth + "/" + cYear + "</b>");
+    console.log("<b>" + cYear + "/" + cMonth + "/" + cDay + "</b>");
 }
 
 function playAudio() {
