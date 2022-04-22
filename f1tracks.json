@@ -1,4 +1,4 @@
-[
+
     {
         "@context": "https://schema.org",
         "@type":"tracks",
@@ -292,7 +292,7 @@
                     "https://www.youtube.com/embed/H5IJ2JobGdY?controls=0"
                 ],
                 "alternateName": "FORMULA 1 GULF AIR BAHRAIN GRAND PRIX 2022",
-                "description": "El Gran Premio de Baréin es una carrera de automovilismo de velocidad válida para el campeonato de Fórmula 1 que se disputó por primera vez el 4 de abril de 2004 en el Circuito Internacional de Baréin. La Fórmula 1 tuvo como compañía a la GP2 Series en 2007 y 2012 y a la GP2 Asia Series desde 2008 hasta 2010.\n\nEl Gran Premio de Baréin de 2004 fue la primera carrera de Fórmula 1 a disputarse en la región de Oriente Medio.\n\nPara la edición 2010, se eligió un nuevo trazado con ocho curvas más (\"Endurance circuit\"), aumentando la longitud del circuito de 5,4 a 6,3 kilómetros. En dicha remodelación, los monoplazas enlazan el circuito original con la sección nueva después de la curva 4, y pisan de nuevo el asfalto conocido antes de la curva que antes era la 4, y que ahora es la 14.\n\nLa edición 2011 se suspendió debido a la tensa situación política de Baréin. Es la primera vez que se produjo una suspensión en la Fórmula 1, que se inició el 13 de mayo de 1950 en el circuito británico de Silverstone. Hasta entonces, solo uno de los 839 grandes premios que se han disputado se cambió de fecha, el de Bélgica de 1985 que se debía disputar en el circuito de Spa-Fracorchamps el 2 de junio.\n\nDesde la edición 2014, se realiza en horas nocturnas. Este cambio se produjo debido al 10º aniversario del Gran Premio en Fórmula 1.",
+                "description": "El Gran Premio de Baréin es una carrera de automovilismo de velocidad válida para el campeonato de Fórmula 1 que se disputó por primera vez el 4 de abril de 2004 en el Circuito Internacional de Baréin. La Fórmula 1 tuvo como compañía a la GP2 Series en 2007 y 2012 y a la GP2 Asia Series desde 2008 hasta 2010.",
                 "date": "2022-03-20",
                 "GeoCoordinates": {
                     "latitude": "50.51077910848671",
@@ -1122,4 +1122,3 @@
             }
         ]
     }
-]

@@ -1,6 +1,6 @@
 //Funcion que reproduce el audio al entrar en la página
 function leerJSON() {
-    var datos ='';
+    var datos = '';
     const xhttp = new XMLHttpRequest();
     xhttp.open('GET', 'f1tracks.json', true);
     xhttp.send(null);
@@ -9,28 +9,59 @@ function leerJSON() {
             /* console.log(this.responseText); */
 
             datos = JSON.parse(this.responseText);
-            console.log(datos); 
+            console.log(datos);
+            console.log(datos.track.length);
 
-            /* let res = document.querySelector('#res');
-            res.innerHTML = ''; */
-            
+            var tracks = datos.track;
 
-            for (let item of datos) {
-               /*  console.log(item.track);
-                console.log(item.participant);
-                console.log(item.participant[0].name); */
+            console.log(new Date(tracks[0].date) - new Date(tracks[1].date));
 
-                /* data += item; */
+            tracks.sort((a, b) => new Date(a.date) - new Date(b.date));
+            console.log(tracks);
 
-                /* res.innerHTML +=`
-                    <>..
-                ` 
-                */
+
+            let trackList = document.getElementById('track-list');
+            trackList.innerHTML = '';
+            for (var i = 0; i < tracks.length; i++) {
+                var trackItem = document.createElement("div");
+                trackItem.setAttribute("class", "track-item");
+
+                trackItem.innerHTML = `
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                        <a href="track.html">
+                            <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${tracks[i].identifier}.png" alt="Track">
+                        </a>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <h3>${tracks[i].alternateName}</h3>
+                            <p>${tracks[i].description}</p>
+                        </div>
+                    </div>
+                `;
+
+                trackList.appendChild(trackItem);
             }
+
+            console.log(tracks);
         }
     }
-    return datos;
 }
+
+function currentDate() {
+    let currentDate = new Date();
+    let cDay = currentDate.getDate();
+    let cMonth = currentDate.getMonth() + 1;
+    let cYear = currentDate.getFullYear();
+
+    /* console.log(cDay);
+    console.log(cMonth);
+    console.log(cYear); */
+    /* let s = cYear + '-' + cMonth + '-' + cDay;  */
+
+    return new Date(cYear, cMonth, cDay);
+}
+
 
 function getTracksByCurrentDate() {
     var data = leerJSON();
@@ -47,18 +78,7 @@ function getTracksByCurrentDate() {
     }
 }
 
-function currentDate() {
-    let currentDate = new Date();
-    let cDay = currentDate.getDate();
-    let cMonth = currentDate.getMonth() + 1;
-    let cYear = currentDate.getFullYear();
 
-    console.log(cDay);
-    console.log(cMonth);
-    console.log(cYear);
-
-    console.log("<b>" + cYear + "/" + cMonth + "/" + cDay + "</b>");
-}
 
 function playAudio() {
     audio = document.getElementById("index-audio");
@@ -77,6 +97,7 @@ function leerxml() {
 }
 
 /* API TWITTER ENSEÑAR 10 TWITTS MÁS RECIENTES */
+/* 
 const Twit = require('twit')
 
 const T = new Twit({
@@ -93,4 +114,5 @@ const T = new Twit({
         const tweets = data.statuses
         console.log(data)
     })
-});
+}); 
+*/
