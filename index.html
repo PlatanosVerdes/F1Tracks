@@ -65,7 +65,7 @@
           </form>
           <ul>
             <li class="dropdown"><a href="#track"><span>Circuitos</span> <i class="bi bi-chevron-down"></i></a>
-              <ul>                
+              <ul>
                 <li id="az"><a href="#">A-Z</a></li>
                 <li class="dropdown"><a href="#"><span>Por temporadas</span> <i class="bi bi-chevron-right"></i></a>
                   <ul>
@@ -91,15 +91,15 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
 
-    <div class="container-fluid">
+    <div class="container-fluid" id="presentation">
       <div class="row gy-5">
         <div class="col-lg-1 order-2 order-lg-1 d-flex flex-column justify-content-center">
         </div>
         <div class="col-lg-4 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h1>Todos los circuitos de la F1</h1>
           <h2>¡Encuentra toda la información sobre ellos!</h2>
-          <div>
-            <a href="tracksOrdenados.html" class="btn-get-started scrollto">Próximo circuito</a>
+          <div id="btn-hero">
+            <a href="#col-track-list" class="btn-get-started scrollto">Próximo circuito</a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 ">
@@ -120,10 +120,9 @@
 
       <!-- Page Content -->
       <div class="container-fluid" id="page-content">
-        <div class="row">
+        <div class="row" id="row-title-trackslist">
           <div clas="col-md-3">
-            <h1 class="tile"> Próximos Circuitos
-              <!-- <small>Temporada Actual</small> -->
+            <h1 class="tile" id="title-trackslist"> Próximos Circuitos
             </h1>
           </div>
         </div>
@@ -136,7 +135,7 @@
           </div>
 
           <!-- TRACKS -->
-          <div class="col-md-7">
+          <div class="col-md-7" id="col-track-list">
             <div class="track-list" id="track-list">
               <!-- ITEMS -->
             </div>
@@ -160,14 +159,7 @@
           </div>
         </div>
 
-        <!-- <div class="row">
-          <div clas="col-md-3">
-            <h1 class="tile"> Circuitos Anteriores
-            </h1>
-          </div>
-        </div> -->
-
-      </div> 
+      </div>
       <!-- /.container -->
     </section><!-- End Tracks Section-->
 

@@ -15,7 +15,21 @@ function currentDate() {
     return new Date(cYear, cMonth, cDay);
 }
 
+//Funcion que ordena los tracks por az o por date (fecha)
+function orderTracksBy(tracks, order) {
+    if (order == 'name') {
+        tracks.sort(function (a, b) {
+            if (a.name < b.name) return -1;
+            if (a.name > b.name) return 1;
+            return 0;
+        })
+    } else if (order == 'date') {
+        tracks.sort((a, b) => new Date(a.date) - new Date(b.date));
+    }
+    return tracks;
+}
 
+//Poner los tracks ordenados
 function printTrackSimply(track, whereId) {
     let trackItem = document.createElement("div");
     trackItem.setAttribute("class", "track-item");
@@ -44,7 +58,8 @@ function createTracksIndex(data) {
     let tracksAux = [];
 
     //Ordenamos los tracks por orden de fecha
-    tracks.sort((a, b) => new Date(a.date) - new Date(b.date));
+    //tracks.sort((a, b) => new Date(a.date) - new Date(b.date));
+    tracks = orderTracksBy(tracks, 'date');
 
     let trackList = document.getElementById('track-list');
     trackList.innerHTML = '';
@@ -62,6 +77,15 @@ function createTracksIndex(data) {
 
     //Si hay elementos:
     if (tracksAux.length > 0) {
+        //Añadir boton al Hero
+        let btnHero = document.getElementById('btn-hero');
+        btnHero.innerHTML = `
+            <a href="#col-track-list" class="btn-get-started scrollto">Próximo circuito</a>
+            <a href="#row-old-tracks-list" class="btn-get-started scrollto">Circuitos anteriores</a>
+        `;
+
+
+        console.log(tracksAux.length)
         let content = document.getElementById('page-content');
 
         /* AÑADIMOS UNA NUEVA FILA */
@@ -80,13 +104,13 @@ function createTracksIndex(data) {
         let rowOldTracks = document.createElement("div");
         rowOldTracks.setAttribute("class", "row");
         rowOldTracks.innerHTML = `
-        <div class="col-md-1">
-        </div>
-        <div class="col-md-7">
-            <div class="track-list" id="track-list-old">
-                <!-- ITEMS -->
+            <div class="col-md-1">
             </div>
-        </div>
+            <div class="col-md-7">
+                <div class="track-list" id="track-list-old">
+                    <!-- ITEMS -->
+                </div>
+            </div>
         `;
         content.appendChild(rowOldTracks);
 
@@ -98,6 +122,82 @@ function createTracksIndex(data) {
         }
     }
 }
+
+//PENDIENTE DE HACER
+function ordenar() {
+    //Borrar el titulo
+    document.getElementById('presentation').remove();
+    var hero = document.getElementById('hero');
+
+    let newTitle = document.createElement("div");
+    newTitle.setAttribute("class", "container-fluid");
+    newTitle.innerHTML = `  
+        <h4>CIRCUITOS</h4>
+            <br>
+        <h3>TEMPORADA ${currentDate().getFullYear()}</h3>
+    `;
+
+    //Penemos nuevo titulo
+    hero.appendChild(newTitle);
+
+    //Eliminar tritulo de la lista
+    var titleTracksList = document.getElementById('title-trackslist');
+    titleTracksList.innerHTML = "";
+
+    //Borrar los tracks
+    var trackList = document.getElementById('track-list');
+    trackList.initIndex = "";
+    if (document.getElementById('row-old-tracks-list') != null) {
+        document.getElementById('row-old-tracks-list').remove();
+    }
+
+    //Leer JSON
+    const xhttp = new XMLHttpRequest();
+    xhttp.open('GET', 'f1tracks.json', true);
+    xhttp.send(null);
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            /* console.log(this.responseText); */
+
+            data = JSON.parse(this.responseText);
+
+            //Cargar los tracks
+            let tracks = data.track;
+
+            //Ordenamos los tracks por nombre
+            tracks = orderTracksBy(tracks, 'name');
+            console.log(tracks);
+
+            let trackList = document.getElementById('track-list');
+            trackList.innerHTML = '';
+
+            for (var i = 0; i < tracks.length; i++) {
+                let trackItem = document.createElement("div");
+                trackItem.setAttribute("class", "track-item");
+                trackItem.setAttribute("id", "track-item");
+
+                trackItem.innerHTML = `
+                    <div class="row">
+                        <div class="col-sm-12 col-md-6">
+                        <a href="track.html">
+                            <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${tracks[i].identifier}.png" alt="Track">
+                        </a>
+                        </div>
+                        <div class="col-sm-12 col-md-6">
+                            <h3>${tracks[i].name}</h3>
+                            <p>${tracks[i].description}</p>
+                        </div>
+                    </div>
+                `;
+
+                trackList.appendChild(trackItem);
+            }
+
+        }
+    }
+}
+ordens = document.getElementById("az");
+ordens.addEventListener('click', ordenar);
 
 
 function leerJSON() {
@@ -117,36 +217,6 @@ function leerJSON() {
         }
     }
 }
-
-
-
-//PENDIENTE DE HACER
-function ordenar(){
-    let tracks = data.track;
-    let tracksAux = [];
-
-    //Ordenamos los tracks por orden de fecha
-    tracks.sort();
-    console.log(tracks);
-
-    let trackList = document.getElementById('track-list');
-    trackList.innerHTML = '';
-    for (var i = 0; i < tracks.length; i++) {
-
-        /* Si ya han pasado se printean al final */
-        if ((new Date(tracks[i].date) - currentDate()) < 0) {
-            /* Guardar */
-            tracksAux.push(tracks[i]);
-        } else {
-            /* Print */
-            printTrackSimply(tracks[i], trackList);
-        }
-    }
-}
-
-ordens = document.getElementById("az");
-ordens.addEventListener('click', ordenar);
-
 
 /* document.querySelectorAll(".track-item").forEach(el => {
     el.addEventListener("track-item", e => {
@@ -175,7 +245,7 @@ function initIndex() {
 
     /* SI ESTAMOS EN EL index.html */
     //if (window.location.href.includes('index.html')) {
-        leerJSON();
+    leerJSON();
     //}
 
 }

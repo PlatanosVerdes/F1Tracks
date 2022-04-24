@@ -463,6 +463,16 @@ h6,
   background: #dc0708;
 }
 
+#hero .btn btn-light{
+  color: red;
+  background: #dc0708;
+}
+
+/* #hero button {
+  color: red;
+  margin-top: 5px;
+} */
+
 #hero .animated {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
 }
