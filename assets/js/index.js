@@ -174,9 +174,9 @@ function initIndex() {
     playAudio();
 
     /* SI ESTAMOS EN EL index.html */
-    if (window.location.href.includes('index.html')) {
+    //if (window.location.href.includes('index.html')) {
         leerJSON();
-    }
+    //}
 
 }
 
