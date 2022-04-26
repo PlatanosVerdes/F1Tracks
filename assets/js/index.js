@@ -15,6 +15,16 @@ function currentDate() {
     return new Date(cYear, cMonth, cDay);
 }
 
+
+//Funcion que se ejecuta al clicckar una imagen de un track
+function getIdTrackClick(img) {
+    var id = img.alt;
+
+    sessionStorage.setItem('idTrack', id);
+    location.href = "track.html";
+}
+
+
 //Funcion que ordena los tracks por az o por date (fecha)
 function orderTracksBy(tracks, order) {
     if (order == 'name') {
@@ -29,8 +39,12 @@ function orderTracksBy(tracks, order) {
     return tracks;
 }
 
-//Poner los tracks ordenados
-function printTrackSimply(track, whereId) {
+/* Inyectar en el html los tracks con el titulo que
+tienen en el campeonato (AlternateName)
+@track: el track del JSON
+@whereId: El ID de la etiqueta del HTML donde se quiere inyectar
+*/
+function printTrackAlternateName(track, whereId) {
     let trackItem = document.createElement("div");
     trackItem.setAttribute("class", "track-item");
     trackItem.setAttribute("id", "track-item");
@@ -38,9 +52,7 @@ function printTrackSimply(track, whereId) {
     trackItem.innerHTML = `
         <div class="row">
             <div class="col-sm-12 col-md-6">
-            <a href="track.html">
-                <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${track.identifier}.png" alt="Track">
-            </a>
+                <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${track.identifier}.png" alt="${track.identifier}" onclick="getIdTrackClick(this)">            
             </div>
             <div class="col-sm-12 col-md-6">
                 <h3>${track.alternateName}</h3>
@@ -52,6 +64,7 @@ function printTrackSimply(track, whereId) {
     whereId.appendChild(trackItem);
 }
 
+/* Funcion que crea e iyecta todos los tracks del JSON en el INDEX */
 function createTracksIndex(data) {
 
     let tracks = data.track;
@@ -71,7 +84,7 @@ function createTracksIndex(data) {
             tracksAux.push(tracks[i]);
         } else {
             /* Print */
-            printTrackSimply(tracks[i], trackList);
+            printTrackAlternateName(tracks[i], trackList);
         }
     }
 
@@ -85,7 +98,6 @@ function createTracksIndex(data) {
         `;
 
 
-        console.log(tracksAux.length)
         let content = document.getElementById('page-content');
 
         /* AÑADIMOS UNA NUEVA FILA */
@@ -118,12 +130,13 @@ function createTracksIndex(data) {
         let trackListOld = document.getElementById('track-list-old');
         trackListOld.innerHTML = '';
         for (var i = 0; i < tracksAux.length; i++) {
-            printTrackSimply(tracksAux[i], trackListOld);
+            printTrackAlternateName(tracksAux[i], trackListOld);
         }
     }
 }
 
-//PENDIENTE DE HACER
+/* Metodo que cambia los tracks en el indice y los muestra ordenados */
+/* PENDIENTE ORDENAR POR AÑOS */
 function ordenar() {
     //Borrar el titulo
     document.getElementById('presentation').remove();
@@ -157,7 +170,6 @@ function ordenar() {
     xhttp.send(null);
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            /* console.log(this.responseText); */
 
             data = JSON.parse(this.responseText);
 
@@ -179,11 +191,9 @@ function ordenar() {
                 trackItem.innerHTML = `
                     <div class="row">
                         <div class="col-sm-12 col-md-6">
-                        <a href="track.html">
-                            <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${tracks[i].identifier}.png" alt="Track">
-                        </a>
+                            <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${tracks[i].identifier}.png" alt="Track" onclick="image(this)">
                         </div>
-                        <div class="col-sm-12 col-md-6">
+                        <div class="col-sm-12 col-md-6" id="idTrack">
                             <h3>${tracks[i].name}</h3>
                             <p>${tracks[i].description}</p>
                         </div>
@@ -199,7 +209,7 @@ function ordenar() {
 ordens = document.getElementById("az");
 ordens.addEventListener('click', ordenar);
 
-
+//ESTA FUNCION ESTA MAL: PENDIENTE DE SOLO USAR ESTE FUNCION PARA LEER JSON
 function leerJSON() {
     const xhttp = new XMLHttpRequest();
     xhttp.open('GET', 'f1tracks.json', true);
@@ -250,6 +260,7 @@ function initIndex() {
 
 }
 
+/* Funcion que reproduce un audio al cargar la pagina */
 function playAudio() {
     audio = document.getElementById("index-audio");
     audio.muted = false;
