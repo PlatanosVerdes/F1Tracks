@@ -278,23 +278,15 @@ window.addEventListener('storage', function (e) {
 
 /*Carrousel*/
 window.onload = function (data) {
-    // Variables
-    const IMAGENES = [
-        'assets/img/escurerias/mercedes.svg',
-        'assets/img/escurerias/ferrari.svg'
-        
-    ];
     let esc = data.organitation;
-    var imgArray = new Array();
-    function loadImages(imgs){
+    var imgArray = new Array(esc.length);
+    
         
         for(var i = 0; i < esc.length;i++){
-            imgArray[i] = new Image();
-            imgArray[i].src = "assets/img/escurerias/{esc[i].logo}.svg";
+            imgArray[i] = `assets/img/escurerias/${esc[i].logo})`;
             
         }
-    }
-    //loadImages(imgs);
+    
     const TIEMPO_INTERVALO_MILESIMAS_SEG = 5000;
     let posicionActual = 0;
     let $botonRetroceder = document.querySelector('.atras');
@@ -332,8 +324,8 @@ window.onload = function (data) {
      * Funcion que actualiza la imagen de imagen dependiendo de posicionActual
      */
     function renderizarImagen () {
-        //$imagen.style.backgroundImage = `url(${IMAGENES[posicionActual]})`;
-        $imagen.style.backgroundImage = `assets/img/escurerias/${esc[posicionActual].logo})`;
+        $imagen.style.backgroundImage = `url(${imgArray[posicionActual]})`;
+        //$imagen.style.backgroundImage = `assets/img/escurerias/${esc[posicionActual].logo})`;
     }
 
     /**
