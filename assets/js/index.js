@@ -178,8 +178,7 @@ function ordenar() {
 
             //Ordenamos los tracks por nombre
             tracks = orderTracksBy(tracks, 'name');
-            console.log(tracks);
-
+ 
             let trackList = document.getElementById('track-list');
             trackList.innerHTML = '';
 
@@ -284,7 +283,6 @@ window.onload = function (data) {
         
         for(var i = 0; i < esc.length;i++){
             imgArray[i] = `assets/img/escurerias/${esc[i].logo})`;
-            
         }
     
     const TIEMPO_INTERVALO_MILESIMAS_SEG = 5000;

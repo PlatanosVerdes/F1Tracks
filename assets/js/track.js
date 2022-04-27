@@ -1,6 +1,4 @@
 let idTrack = sessionStorage.getItem('idTrack');
-console.log(idTrack);
-
 var nomTrack = idTrack;
 
 function getPilot(data, idPilot){
@@ -55,7 +53,6 @@ function printTrackMainInfo() {
         if (this.readyState == 4 && this.status == 200) {
 
             data = JSON.parse(this.responseText);
-            console.log(data);
 
             let tracks = data.track;
 
@@ -67,12 +64,10 @@ function printTrackMainInfo() {
                 }
             }
             var idPilot = tracks[i].datos_extra.lapRecord.pilot;
-            console.log(idPilot);
             var pilot = getPilot(data, idPilot)
-            console.log(pilot)
-
             var years = getYears(tracks[i]);
 
+            document.getElementById('img-track').src=`assets/img/tracks/${tracks[i].image[0]}`;
             document.getElementById('alterName-track').innerHTML=`${tracks[i].alternateName}`;
             document.getElementById('name-track').innerHTML=`${tracks[i].name}`;
             document.getElementById('location-track').innerHTML=`${tracks[i].GeoCoordinates.addressCountry}`;
@@ -81,16 +76,22 @@ function printTrackMainInfo() {
             document.getElementById('years-track').innerHTML=`${tracks[i].datos_extra.numberLaps}`;
             document.getElementById('laps-track').innerHTML=`${years}`;
             document.getElementById('record-time-track').innerHTML=`${tracks[i].datos_extra.lapRecord.time}`;
+            
             let img = document.createElement("img");
             img.setAttribute("class", "img-fluid rounded");
             img.setAttribute("alt", "Flag Country");
-            console.log(pilot.nationality);
-            console.log("assets/img/flags/"+pilot.nationality+".svg");
-            img.setAttribute("src", "assets/img/flags/"+pilot.nationality+".svg");
+            img.src = "assets/img/flags/"+pilot.nationality+".svg";
+            
             let detailLapRecord = document.createElement("div");
             detailLapRecord.setAttribute("class", "detail-info-content");
             detailLapRecord.innerHTML=`${pilot.name} ${pilot.lastName}`;
+
+            let lapRecord = document.getElementById("pilot-record-track");
+            lapRecord.appendChild(img);
+            lapRecord.appendChild(detailLapRecord);
+
             document.getElementById('record-time-track').innerHTML=`${tracks[i].datos_extra.lapRecord.time}`;
+            document.getElementById('description-track').innerHTML=`${tracks[i].description}`;
             
         }
     }
