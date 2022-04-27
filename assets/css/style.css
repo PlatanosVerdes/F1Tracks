@@ -763,7 +763,7 @@ section {
   color: white;
 }
 
-.title-track {
+.trackView .title-track {
   font-weight: bold;
   font-size: xx-large;
   border-width: 2px;
@@ -772,21 +772,21 @@ section {
   border-bottom-color: #dc0708;
 }
 
-.title-track .bi{
+.trackView .title-track .bi{
   width: 1rem;
   height: 1rem;
   color: #141414;
 }
 
-.title-track .bi:hover{
+.trackView .title-track .bi:hover{
   color: #dc0708;
 }
 
-.title-track .bi-star-fill{
+.trackView .title-track .bi-star-fill{
   color: #ffe81d;
 }
 
-.sub-title-track h1 {
+.trackView .sub-title-track h1 {
   font-size: 1.1rem;
 }
 
