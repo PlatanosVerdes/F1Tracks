@@ -153,7 +153,7 @@ function ordenar() {
     //Penemos nuevo titulo
     hero.appendChild(newTitle);
 
-    //Eliminar tritulo de la lista
+    //Eliminar titulo de la lista
     var titleTracksList = document.getElementById('title-trackslist');
     titleTracksList.innerHTML = "";
 
@@ -275,6 +275,79 @@ window.addEventListener('storage', function (e) {
     console.log(e.url);
     console.log(JSON.stringify(e.storageArea));
 }, false);
+
+/*Carrousel*/
+window.onload = function (data) {
+    // Variables
+    const IMAGENES = [
+        'assets/img/escurerias/mercedes.svg',
+        'assets/img/escurerias/ferrari.svg'
+        
+    ];
+    let esc = data.organitation;
+    var imgArray = new Array();
+    function loadImages(imgs){
+        
+        for(var i = 0; i < esc.length;i++){
+            imgArray[i] = new Image();
+            imgArray[i].src = "assets/img/escurerias/{esc[i].logo}.svg";
+            
+        }
+    }
+    //loadImages(imgs);
+    const TIEMPO_INTERVALO_MILESIMAS_SEG = 5000;
+    let posicionActual = 0;
+    let $botonRetroceder = document.querySelector('.atras');
+    let $botonAvanzar = document.querySelector('.adelante');
+    let $imagen = document.querySelector('#imagen');
+    let intervalo;
+
+    // Funciones
+
+    /**
+     * Funcion que cambia la foto en la siguiente posicion
+     */
+    function pasarFoto() {
+        if(posicionActual >= esc.length - 1) {
+            posicionActual = 0;
+        } else {
+            posicionActual++;
+        }
+        renderizarImagen();
+    }
+
+    /**
+     * Funcion que cambia la foto en la anterior posicion
+     */
+    function retrocederFoto() {
+        if(posicionActual <= 0) {
+            posicionActual = esc.length - 1;
+        } else {
+            posicionActual--;
+        }
+        renderizarImagen();
+    }
+
+    /**
+     * Funcion que actualiza la imagen de imagen dependiendo de posicionActual
+     */
+    function renderizarImagen () {
+        //$imagen.style.backgroundImage = `url(${IMAGENES[posicionActual]})`;
+        $imagen.style.backgroundImage = `assets/img/escurerias/${esc[posicionActual].logo})`;
+    }
+
+    /**
+     * Activa el autoplay de la imagen
+     */
+    intervalo = setInterval(pasarFoto, TIEMPO_INTERVALO_MILESIMAS_SEG);
+        
+    // Eventos
+    $botonAvanzar.addEventListener('click', pasarFoto);
+    $botonRetroceder.addEventListener('click', retrocederFoto);
+    
+    // Iniciar
+    renderizarImagen();
+} 
 
 /* API TWITTER ENSEÑAR 10 TWITTS MÁS RECIENTES */
 /* 

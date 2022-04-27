@@ -6,7 +6,7 @@
             {
                 "id": "T01",
                 "name": "Mercedes",
-                "logo": "",
+                "logo": "mercedes.svg",
                 "participant": [
                     "D001",
                     "D002"
@@ -15,7 +15,7 @@
             {
                 "id": "T02",
                 "name": "Ferrari",
-                "logo": "",
+                "logo": "ferrari.svg",
                 "participant": [
                     "D003",
                     "D004"
@@ -24,7 +24,7 @@
             {
                 "id": "T03",
                 "name": "Red Bull Racing",
-                "logo": "",
+                "logo": "redbull.svg",
                 "participant": [
                     "D005",
                     "D006"
@@ -33,7 +33,7 @@
             {
                 "id": "T04",
                 "name": "McLaren",
-                "logo": "",
+                "logo": "mclaren.svg",
                 "participant": [
                     "D007",
                     "D008"
@@ -42,7 +42,7 @@
             {
                 "id": "T05",
                 "name": "Alpine",
-                "logo": "",
+                "logo": "alpine.svg",
                 "participant": [
                     "D009",
                     "D010"
@@ -51,7 +51,7 @@
             {
                 "id": "T06",
                 "name": "Alfa Romeo",
-                "logo": "",
+                "logo": "alfa romeo.svg",
                 "participant": [
                     "D011",
                     "D012"
@@ -60,7 +60,7 @@
             {
                 "id": "T07",
                 "name": "Haas F1 Team",
-                "logo": "",
+                "logo": "haas.svg",
                 "participant": [
                     "D013",
                     "D014"
@@ -69,7 +69,7 @@
             {
                 "id": "T08",
                 "name": "AlphaTauri",
-                "logo": "",
+                "logo": "alphatauri.svg",
                 "participant": [
                     "D015",
                     "D016"
@@ -78,7 +78,7 @@
             {
                 "id": "T09",
                 "name": "Williams",
-                "logo": "",
+                "logo": "williams.svg",
                 "participant": [
                     "D017",
                     "D018"
@@ -87,7 +87,7 @@
             {
                 "id": "T10",
                 "name": "Aston Martin",
-                "logo": "",
+                "logo": "aston martin.svg",
                 "participant": [
                     "D019",
                     "D020"
@@ -96,7 +96,7 @@
             {
                 "id": "T11",
                 "name": "McLaren Mercedes",
-                "logo": "",
+                "logo": "mclaren mercedes.svg",
                 "participant": [
                     "D021"
                 ]
