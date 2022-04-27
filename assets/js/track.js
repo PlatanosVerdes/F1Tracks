@@ -73,8 +73,7 @@ function printTrackMainInfo() {
             document.getElementById('location-track').innerHTML=`${tracks[i].GeoCoordinates.addressCountry}`;
             document.getElementById('distance-track').innerHTML=`${tracks[i].datos_extra.trackDistance}`;
             document.getElementById('laps-track').innerHTML=`${tracks[i].datos_extra.numberLaps}`;
-            document.getElementById('years-track').innerHTML=`${tracks[i].datos_extra.numberLaps}`;
-            document.getElementById('laps-track').innerHTML=`${years}`;
+            document.getElementById('years-track').innerHTML=`${years}`;
             document.getElementById('record-time-track').innerHTML=`${tracks[i].datos_extra.lapRecord.time}`;
             
             let img = document.createElement("img");
