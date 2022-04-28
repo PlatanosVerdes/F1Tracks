@@ -1,6 +1,22 @@
 let idTrack = sessionStorage.getItem('idTrack');
 var nomTrack = idTrack;
 
+
+
+function getYears(data){
+    var year = data.datos_extra.years;
+    var s ="";
+    for(var i = 0; i<year.length; i++){
+
+        if (i==year.length-1){
+            s += year[i];
+        }else{
+            s += year[i] + " ,";
+        }
+    }
+    return s;
+}
+
 function getPilot(data, idPilot){
 
     let pilot = data.participant;
@@ -29,19 +45,37 @@ function getPilot(data, idPilot){
     return plt;
 }
 
-function getYears(data){
-    var year = data.datos_extra.years;
-    var s ="";
-    for(var i = 0; i<year.length; i++){
-
-        if (i==year.length-1){
-            s += year[i];
-        }else{
-            s += year[i] + " ,";
-        }
+function getClassification(data,i){
+    var c = data.track[i].datos_extra.classification;
+    console.log(c);
+    var ClassificationNames={
+        name: null,
+        lastName: null
     }
-    return s;
+    let classificationArray = [];
+    for(var i=0; i< c.length;i++){
+        console.log(c[i][0]);
+        var pilot = getPilot(data, c[i][0]);
+        var ClassificationNames={
+            name: pilot.name,
+            lastName: pilot.lastName,
+            Time: c[i][1]
+        }
+        classificationArray.push(ClassificationNames);
+    }
+    console.log(classificationArray);
+    document.getElementById(primeroNombre).innerHTML=`${classificationArray[0][2]}`;
+    document.getElementById(primeroTiempo).innerHTML=`${classificationArray[0][0]}`;
+    document.getElementById(segundoNombre).innerHTML=`${classificationArray[1][0]}`;
+    document.getElementById(segundoTiempo).innerHTML=`${classificationArray[1][2]}`;
+    document.getElementById(terceroNombre).innerHTML=`${classificationArray[2][0]}`;
+    document.getElementById(terceroTiempo).innerHTML=`${classificationArray[2][2]}`;
+    document.getElementById(cuartoNombre).innerHTML=`${classificationArray[3][0]}`;
+    document.getElementById(cuartoTiempo).innerHTML=`${classificationArray[3][2]}`;
+    
 }
+
+
 
 function printTrackMainInfo() {
 
@@ -66,6 +100,7 @@ function printTrackMainInfo() {
             var idPilot = tracks[i].datos_extra.lapRecord.pilot;
             var pilot = getPilot(data, idPilot)
             var years = getYears(tracks[i]);
+            
 
             document.getElementById('img-track').src=`assets/img/tracks/${tracks[i].image[0]}`;
             document.getElementById('alterName-track').innerHTML=`${tracks[i].alternateName}`;
@@ -75,6 +110,7 @@ function printTrackMainInfo() {
             document.getElementById('laps-track').innerHTML=`${tracks[i].datos_extra.numberLaps}`;
             document.getElementById('years-track').innerHTML=`${years}`;
             document.getElementById('record-time-track').innerHTML=`${tracks[i].datos_extra.lapRecord.time}`;
+
             
             let img = document.createElement("img");
             img.setAttribute("class", "img-fluid rounded");
@@ -91,6 +127,8 @@ function printTrackMainInfo() {
 
             document.getElementById('record-time-track').innerHTML=`${tracks[i].datos_extra.lapRecord.time}`;
             document.getElementById('description-track').innerHTML=`${tracks[i].description}`;
+            
+            var classification = getClassification(data,i);
             
         }
     }
