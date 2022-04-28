@@ -47,31 +47,32 @@ function getPilot(data, idPilot){
 
 function getClassification(data,i){
     var c = data.track[i].datos_extra.classification;
-    console.log(c);
     var ClassificationNames={
         name: null,
         lastName: null
     }
+
     let classificationArray = [];
+
     for(var i=0; i< c.length;i++){
-        console.log(c[i][0]);
+
         var pilot = getPilot(data, c[i][0]);
         var ClassificationNames={
             name: pilot.name,
             lastName: pilot.lastName,
-            Time: c[i][1]
+            time: c[i][1]
         }
         classificationArray.push(ClassificationNames);
     }
-    console.log(classificationArray);
-    document.getElementById(primeroNombre).innerHTML=`${classificationArray[0][2]}`;
-    document.getElementById(primeroTiempo).innerHTML=`${classificationArray[0][0]}`;
-    document.getElementById(segundoNombre).innerHTML=`${classificationArray[1][0]}`;
-    document.getElementById(segundoTiempo).innerHTML=`${classificationArray[1][2]}`;
-    document.getElementById(terceroNombre).innerHTML=`${classificationArray[2][0]}`;
-    document.getElementById(terceroTiempo).innerHTML=`${classificationArray[2][2]}`;
-    document.getElementById(cuartoNombre).innerHTML=`${classificationArray[3][0]}`;
-    document.getElementById(cuartoTiempo).innerHTML=`${classificationArray[3][2]}`;
+
+    document.getElementById('primeroNombre').innerHTML=`${classificationArray[0].name} ${classificationArray[0].lastName}`;
+    document.getElementById('primeroTiempo').innerHTML=`${classificationArray[0].time}`;
+    document.getElementById('segundoNombre').innerHTML=`${classificationArray[1].name} ${classificationArray[1].lastName}`;
+    document.getElementById('segundoTiempo').innerHTML=` + ${classificationArray[1].time}`;
+    document.getElementById('terceroNombre').innerHTML=`${classificationArray[2].name} ${classificationArray[2].lastName}`;
+    document.getElementById('terceroTiempo').innerHTML=` + ${classificationArray[2].time}`;
+    document.getElementById('cuartoNombre').innerHTML=`${classificationArray[3].name} ${classificationArray[3].lastName}`;
+    document.getElementById('cuartoTiempo').innerHTML=` + ${classificationArray[3].time}`;
     
 }
 
@@ -128,7 +129,7 @@ function printTrackMainInfo() {
             document.getElementById('record-time-track').innerHTML=`${tracks[i].datos_extra.lapRecord.time}`;
             document.getElementById('description-track').innerHTML=`${tracks[i].description}`;
             
-            var classification = getClassification(data,i);
+            var classi = getClassification(data,i);
             
         }
     }
