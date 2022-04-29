@@ -6,6 +6,70 @@ function remove(item) {
     }
 }
 
+/*Carrousel*/
+function carrousel(data) {
+    let esc = data.organitation;
+    let imgArray = new Array(esc.length);
+    for(var i = 0; i < esc.length;i++){
+        imgArray[i] = `assets/img/escurerias/${esc[i].logo}`;
+    }
+    console.log(imgArray);
+    let posicionActual = 0;
+    let $botonRetroceder = document.querySelector('.atras');
+    let $botonAvanzar = document.querySelector('.adelante');
+    let $imagen = document.querySelector('#imagen');
+    let intervalo = 5000;
+
+    // Funciones
+
+    /**
+     * Funcion que cambia la foto en la siguiente posicion
+     */
+    function pasarFoto() {
+        if(posicionActual >= esc.length - 1) {
+            posicionActual = 0;
+        } else {
+            posicionActual++;
+        }
+        renderizarImagen();
+        
+    }
+
+    /**
+     * Funcion que cambia la foto en la anterior posicion
+     */
+    function retrocederFoto() {
+        if(posicionActual <= 0) {
+            posicionActual = esc.length - 1;
+        } else {
+            posicionActual--;
+        }
+        renderizarImagen();
+        
+    }
+
+    /**
+     * Funcion que actualiza la imagen de imagen dependiendo de posicionActual
+     */
+    function renderizarImagen () {
+        $imagen.style.backgroundImage = `url(${imgArray[posicionActual]})`; 
+        /**
+     * Activa el autoplay de la imagen
+     */
+        
+    }
+
+    
+    
+    setInterval(pasarFoto, intervalo);  
+    // Eventos
+    $botonAvanzar.addEventListener('click', pasarFoto);
+    $botonRetroceder.addEventListener('click', retrocederFoto);
+    
+    // Iniciar
+    renderizarImagen();
+} 
+
 function currentDate() {
     let currentDate = new Date();
     let cDay = currentDate.getDate();
@@ -218,6 +282,7 @@ function leerJSON() {
             /* console.log(this.responseText); */
 
             data = JSON.parse(this.responseText);
+            carrousel(data);
 
             //Cargar los tracks en el indice
             createTracksIndex(data);
@@ -275,69 +340,7 @@ window.addEventListener('storage', function (e) {
     console.log(JSON.stringify(e.storageArea));
 }, false);
 
-/*Carrousel*/
-window.onload = function (data) {
-    let esc = data.organitation;
-    var imgArray = new Array(esc.length);
-    
-        
-        for(var i = 0; i < esc.length;i++){
-            imgArray[i] = `assets/img/escurerias/${esc[i].logo})`;
-        }
-    
-    const TIEMPO_INTERVALO_MILESIMAS_SEG = 5000;
-    let posicionActual = 0;
-    let $botonRetroceder = document.querySelector('.atras');
-    let $botonAvanzar = document.querySelector('.adelante');
-    let $imagen = document.querySelector('#imagen');
-    let intervalo;
 
-    // Funciones
-
-    /**
-     * Funcion que cambia la foto en la siguiente posicion
-     */
-    function pasarFoto() {
-        if(posicionActual >= esc.length - 1) {
-            posicionActual = 0;
-        } else {
-            posicionActual++;
-        }
-        renderizarImagen();
-    }
-
-    /**
-     * Funcion que cambia la foto en la anterior posicion
-     */
-    function retrocederFoto() {
-        if(posicionActual <= 0) {
-            posicionActual = esc.length - 1;
-        } else {
-            posicionActual--;
-        }
-        renderizarImagen();
-    }
-
-    /**
-     * Funcion que actualiza la imagen de imagen dependiendo de posicionActual
-     */
-    function renderizarImagen () {
-        $imagen.style.backgroundImage = `url(${imgArray[posicionActual]})`;
-        //$imagen.style.backgroundImage = `assets/img/escurerias/${esc[posicionActual].logo})`;
-    }
-
-    /**
-     * Activa el autoplay de la imagen
-     */
-    intervalo = setInterval(pasarFoto, TIEMPO_INTERVALO_MILESIMAS_SEG);
-        
-    // Eventos
-    $botonAvanzar.addEventListener('click', pasarFoto);
-    $botonRetroceder.addEventListener('click', retrocederFoto);
-    
-    // Iniciar
-    renderizarImagen();
-} 
 
 /* API TWITTER ENSEÑAR 10 TWITTS MÁS RECIENTES */
 /* 

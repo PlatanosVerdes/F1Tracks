@@ -51,7 +51,7 @@
             {
                 "id": "T06",
                 "name": "Alfa Romeo",
-                "logo": "alfa romeo.svg",
+                "logo": "alfaromeo.svg",
                 "participant": [
                     "D011",
                     "D012"
@@ -87,7 +87,7 @@
             {
                 "id": "T10",
                 "name": "Aston Martin",
-                "logo": "aston martin.svg",
+                "logo": "astonmartin.svg",
                 "participant": [
                     "D019",
                     "D020"
@@ -96,7 +96,7 @@
             {
                 "id": "T11",
                 "name": "McLaren Mercedes",
-                "logo": "mclaren mercedes.svg",
+                "logo": "mclarenmercedes.svg",
                 "participant": [
                     "D021"
                 ]
