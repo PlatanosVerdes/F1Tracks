@@ -397,8 +397,8 @@
                 "description": "A pesar de ser un trazado urbano la pista es relativamente ancha y rápida. El circuito es bastante liso en comparación con otras pistas de la máxima categoría.\n\nEl piloto con más victorias en el Gran Premio de Australia es Michael Schumacher con cuatro, seguido de Jenson Button y Sebastian Vettel con tres.",
                 "date": "2022-04-10",
                 "GeoCoordinates": {
-                    "latitude": "144.96896553778586",
-                    "longitude": "-37.84992771627471",
+                    "latitude": "-37.84992771627471",
+                    "longitude": "144.96896553778586",
                     "addressCountry": "Australia",
                     "addresRegion": "Victoria",
                     "addressLocality": "Melburne"
@@ -483,8 +483,8 @@
                 "description": "Fue anunciado en abril de 2021 y es la sede del Gran Premio de Miami de Fórmula 1 en 2022.\n\nEl circuito se había propuesto ya en octubre de 2019 con un diseño inicial, habiéndose considerado hasta 75 diseños de circuitos y 36 siendo simulados.\n\nEl propietario del estadio es Stephen Ross.",
                 "date": "2022-05-08",
                 "GeoCoordinates": {
-                    "longitude": "-80.2369525800426",
-                    "latitude": "25.961887622031632",
+                    "longitude": "-80.23671078222493",
+                    "latitude": "25.9567440727665",
                     "addressCountry": "Estados Unidos",
                     "addresRegion": "Florida",
                     "addressLocality": "Miami Gardens"

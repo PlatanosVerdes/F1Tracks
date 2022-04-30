@@ -88,9 +88,10 @@ function printTrackMainInfo() {
         if (this.readyState == 4 && this.status == 200) {
 
             data = JSON.parse(this.responseText);
+            
 
             let tracks = data.track;
-
+            
             var i;
             for (i = 0; i<tracks.length;i++){   
         
@@ -98,6 +99,7 @@ function printTrackMainInfo() {
                     break;
                 }
             }
+            maps(tracks,i);
             var idPilot = tracks[i].datos_extra.lapRecord.pilot;
             var pilot = getPilot(data, idPilot)
             var years = getYears(tracks[i]);
@@ -138,4 +140,25 @@ function printTrackMainInfo() {
 window.addEventListener('load', initTrack)
 function initTrack(){
     printTrackMainInfo();
+}
+
+//API MAPS
+function maps(listacirc,num){
+    let coor = listacirc[num].GeoCoordinates;
+    let long = coor.longitude;
+    let lat = coor.latitude;
+
+    var map = L.map('map2').setView([lat, long], 14);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: `${listacirc[num].GeoCoordinates.addressCountry},${listacirc[num].GeoCoordinates.addressLocality}`,
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1IjoicGF1aW5kYW5pY29sYXUiLCJhIjoiY2wyazhmZm80MGF5cDNicGtlazdyN3kxbyJ9.zoF8CP2CPUgGrw0U8e2_cA'
+    }).addTo(map);
+    var marker = L.marker([lat, long],{
+        color:'red'
+    }).addTo(map);
+    marker.bindPopup(`<b>${listacirc[num].name}</b><br>${listacirc[num].alternateName}`);
 }

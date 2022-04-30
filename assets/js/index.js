@@ -283,6 +283,7 @@ function leerJSON() {
 
             data = JSON.parse(this.responseText);
             carrousel(data);
+            mapss(data);
 
             //Cargar los tracks en el indice
             createTracksIndex(data);
@@ -339,6 +340,46 @@ window.addEventListener('storage', function (e) {
     console.log(e.url);
     console.log(JSON.stringify(e.storageArea));
 }, false);
+
+//API MAPS
+function mapss(data){
+    let listacircuitos = data.track;
+    let tracks = listacircuitos;
+    tracks = orderTracksBy(tracks, 'date');
+    let c = tracks[0].GeoCoordinates;
+    let lo = c.longitude;
+    let la = c.latitude;
+    var bounds = [
+        [lo, la], // [west, south]
+        [lo, la]  // [east, north]
+        ]
+    var map = L.map('map1').setView([la, lo], 1);
+    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+        attribution: "Global Map",
+        maxZoom: 18,
+        minZoom:-1,
+        id: 'mapbox/satellite-v9',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1IjoicGF1aW5kYW5pY29sYXUiLCJhIjoiY2wyazhmZm80MGF5cDNicGtlazdyN3kxbyJ9.zoF8CP2CPUgGrw0U8e2_cA'
+    }).addTo(map);
+    map.setMaxBounds(bounds);
+
+    
+    for(var i = 0; i < listacircuitos.length;i++){
+        let coordenadas = listacircuitos[i].GeoCoordinates;
+        let longitud = coordenadas.longitude;
+        let latitud = coordenadas.latitude;
+
+        var marker = L.marker([latitud, longitud],{
+            color:'red'
+        }).addTo(map);
+        marker.bindPopup(`<b>${listacircuitos[i].name}</b><br>${listacircuitos[i].alternateName}`);
+    }
+
+    
+    
+}
 
 
 
