@@ -6,20 +6,6 @@ function remove(item) {
     }
 }
 
-function readJSON() {
-    var data
-    const xhttp = new XMLHttpRequest();
-    xhttp.open('GET', 'f1tracks.json', true);
-    xhttp.send(null);
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-
-            data = JSON.parse(this.responseText);
-        }
-    }
-    return data;
-}
-
 async function fetchJSON() {
     const response = await fetch('f1tracks.json');
     if (!response.ok) {
@@ -92,8 +78,7 @@ function printTrackAlternateName(track, whereId) {
 }
 
 /* Funcion que crea e iyecta todos los tracks del JSON en el INDEX */
-async function createTracksIndex() {
-    let data = await fetchJSON();
+function createTracksIndex(data) {
 
     let tracks = data.track;
     let tracksAux = [];
@@ -248,30 +233,13 @@ function leerJSON() {
     }
 }
 
-/* document.querySelectorAll(".track-item").forEach(el => {
-    el.addEventListener("track-item", e => {
-        const id = e.target.getAttribute("id");
-        console.log("cliked")
-        console.log("Se ha clickeado el id " + id);
-    });
-}); */
-
-/* var trackItem = document.getElementById("track-item");
-trackItem.addEventListener("click",)
-function saveTrack() {
-    var temp =
-    
-} */
-/* sessionStorage.setItem('track', ''); */
-
-//Funcion que reproduce el audio al entrar en la página
-/* var body =document.getElementById("body"); */
 window.addEventListener('load', initIndex)
-function initIndex() {
+async function initIndex() {
+    let data = await fetchJSON();
     playAudio();
-    createTracksIndex();
-    mapsIndex();
-    carrousel();
+    createTracksIndex(data);
+    mapsIndex(data);
+    carrousel(data);
 }
 
 /* Funcion que reproduce un audio al cargar la pagina */
@@ -291,9 +259,7 @@ window.addEventListener('storage', function (e) {
 }, false);
 
 /*API MAPS*/
-async function mapsIndex() {
-    let data = await fetchJSON();//= await readJSON();
-
+function mapsIndex(data) {
     let listacircuitos = data.track;
     let tracks = listacircuitos;
     tracks = orderTracksBy(tracks, 'date');
@@ -331,8 +297,7 @@ async function mapsIndex() {
 }
 
 /*Carrousel*/
-async function carrousel() {
-    let data = await fetchJSON();
+function carrousel(data) {
     let esc = data.organitation;
     let escList = document.getElementById('carouselescuderias');
     escList.innerHTML = '';

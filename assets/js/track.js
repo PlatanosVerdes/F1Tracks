@@ -87,10 +87,7 @@ function getClassification(data, i) {
 
 }
 
-async function printTrackMainInfo() {
-
-    let data = await fetchJSON();
-
+async function printTrackMainInfo(data) {
     let tracks = data.track;
 
     var i;
@@ -135,9 +132,11 @@ async function printTrackMainInfo() {
 }
 
 window.addEventListener('load', initTrack)
-function initTrack() {
+async function initTrack() {
+    let data = await fetchJSON();
+    
     playAudio();
-    printTrackMainInfo();
+    printTrackMainInfo(data);
 }
 
 /* Funcion que reproduce un audio al cargar la pagina */
