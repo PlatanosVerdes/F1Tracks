@@ -227,8 +227,6 @@ function leerJSON() {
 
             //Cargar los tracks en el indice
             createTracksIndex(data);
-
-            /* console.log(data); */
         }
     }
 }
@@ -239,7 +237,7 @@ async function initIndex() {
     playAudio();
     createTracksIndex(data);
     mapsIndex(data);
-    carrousel(data);
+    carrouselEscuderias(data);
 }
 
 /* Funcion que reproduce un audio al cargar la pagina */
@@ -272,6 +270,7 @@ function mapsIndex(data) {
     ];
     var map = L.map('map1').setView([la, lo], 5);
     map.setMaxBounds(bounds);
+    map.setZoom(0);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: "Global Map",
         maxZoom: 18,
@@ -281,8 +280,6 @@ function mapsIndex(data) {
         zoomOffset: -1,
         accessToken: 'pk.eyJ1IjoicGF1aW5kYW5pY29sYXUiLCJhIjoiY2wyazhmZm80MGF5cDNicGtlazdyN3kxbyJ9.zoF8CP2CPUgGrw0U8e2_cA'
     }).addTo(map);
-
-
 
     for (var i = 0; i < listacircuitos.length; i++) {
         let coordenadas = listacircuitos[i].GeoCoordinates;
@@ -297,88 +294,27 @@ function mapsIndex(data) {
 }
 
 /*Carrousel*/
-function carrousel(data) {
+function carrouselEscuderias(data) {
     let esc = data.organitation;
-    let escList = document.getElementById('carouselescuderias');
-    escList.innerHTML = '';
+    let escList = document.getElementById('carousel-inner');
+    escList.innerHTML += ``;
+
     for (var i = 0; i < esc.length; i++) {
-        let escItem = document.createElement("div");
-        console.log(i);
-        escItem.setAttribute("class", "escItem");
-        escItem.setAttribute("id", "escItem");
         if (i == 0) {
-            escItem.innerHTML = `<div class="carousel-item active" data-bs-interval="10000">
-                            <img src="assets/img/escurerias/${esc[i].logo}" class="d-block w-100" alt="">
-                        </div>`;
+            escList.innerHTML += `
+                <div class="carousel-item active" data-bs-interval="9000">
+                <img src="assets/img/escurerias/${esc[i].logo}" class="d-block w-100" alt="${esc[i].logo}">
+                </div>
+            `;
         } else {
-            escItem.innerHTML = `<div class="carousel-item" data-bs-interval="2000">
-                    <img src="assets/img/escurerias/${esc[i].logo}" class="d-block w-100" alt="">
-                </div>`;
-        }
-        console.log(escItem);
-        escList.appendChild(escItem);
+            escList.innerHTML += `
+                <div class="carousel-item" data-bs-interval="5000">
+                <img src="assets/img/escurerias/${esc[i].logo}" class="d-block w-100" alt="${esc[i].logo}">
+                </div>
+            `;
+        } 
     }
 }
-
-//CARROUSEL V2
-/*function carrousel(data) {
-    let esc = data.organitation;
-    let imgArray = new Array(esc.length);
-    for(var i = 0; i < esc.length;i++){
-        imgArray[i] = `assets/img/escurerias/${esc[i].logo}`;
-    }
-    console.log(imgArray);
-    let posicionActual = 0;
-    let $botonRetroceder = document.querySelector('.atras');
-    let $botonAvanzar = document.querySelector('.adelante');
-    let $imagen = document.querySelector('#imagen');
-    let intervalo = 5000;
-
-    // Funciones
-
-    
-    function pasarFoto() {
-        if(posicionActual >= esc.length - 1) {
-            posicionActual = 0;
-        } else {
-            posicionActual++;
-        }
-        renderizarImagen();
-        
-    }
-
-    
-    function retrocederFoto() {
-        if(posicionActual <= 0) {
-            posicionActual = esc.length - 1;
-        } else {
-            posicionActual--;
-        }
-        renderizarImagen();
-        
-    }
-
-    
-    function renderizarImagen () {
-        $imagen.style.backgroundImage = `url(${imgArray[posicionActual]})`; 
-       
-        
-    }
-
-    
-    
-    setInterval(pasarFoto, intervalo);  
-    // Eventos
-    $botonAvanzar.addEventListener('click', pasarFoto);
-    $botonRetroceder.addEventListener('click', retrocederFoto);
-    
-    // Iniciar
-    renderizarImagen();
-}*/
-
-
-
-
 
 /* API TWITTER ENSEÑAR 10 TWITTS MÁS RECIENTES */
 /* 

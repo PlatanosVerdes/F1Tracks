@@ -64,26 +64,42 @@ function getClassification(data, i) {
     }
 
     let classificationArray = [];
-
-    for (var i = 0; i < c.length; i++) {
-
-        var pilot = getPilot(data, c[i][0]);
-        var ClassificationNames = {
-            name: pilot.name,
-            lastName: pilot.lastName,
-            time: c[i][1]
+    if (c[0] != null) {
+        for (var i = 0; i < c.length; i++) {
+            var pilot = getPilot(data, c[i][0]);
+            var ClassificationNames = {
+                name: pilot.name,
+                lastName: pilot.lastName,
+                time: c[i][1],
+            };
+            classificationArray.push(ClassificationNames);
         }
-        classificationArray.push(ClassificationNames);
-    }
 
-    document.getElementById('primeroNombre').innerHTML = `${classificationArray[0].name} ${classificationArray[0].lastName}`;
-    document.getElementById('primeroTiempo').innerHTML = `${classificationArray[0].time}`;
-    document.getElementById('segundoNombre').innerHTML = `${classificationArray[1].name} ${classificationArray[1].lastName}`;
-    document.getElementById('segundoTiempo').innerHTML = ` + ${classificationArray[1].time}`;
-    document.getElementById('terceroNombre').innerHTML = `${classificationArray[2].name} ${classificationArray[2].lastName}`;
-    document.getElementById('terceroTiempo').innerHTML = ` + ${classificationArray[2].time}`;
-    document.getElementById('cuartoNombre').innerHTML = `${classificationArray[3].name} ${classificationArray[3].lastName}`;
-    document.getElementById('cuartoTiempo').innerHTML = ` + ${classificationArray[3].time}`;
+        document.getElementById(
+            "primeroNombre"
+        ).innerHTML = `${classificationArray[0].name} ${classificationArray[0].lastName}`;
+        document.getElementById(
+            "primeroTiempo"
+        ).innerHTML = `${classificationArray[0].time}`;
+        document.getElementById(
+            "segundoNombre"
+        ).innerHTML = `${classificationArray[1].name} ${classificationArray[1].lastName}`;
+        document.getElementById(
+            "segundoTiempo"
+        ).innerHTML = ` + ${classificationArray[1].time}`;
+        document.getElementById(
+            "terceroNombre"
+        ).innerHTML = `${classificationArray[2].name} ${classificationArray[2].lastName}`;
+        document.getElementById(
+            "terceroTiempo"
+        ).innerHTML = ` + ${classificationArray[2].time}`;
+        document.getElementById(
+            "cuartoNombre"
+        ).innerHTML = `${classificationArray[3].name} ${classificationArray[3].lastName}`;
+        document.getElementById(
+            "cuartoTiempo"
+        ).innerHTML = ` + ${classificationArray[3].time}`;
+    }
 
 }
 
@@ -103,6 +119,7 @@ async function printTrackMainInfo(data) {
     var years = getYears(tracks[i]);
 
     document.getElementById('img-track').src = `assets/img/tracks/${tracks[i].image[0]}`;
+    document.getElementById('img-track').alt = tracks[i].image[0];
     document.getElementById('alterName-track').innerHTML = `${tracks[i].alternateName}`;
     document.getElementById('name-track').innerHTML = `${tracks[i].name}`;
     document.getElementById('location-track').innerHTML = `${tracks[i].GeoCoordinates.addressCountry}`;
@@ -128,13 +145,13 @@ async function printTrackMainInfo(data) {
     document.getElementById('record-time-track').innerHTML = `${tracks[i].datos_extra.lapRecord.time}`;
     document.getElementById('description-track').innerHTML = `${tracks[i].description}`;
 
-    var classi = getClassification(data, i);
+    getClassification(data, i);
+    videosTrack(tracks, i);
 }
 
 window.addEventListener('load', initTrack)
 async function initTrack() {
     let data = await fetchJSON();
-    
     playAudio();
     printTrackMainInfo(data);
 }
@@ -168,12 +185,86 @@ function maps(listacirc, num) {
     }).addTo(map);
     map.setMaxBounds(bounds);
 
+
     var marker = L.marker([lat, long]).addTo(map);
     marker.bindPopup(`<b>${listacirc[num].name}</b><br>${listacirc[num].alternateName}`);
 }
 
+function removeItemArray(array,item){
+    let pos;
+    for(var i=0; i<array.length; i++){
+        if(array[i] == item){
+            pos = i;
+            break;
+        }
+    }
+    array[pos] = array[array.length-1];
+    array.pop();
+    return array;
+}
+
 function trackfav() {
-    console.log("hello")
+    var tracksFav = [];
+    tracksFav.push(JSON.parse(localStorage.getItem("favs")));
+
+    if (tracksFav.length > 0) {
+        if (tracksFav.includes(nomTrack) == true) {
+            console.log("esta");
+            tracksFav = removeItemArray(tracksFav,nomTrack);
+            
+        } else {
+            console.log("no esta");
+            tracksFav.push(nomTrack);
+            
+        }
+    } else {
+        console.log("vacio");
+        tracksFav.push(nomTrack);
+    }
+    localStorage.setItem("favs", JSON.stringify(tracksFav));
+    console.log(tracksFav)
 }
 trackFav = document.getElementById("ico-fav");
 trackFav.addEventListener('click', trackfav);
+
+function videosTrack(data, i) {
+
+    if (data[i].video[1] == null) {
+        document.getElementById('video-title').innerHTML = `Video
+        <button style="visibility:hidden; onclick="document.getElementById('video-track').src = '${data[i].video[0]}'">TrackView</button>`;
+
+
+    } else {
+        console.log(data[i].video[1]);
+        document.getElementById('video-title').innerHTML =
+            `<button onclick="document.getElementById('video-track').src = '${data[i].video[0]}'">TrackView</button>
+            <button onclick="document.getElementById('video-track').src = '${data[i].video[1]}'">Highlight</button>`;
+    }
+    document.getElementById('iframe-video').innerHTML =
+        `<iframe id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe>`;
+
+}
+
+function tiempo() {
+    fetch('https://api.openweathermap.org/data/2.5/forecast?lat=40.373073379592306&lon=49.85324597023271&units=metric&appid=bb95d1c6a9cadc0d98a84cf2a738c977&lang=es')
+        .then(response => response.json())
+        .then(data => console.log(data));
+}
+
+function processTiempo(data) {
+    var dia = {
+        date: null,
+        temp: null,
+        feels_like: null,
+        temp_min: null,
+        temp_max: null,
+        humidity: null,
+        main: null,
+        wind: null,
+        icon: null
+    }
+    for(var i = 0; i< data.lists.length; i++){
+        
+    }
+
+}
