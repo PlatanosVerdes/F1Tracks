@@ -1,9 +1,4 @@
 /**
-* Template Name: Ninestars - v4.7.0
-* Template URL: https://bootstrapmade.com/ninestars-free-bootstrap-3-theme-for-creative/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-
 * COLOR ROJO: #dc0708
 * COLOR NEGRO: #282c34
 */
@@ -468,11 +463,6 @@ h6,
   background: #dc0708;
 }
 
-/* #hero button {
-  color: red;
-  margin-top: 5px;
-} */
-
 #hero .animated {
   animation: up-down 2s ease-in-out infinite alternate-reverse both;
 }
@@ -722,8 +712,6 @@ section {
   cursor:pointer;
   transform: scale(1.2,1.2);
 }
-
-
 
 .atras{
   align-self:center;

@@ -6,69 +6,32 @@ function remove(item) {
     }
 }
 
-/*Carrousel*/
-function carrousel(data) {
-    let esc = data.organitation;
-    let imgArray = new Array(esc.length);
-    for(var i = 0; i < esc.length;i++){
-        imgArray[i] = `assets/img/escurerias/${esc[i].logo}`;
-    }
-    console.log(imgArray);
-    let posicionActual = 0;
-    let $botonRetroceder = document.querySelector('.atras');
-    let $botonAvanzar = document.querySelector('.adelante');
-    let $imagen = document.querySelector('#imagen');
-    let intervalo = 5000;
+function readJSON() {
+    var data
+    const xhttp = new XMLHttpRequest();
+    xhttp.open('GET', 'f1tracks.json', true);
+    xhttp.send(null);
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
 
-    // Funciones
-
-    /**
-     * Funcion que cambia la foto en la siguiente posicion
-     */
-    function pasarFoto() {
-        if(posicionActual >= esc.length - 1) {
-            posicionActual = 0;
-        } else {
-            posicionActual++;
+            data = JSON.parse(this.responseText);
         }
-        renderizarImagen();
-        
     }
+    return data;
+}
 
-    /**
-     * Funcion que cambia la foto en la anterior posicion
-     */
-    function retrocederFoto() {
-        if(posicionActual <= 0) {
-            posicionActual = esc.length - 1;
-        } else {
-            posicionActual--;
-        }
-        renderizarImagen();
-        
+async function fetchJSON() {
+    const response = await fetch('f1tracks.json');
+    if (!response.ok) {
+        const message = `An error has occured: ${response.status}`;
+        throw new Error(message);
     }
-
-    /**
-     * Funcion que actualiza la imagen de imagen dependiendo de posicionActual
-     */
-    function renderizarImagen () {
-        $imagen.style.backgroundImage = `url(${imgArray[posicionActual]})`; 
-        /**
-     * Activa el autoplay de la imagen
-     */
-        
-    }
-
-    
-    
-    setInterval(pasarFoto, intervalo);  
-    // Eventos
-    $botonAvanzar.addEventListener('click', pasarFoto);
-    $botonRetroceder.addEventListener('click', retrocederFoto);
-    
-    // Iniciar
-    renderizarImagen();
-} 
+    const data = await response.json();
+    return data;
+}
+fetchJSON().catch(error => {
+    error.message; // 'An error has occurred: 404'
+});
 
 function currentDate() {
     let currentDate = new Date();
@@ -129,7 +92,8 @@ function printTrackAlternateName(track, whereId) {
 }
 
 /* Funcion que crea e iyecta todos los tracks del JSON en el INDEX */
-function createTracksIndex(data) {
+async function createTracksIndex() {
+    let data = await fetchJSON();
 
     let tracks = data.track;
     let tracksAux = [];
@@ -201,7 +165,7 @@ function createTracksIndex(data) {
 
 /* Metodo que cambia los tracks en el indice y los muestra ordenados */
 /* PENDIENTE ORDENAR POR AÑOS */
-function ordenar() {
+async function ordenar() {
     //Borrar el titulo
     document.getElementById('presentation').remove();
     var hero = document.getElementById('hero');
@@ -228,30 +192,23 @@ function ordenar() {
         document.getElementById('row-old-tracks-list').remove();
     }
 
-    //Leer JSON
-    const xhttp = new XMLHttpRequest();
-    xhttp.open('GET', 'f1tracks.json', true);
-    xhttp.send(null);
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
+    let data = await fetchJSON();
 
-            data = JSON.parse(this.responseText);
+    //Cargar los tracks
+    let tracks = data.track;
 
-            //Cargar los tracks
-            let tracks = data.track;
+    //Ordenamos los tracks por nombre
+    tracks = orderTracksBy(tracks, 'name');
 
-            //Ordenamos los tracks por nombre
-            tracks = orderTracksBy(tracks, 'name');
- 
-            let trackList = document.getElementById('track-list');
-            trackList.innerHTML = '';
+    let newTrackList = document.getElementById('track-list');
+    newTrackList.innerHTML = '';
 
-            for (var i = 0; i < tracks.length; i++) {
-                let trackItem = document.createElement("div");
-                trackItem.setAttribute("class", "track-item");
-                trackItem.setAttribute("id", "track-item");
+    for (var i = 0; i < tracks.length; i++) {
+        let trackItem = document.createElement("div");
+        trackItem.setAttribute("class", "track-item");
+        trackItem.setAttribute("id", "track-item");
 
-                trackItem.innerHTML = `
+        trackItem.innerHTML = `
                     <div class="row">
                         <div class="col-sm-12 col-md-6">
                             <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${tracks[i].identifier}.png" alt="Track" onclick="image(this)">
@@ -263,11 +220,9 @@ function ordenar() {
                     </div>
                 `;
 
-                trackList.appendChild(trackItem);
-            }
-
-        }
+        newTrackList.appendChild(trackItem);
     }
+
 }
 ordens = document.getElementById("az");
 ordens.addEventListener('click', ordenar);
@@ -283,7 +238,7 @@ function leerJSON() {
 
             data = JSON.parse(this.responseText);
             carrousel(data);
-            mapss(data);
+            mapsIndex(data);
 
             //Cargar los tracks en el indice
             createTracksIndex(data);
@@ -313,16 +268,10 @@ function saveTrack() {
 /* var body =document.getElementById("body"); */
 window.addEventListener('load', initIndex)
 function initIndex() {
-    /* let path = window.location.href
-    console.log(path) */
-
     playAudio();
-
-    /* SI ESTAMOS EN EL index.html */
-    //if (window.location.href.includes('index.html')) {
-    leerJSON();
-    //}
-
+    createTracksIndex();
+    mapsIndex();
+    carrousel();
 }
 
 /* Funcion que reproduce un audio al cargar la pagina */
@@ -341,8 +290,10 @@ window.addEventListener('storage', function (e) {
     console.log(JSON.stringify(e.storageArea));
 }, false);
 
-//API MAPS
-function mapss(data){
+/*API MAPS*/
+async function mapsIndex() {
+    let data = await fetchJSON();//= await readJSON();
+
     let listacircuitos = data.track;
     let tracks = listacircuitos;
     tracks = orderTracksBy(tracks, 'date');
@@ -352,35 +303,115 @@ function mapss(data){
     const bounds = [
         [-74.72371974567177, -159.6901903462776], // [west, south]
         [82.25330477102183, 176.85430047701885]  // [east, north]
-        ];
+    ];
     var map = L.map('map1').setView([la, lo], 5);
     map.setMaxBounds(bounds);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: "Global Map",
         maxZoom: 18,
-        minZoom:1,
+        minZoom: 1,
         id: 'mapbox/satellite-v9',
         tileSize: 512,
         zoomOffset: -1,
         accessToken: 'pk.eyJ1IjoicGF1aW5kYW5pY29sYXUiLCJhIjoiY2wyazhmZm80MGF5cDNicGtlazdyN3kxbyJ9.zoF8CP2CPUgGrw0U8e2_cA'
     }).addTo(map);
-    
 
-    
-    for(var i = 0; i < listacircuitos.length;i++){
+
+
+    for (var i = 0; i < listacircuitos.length; i++) {
         let coordenadas = listacircuitos[i].GeoCoordinates;
         let longitud = coordenadas.longitude;
         let latitud = coordenadas.latitude;
 
-        var marker = L.marker([latitud, longitud],{
-            color:'red'
+        var marker = L.marker([latitud, longitud], {
+            color: 'red'
         }).addTo(map);
         marker.bindPopup(`<b>${listacircuitos[i].name}</b><br>${listacircuitos[i].alternateName}`);
+    }
+}
+
+/*Carrousel*/
+async function carrousel() {
+    let data = await fetchJSON();
+    let esc = data.organitation;
+    let escList = document.getElementById('carouselescuderias');
+    escList.innerHTML = '';
+    for (var i = 0; i < esc.length; i++) {
+        let escItem = document.createElement("div");
+        console.log(i);
+        escItem.setAttribute("class", "escItem");
+        escItem.setAttribute("id", "escItem");
+        if (i == 0) {
+            escItem.innerHTML = `<div class="carousel-item active" data-bs-interval="10000">
+                            <img src="assets/img/escurerias/${esc[i].logo}" class="d-block w-100" alt="">
+                        </div>`;
+        } else {
+            escItem.innerHTML = `<div class="carousel-item" data-bs-interval="2000">
+                    <img src="assets/img/escurerias/${esc[i].logo}" class="d-block w-100" alt="">
+                </div>`;
+        }
+        console.log(escItem);
+        escList.appendChild(escItem);
+    }
+}
+
+//CARROUSEL V2
+/*function carrousel(data) {
+    let esc = data.organitation;
+    let imgArray = new Array(esc.length);
+    for(var i = 0; i < esc.length;i++){
+        imgArray[i] = `assets/img/escurerias/${esc[i].logo}`;
+    }
+    console.log(imgArray);
+    let posicionActual = 0;
+    let $botonRetroceder = document.querySelector('.atras');
+    let $botonAvanzar = document.querySelector('.adelante');
+    let $imagen = document.querySelector('#imagen');
+    let intervalo = 5000;
+
+    // Funciones
+
+    
+    function pasarFoto() {
+        if(posicionActual >= esc.length - 1) {
+            posicionActual = 0;
+        } else {
+            posicionActual++;
+        }
+        renderizarImagen();
+        
+    }
+
+    
+    function retrocederFoto() {
+        if(posicionActual <= 0) {
+            posicionActual = esc.length - 1;
+        } else {
+            posicionActual--;
+        }
+        renderizarImagen();
+        
+    }
+
+    
+    function renderizarImagen () {
+        $imagen.style.backgroundImage = `url(${imgArray[posicionActual]})`; 
+       
+        
     }
 
     
     
-}
+    setInterval(pasarFoto, intervalo);  
+    // Eventos
+    $botonAvanzar.addEventListener('click', pasarFoto);
+    $botonRetroceder.addEventListener('click', retrocederFoto);
+    
+    // Iniciar
+    renderizarImagen();
+}*/
+
+
 
 
 

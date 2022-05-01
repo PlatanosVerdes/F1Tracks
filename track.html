@@ -114,8 +114,8 @@
                             <div class="title-track">
                                 <div class="row ">
                                     <div class="col">
-                                        <i class="bi bi-star-fill"></i>
-                                        <h10 id="alterName-track">${tracks[i].alternateName}</h10>
+                                        <i class="bi bi-star-fill" id="ico-fav"></i>
+                                        <h10 id="alterName-track"></h10>
                                     </div>
                                 </div>
                             </div>
@@ -126,7 +126,7 @@
 
                         <div class="title">
                             <div class="sub-title-track">
-                                <h1 id="name-track">${tracks[i].name}</h1>
+                                <h1 id="name-track"></h1>
                             </div>
                         </div>
 
@@ -135,23 +135,22 @@
                                 <div class="col">
                                     <div class="detail-info">
                                         <div class="detail-info-title">País</div>
-                                        <div class="detail-info-content" id="location-track">${tracks[i].GeoCoordinates.addressCountry}
-                                        </div>
+                                        <div class="detail-info-content" id="location-track"></div>
                                     </div>
 
                                     <div class="detail-info">
                                         <div class="detail-info-title">Distancia</div>
-                                        <div class="detail-info-content" id="distance-track">${tracks[i].datos_extra.trackDistance} km</div>
+                                        <div class="detail-info-content" id="distance-track"></div>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="detail-info">
                                         <div class="detail-info-title">Vueltas</div>
-                                        <div class="detail-info-content" id="laps-track">${tracks[i].datos_extra.numberLaps}</div>
+                                        <div class="detail-info-content" id="laps-track"></div>
                                     </div>
                                     <div class="detail-info">
                                         <div class="detail-info-title">Años</div>
-                                        <div class="detail-info-content" id="years-track">${years}</div>
+                                        <div class="detail-info-content" id="years-track"></div>
                                     </div>
                                 </div>
                             </div>
@@ -161,14 +160,9 @@
                                         <div class="row">
                                             <div class="col">
                                                 <div class="detail-info-title">Vuelta rápida</div>
-                                                <div class="detail-info-content" id="record-time-track">${tracks[i].datos_extra.lapRecord.time}
-                                                </div>
+                                                <div class="detail-info-content" id="record-time-track"></div>
                                             </div>
-                                            <div class="col" id="pilot-record-track">
-                                                <!-- <img class="img-fluid rounded"
-                                                    src="assets/img/flags/${pilot.nationality}.svg" alt="Flag Country">
-                                                <div class="detail-info-content">${pilot.name} ${pilot.lastName}</div> -->
-                                            </div>
+                                            <div class="col" id="pilot-record-track"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -178,9 +172,7 @@
                         <div class="title">
                             <h1>Descripción pista</h1>
                         </div>
-                        <p id="description-track">
-                            ${tracks[i].description}
-                        </p>
+                        <p id="description-track"></p>
 
                         <div class="title">
                             <h1>Localización</h1>
@@ -391,7 +383,7 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/index.js"></script>
+    <!-- <script src="assets/js/index.js"></script> -->
     <script src="assets/js/track.js"></script>
 
     <!-- Vendor JS Files -->
