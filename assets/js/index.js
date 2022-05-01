@@ -349,21 +349,22 @@ function mapss(data){
     let c = tracks[0].GeoCoordinates;
     let lo = c.longitude;
     let la = c.latitude;
-    var bounds = [
-        [lo, la], // [west, south]
-        [lo, la]  // [east, north]
-        ]
-    var map = L.map('map1').setView([la, lo], 1);
+    const bounds = [
+        [-74.72371974567177, -159.6901903462776], // [west, south]
+        [82.25330477102183, 176.85430047701885]  // [east, north]
+        ];
+    var map = L.map('map1').setView([la, lo], 5);
+    map.setMaxBounds(bounds);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: "Global Map",
         maxZoom: 18,
-        minZoom:-1,
+        minZoom:1,
         id: 'mapbox/satellite-v9',
         tileSize: 512,
         zoomOffset: -1,
         accessToken: 'pk.eyJ1IjoicGF1aW5kYW5pY29sYXUiLCJhIjoiY2wyazhmZm80MGF5cDNicGtlazdyN3kxbyJ9.zoF8CP2CPUgGrw0U8e2_cA'
     }).addTo(map);
-    map.setMaxBounds(bounds);
+    
 
     
     for(var i = 0; i < listacircuitos.length;i++){
