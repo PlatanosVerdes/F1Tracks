@@ -854,3 +854,37 @@ section {
   margin-left: auto;
   margin-right: auto;
 }
+
+/*--------------------------------------------------------------
+# API TWITTER
+--------------------------------------------------------------*/
+.scroll {
+  border-width: 4px;
+  border-color:#dc0708;
+  width: 100%;
+  height: 200px;
+  overflow: auto;
+  color:#C0C0C0;
+  
+}
+
+.scroll img{
+  width:40px;
+  height: 40px;
+}
+
+.scroll h1{
+  font-size: x-small;
+  font-weight: bold;
+}
+
+.scroll h2{
+  font-size: xx-small;
+}
+
+.scroll h3{
+  font-style: oblique;
+  font-size: xx-small;
+  display: inline-block;
+  width: 50%;
+}

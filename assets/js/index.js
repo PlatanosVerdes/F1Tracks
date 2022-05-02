@@ -224,6 +224,7 @@ function leerJSON() {
             data = JSON.parse(this.responseText);
             carrousel(data);
             mapsIndex(data);
+            twitter();
 
             //Cargar los tracks en el indice
             createTracksIndex(data);
@@ -317,22 +318,20 @@ function carrouselEscuderias(data) {
 }
 
 /* API TWITTER ENSEÑAR 10 TWITTS MÁS RECIENTES */
-/* 
-const Twit = require('twit')
+function twitter(){
+    let Twit = require('twit')
 
-const T = new Twit({
-    apiKey: '',
-    apiSecret: '',
-    accessToken: '',
-    accessTokenSecret: '',
-    timeout_ms: 60 * 1000,
-    strictSSL: true,
-});
-
-(async () => {
+    let T = new Twit({
+        consumer_key:         'hYki2ZOYFDo7lCcWYFxY3GHiD',
+        consumer_secret:      'Nq50V1zVI3ka6SdmotuSvIX5kGznLZWPeu2fOjcXjZViQYaJzH',
+        access_token:         '1376221813-xC5cTmFDFphzghw6NLvhneuefYpPA8OwTyRqLsx',
+        access_token_secret:  'oBQVsioE5djzQOmuZO7z9iqnno5PnRRmn5OMEu294opzo'
+    });
+    
+    
     T.get('search/tweets', { q: '#F1 since:2020-07-11', count: 10 }, function (err, data, response) {
-        const tweets = data.statuses
         console.log(data)
-    })
-}); 
-*/
+    });
+    //created_at, text, user.screen_name, location, profile_image_url_https
+} 
+ 
