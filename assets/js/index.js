@@ -154,10 +154,7 @@ async function ordenar(order) {
 
     //Borrar el titulo
     document.getElementById('presentation').remove();
-    if(document.getElementById('parent-track-list-old')){
-        document.getElementById('parent-track-list-old').remove();
-        document.getElementById('row-old-tracks-list').remove();
-    }
+
     var hero = document.getElementById('hero');
 
     let newTitle = document.createElement("div");
@@ -177,6 +174,13 @@ async function ordenar(order) {
     titleTracksList.innerHTML = "";
 
     //Borrar los tracks
+    //Si hay circuitos ya hechos:
+    let oldTracks = document.getElementById('parent-track-list-old');
+    if(oldTracks){
+        oldTracks.remove();
+        document.getElementById('row-old-tracks-list').remove();
+    }
+
     var trackList = document.getElementById('track-list');
     trackList.initIndex = "";
     if (document.getElementById('row-old-tracks-list') != null) {
@@ -219,7 +223,7 @@ async function ordenar(order) {
         trackItem.innerHTML = `
                     <div class="row">
                         <div class="col-sm-12 col-md-6">
-                            <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${tracks[i].identifier}.png" alt="Track" onclick="image(this)">
+                        <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${tracks[i].identifier}.png" alt="${tracks[i].identifier}" onclick="getIdTrackClick(this)">
                         </div>
                         <div class="col-sm-12 col-md-6" id="idTrack">
                             <h3>${tracks[i].name}</h3>
