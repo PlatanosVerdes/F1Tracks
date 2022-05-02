@@ -79,12 +79,10 @@ function printTrackAlternateName(track, whereId) {
 
 /* Funcion que crea e iyecta todos los tracks del JSON en el INDEX */
 function createTracksIndex(data) {
-
     let tracks = data.track;
     let tracksAux = [];
 
     //Ordenamos los tracks por orden de fecha
-    //tracks.sort((a, b) => new Date(a.date) - new Date(b.date));
     tracks = orderTracksBy(tracks, 'date');
 
     let trackList = document.getElementById('track-list');
@@ -128,6 +126,7 @@ function createTracksIndex(data) {
         /* AÑADIMOS EL ESQUELETO DE LOS TRACKS ANTERIORES*/
         let rowOldTracks = document.createElement("div");
         rowOldTracks.setAttribute("class", "row");
+        rowOldTracks.setAttribute("id", "parent-track-list-old");
         rowOldTracks.innerHTML = `
             <div class="col-md-1">
             </div>
@@ -150,13 +149,20 @@ function createTracksIndex(data) {
 
 /* Metodo que cambia los tracks en el indice y los muestra ordenados */
 /* PENDIENTE ORDENAR POR AÑOS */
-async function ordenar() {
+async function ordenar(order) {
+    orderBy= order.currentTarget.myParam;
+
     //Borrar el titulo
     document.getElementById('presentation').remove();
+    if(document.getElementById('parent-track-list-old')){
+        document.getElementById('parent-track-list-old').remove();
+        document.getElementById('row-old-tracks-list').remove();
+    }
     var hero = document.getElementById('hero');
 
     let newTitle = document.createElement("div");
     newTitle.setAttribute("class", "container-fluid");
+    newTitle.setAttribute("id", "presentation");
     newTitle.innerHTML = `  
         <h4>CIRCUITOS</h4>
             <br>
@@ -182,13 +188,30 @@ async function ordenar() {
     //Cargar los tracks
     let tracks = data.track;
 
-    //Ordenamos los tracks por nombre
-    tracks = orderTracksBy(tracks, 'name');
+    if (orderBy == 'name') {
+        //Ordenamos los tracks por nombre
+        tracks = orderTracksBy(tracks, orderBy);
+    } else {
+        let auxTracks = [];
+        let tracksFav = JSON.parse(localStorage.getItem("favs"));
+        console.log(tracksFav);
+        if (tracksFav.length > 0) {
+            for (let i = 0; i < tracks.length; i++) {
+                if (tracksFav.includes(tracks[i].identifier)) {
+                    auxTracks.push(tracks[i]);
+                }
+            }
+        } else {
+            alert("No tienes circutos favoritos")
+        }
+        tracks = auxTracks;
+        console.log(tracks);
+    }
 
     let newTrackList = document.getElementById('track-list');
     newTrackList.innerHTML = '';
 
-    for (var i = 0; i < tracks.length; i++) {
+    for (let i = 0; i < tracks.length; i++) {
         let trackItem = document.createElement("div");
         trackItem.setAttribute("class", "track-item");
         trackItem.setAttribute("id", "track-item");
@@ -207,30 +230,14 @@ async function ordenar() {
 
         newTrackList.appendChild(trackItem);
     }
-
 }
-ordens = document.getElementById("az");
-ordens.addEventListener('click', ordenar);
+showTracksByName = document.getElementById("az");
+showTracksByName.addEventListener('click', ordenar);
+showTracksByName.myParam = "name";
 
-//ESTA FUNCION ESTA MAL: PENDIENTE DE SOLO USAR ESTE FUNCION PARA LEER JSON
-function leerJSON() {
-    const xhttp = new XMLHttpRequest();
-    xhttp.open('GET', 'f1tracks.json', true);
-    xhttp.send(null);
-    xhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            /* console.log(this.responseText); */
-
-            data = JSON.parse(this.responseText);
-            carrousel(data);
-            mapsIndex(data);
-            twitter();
-
-            //Cargar los tracks en el indice
-            createTracksIndex(data);
-        }
-    }
-}
+showTracksFavs = document.getElementById("favs");
+showTracksFavs.addEventListener('click', ordenar);
+showTracksFavs.myParam = "favs";
 
 window.addEventListener('load', initIndex)
 async function initIndex() {
@@ -313,25 +320,25 @@ function carrouselEscuderias(data) {
                 <img src="assets/img/escurerias/${esc[i].logo}" class="d-block w-100" alt="${esc[i].logo}">
                 </div>
             `;
-        } 
+        }
     }
 }
 
 /* API TWITTER ENSEÑAR 10 TWITTS MÁS RECIENTES */
-function twitter(){
+function twitter() {
     let Twit = require('twit')
 
     let T = new Twit({
-        consumer_key:         'hYki2ZOYFDo7lCcWYFxY3GHiD',
-        consumer_secret:      'Nq50V1zVI3ka6SdmotuSvIX5kGznLZWPeu2fOjcXjZViQYaJzH',
-        access_token:         '1376221813-xC5cTmFDFphzghw6NLvhneuefYpPA8OwTyRqLsx',
-        access_token_secret:  'oBQVsioE5djzQOmuZO7z9iqnno5PnRRmn5OMEu294opzo'
+        consumer_key: 'hYki2ZOYFDo7lCcWYFxY3GHiD',
+        consumer_secret: 'Nq50V1zVI3ka6SdmotuSvIX5kGznLZWPeu2fOjcXjZViQYaJzH',
+        access_token: '1376221813-xC5cTmFDFphzghw6NLvhneuefYpPA8OwTyRqLsx',
+        access_token_secret: 'oBQVsioE5djzQOmuZO7z9iqnno5PnRRmn5OMEu294opzo'
     });
-    
-    
+
+
     T.get('search/tweets', { q: '#F1 since:2020-07-11', count: 10 }, function (err, data, response) {
         console.log(data)
     });
     //created_at, text, user.screen_name, location, profile_image_url_https
-} 
- 
+}
+

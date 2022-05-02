@@ -765,6 +765,7 @@ section {
   width: 1rem;
   height: 1rem;
   color: #141414;
+  margin: 5px;
 }
 
 .title-track .bi:hover {

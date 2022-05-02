@@ -1,6 +1,14 @@
 let idTrack = sessionStorage.getItem('idTrack');
 var nomTrack = idTrack;
 
+//Funcion para remover un elemento
+function remove(item) {
+    var elem = document.querySelectorAll(item);
+    for (var i = 0; i < elem.length; i++) {
+        var del = elem[i]; del.parentNode.removeChild(del);
+    }
+}
+
 async function fetchJSON() {
     const response = await fetch('f1tracks.json');
     if (!response.ok) {
@@ -118,16 +126,32 @@ async function printTrackMainInfo(data) {
     var pilot = getPilot(data, idPilot)
     var years = getYears(tracks[i]);
 
+    let parentIcoFav = document.getElementById("col-ico-fav");
+    let icon = document.createElement("i");
+    icon.setAttribute("id","ico-fav");
+    let name = document.createElement("h10");
+    name.setAttribute("id", "alterName-track");
+    name.innerHTML = `${tracks[i].alternateName}`;
+
+    let tracksFav = JSON.parse(localStorage.getItem("favs"));
+    if (tracksFav.includes(nomTrack)) {
+        icon.setAttribute("class", "bi bi-star-fill");
+    } else {
+        icon.setAttribute("class", "bi bi-star");
+    }
+    icon.setAttribute("onclick","trackfav()");
+    
+    parentIcoFav.appendChild(icon);
+    parentIcoFav.appendChild(name);
+
     document.getElementById('img-track').src = `assets/img/tracks/${tracks[i].image[0]}`;
     document.getElementById('img-track').alt = tracks[i].image[0];
-    document.getElementById('alterName-track').innerHTML = `${tracks[i].alternateName}`;
     document.getElementById('name-track').innerHTML = `${tracks[i].name}`;
     document.getElementById('location-track').innerHTML = `${tracks[i].GeoCoordinates.addressCountry}`;
     document.getElementById('distance-track').innerHTML = `${tracks[i].datos_extra.trackDistance} km`;
     document.getElementById('laps-track').innerHTML = `${tracks[i].datos_extra.numberLaps}`;
     document.getElementById('years-track').innerHTML = `${years}`;
     document.getElementById('record-time-track').innerHTML = `${tracks[i].datos_extra.lapRecord.time}`;
-
 
     let img = document.createElement("img");
     img.setAttribute("class", "img-fluid rounded");
@@ -190,42 +214,48 @@ function maps(listacirc, num) {
     marker.bindPopup(`<b>${listacirc[num].name}</b><br>${listacirc[num].alternateName}`);
 }
 
-function removeItemArray(array,item){
+function removeItemArray(array, item) {
     let pos;
-    for(var i=0; i<array.length; i++){
-        if(array[i] == item){
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] == item) {
             pos = i;
             break;
         }
     }
-    array[pos] = array[array.length-1];
+    array[pos] = array[array.length - 1];
     array.pop();
     return array;
 }
 
 function trackfav() {
-    var tracksFav = [];
-    tracksFav.push(JSON.parse(localStorage.getItem("favs")));
+    let tracksFav = JSON.parse(localStorage.getItem("favs"));
+    let icon = document.getElementById("ico-fav");
 
     if (tracksFav.length > 0) {
-        if (tracksFav.includes(nomTrack) == true) {
+        if (tracksFav.includes(nomTrack)) {
             console.log("esta");
-            tracksFav = removeItemArray(tracksFav,nomTrack);
-            
+            tracksFav = removeItemArray(tracksFav, nomTrack);
+            icon.className = "bi bi-star";
+
         } else {
             console.log("no esta");
             tracksFav.push(nomTrack);
-            
+            icon.className = "bi bi-star-fill";
         }
     } else {
         console.log("vacio");
         tracksFav.push(nomTrack);
+        icon.className = "bi bi-star-fill";
     }
+
     localStorage.setItem("favs", JSON.stringify(tracksFav));
     console.log(tracksFav)
 }
-trackFav = document.getElementById("ico-fav");
-trackFav.addEventListener('click', trackfav);
+
+function putTrackFav(clas){
+
+}
+
 
 function videosTrack(data, i) {
 
@@ -263,8 +293,8 @@ function processTiempo(data) {
         wind: null,
         icon: null
     }
-    for(var i = 0; i< data.lists.length; i++){
-        
+    for (var i = 0; i < data.lists.length; i++) {
+
     }
 
 }
