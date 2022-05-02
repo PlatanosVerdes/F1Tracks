@@ -1,3 +1,5 @@
+//import {playAudio, fetchJSON, ordenar} from "global_function.js"
+
 let idTrack = sessionStorage.getItem('idTrack');
 var nomTrack = idTrack;
 
@@ -8,19 +10,6 @@ function remove(item) {
         var del = elem[i]; del.parentNode.removeChild(del);
     }
 }
-
-async function fetchJSON() {
-    const response = await fetch('f1tracks.json');
-    if (!response.ok) {
-        const message = `An error has occured: ${response.status}`;
-        throw new Error(message);
-    }
-    const data = await response.json();
-    return data;
-}
-fetchJSON().catch(error => {
-    error.message; // 'An error has occurred: 404'
-});
 
 function getYears(data) {
     var year = data.datos_extra.years;
@@ -127,6 +116,8 @@ async function printTrackMainInfo(data) {
     var years = getYears(tracks[i]);
 
     let parentIcoFav = document.getElementById("col-ico-fav");
+    let bt = document.createElement("button");
+
     let icon = document.createElement("i");
     icon.setAttribute("id","ico-fav");
     let name = document.createElement("h10");
@@ -141,7 +132,8 @@ async function printTrackMainInfo(data) {
     }
     icon.setAttribute("onclick","trackfav()");
     
-    parentIcoFav.appendChild(icon);
+    bt.appendChild(icon);
+    parentIcoFav.appendChild(bt);
     parentIcoFav.appendChild(name);
 
     document.getElementById('img-track').src = `assets/img/tracks/${tracks[i].image[0]}`;
@@ -173,10 +165,21 @@ async function printTrackMainInfo(data) {
     videosTrack(tracks, i);
 }
 
+async function fetchJSON() {
+    const response = await fetch('f1tracks.json');
+    if (!response.ok) {
+        const message = `An error has occured: ${response.status}`;
+        throw new Error(message);
+    }
+    const data = await response.json();
+    return data;
+}
+
 window.addEventListener('load', initTrack)
 async function initTrack() {
     let data = await fetchJSON();
     printTrackMainInfo(data);
+    playAudio();
 }
 
 //API MAPS
@@ -242,11 +245,6 @@ function trackfav() {
     localStorage.setItem("favs", JSON.stringify(tracksFav));
     console.log(tracksFav)
 }
-
-function putTrackFav(clas){
-
-}
-
 
 function videosTrack(data, i) {
 

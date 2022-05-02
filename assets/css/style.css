@@ -79,11 +79,10 @@ h6,
 #header {
   height: 72px;
   transition: all 0.5s;
-  z-index: 997;
+  z-index: 2000;
   transition: all 0.5s;
   background: #282c34;
   box-shadow: 0px 2px 15px rgba(221, 121, 121, 0.1);
-
 }
 
 #header .push {
@@ -168,7 +167,6 @@ h6,
 
 .navbar {
   padding: 0;
-
 }
 
 .navbar ul {
@@ -776,6 +774,29 @@ section {
   color: #ffe81d;
 }
 
+.title-track button {
+  all: unset;
+}
+
+.title-track button:focus {
+  animation: fav 0.5s;
+}
+
+.title-track button:active {
+  animation: none;
+}
+
+@keyframes fav {
+  20% {
+    transform: rotate(-10deg);
+  }
+
+  80% {
+    transform: rotate(10deg);
+  }
+
+}
+
 .sub-title-track h1 {
   font-size: 1.1rem;
 }
@@ -786,10 +807,6 @@ section {
 #map1 {
   height: 400px;
   width: 100%;
-}
-
-#map2 {
-  height: 400px;
 }
 
 /*--------------------------------------------------------------
@@ -861,29 +878,29 @@ section {
 --------------------------------------------------------------*/
 .scroll {
   border-width: 4px;
-  border-color:#dc0708;
+  border-color: #dc0708;
   width: 100%;
   height: 200px;
   overflow: auto;
-  color:#C0C0C0;
-  
+  color: #C0C0C0;
+
 }
 
-.scroll img{
-  width:40px;
+.scroll img {
+  width: 40px;
   height: 40px;
 }
 
-.scroll h1{
+.scroll h1 {
   font-size: x-small;
   font-weight: bold;
 }
 
-.scroll h2{
+.scroll h2 {
   font-size: xx-small;
 }
 
-.scroll h3{
+.scroll h3 {
   font-style: oblique;
   font-size: xx-small;
   display: inline-block;
