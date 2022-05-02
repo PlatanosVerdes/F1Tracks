@@ -176,16 +176,7 @@ async function printTrackMainInfo(data) {
 window.addEventListener('load', initTrack)
 async function initTrack() {
     let data = await fetchJSON();
-    playAudio();
     printTrackMainInfo(data);
-}
-
-/* Funcion que reproduce un audio al cargar la pagina */
-function playAudio() {
-    audio = document.getElementById("index-audio");
-    audio.muted = false;
-    audio.play();
-    audio.volume = 0.35;
 }
 
 //API MAPS
