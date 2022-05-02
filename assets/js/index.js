@@ -268,9 +268,9 @@ function mapsIndex(data) {
         [-74.72371974567177, -159.6901903462776], // [west, south]
         [82.25330477102183, 176.85430047701885]  // [east, north]
     ];
-    var map = L.map('map1').setView([la, lo], 5);
+    var map = L.map('map1').setView([la, lo], 1);
     map.setMaxBounds(bounds);
-    map.setZoom(0);
+    //map.setZoom(0);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: "Global Map",
         maxZoom: 18,
