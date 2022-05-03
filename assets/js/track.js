@@ -224,7 +224,8 @@ function removeItemArray(array, item) {
 }
 
 function trackfav() {
-    let tracksFav = JSON.parse(localStorage.getItem("favs"));
+    let tracksFav = [];
+    tracksFav = JSON.parse(localStorage.getItem("favs"));
     let icon = document.getElementById("ico-fav");
 
     if (tracksFav.length > 0) {
