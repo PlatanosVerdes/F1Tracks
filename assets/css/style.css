@@ -621,6 +621,25 @@ section {
   border-bottom: 2px solid #ff0000;
 }
 
+.track-item .text{
+  transition: .5s ease;
+  opacity: 0;
+  color: white;
+  font-size: 16px;
+}
+
+.track-item .image{
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+.track-item:hover .image {
+  opacity: 0.3;
+}
+
+.track-item:hover .text {
+  opacity: 1;
+}
+
 /* @media (max-width: 991px) {
   .track .track-img img {
     max-width: 70%;

@@ -234,6 +234,8 @@ async function ordenar(order) {
 
         newTrackList.appendChild(trackItem);
     }
+    //class = "image"
+    //<div class="text">${tracks[i].date}</div>
 }
 showTracksByName = document.getElementById("az");
 showTracksByName.addEventListener('click', ordenar);
