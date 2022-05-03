@@ -124,9 +124,10 @@ async function printTrackMainInfo(data) {
     name.setAttribute("id", "alterName-track");
     name.innerHTML = `${tracks[i].alternateName}`;
 
-    let tracksFav = JSON.parse(localStorage.getItem("favs"));
+    var tracksFav = [];
+    tracksFav = JSON.parse(localStorage.getItem("favs"));
     icon.setAttribute("class", "bi bi-star");
-    if(tracksFavs.length > 0){
+    if(tracksFav != null){
         if (tracksFav.includes(nomTrack)) {
             icon.setAttribute("class", "bi bi-star-fill");
         } 
@@ -184,6 +185,14 @@ async function initTrack() {
     playAudio();
 }
 
+/* Funcion que reproduce un audio al cargar la pagina */
+function playAudio() {
+    audio = document.getElementById("index-audio");
+    audio.muted = false;
+    audio.play();
+    audio.volume = 0.35;
+}
+
 //API MAPS
 function maps(listacirc, num) {
     let coor = listacirc[num].GeoCoordinates;
@@ -228,7 +237,7 @@ function trackfav() {
     tracksFav = JSON.parse(localStorage.getItem("favs"));
     let icon = document.getElementById("ico-fav");
 
-    if (tracksFav.length > 0) {
+    if (tracksFav != null) {
         if (tracksFav.includes(nomTrack)) {
             console.log("esta");
             tracksFav = removeItemArray(tracksFav, nomTrack);
@@ -241,7 +250,7 @@ function trackfav() {
         }
     } else {
         console.log("vacio");
-        tracksFav.push(nomTrack);
+        tracksFav = [nomTrack];
         icon.className = "bi bi-star-fill";
     }
 
