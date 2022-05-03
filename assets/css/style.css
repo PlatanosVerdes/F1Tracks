@@ -82,7 +82,7 @@ h6,
   z-index: 2000;
   transition: all 0.5s;
   background: #282c34;
-  box-shadow: 0px 2px 15px rgba(221, 121, 121, 0.1);
+  box-shadow: 0px 2px 15px #f14f4f36;
 }
 
 #header .push {
@@ -807,6 +807,10 @@ section {
 #map1 {
   height: 400px;
   width: 100%;
+  border-radius: 3px;
+}
+#map2 { 
+  height: 400px;
 }
 
 /*--------------------------------------------------------------
