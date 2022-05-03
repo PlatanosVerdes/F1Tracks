@@ -125,11 +125,13 @@ async function printTrackMainInfo(data) {
     name.innerHTML = `${tracks[i].alternateName}`;
 
     let tracksFav = JSON.parse(localStorage.getItem("favs"));
-    if (tracksFav.includes(nomTrack)) {
-        icon.setAttribute("class", "bi bi-star-fill");
-    } else {
-        icon.setAttribute("class", "bi bi-star");
+    icon.setAttribute("class", "bi bi-star");
+    if(tracksFavs.length > 0){
+        if (tracksFav.includes(nomTrack)) {
+            icon.setAttribute("class", "bi bi-star-fill");
+        } 
     }
+    
     icon.setAttribute("onclick","trackfav()");
     
     bt.appendChild(icon);
