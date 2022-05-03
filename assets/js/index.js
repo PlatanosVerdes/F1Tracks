@@ -252,6 +252,7 @@ async function initIndex() {
     playAudio();
     mapsIndex(data);
     carrouselEscuderias(data);
+    twitter();
 }
 
 /* Funcion que reproduce un audio al cargar la pagina */
@@ -332,14 +333,23 @@ function carrouselEscuderias(data) {
 
 /* API TWITTER ENSEÑAR 10 TWITTS MÁS RECIENTES */
 function twitter() {
-    let Twit = require('twit')
+    var xhr = new XMLHttpRequest();
+    //var Twit = fetch('twit');
 
-    let T = new Twit({
+    xhr.setRequestHeader({
         consumer_key: 'hYki2ZOYFDo7lCcWYFxY3GHiD',
         consumer_secret: 'Nq50V1zVI3ka6SdmotuSvIX5kGznLZWPeu2fOjcXjZViQYaJzH',
         access_token: '1376221813-xC5cTmFDFphzghw6NLvhneuefYpPA8OwTyRqLsx',
         access_token_secret: 'oBQVsioE5djzQOmuZO7z9iqnno5PnRRmn5OMEu294opzo'
     });
+
+    
+    xhr.open("GET", "https://api.twitter.com/2/tweets?ids=1261326399320715264,1278347468690915330");
+    
+    xhr.setRequestHeader("Authorization","Bearer AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGm");
+
+    xhr.send();
+    
 
 
     T.get('search/tweets', { q: '#F1 since:2020-07-11', count: 10 }, function (err, data, response) {
