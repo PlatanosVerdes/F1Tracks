@@ -1,15 +1,5 @@
-//import {playAudio, fetchJSON, ordenar} from "global_function.js"
-
-let idTrack = sessionStorage.getItem('idTrack');
-var nomTrack = idTrack;
-
-//Funcion para remover un elemento
-function remove(item) {
-    var elem = document.querySelectorAll(item);
-    for (var i = 0; i < elem.length; i++) {
-        var del = elem[i]; del.parentNode.removeChild(del);
-    }
-}
+const nameTrack = sessionStorage.getItem('nameTrack');
+const idTrack = sessionStorage.getItem('idTrack');
 
 function getYears(data) {
     var year = data.datos_extra.years;
@@ -23,6 +13,11 @@ function getYears(data) {
         }
     }
     return s;
+}
+
+function sessionVarWhenClickNav(save) {
+    sessionStorage.setItem('navClicked', save);
+    location.href = "index.html";
 }
 
 function getPilot(data, idPilot) {
@@ -105,7 +100,7 @@ async function printTrackMainInfo(data) {
 
     var i;
     for (i = 0; i < tracks.length; i++) {
-        if (tracks[i].identifier == nomTrack) {
+        if (tracks[i].identifier == nameTrack) {
             break;
         }
     }
@@ -119,7 +114,7 @@ async function printTrackMainInfo(data) {
     let bt = document.createElement("button");
 
     let icon = document.createElement("i");
-    icon.setAttribute("id","ico-fav");
+    icon.setAttribute("id", "ico-fav");
     let name = document.createElement("h10");
     name.setAttribute("id", "alterName-track");
     name.innerHTML = `${tracks[i].alternateName}`;
@@ -127,14 +122,14 @@ async function printTrackMainInfo(data) {
     var tracksFav = [];
     tracksFav = JSON.parse(localStorage.getItem("favs"));
     icon.setAttribute("class", "bi bi-star");
-    if(tracksFav != null){
-        if (tracksFav.includes(nomTrack)) {
+    if (tracksFav != null) {
+        if (tracksFav.includes(nameTrack)) {
             icon.setAttribute("class", "bi bi-star-fill");
-        } 
+        }
     }
-    
-    icon.setAttribute("onclick","trackfav()");
-    
+
+    icon.setAttribute("onclick", "trackfav()");
+
     bt.appendChild(icon);
     parentIcoFav.appendChild(bt);
     parentIcoFav.appendChild(name);
@@ -168,29 +163,37 @@ async function printTrackMainInfo(data) {
     videosTrack(tracks, i);
 }
 
-async function fetchJSON() {
-    const response = await fetch('f1tracks.json');
-    if (!response.ok) {
-        const message = `An error has occured: ${response.status}`;
-        throw new Error(message);
+function createMenuCircuitsTrack(year) {
+    let index = document.getElementById("years");
+    indexYear = currentDate().getFullYear() - year;
+    index.innerHTML = ``;
+    for (let i = 0; i < year; i++) {
+        let li = document.createElement("li");
+        li.setAttribute("id", "years");
+        li.setAttribute("title", indexYear + i);
+
+        let button = document.createElement("button");
+        button.addEventListener("click", () => sessionVarWhenClickNav(indexYear + i));
+
+        let a = document.createElement("a");
+        a.setAttribute("href", "#");
+        a.innerHTML = indexYear + i;
+
+        button.appendChild(a);
+        li.appendChild(button);
+        index.appendChild(li);
     }
-    const data = await response.json();
-    return data;
+
+    document.getElementById("bt-az").addEventListener("click", () => sessionVarWhenClickNav("name"));
+    document.getElementById("bt-favs").addEventListener("click", () => sessionVarWhenClickNav("favs"));
 }
 
 window.addEventListener('load', initTrack)
 async function initTrack() {
     let data = await fetchJSON();
     printTrackMainInfo(data);
+    createMenuCircuitsTrack(3,data);
     playAudio();
-}
-
-/* Funcion que reproduce un audio al cargar la pagina */
-function playAudio() {
-    audio = document.getElementById("index-audio");
-    audio.muted = false;
-    audio.play();
-    audio.volume = 0.35;
 }
 
 //API MAPS
@@ -238,19 +241,19 @@ function trackfav() {
     let icon = document.getElementById("ico-fav");
 
     if (tracksFav != null) {
-        if (tracksFav.includes(nomTrack)) {
+        if (tracksFav.includes(nameTrack)) {
             console.log("esta");
-            tracksFav = removeItemArray(tracksFav, nomTrack);
+            tracksFav = removeItemArray(tracksFav, nameTrack);
             icon.className = "bi bi-star";
 
         } else {
             console.log("no esta");
-            tracksFav.push(nomTrack);
+            tracksFav.push(nameTrack);
             icon.className = "bi bi-star-fill";
         }
     } else {
         console.log("vacio");
-        tracksFav = [nomTrack];
+        tracksFav = [nameTrack];
         icon.className = "bi bi-star-fill";
     }
 

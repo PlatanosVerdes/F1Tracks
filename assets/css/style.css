@@ -31,6 +31,10 @@ h6,
   font-family: "Raleway", sans-serif;
 }
 
+button {
+  all: unset;
+}
+
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
@@ -621,23 +625,35 @@ section {
   border-bottom: 2px solid #ff0000;
 }
 
-.track-item .text{
+.track-item .text {
   transition: .5s ease;
   opacity: 0;
   color: white;
   font-size: 16px;
 }
 
-.track-item .image{
+.track-item .image {
   transition: .5s ease;
   backface-visibility: hidden;
 }
+
 .track-item:hover .image {
   opacity: 0.3;
 }
 
 .track-item:hover .text {
   opacity: 1;
+}
+
+.notfav h1 {
+  color: #f03535;
+  font-weight: bold
+}
+
+.notfav img {
+  margin: 1rem;
+  padding: 1rem;
+  width: 100%;
 }
 
 /* @media (max-width: 991px) {
@@ -828,7 +844,8 @@ section {
   width: 100%;
   border-radius: 3px;
 }
-#map2 { 
+
+#map2 {
   height: 400px;
 }
 
@@ -900,13 +917,9 @@ section {
 # API TWITTER
 --------------------------------------------------------------*/
 .scroll {
-  border-width: 4px;
-  border-color: #dc0708;
-  width: 100%;
   height: 200px;
   overflow: auto;
   color: #C0C0C0;
-
 }
 
 .scroll img {

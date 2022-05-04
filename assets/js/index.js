@@ -1,63 +1,19 @@
-//Funcion para remover un elemento
-function remove(item) {
-    var elem = document.querySelectorAll(item);
-    for (var i = 0; i < elem.length; i++) {
-        var del = elem[i]; del.parentNode.removeChild(del);
-    }
-}
-
-function currentDate() {
-    let currentDate = new Date();
-    let cDay = currentDate.getDate();
-    let cMonth = currentDate.getMonth();
-    let cYear = currentDate.getFullYear();
-
-    return new Date(cYear, cMonth, cDay);
-}
-
-
 //Funcion que se ejecuta al clicckar una imagen de un track
 function getIdTrackClick(img) {
-    var id = img.alt;
-
-    sessionStorage.setItem('idTrack', id);
+    sessionStorage.setItem('nameTrack', img.alt);
+    sessionStorage.setItem('idTrack', img.getAttribute("data-track-pos"));
     location.href = "track.html";
 }
 
-async function fetchJSON() {
-    const response = await fetch('f1tracks.json');
-    if (!response.ok) {
-        const message = `An error has occured: ${response.status}`;
-        throw new Error(message);
-    }
-    const data = await response.json();
-    return data;
-}
-fetchJSON().catch(error => {
-    error.message; // 'An error has occurred: 404'
-});
 
-
-//Funcion que ordena los tracks por az o por date (fecha)
-function orderTracksBy(tracks, order) {
-    if (order == 'name') {
-        tracks.sort(function (a, b) {
-            if (a.name < b.name) return -1;
-            if (a.name > b.name) return 1;
-            return 0;
-        })
-    } else if (order == 'date') {
-        tracks.sort((a, b) => new Date(a.date) - new Date(b.date));
-    }
-    return tracks;
-}
 
 /* Inyectar en el html los tracks con el titulo que
 tienen en el campeonato (AlternateName)
 @track: el track del JSON
+@trackPos: la posicion del Array del JSON
 @whereId: El ID de la etiqueta del HTML donde se quiere inyectar
 */
-function printTrackAlternateName(track, whereId) {
+function printTrackAlternateName(track, trackpos, whereId) {
     let trackItem = document.createElement("div");
     trackItem.setAttribute("class", "track-item");
     trackItem.setAttribute("id", "track-item");
@@ -65,7 +21,7 @@ function printTrackAlternateName(track, whereId) {
     trackItem.innerHTML = `
         <div class="row">
             <div class="col-sm-12 col-md-6">
-                <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${track.identifier}.png" alt="${track.identifier}" onclick="getIdTrackClick(this)">            
+                <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${track.identifier}.webp" alt="${track.identifier}" data-track-pos="${trackpos}" onclick="getIdTrackClick(this)">            
             </div>
             <div class="col-sm-12 col-md-6">
                 <h3>${track.alternateName}</h3>
@@ -95,7 +51,7 @@ function createTracksIndex(data) {
             tracksAux.push(tracks[i]);
         } else {
             /* Print */
-            printTrackAlternateName(tracks[i], trackList);
+            printTrackAlternateName(tracks[i], i, trackList);
         }
     }
 
@@ -142,7 +98,7 @@ function createTracksIndex(data) {
         let trackListOld = document.getElementById('track-list-old');
         trackListOld.innerHTML = '';
         for (var i = 0; i < tracksAux.length; i++) {
-            printTrackAlternateName(tracksAux[i], trackListOld);
+            printTrackAlternateName(tracksAux[i], i, trackListOld);
         }
     }
 }
@@ -150,7 +106,7 @@ function createTracksIndex(data) {
 /* Metodo que cambia los tracks en el indice y los muestra ordenados */
 /* PENDIENTE ORDENAR POR AÑOS */
 async function ordenar(order) {
-    orderBy= order.currentTarget.myParam;
+    orderBy = order.currentTarget.myParam;
 
     //Borrar el titulo
     document.getElementById('presentation').remove();
@@ -160,11 +116,7 @@ async function ordenar(order) {
     let newTitle = document.createElement("div");
     newTitle.setAttribute("class", "container-fluid");
     newTitle.setAttribute("id", "presentation");
-    newTitle.innerHTML = `  
-        <h4>CIRCUITOS</h4>
-            <br>
-        <h3>TEMPORADA ${currentDate().getFullYear()}</h3>
-    `;
+
 
     //Penemos nuevo titulo
     hero.appendChild(newTitle);
@@ -176,7 +128,7 @@ async function ordenar(order) {
     //Borrar los tracks
     //Si hay circuitos ya hechos:
     let oldTracks = document.getElementById('parent-track-list-old');
-    if(oldTracks){
+    if (oldTracks) {
         oldTracks.remove();
         document.getElementById('row-old-tracks-list').remove();
     }
@@ -193,23 +145,35 @@ async function ordenar(order) {
     let tracks = data.track;
 
     if (orderBy == 'name') {
+        newTitle.innerHTML = `  
+            <h4>CIRCUITOS</h4>
+                <br>
+            <h3>TEMPORADA ${currentDate().getFullYear()}</h3>
+        `;
         //Ordenamos los tracks por nombre
         tracks = orderTracksBy(tracks, orderBy);
     } else {
+        //FAVS: PENDIENTE DE CAMBIAR ESTE ELSE
+        newTitle.innerHTML = `  
+            <h4>CIRCUITOS</h4>
+                <br>
+            <h3>TUS CIRCUITOS FAVORITOS</h3>
+        `;
         let auxTracks = [];
         let tracksFav = JSON.parse(localStorage.getItem("favs"));
-        console.log(tracksFav);
+
         if (tracksFav.length > 0) {
             for (let i = 0; i < tracks.length; i++) {
                 if (tracksFav.includes(tracks[i].identifier)) {
                     auxTracks.push(tracks[i]);
                 }
             }
+            tracks = auxTracks;
         } else {
-            alert("No tienes circutos favoritos")
+            alert("No tienes circutos favoritos");
+            location.href = "index.html";
         }
-        tracks = auxTracks;
-        console.log(tracks);
+
     }
 
     let newTrackList = document.getElementById('track-list');
@@ -223,7 +187,7 @@ async function ordenar(order) {
         trackItem.innerHTML = `
                     <div class="row">
                         <div class="col-sm-12 col-md-6">
-                        <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${tracks[i].identifier}.png" alt="${tracks[i].identifier}" onclick="getIdTrackClick(this)">
+                        <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${tracks[i].identifier}.webp" alt="${tracks[i].identifier}" onclick="getIdTrackClick(this)">
                         </div>
                         <div class="col-sm-12 col-md-6" id="idTrack">
                             <h3>${tracks[i].name}</h3>
@@ -234,34 +198,55 @@ async function ordenar(order) {
 
         newTrackList.appendChild(trackItem);
     }
-    //class = "image"
-    //<div class="text">${tracks[i].date}</div>
 }
-showTracksByName = document.getElementById("az");
-showTracksByName.addEventListener('click', ordenar);
-showTracksByName.myParam = "name";
 
-showTracksFavs = document.getElementById("favs");
-showTracksFavs.addEventListener('click', ordenar);
-showTracksFavs.myParam = "favs";
+function createMenuCircuitsIndex(year, data) {
+    let index = document.getElementById("years");
+    indexYear = currentDate().getFullYear() - year;
+    index.innerHTML = ``;
+    for (let i = 0; i < year; i++) {
+        let li = document.createElement("li");
+        li.setAttribute("id", "years");
+        li.setAttribute("title", indexYear + i);
+
+        let button = document.createElement("button");
+        button.addEventListener("click", () => ordenarBy(indexYear + i, data));
+
+        let a = document.createElement("a");
+        a.setAttribute("href", "#");
+        a.innerHTML = indexYear + i;
+
+        button.appendChild(a);
+        li.appendChild(button);
+        index.appendChild(li);
+    }
+
+    document.getElementById("bt-az").addEventListener("click", () => ordenarBy("name", data));
+    document.getElementById("bt-favs").addEventListener("click", () => ordenarBy("favs", data));
+}
 
 window.addEventListener('load', initIndex)
 async function initIndex() {
+    let navClicked = sessionStorage.getItem('navClicked');
+    console.log(navClicked);
+
     let data = await fetchJSON();
-    createTracksIndex(data);
+    
+    if (navClicked != null) {
+        sessionStorage.removeItem('navClicked');
+        ordenarBy(navClicked, data);
+    }else{
+        createTracksIndex(data);
+    }
+    
+    createMenuCircuitsIndex(3, data);
     playAudio();
     mapsIndex(data);
     carrouselEscuderias(data);
     twitter();
 }
 
-/* Funcion que reproduce un audio al cargar la pagina */
-function playAudio() {
-    audio = document.getElementById("index-audio");
-    audio.muted = false;
-    audio.play();
-    audio.volume = 0.35;
-}
+
 
 window.addEventListener('storage', function (e) {
     console.log(e.key);
@@ -336,25 +321,21 @@ function twitter() {
     var xhr = new XMLHttpRequest();
     //var Twit = fetch('twit');
 
-    xhr.setRequestHeader({
+    /*xhr.setRequestHeader({
         consumer_key: 'hYki2ZOYFDo7lCcWYFxY3GHiD',
         consumer_secret: 'Nq50V1zVI3ka6SdmotuSvIX5kGznLZWPeu2fOjcXjZViQYaJzH',
         access_token: '1376221813-xC5cTmFDFphzghw6NLvhneuefYpPA8OwTyRqLsx',
         access_token_secret: 'oBQVsioE5djzQOmuZO7z9iqnno5PnRRmn5OMEu294opzo'
-    });
+    });*/
 
-    
-    xhr.open("GET", "https://api.twitter.com/2/tweets?ids=1261326399320715264,1278347468690915330");
-    
-    xhr.setRequestHeader("Authorization","Bearer AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B");
+    xhr.open("GET", "https://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1");
+    xhr.setRequestHeader("Authorization", "Bearer AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B");
 
-    xhr.send();
-    
+    //xhr.send();
 
-
-    T.get('search/tweets', { q: '#F1 since:2020-07-11', count: 10 }, function (err, data, response) {
+    /*T.get('search/tweets', { q: '#F1 since:2020-07-11', count: 10 }, function (err, data, response) {
         console.log(data)
-    });
+    });*/
     //created_at, text, user.screen_name, location, profile_image_url_https
     //user:profile_image_url,username
     //tweet:text,created_at
