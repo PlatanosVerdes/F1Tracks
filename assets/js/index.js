@@ -346,7 +346,7 @@ function twitter() {
     
     xhr.open("GET", "https://api.twitter.com/2/tweets?ids=1261326399320715264,1278347468690915330");
     
-    xhr.setRequestHeader("Authorization","Bearer AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGm");
+    xhr.setRequestHeader("Authorization","Bearer AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B");
 
     xhr.send();
     
@@ -356,5 +356,7 @@ function twitter() {
         console.log(data)
     });
     //created_at, text, user.screen_name, location, profile_image_url_https
+    //user:profile_image_url,username
+    //tweet:text,created_at
 }
 
