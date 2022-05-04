@@ -340,4 +340,3 @@ function twitter() {
     //user:profile_image_url,username
     //tweet:text,created_at
 }
-
