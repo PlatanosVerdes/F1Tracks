@@ -192,7 +192,7 @@ window.addEventListener('load', initTrack)
 async function initTrack() {
     let data = await fetchJSON();
     printTrackMainInfo(data);
-    createMenuCircuitsTrack(3,data);
+    createMenuCircuitsTrack(3, data);
     playAudio();
 }
 

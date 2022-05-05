@@ -21,7 +21,7 @@ function printTrackAlternateName(track, trackpos, whereId) {
     trackItem.innerHTML = `
         <div class="row">
             <div class="col-sm-12 col-md-6">
-                <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${track.identifier}.webp" alt="${track.identifier}" data-track-pos="${trackpos}" onclick="getIdTrackClick(this)" id="imagencircuito">
+                <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${track.identifier}.png" alt="${track.identifier}" data-track-pos="${trackpos}" onclick="getIdTrackClick(this)" id="imagencircuito">
                 <div class="text">${track.date}</div>
                 <div class="text">${track.GeoCoordinates.addressCountry}</div>
             </div>
@@ -63,7 +63,7 @@ function createTracksIndex(data) {
         let btnHero = document.getElementById('btn-hero');
         btnHero.innerHTML = `
             <a href="#col-track-list" class="btn-get-started scrollto">Próximo circuito</a>
-            <a href="#row-old-tracks-list" class="btn-get-started scrollto">Circuitos anteriores</a>
+            <a href="#title-old-tracks" class="btn-get-started scrollto">Circuitos anteriores</a>
         `;
 
 
@@ -75,7 +75,7 @@ function createTracksIndex(data) {
         title.setAttribute("id", "row-old-tracks-list");
         title.innerHTML = `
             <div clas="col-md-3">
-                <h1 class="tile"> Circuitos Anteriores
+                <h1 class="tile" id="title-old-tracks"> Circuitos Anteriores
                 </h1>
             </div>
         `;
@@ -189,7 +189,7 @@ async function ordenar(order) {
         trackItem.innerHTML = `
                     <div class="row">
                         <div class="col-sm-12 col-md-6">
-                        <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${tracks[i].identifier}.webp" alt="${tracks[i].identifier}" onclick="getIdTrackClick(this)">
+                        <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${tracks[i].identifier}.png" alt="${tracks[i].identifier}" onclick="getIdTrackClick(this)">
                         </div>
                         <div class="col-sm-12 col-md-6" id="idTrack">
                             <h3>${tracks[i].name}</h3>
@@ -227,13 +227,25 @@ function createMenuCircuitsIndex(year, data) {
     document.getElementById("bt-favs").addEventListener("click", () => ordenarBy("favs", data));
 }
 
+//Funcion que le el JSON de nuestros datos
+async function fetchJSON() {
+    const response = await fetch('f1tracks.json');
+    if (!response.ok) {
+        const message = `An error has occured: ${response.status}`;
+        throw new Error(message);
+    }
+    const data = await response.json();
+    return data;
+}
+fetchJSON().catch(error => {
+    error.message; // 'An error has occurred: 404'
+});
+
 window.addEventListener('load', initIndex)
 async function initIndex() {
     let navClicked = sessionStorage.getItem('navClicked');
-    console.log(navClicked);
 
     let data = await fetchJSON();
-    
     if (navClicked != null) {
         sessionStorage.removeItem('navClicked');
         ordenarBy(navClicked, data);

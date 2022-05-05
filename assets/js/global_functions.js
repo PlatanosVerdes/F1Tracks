@@ -44,8 +44,6 @@ fetchJSON().catch(error => {
     error.message; // 'An error has occurred: 404'
 });
 
-
-
 //Funcion que ordena los tracks por az o por date (fecha)
 function orderTracksBy(tracks, order) {
     if (order == 'name') {
@@ -168,7 +166,7 @@ function printTracksOrderBy(tracks) {
         trackItem.innerHTML = `
                 <div class="row">
                     <div class="col-sm-12 col-md-6">
-                        <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${tracks[i].identifier}.webp" alt="${tracks[i].identifier}" onclick="getIdTrackClick(this)">
+                        <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${tracks[i].identifier}.png" alt="${tracks[i].identifier}.png" onclick="getIdTrackClick(this)">
                     </div>
                     <div class="col-sm-12 col-md-6" id="idTrack">
                         <h3>${tracks[i].name}</h3>
@@ -182,10 +180,10 @@ function printTracksOrderBy(tracks) {
 }
 
 
-function addEventOnChange() {
-    document.getElementById('plh-search').addEventListener('change', () => buscarContenido());
-    document.getElementById('bt-search').addEventListener('change', () => buscarContenido());
-}
+//function addEventOnChange() {
+    document.getElementById('plh-search').addEventListener('change', async () => await buscarContenido());
+    document.getElementById('bt-search').addEventListener('change', async () => await buscarContenido());
+//}
 
 async function buscarContenido() {
     let data = await fetchJSON();
@@ -193,10 +191,10 @@ async function buscarContenido() {
     let text = document.getElementById('plh-search').value;
     if (text.length >= 2) {
         for (let i = 0; i < tracks.length; i++){
-            if(tracks[i].includes(text)) {
+            if(tracks[i].name.includes(text)) {
                 console.log(tracks[i]);
             }
         }
     }
 }
-addEventOnChange();
+/* addEventOnChange(); */

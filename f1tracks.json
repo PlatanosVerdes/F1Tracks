@@ -285,7 +285,7 @@
                 "name": "Bahrain International Circuit",
                 "identifier": "BIC",
                 "image": [
-                    "BIC.webp"
+                    "BIC.png"
                 ],
                 "video": [
                     "https://www.youtube.com/embed/E54m1inikIY?controls=0",
@@ -336,7 +336,7 @@
                 "name": "Jeddah Corniche Circuit",
                 "identifier": "JCC",
                 "image": [
-                    "JCC.webp"
+                    "JCC.png"
                 ],
                 "video": [
                     "https://www.youtube.com/embed/WvxgV6JhdzQ"
@@ -386,7 +386,7 @@
                 "name": "Albert Park Circuit",
                 "identifier": "APC",
                 "image": [
-                    "JCC.webp"
+                    "JCC.png"
                 ],
                 "video": [
                     "https://www.youtube.com/embed/ms8EVDVLkJI"
@@ -437,7 +437,7 @@
                 "name": "Autodromo Enzo e Dino Ferrari",
                 "identifier": "AEDF",
                 "image": [
-                    "AEDF.webp"
+                    "AEDF.png"
                 ],
                 "video": [
                     "https://www.youtube.com/embed/4z4BGeNMqug"
@@ -472,7 +472,7 @@
                 "name": "Miami International Autodrome",
                 "identifier": "MIA",
                 "image": [
-                    "MIA.webp"
+                    "MIA.png"
                 ],
                 "video": [
                     "https://www.youtube.com/embed/KHYBUZfkwnY"
@@ -506,7 +506,7 @@
                 "name": "Circuit de Barcelona-Catalunya",
                 "identifier": "CBC",
                 "image": [
-                    "CBC.webp"
+                    "CBC.png"
                 ],
                 "video": [
                     "https://www.youtube.com/embed/pBfrDoUMTvk"
@@ -544,7 +544,7 @@
                 "name": "Circuit de Monaco",
                 "identifier": "CM",
                 "image": [
-                    "CM.webp"
+                    "CM.png"
                 ],
                 "video": [
                     "https://www.youtube.com/embed/fReZDRT7rHc"
@@ -579,7 +579,7 @@
                 "name": "Baku City Circuit",
                 "identifier": "BCC",
                 "image": [
-                    "BCC.webp"
+                    "BCC.png"
                 ],
                 "video": [
                     "https://www.youtube.com/embed/-zkd46PP6P4"
@@ -613,7 +613,7 @@
                 "name": "Circuit Gilles-Villeneuve",
                 "identifier": "CGV",
                 "image": [
-                    "CGV.webp"
+                    "CGV.png"
                 ],
                 "video": [
                     "https://www.youtube.com/embed/lGS2jmPfu7c"
@@ -650,7 +650,7 @@
                 "name": "Silverstone Circuit",
                 "identifier": "SC",
                 "image": [
-                    "SC.webp"
+                    "SC.png"
                 ],
                 "video": [
                     "https://www.youtube.com/embed/LFd9agdTGwk"
@@ -683,7 +683,7 @@
                 "name": "Red Bull Ring",
                 "identifier": "RBR",
                 "image": [
-                    "RBR.webp"
+                    "RBR.png"
                 ],
                 "video": [
                     "https://www.youtube.com/embed/dOlSS59CLYc"
@@ -719,7 +719,7 @@
                 "name": "Circuit Paul Ricard",
                 "identifier": "CPR",
                 "image": [
-                    "CPR.webp"
+                    "CPR.png"
                 ],
                 "video": [
                     "https://www.youtube.com/embed/YKtmrygZG9U"
@@ -757,7 +757,7 @@
                 "name": "Hungaroring",
                 "identifier": "H",
                 "image": [
-                    "H.webp"
+                    "H.png"
                 ],
                 "video": [
                     "https://www.youtube.com/embed/b8-s0939SVw"
@@ -791,7 +791,7 @@
                 "name": "Circuit de Spa-Francorchamps",
                 "identifier": "CSF",
                 "image": [
-                    "CSF.webp"
+                    "CSF.png"
                 ],
                 "video": [
                     "https://www.youtube.com/embed/4V04E7qmz0E"
@@ -834,7 +834,7 @@
                 "name": "Circuit Zandvoort",
                 "identifier": "CZ",
                 "image": [
-                    "CZ.webp"
+                    "CZ.png"
                 ],
                 "video": [
                     "https://www.youtube.com/embed/ZaqYQ1B_hro"
@@ -871,7 +871,7 @@
                 "name": "Marina Bay Street Circuit",
                 "identifier": "MBS",
                 "image": [
-                    "MBS.webp"
+                    "MBS.png"
                 ],
                 "video": [
                     "https://www.youtube.com/embed/MtSHVONw6Yk"
@@ -905,7 +905,7 @@
                 "name": "Autodromo Nazionale Monza",
                 "identifier": "ANM",
                 "image": [
-                    "ANM.webp"
+                    "ANM.png"
                 ],
                 "video": [
                     "https://www.youtube.com/embed/Xbhi2Vnk36Q"
@@ -939,7 +939,7 @@
                 "name": "Suzuka International Racing Course",
                 "identifier": "SIR",
                 "image": [
-                    "SIR.webp"
+                    "SIR.png"
                 ],
                 "video": [
                     "https://www.youtube.com/embed/ZSULgoWXHps"
@@ -974,7 +974,7 @@
                 "name": "Circuit of The Americas",
                 "identifier": "CTA",
                 "image": [
-                    "CTA.webp"
+                    "CTA.png"
                 ],
                 "video": [
                     "https://www.youtube.com/embed/-FMcClTosAI"
@@ -1008,7 +1008,7 @@
                 "name": "Autódromo Hermanos Rodríguez",
                 "identifier": "AHR",
                 "image": [
-                    "AHR.webp"
+                    "AHR.png"
                 ],
                 "video": [
                     "https://www.youtube.com/embed/0rHTUJM-wlk"
@@ -1044,7 +1044,7 @@
                 "name": "Autódromo José Carlos Pace",
                 "identifier": "AJC",
                 "image": [
-                    "AJC.webp"
+                    "AJC.png"
                 ],
                 "video": [
                     "https://www.youtube.com/embed/4AWD4YHceTM"
@@ -1080,7 +1080,7 @@
                 "name": "Yas Marina Circuit",
                 "identifier": "YMC",
                 "image": [
-                    "YMC.webp"
+                    "YMC.png"
                 ],
                 "video": [
                     "https://www.youtube.com/embed/XtS1eH7irbk"
