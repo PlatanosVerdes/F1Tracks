@@ -320,7 +320,21 @@ function carrouselEscuderias(data) {
 
 /* API TWITTER ENSEÑAR 10 TWITTS MÁS RECIENTES */
 function twitter() {
-    var xhr = new XMLHttpRequest();
+    var tweets;
+    const req = "https://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1";
+    const request = new XMLHttpRequest();
+    request.onreadystatechange = function(){
+        if(request.readyState == 4 && request.status == 200){
+            tweets = JSON.parse(request.responseText);
+            console.log(tweets);
+        }
+    }
+    request.open("GET",req);
+    request.responseType = 'text';
+    request.setRequestHeader("Authorization", "AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B");
+    request.send();
+    
+    //var xhr = new XMLHttpRequest();
     //var Twit = fetch('twit');
 
     /*xhr.setRequestHeader({
@@ -330,8 +344,8 @@ function twitter() {
         access_token_secret: 'oBQVsioE5djzQOmuZO7z9iqnno5PnRRmn5OMEu294opzo'
     });*/
 
-    xhr.open("GET", "https://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1");
-    xhr.setRequestHeader("Authorization", "Bearer AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B");
+    //xhr.open("GET", "https://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1");
+    
 
     //xhr.send();
 
