@@ -161,6 +161,7 @@ async function printTrackMainInfo(data) {
 
     getClassification(data, i);
     videosTrack(tracks, i);
+    tiempo(tracks, i);
 }
 
 function createMenuCircuitsTrack(year) {
@@ -269,36 +270,108 @@ function videosTrack(data, i) {
 
 
     } else {
-        console.log(data[i].video[1]);
         document.getElementById('video-title').innerHTML =
-            `<button onclick="document.getElementById('video-track').src = '${data[i].video[0]}'">TrackView</button>
-            <button onclick="document.getElementById('video-track').src = '${data[i].video[1]}'">Highlight</button>`;
+            ` Video <button class="button2" onclick="document.getElementById('video-track').src = '${data[i].video[0]}'">TrackView</button>
+            <button class="button1" onclick="document.getElementById('video-track').src = '${data[i].video[1]}'">Highlight</button>`;
     }
     document.getElementById('iframe-video').innerHTML =
         `<iframe id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe>`;
 
 }
 
-function tiempo() {
-    fetch('https://api.openweathermap.org/data/2.5/forecast?lat=40.373073379592306&lon=49.85324597023271&units=metric&appid=bb95d1c6a9cadc0d98a84cf2a738c977&lang=es')
+function tiempo(track,i) {
+    var URL = "https://api.openweathermap.org/data/2.5/forecast?lat="+track[i].GeoCoordinates.latitude+"&lon="+track[i].GeoCoordinates.longitude+"&units=metric&appid=bb95d1c6a9cadc0d98a84cf2a738c977&lang=es";
+    fetch(URL)
         .then(response => response.json())
-        .then(data => console.log(data));
+        .then(data => processTiempo(data)
+        );
+}
+
+function currentDate() {
+    let currentDate = new Date();
+    let cDay = currentDate.getDate();
+    let cMonth = currentDate.getMonth();
+    let cYear = currentDate.getFullYear();
+    let cHour = currentDate.getHours();
+    let cMinute = currentDate.getMinutes();
+    let cSecond = currentDate.getSeconds();
+
+    return new Date(cYear, cMonth, cDay, cHour, cMinute, cSecond);
+}
+
+function tiempoDia(values, n){
+
+    var day = {
+        date: values[0].date,
+        temp: null,
+        feels_like: values[0].main.feels_like,
+        temp_min: values[0].main.temp_min,
+        temp_max: values[0].main.temp_max,
+        humidity: values[0].main.humidity,
+        pressure: values[0].main.pressure,
+        description: values[0].weather.description,
+        wind: values[0].wind.speed,
+        icon: values[0].weather.icon
+    }
+
+    if(n==0){
+        day.temp=values[0].main.temp;
+    }
+
+    for(var i = 1; i < values.length; i++){
+        
+        if(parseFloat(day.temp_min) > parseFloat(values[i].main.temp_min)){
+ 
+            day.temp_min = values[i].main.temp_min;
+        }
+        if(parseFloat(day.temp_max) < parseFloat(values[i].main.temp_max)){
+
+            day.temp_max = values[i].main.temp_max;
+        }
+    }
+
+    return day;
 }
 
 function processTiempo(data) {
-    var dia = {
-        date: null,
-        temp: null,
-        feels_like: null,
-        temp_min: null,
-        temp_max: null,
-        humidity: null,
-        main: null,
-        wind: null,
-        icon: null
-    }
-    for (var i = 0; i < data.lists.length; i++) {
 
-    }
+    console.log(data);
+    
+    let forecast5days = [];
+    let forecastDay = [];
 
+    var day = new Date(data.list[0].dt_txt).getDate();
+    var n = 0;
+    
+    for (var i = 0; i < data.list.length; i++) {
+  
+        var infoForecast={
+            main: null,
+            weather: null,
+            wind: null,
+            date: null
+        }
+
+        var dateForecast = new Date(data.list[i].dt_txt);
+
+        if(dateForecast.getDate() != day){
+            console.log(forecastDay);
+            forecast5days.push(tiempoDia(forecastDay, n));
+            forecastDay.length = 0;
+            day = dateForecast.getDate();
+            console.log(n)
+            n++;
+
+        }else{
+
+            infoForecast.main=data.list[i].main;
+            infoForecast.weather=data.list[i].weather[0];
+            infoForecast.wind=data.list[i].wind;
+            infoForecast.date=data.list[i].dt_txt;
+            forecastDay.push(infoForecast);
+        }
+        
+    }
+    console.log(forecast5days);
+    return forecast5days;
 }

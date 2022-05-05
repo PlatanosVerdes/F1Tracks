@@ -719,11 +719,19 @@ section {
   margin-bottom: 2px;
 }
 
-.trackView .title button {
+.trackView .title .button1 {
   border-radius: 5px;
-  background-color: #141414;
+  background-color: #dc0708;
   box-shadow: none;
   color: white;
+  float: right;
+}
+.trackView .title .button2 {
+  border-radius: 5px;
+  background-color: #242424;
+  box-shadow: none;
+  color: white;
+  float: right;
 }
 
 .trackView iframe {
