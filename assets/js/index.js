@@ -21,7 +21,9 @@ function printTrackAlternateName(track, trackpos, whereId) {
     trackItem.innerHTML = `
         <div class="row">
             <div class="col-sm-12 col-md-6">
-                <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${track.identifier}.webp" alt="${track.identifier}" data-track-pos="${trackpos}" onclick="getIdTrackClick(this)">            
+                <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${track.identifier}.webp" alt="${track.identifier}" data-track-pos="${trackpos}" onclick="getIdTrackClick(this)" id="imagencircuito">
+                <div class="text">${track.date}</div>
+                <div class="text">${track.GeoCoordinates.addressCountry}</div>
             </div>
             <div class="col-sm-12 col-md-6">
                 <h3>${track.alternateName}</h3>

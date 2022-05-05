@@ -123,54 +123,37 @@ button {
 /**
 * Desktop Navigation 
 */
-.active-pink-2 input[type=text]:focus:not([readonly]) {
-  border-bottom: 1px solid #f48fb1;
-  box-shadow: 0 1px 0 0 #f48fb1;
+.active-red-2 input[type=text]:focus:not([readonly]) {
+  border-bottom: 1px solid #dc0708;
+  box-shadow: 0 1px 0 0 #dc0708;
 }
 
-.active-pink input[type=text] {
-  border-bottom: 1px solid #f48fb1;
-  box-shadow: 0 1px 0 0 #f48fb1;
+.active-red input[type=text] {
+  border-bottom: 1px solid #dc0708;
+  box-shadow: 0 1px 0 0 #dc0708;
 }
 
-.active-purple-2 input[type=text]:focus:not([readonly]) {
-  border-bottom: 1px solid #ce93d8;
-  box-shadow: 0 1px 0 0 #ce93d8;
+.active-red .fa,
+.active-red-2 .fa {
+  color: #dc0708;
 }
-
-.active-purple input[type=text] {
-  border-bottom: 1px solid #ce93d8;
-  box-shadow: 0 1px 0 0 #ce93d8;
-}
-
-.active-cyan-2 input[type=text]:focus:not([readonly]) {
-  border-bottom: 1px solid #4dd0e1;
-  box-shadow: 0 1px 0 0 #4dd0e1;
-}
-
-.active-cyan input[type=text] {
-  border-bottom: 1px solid #4dd0e1;
-  box-shadow: 0 1px 0 0 #4dd0e1;
-}
-
-.active-cyan .fa,
-.active-cyan-2 .fa {
-  color: #4dd0e1;
-}
-
-.active-purple .fa,
-.active-purple-2 .fa {
-  color: #ce93d8;
-}
-
-.active-pink .fa,
-.active-pink-2 .fa {
-  color: #f48fb1;
-}
-
 
 .navbar {
   padding: 0;
+}
+
+.form-control{
+  color: #fff;
+  border-color: #303030;
+  border-left-color:#282c34;
+  border-bottom:#282c34;
+  background: #202020;
+}
+
+.form-control:focus{
+  color: #fff;
+  border-color: #202020;
+  background: #202020;
 }
 
 .navbar ul {
@@ -184,6 +167,14 @@ button {
 
 .navbar li {
   position: relative;
+}
+
+.navbar form i {
+  color: #fff;
+}
+
+.navbar .fas i:hover {
+  color: #dc0708;
 }
 
 .navbar a,
@@ -628,17 +619,20 @@ section {
 .track-item .text {
   transition: .5s ease;
   opacity: 0;
-  color: white;
-  font-size: 16px;
+  color: #ff0000;
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.track-item .image {
+.track-item #imagencircuito {
   transition: .5s ease;
   backface-visibility: hidden;
+  -webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
 }
 
-.track-item:hover .image {
-  opacity: 0.3;
+.track-item:hover #imagencircuito {
+  opacity: .4;
 }
 
 .track-item:hover .text {

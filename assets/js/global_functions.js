@@ -181,3 +181,17 @@ function printTracksOrderBy(tracks) {
         newTrackList.appendChild(trackItem);
     }
 }
+
+
+function addEventOnChange() {
+    document.getElementById('plh-search').addEventListener('change', () => buscarContenido());
+    document.getElementById('bt-search').addEventListener('change', () => buscarContenido());
+}
+
+function buscarContenido() {
+    let text = document.getElementById('plh-search').value;
+    if (text.length >= 2) {
+        alert(text);
+    }
+}
+addEventOnChange();
