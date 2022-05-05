@@ -104,7 +104,6 @@ async function ordenarBy(order, data) {
 
         //Ordenamos los tracks por nombre
         tracks = orderTracksBy(tracks, order);
-        console.log(tracks);
         printTracksOrderBy(tracks);
 
     } else if (order == "favs") {
@@ -134,7 +133,7 @@ async function ordenarBy(order, data) {
 
             let title = document.createElement('h1');
             title.setAttribute("class", "text-center");
-            title.innerHTML = 'NO TIENES CIRCUTOS FAVORITOS :(';
+            title.innerHTML = 'NO TIENES CIRCUITOS FAVORITOS';
             div.appendChild(title);
 
             let gif = document.createElement("img");
@@ -188,10 +187,16 @@ function addEventOnChange() {
     document.getElementById('bt-search').addEventListener('change', () => buscarContenido());
 }
 
-function buscarContenido() {
+async function buscarContenido() {
+    let data = await fetchJSON();
+    tracks = data.tracks;
     let text = document.getElementById('plh-search').value;
     if (text.length >= 2) {
-        alert(text);
+        for (let i = 0; i < tracks.length; i++){
+            if(tracks[i].includes(text)) {
+                console.log(tracks[i]);
+            }
+        }
     }
 }
 addEventOnChange();
