@@ -822,6 +822,25 @@ section {
   height: 5vw;
 }
 
+.trackView #tiempoForecast .max{
+  color: rgb(245, 142, 116);
+}
+
+.trackView #tiempoForecast .min{
+  color: rgb(103, 190, 248);
+}
+
+.trackView #tiempoForecast2 .max{
+  color: rgb(245, 142, 116);
+  margin-top: 5vw;
+}
+
+.trackView #tiempoForecast2 .min{
+  color: rgb(103, 190, 248);
+  margin-top: 2vw;
+}
+
+
 .title-track {
   font-weight: bold;
   font-size: xx-large;
