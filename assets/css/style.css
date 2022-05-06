@@ -795,6 +795,33 @@ section {
   margin-bottom: 1rem;
 }
 
+
+.trackView #containerTiempo{
+  padding: 0%;
+}
+
+
+.trackView #colTiempo img{
+  width: 7vw;
+  height: 7vw;
+
+}
+
+.trackView #colTiempo2 {
+  margin-top: 7vw;
+
+}
+
+.trackView #colTiempo2 .icon {
+  width: 2.5vw;
+  height: 2.5vw;
+}
+
+.trackView #tiempoForecast img{
+  width: 5vw;
+  height: 5vw;
+}
+
 .title-track {
   font-weight: bold;
   font-size: xx-large;
