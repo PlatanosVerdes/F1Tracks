@@ -1,11 +1,10 @@
-const nameTrack = sessionStorage.getItem('nameTrack');
-const idTrack = sessionStorage.getItem('idTrack');
+const nameTrack = sessionStorage.getItem('idTrack');
+const posTrack = sessionStorage.getItem('posTrack');
 
 function getYears(data) {
     var year = data.datos_extra.years;
     var s = "";
     for (var i = 0; i < year.length; i++) {
-
         if (i == year.length - 1) {
             s += year[i];
         } else {
@@ -48,49 +47,68 @@ function getPilot(data, idPilot) {
     return plt;
 }
 
-function getClassification(data, i) {
-    var c = data.track[i].datos_extra.classification;
-    var ClassificationNames = {
-        name: null,
-        lastName: null
-    }
+function getClassification(data) {
+    var classification = data.track[posTrack].datos_extra.classification;
 
-    let classificationArray = [];
-    if (c[0] != null) {
-        for (var i = 0; i < c.length; i++) {
-            var pilot = getPilot(data, c[i][0]);
-            var ClassificationNames = {
-                name: pilot.name,
-                lastName: pilot.lastName,
-                time: c[i][1],
-            };
-            classificationArray.push(ClassificationNames);
+    let pos = document.getElementById("secction-posiciones");
+    let divParent = document.createElement("div");
+    divParent.setAttribute("class", "posicion");
+    if (classification.length > 0) {
+        let ids = ["primero", "segundo", "tercero", "cuarto"];
+
+        for (let i = 0; i < ids.length; i++) {
+            let pilot = getPilot(data, classification[i][0]);
+
+            
+            let rowParent = document.createElement("div");
+            rowParent.setAttribute("class", "row");
+            rowParent.setAttribute("id", ids[i]);
+
+            /* NAME */
+            let colName = document.createElement("div");
+            colName.setAttribute("class", "col sm-6");
+
+            let cardBodyName = document.createElement("div");
+            cardBodyName.setAttribute("class", "card-body");
+
+            let p1 = document.createElement("p");
+            p1.setAttribute("class", "card-text");
+            p1.setAttribute("id", ids[i]);
+            p1.innerHTML = `${pilot.name} ${pilot.lastName}`;
+
+            cardBodyName.appendChild(p1)
+            colName.appendChild(cardBodyName);
+            rowParent.appendChild(colName);
+
+            /* TIME */
+            let colTime = document.createElement("div");
+            colTime.setAttribute("class", "col sm-6");
+
+            let cardBodyTime = document.createElement("div");
+            cardBodyTime.setAttribute("class", "card-body");
+
+            let p4 = document.createElement("p");
+            p4.setAttribute("class", "card-text");
+            p4.setAttribute("id", ids[i]);
+            if(i>0){
+                p4.innerHTML = `+${classification[i][1]}`;
+            }else{
+                p4.innerHTML = `${classification[i][1]}`;
+            }
+            
+
+            cardBodyTime.appendChild(p4);
+            colTime.appendChild(cardBodyTime);
+            rowParent.appendChild(colTime);
+
+            divParent.appendChild(rowParent);
         }
-
-        document.getElementById(
-            "primeroNombre"
-        ).innerHTML = `${classificationArray[0].name} ${classificationArray[0].lastName}`;
-        document.getElementById(
-            "primeroTiempo"
-        ).innerHTML = `${classificationArray[0].time}`;
-        document.getElementById(
-            "segundoNombre"
-        ).innerHTML = `${classificationArray[1].name} ${classificationArray[1].lastName}`;
-        document.getElementById(
-            "segundoTiempo"
-        ).innerHTML = ` + ${classificationArray[1].time}`;
-        document.getElementById(
-            "terceroNombre"
-        ).innerHTML = `${classificationArray[2].name} ${classificationArray[2].lastName}`;
-        document.getElementById(
-            "terceroTiempo"
-        ).innerHTML = ` + ${classificationArray[2].time}`;
-        document.getElementById(
-            "cuartoNombre"
-        ).innerHTML = `${classificationArray[3].name} ${classificationArray[3].lastName}`;
-        document.getElementById(
-            "cuartoTiempo"
-        ).innerHTML = ` + ${classificationArray[3].time}`;
+        pos.appendChild(divParent);
+    } else {
+        let text = document.createElement("p");
+        text.setAttribute("class", "title-body");
+        text.innerHTML = "Actualmente, no hay dados  debido a todavía no se ha disputado este gran premio.";
+        pos.appendChild(text);
     }
 
 }
@@ -98,17 +116,10 @@ function getClassification(data, i) {
 async function printTrackMainInfo(data) {
     let tracks = data.track;
 
-    var i;
-    for (i = 0; i < tracks.length; i++) {
-        if (tracks[i].identifier == nameTrack) {
-            break;
-        }
-    }
-
-    maps(tracks, i);
-    var idPilot = tracks[i].datos_extra.lapRecord.pilot;
+    maps(tracks, posTrack);
+    var idPilot = tracks[posTrack].datos_extra.lapRecord.pilot;
     var pilot = getPilot(data, idPilot)
-    var years = getYears(tracks[i]);
+    var years = getYears(tracks[posTrack]);
 
     let parentIcoFav = document.getElementById("col-ico-fav");
     let bt = document.createElement("button");
@@ -117,7 +128,7 @@ async function printTrackMainInfo(data) {
     icon.setAttribute("id", "ico-fav");
     let name = document.createElement("h10");
     name.setAttribute("id", "alterName-track");
-    name.innerHTML = `${tracks[i].alternateName}`;
+    name.innerHTML = `${tracks[posTrack].alternateName}`;
 
     var tracksFav = [];
     tracksFav = JSON.parse(localStorage.getItem("favs"));
@@ -134,14 +145,14 @@ async function printTrackMainInfo(data) {
     parentIcoFav.appendChild(bt);
     parentIcoFav.appendChild(name);
 
-    document.getElementById('img-track').src = `assets/img/tracks/${tracks[i].image[0]}`;
-    document.getElementById('img-track').alt = tracks[i].image[0];
-    document.getElementById('name-track').innerHTML = `${tracks[i].name}`;
-    document.getElementById('location-track').innerHTML = `${tracks[i].GeoCoordinates.addressCountry}`;
-    document.getElementById('distance-track').innerHTML = `${tracks[i].datos_extra.trackDistance} km`;
-    document.getElementById('laps-track').innerHTML = `${tracks[i].datos_extra.numberLaps}`;
+    document.getElementById('img-track').src = `assets/img/tracks/${tracks[posTrack].image[0]}`;
+    document.getElementById('img-track').alt = tracks[posTrack].image[0];
+    document.getElementById('name-track').innerHTML = `${tracks[posTrack].name}`;
+    document.getElementById('location-track').innerHTML = `${tracks[posTrack].GeoCoordinates.addressCountry}`;
+    document.getElementById('distance-track').innerHTML = `${tracks[posTrack].datos_extra.trackDistance} km`;
+    document.getElementById('laps-track').innerHTML = `${tracks[posTrack].datos_extra.numberLaps}`;
     document.getElementById('years-track').innerHTML = `${years}`;
-    document.getElementById('record-time-track').innerHTML = `${tracks[i].datos_extra.lapRecord.time}`;
+    document.getElementById('record-time-track').innerHTML = `${tracks[posTrack].datos_extra.lapRecord.time}`;
 
     let img = document.createElement("img");
     img.setAttribute("class", "img-fluid rounded");
@@ -156,19 +167,19 @@ async function printTrackMainInfo(data) {
     lapRecord.appendChild(img);
     lapRecord.appendChild(detailLapRecord);
 
-    document.getElementById('record-time-track').innerHTML = `${tracks[i].datos_extra.lapRecord.time}`;
-    document.getElementById('description-track').innerHTML = `${tracks[i].description}`;
+    document.getElementById('record-time-track').innerHTML = `${tracks[posTrack].datos_extra.lapRecord.time}`;
+    document.getElementById('description-track').innerHTML = `${tracks[posTrack].description}`;
 
-    getClassification(data, i);
-    videosTrack(tracks, i);
-    tiempo(tracks, i);
+    getClassification(data, posTrack);
+    videosTrack(tracks, posTrack);
+    tiempo(tracks, posTrack);
 }
 
 function createMenuCircuitsTrack(year) {
     let index = document.getElementById("years");
     indexYear = currentDate().getFullYear() - year;
     index.innerHTML = ``;
-    for (let i = 0; i < year; i++) {
+    for (let i = 1; i < (year + 1); i++) {
         let li = document.createElement("li");
         li.setAttribute("id", "years");
         li.setAttribute("title", indexYear + i);
@@ -279,8 +290,8 @@ function videosTrack(data, i) {
 
 }
 
-function tiempo(track,i) {
-    var URL = "https://api.openweathermap.org/data/2.5/forecast?lat="+track[i].GeoCoordinates.latitude+"&lon="+track[i].GeoCoordinates.longitude+"&units=metric&appid=bb95d1c6a9cadc0d98a84cf2a738c977&lang=es";
+function tiempo(track, i) {
+    var URL = "https://api.openweathermap.org/data/2.5/forecast?lat=" + track[i].GeoCoordinates.latitude + "&lon=" + track[i].GeoCoordinates.longitude + "&units=metric&appid=bb95d1c6a9cadc0d98a84cf2a738c977&lang=es";
     fetch(URL)
         .then(response => response.json())
         .then(data => processTiempo(data)
@@ -299,7 +310,7 @@ function currentDate() {
     return new Date(cYear, cMonth, cDay, cHour, cMinute, cSecond);
 }
 
-function tiempoDia(values, n){
+function tiempoDia(values, n) {
 
     var day = {
         date: values[0].date,
@@ -314,17 +325,17 @@ function tiempoDia(values, n){
         icon: values[0].weather.icon
     }
 
-    if(n==0){
-        day.temp=values[0].main.temp;
+    if (n == 0) {
+        day.temp = values[0].main.temp;
     }
 
-    for(var i = 1; i < values.length; i++){
-        
-        if(parseFloat(day.temp_min) > parseFloat(values[i].main.temp_min)){
- 
+    for (var i = 1; i < values.length; i++) {
+
+        if (parseFloat(day.temp_min) > parseFloat(values[i].main.temp_min)) {
+
             day.temp_min = values[i].main.temp_min;
         }
-        if(parseFloat(day.temp_max) < parseFloat(values[i].main.temp_max)){
+        if (parseFloat(day.temp_max) < parseFloat(values[i].main.temp_max)) {
 
             day.temp_max = values[i].main.temp_max;
         }
@@ -336,16 +347,16 @@ function tiempoDia(values, n){
 function processTiempo(data) {
 
     console.log(data);
-    
+
     let forecast5days = [];
     let forecastDay = [];
 
     var day = new Date(data.list[0].dt_txt).getDate();
     var n = 0;
-    
+
     for (var i = 0; i < data.list.length; i++) {
-  
-        var infoForecast={
+
+        var infoForecast = {
             main: null,
             weather: null,
             wind: null,
@@ -354,7 +365,7 @@ function processTiempo(data) {
 
         var dateForecast = new Date(data.list[i].dt_txt);
 
-        if(dateForecast.getDate() != day){
+        if (dateForecast.getDate() != day) {
             console.log(forecastDay);
             forecast5days.push(tiempoDia(forecastDay, n));
             forecastDay.length = 0;
@@ -362,15 +373,15 @@ function processTiempo(data) {
             console.log(n)
             n++;
 
-        }else{
+        } else {
 
-            infoForecast.main=data.list[i].main;
-            infoForecast.weather=data.list[i].weather[0];
-            infoForecast.wind=data.list[i].wind;
-            infoForecast.date=data.list[i].dt_txt;
+            infoForecast.main = data.list[i].main;
+            infoForecast.weather = data.list[i].weather[0];
+            infoForecast.wind = data.list[i].wind;
+            infoForecast.date = data.list[i].dt_txt;
             forecastDay.push(infoForecast);
         }
-        
+
     }
     console.log(forecast5days);
     return forecast5days;

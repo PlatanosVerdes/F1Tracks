@@ -174,7 +174,7 @@ button {
 }
 
 .navbar .fas i:hover {
-  color: #dc0708;
+  color: #FF4B4B;
 }
 
 .navbar a,
@@ -205,7 +205,7 @@ button {
 
 .navbar .getstarted,
 .navbar .getstarted:focus {
-  background: #dc0708;
+  background: #FF4B4B;
   color: #fff;
   padding: 10px 25px;
   margin-left: 30px;
@@ -215,7 +215,7 @@ button {
 .navbar .getstarted:hover,
 .navbar .getstarted:focus:hover {
   color: #fff;
-  background: #dc0708;
+  background: #FF4B4B;
 }
 
 .navbar .dropdown ul {
@@ -771,20 +771,28 @@ section {
   border-color: #202020;
 }
 
-.trackView .posicion .card p1 {
+.trackView .posicion #primero {
   color: #FFD700;
 }
 
-.trackView .posicion .card p2 {
+.trackView .posicion #segundo {
   color: #C0C0C0;
 }
 
-.trackView .posicion .card p3 {
+.trackView .posicion #tercero {
   color: #CD7F32;
 }
 
-.trackView .posicion .card p4 {
+.trackView .posicion #cuarto {
   color: white;
+}
+
+.trackView .title-body {
+  color: white;
+  margin-top: 5px;
+  margin-left: 3px;
+  margin-right: 3px;
+  margin-bottom: 1rem;
 }
 
 .title-track {

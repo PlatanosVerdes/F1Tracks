@@ -1,11 +1,10 @@
 //Funcion que se ejecuta al clicckar una imagen de un track
 function getIdTrackClick(img) {
-    sessionStorage.setItem('nameTrack', img.alt);
-    sessionStorage.setItem('idTrack', img.getAttribute("data-track-pos"));
+    sessionStorage.setItem('idTrack', img.alt);
+    sessionStorage.setItem('posTrack', img.getAttribute("data-track-pos"));
+    
     location.href = "track.html";
 }
-
-
 
 /* Inyectar en el html los tracks con el titulo que
 tienen en el campeonato (AlternateName)
@@ -39,6 +38,7 @@ function printTrackAlternateName(track, trackpos, whereId) {
 function createTracksIndex(data) {
     let tracks = data.track;
     let tracksAux = [];
+    let posTracksAux = [];
 
     //Ordenamos los tracks por orden de fecha
     tracks = orderTracksBy(tracks, 'date');
@@ -51,6 +51,7 @@ function createTracksIndex(data) {
         if ((new Date(tracks[i].date) - currentDate()) < 0) {
             /* Guardar */
             tracksAux.push(tracks[i]);
+            posTracksAux.push(i);
         } else {
             /* Print */
             printTrackAlternateName(tracks[i], i, trackList);
@@ -100,7 +101,7 @@ function createTracksIndex(data) {
         let trackListOld = document.getElementById('track-list-old');
         trackListOld.innerHTML = '';
         for (var i = 0; i < tracksAux.length; i++) {
-            printTrackAlternateName(tracksAux[i], i, trackListOld);
+            printTrackAlternateName(tracksAux[i], posTracksAux[i], trackListOld);
         }
     }
 }
@@ -206,7 +207,7 @@ function createMenuCircuitsIndex(year, data) {
     let index = document.getElementById("years");
     indexYear = currentDate().getFullYear() - year;
     index.innerHTML = ``;
-    for (let i = 0; i < year; i++) {
+    for (let i = 1; i < (year + 1); i++) {
         let li = document.createElement("li");
         li.setAttribute("id", "years");
         li.setAttribute("title", indexYear + i);
@@ -227,7 +228,7 @@ function createMenuCircuitsIndex(year, data) {
     document.getElementById("bt-favs").addEventListener("click", () => ordenarBy("favs", data));
 }
 
-//Funcion que le el JSON de nuestros datos
+/* //Funcion que le el JSON de nuestros datos
 async function fetchJSON() {
     const response = await fetch('f1tracks.json');
     if (!response.ok) {
@@ -239,7 +240,7 @@ async function fetchJSON() {
 }
 fetchJSON().catch(error => {
     error.message; // 'An error has occurred: 404'
-});
+}); */
 
 window.addEventListener('load', initIndex)
 async function initIndex() {

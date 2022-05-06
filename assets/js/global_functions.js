@@ -16,7 +16,6 @@ function currentDate() {
     return new Date(cYear, cMonth, cDay);
 }
 
-
 // Retorna un número aleatorio entre min (incluido) y max (excluido)
 function getRandomArbitrary(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -46,13 +45,13 @@ fetchJSON().catch(error => {
 
 //Funcion que ordena los tracks por az o por date (fecha)
 function orderTracksBy(tracks, order) {
-    if (order == 'name') {
+    if (order === 'name') {
         tracks.sort(function (a, b) {
             if (a.name < b.name) return -1;
             if (a.name > b.name) return 1;
             return 0;
         })
-    } else if (order == 'date') {
+    } else if (order === 'date') {
         tracks.sort((a, b) => new Date(a.date) - new Date(b.date));
     }
     return tracks;
@@ -89,11 +88,10 @@ async function ordenarBy(order, data) {
     }
 
     //Cargar los tracks
-    //let data = await fetchJSON();
     let tracks = data.track;
 
     //Ordenar
-    if (order == "name") {
+    if (order === "name") {
         newTitle.innerHTML = `  
             <h4>CIRCUITOS</h4>
                 <br>
@@ -104,14 +102,14 @@ async function ordenarBy(order, data) {
         tracks = orderTracksBy(tracks, order);
         printTracksOrderBy(tracks);
 
-    } else if (order == "favs") {
+    } else if (order === "favs") {
         newTitle.innerHTML = `  
             <h4>CIRCUITOS</h4>
                 <br>
             <h3>TUS CIRCUITOS FAVORITOS</h3>
         `;
         let idTracksFav = JSON.parse(localStorage.getItem("favs"));
-        console.log(idTracksFav);
+
         if (idTracksFav.length > 0) {
             let auxTracks = [];
             for (let i = 0; i < tracks.length; i++) {
@@ -119,7 +117,6 @@ async function ordenarBy(order, data) {
                     auxTracks.push(tracks[i]);
                 }
             }
-            console.log(auxTracks);
             printTracksOrderBy(auxTracks);
         } else {
             //Ponemos los Tracks
@@ -138,8 +135,6 @@ async function ordenarBy(order, data) {
             gif.setAttribute("class", "img-fluid animated");
             gif.setAttribute("id", "gif-empty");
             let id = getRandomArbitrary(0, 5);
-
-            console.log(id);
 
             gif.src = `assets/img/gifs/gif${id}.gif`;
             div.appendChild(gif);
@@ -180,21 +175,37 @@ function printTracksOrderBy(tracks) {
 }
 
 
-//function addEventOnChange() {
-    document.getElementById('plh-search').addEventListener('change', async () => await buscarContenido());
-    document.getElementById('bt-search').addEventListener('change', async () => await buscarContenido());
-//}
-
-async function buscarContenido() {
+async function addEventOnChange() {
     let data = await fetchJSON();
-    tracks = data.tracks;
-    let text = document.getElementById('plh-search').value;
+    document.getElementById('plh-search').addEventListener('change', () => buscarContenido(data));
+}
+
+function buscarContenido(data) {
+    tracks = data.track;
+    let text = document.getElementById('plh-search').value.toLowerCase();
     if (text.length >= 2) {
-        for (let i = 0; i < tracks.length; i++){
-            if(tracks[i].name.includes(text)) {
-                console.log(tracks[i]);
+        let search = data.track.filter(track => track.name.toLowerCase().includes(text) || track.alternateName.toLowerCase().includes(text));
+        if (search.length > 0) {
+            document.getElementById('title-trackslist').innerText = `Resultado de la búsqueda`;
+            
+            //Borrar los tracks
+            //Si hay circuitos ya hechos:
+            let oldTracks = document.getElementById('parent-track-list-old');
+            if (oldTracks) {
+                oldTracks.remove();
+                document.getElementById('row-old-tracks-list').remove();
             }
+            var trackList = document.getElementById('track-list');
+            trackList.initIndex = "";
+            if (document.getElementById('row-old-tracks-list') != null) {
+                document.getElementById('row-old-tracks-list').remove();
+            }
+            printTracksOrderBy(search);
+        } else {
+            window.confirm("No se han encontrado coincidencias");
         }
     }
 }
-/* addEventOnChange(); */
+
+
+addEventOnChange();
