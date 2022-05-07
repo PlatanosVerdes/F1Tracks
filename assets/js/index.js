@@ -333,7 +333,35 @@ function carrouselEscuderias(data) {
 
 /* API TWITTER ENSEÑAR 10 TWITTS MÁS RECIENTES */
 function twitter() {
-    var tweets;
+    /*CUARTA FORMA*/
+    var url = "https://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1";
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader("Authorization", "Bearer {AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B}");
+
+    xhr.onreadystatechange = function () {
+   if (xhr.readyState === 4) {
+      console.log(xhr.status);
+      console.log(xhr.responseText);
+   }};
+
+    xhr.send();
+
+
+    /*TERCERA FORMA*/
+    /*const response = await fetch('https://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1');
+    if (!response.ok) {
+        const message = `An error has occured: ${response.status}`;
+        throw new Error(message);
+    }
+    const data = await response.json();
+    console.log(data);*/
+
+    /*SEGUNDA FORMA*/
+    /*var tweets;
     const req = "https://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1";
     const request = new XMLHttpRequest();
     request.onreadystatechange = function(){
@@ -344,9 +372,11 @@ function twitter() {
     }
     request.open("GET",req);
     request.responseType = 'text';
-    request.setRequestHeader("Authorization", "AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B");
-    request.send();
-    
+    request.setRequestHeader("Authorization", "Bearer Token AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B");
+    request.send();*/
+
+
+    /*PRIMERA FORMA NO FUNCIONA*/
     //var xhr = new XMLHttpRequest();
     //var Twit = fetch('twit');
 
