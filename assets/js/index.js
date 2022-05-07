@@ -334,7 +334,7 @@ function carrouselEscuderias(data) {
 /* API TWITTER ENSEÑAR 10 TWITTS MÁS RECIENTES */
 function twitter() {
     /*CUARTA FORMA*/
-    var url = "https://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1";
+    /*var url = "http://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1";
 
     var xhr = new XMLHttpRequest();
     xhr.open("GET", url);
@@ -348,7 +348,7 @@ function twitter() {
       console.log(xhr.responseText);
    }};
 
-    xhr.send();
+    xhr.send();*/
 
 
     /*TERCERA FORMA*/
@@ -372,25 +372,26 @@ function twitter() {
     }
     request.open("GET",req);
     request.responseType = 'text';
-    request.setRequestHeader("Authorization", "Bearer Token AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B");
+    request.setRequestHeader("Authorization", "Bearer {AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B}");
     request.send();*/
 
 
     /*PRIMERA FORMA NO FUNCIONA*/
-    //var xhr = new XMLHttpRequest();
-    //var Twit = fetch('twit');
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
 
-    /*xhr.setRequestHeader({
-        consumer_key: 'hYki2ZOYFDo7lCcWYFxY3GHiD',
-        consumer_secret: 'Nq50V1zVI3ka6SdmotuSvIX5kGznLZWPeu2fOjcXjZViQYaJzH',
-        access_token: '1376221813-xC5cTmFDFphzghw6NLvhneuefYpPA8OwTyRqLsx',
-        access_token_secret: 'oBQVsioE5djzQOmuZO7z9iqnno5PnRRmn5OMEu294opzo'
-    });*/
+    xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === 4) {
+      //console.log(this.responseText);
+      var tweets = JSON.parse(this.responseText);
+      console.log(tweets);
+    }
+    });
 
-    //xhr.open("GET", "https://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1");
-    
+    xhr.open("GET", "https://api.twitter.com/2/users/19066345/tweets?max_results=5");
+    xhr.setRequestHeader("Authorization", "Bearer AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B");
 
-    //xhr.send();
+    xhr.send();
 
     /*T.get('search/tweets', { q: '#F1 since:2020-07-11', count: 10 }, function (err, data, response) {
         console.log(data)
