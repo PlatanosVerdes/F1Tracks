@@ -164,7 +164,7 @@ async function printTrackMainInfo(data) {
 
     let detailLapRecord = document.createElement("div");
     detailLapRecord.setAttribute("class", "detail-info-content");
-    detailLapRecord.innerHTML = `${pilot.name} ${pilot.lastName}`;
+    detailLapRecord.innerHTML = `${pilot.name} ${pilot.lastName} (${tracks[posTrack].datos_extra.lapRecord.year})`;
 
     let lapRecord = document.getElementById("pilot-record-track");
     lapRecord.appendChild(img);
@@ -291,14 +291,80 @@ function trackfav() {
 }
 
 function videosTrack(data, i) {
-    if (data[i].video[1] == null) {
-        document.getElementById("video-title").innerHTML = `Video
-        <button style="visibility:hidden; onclick="document.getElementById('video-track').src = '${data[i].video[0]}'">TrackView</button>`;
+    let title = document.getElementById("video-title");
+    let iframes = document.getElementById("iframe-video");
+
+    let carousel = document.createElement("div");
+    carousel.setAttribute("class", "carousel slide");
+    carousel.setAttribute("id", "carouselExampleInterval");
+    carousel.setAttribute("data-bs-ride", "carousel");
+    let carouselInner = document.createElement("div");
+    carouselInner.setAttribute("class", "carousel-inner");
+
+    carousel.appendChild(carouselInner);
+
+    if (!data[i].video[1]) {
+        title.innerHTML = `Video`;
+        let carouselItem = document.createElement("div");
+        carouselItem.setAttribute("class", "carousel-item active");
+        carouselItem.setAttribute("data-bs-interval", "10000");
+        carouselItem.innerHTML=`<iframe id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe>`;
+        carouselInner.appendChild(carouselItem);
     } else {
-        document.getElementById("video-title").innerHTML = ` Video <button class="button2" onclick="document.getElementById('video-track').src = '${data[i].video[0]}'">TrackView</button>
-            <button class="button1" onclick="document.getElementById('video-track').src = '${data[i].video[1]}'">Highlights</button>`;
+        title.innerHTML = `Videos`;
+        let carouselItemActive = document.createElement("div");
+        carouselItemActive.setAttribute("class", "carousel-item active");
+        carouselItemActive.setAttribute("data-bs-interval", "5000");
+        carouselItemActive.innerHTML=`<iframe id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe>`;
+        carouselInner.appendChild(carouselItemActive);
+
+        let carouselItem = document.createElement("div");
+        carouselItem.setAttribute("class", "carousel-item");
+        carouselItem.setAttribute("data-bs-interval", "5000");
+        carouselItem.innerHTML=`<iframe id="video-track" src="${data[i].video[1]}" frameborder="0" allowfullscreen controls=2 ></iframe>`;
+        carouselInner.appendChild(carouselItem);
+
+        let btPrev = document.createElement("button");
+        btPrev.setAttribute("class","carousel-control-prev");
+        btPrev.setAttribute("type","button");
+        btPrev.setAttribute("data-bs-target","#carouselExampleInterval");
+        btPrev.setAttribute("data-bs-slide","prev");
+        let spanControlPrev = document.createElement("span");
+        spanControlPrev.setAttribute("class","carousel-control-prev-icon");
+        spanControlPrev.setAttribute("aria-hidden","true");
+        btPrev.appendChild(spanControlPrev);
+        let visuallyPrev = document.createElement("span");
+        visuallyPrev.setAttribute("class","visually-hidden");
+        visuallyPrev.innerHTML="Previous";
+        btPrev.appendChild(visuallyPrev);
+
+        let btNext = document.createElement("button");
+        btNext.setAttribute("class","carousel-control-next");
+        btNext.setAttribute("type","button");
+        btNext.setAttribute("data-bs-target","#carouselExampleInterval");
+        btNext.setAttribute("data-bs-slide","next");
+        let spanControlNext = document.createElement("span");
+        spanControlNext.setAttribute("class","carousel-control-next-icon");
+        spanControlNext.setAttribute("aria-hidden","true");
+        btNext.appendChild(spanControlNext);
+        let visuallyNext = document.createElement("span");
+        visuallyNext.setAttribute("class","visually-hidden");
+        visuallyNext.innerHTML="Next";
+        btNext.appendChild(visuallyNext);
+
+        carousel.appendChild(btPrev);
+        carousel.appendChild(btNext);
     }
-    document.getElementById("iframe-video").innerHTML = `<iframe id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe>`;
+    iframes.appendChild(carousel);
+
+    /*  if (data[i].video[1] == null) {
+         document.getElementById("video-title").innerHTML = `Video
+         <button style="visibility:hidden; onclick="document.getElementById('video-track').src = '${data[i].video[0]}'">TrackView</button>`;
+     } else {
+         document.getElementById("video-title").innerHTML = ` Video <button class="button2" onclick="document.getElementById('video-track').src = '${data[i].video[0]}'">TrackView</button>
+             <button class="button1" onclick="document.getElementById('video-track').src = '${data[i].video[1]}'">Highlights</button>`;
+     }
+     document.getElementById("iframe-video").innerHTML = `<iframe id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe>`; */
 }
 
 function tiempoAPIForecast(track, i) {
