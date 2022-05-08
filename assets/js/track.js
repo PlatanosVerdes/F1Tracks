@@ -353,8 +353,7 @@ function currentDate() {
 }
 
 function tiempoDia(values) {
-    var desc = values[0].weather.description;
-    var desc2 = desc.charAt(0).toUpperCase() + str.slice(1);
+
     var day = {
         date: values[0].date,
         temp: null,
@@ -363,7 +362,7 @@ function tiempoDia(values) {
         temp_max: parseInt(values[0].main.temp_max),
         humidity: values[0].main.humidity,
         pressure: values[0].main.pressure,
-        description: desc2,
+        description: values[0].weather.description,
         wind: values[0].wind.speed,
         icon: values[0].weather.icon,
     };
@@ -404,7 +403,7 @@ function processTiempoForecast(data) {
                 forecast5days.push(tiempoDia(forecastDay));
                 forecastDay.length = 0;
                 dateDay = dateForecast.getDate();
-                n++;
+                
             }
 
             forecastDay.push(infoForecast);
