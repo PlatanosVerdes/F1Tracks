@@ -630,11 +630,11 @@ section {
 	transition: .3s ease-in-out;
 }
 
-.track-item:hover #imagencircuito {
+.track-item #img:hover #imagencircuito {
   opacity: .4;
 }
 
-.track-item:hover .text {
+.track-item #img:hover .text {
   opacity: 1;
 }
 

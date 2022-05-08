@@ -19,7 +19,7 @@ function printTrackAlternateName(track, trackpos, whereId) {
 
     trackItem.innerHTML = `
         <div class="row">
-            <div class="col-sm-12 col-md-6" id="hidden">
+            <div class="col-sm-12 col-md-6" id="img">
                 <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${track.identifier}.png" alt="${track.identifier}" data-track-pos="${trackpos}" onclick="getIdTrackClick(this)" id="imagencircuito">
                 
                 <div class="text text-center" id="name">${track.name}</div>

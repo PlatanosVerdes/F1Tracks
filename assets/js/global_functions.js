@@ -85,6 +85,15 @@ function getAllYears(track) {
     return allYears;
 }
 
+async function posTrackInJSON(track) {
+    let data = await fetchJSON();
+    for (var i = 0; i < data.track.length; i++) {
+        if (track.identifier === data.track[i].identifier) {
+            return i;
+        }
+    }
+}
+
 /* Metodo que cambia los tracks en el indice y los muestra ordenados */
 /* PENDIENTE ORDENAR POR AÑOS */
 async function ordenarBy(order, data) {
@@ -178,10 +187,10 @@ async function ordenarBy(order, data) {
             <h3>TEMPORADA ${order}</h3>
         `;
 
-        let tracks =[];
+        let tracks = [];
         for (let i = 0; i < data.track.length; i++) {
             let allYears = getAllYears(data.track[i]);
-            if(allYears.includes(parseInt(order))){
+            if (allYears.includes(parseInt(order))) {
                 tracks.push(data.track[i]);
             }
         }
@@ -189,19 +198,25 @@ async function ordenarBy(order, data) {
     }
 }
 
-function printTracksOrderBy(tracks) {
+async function printTracksOrderBy(tracks) {
     let newTrackList = document.getElementById('track-list');
     newTrackList.innerHTML = '';
 
     for (let i = 0; i < tracks.length; i++) {
+
+        let trackpos = await posTrackInJSON(tracks[i]);
         let trackItem = document.createElement("div");
         trackItem.setAttribute("class", "track-item");
         trackItem.setAttribute("id", "track-item");
 
         trackItem.innerHTML = `
                 <div class="row">
-                    <div class="col-sm-12 col-md-6">
-                        <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${tracks[i].identifier}.png" alt="${tracks[i].identifier}.png" onclick="getIdTrackClick(this)">
+                    <div class="col-sm-12 col-md-6" id="img">
+                        <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${tracks[i].identifier}.png" alt="${tracks[i].identifier}"  data-track-pos="${trackpos}" onclick="getIdTrackClick(this)"  id="imagencircuito">
+
+                        <div class="text text-center" id="name">${tracks[i].name}</div>
+                        <div class="text text-center" id="location">${tracks[i].GeoCoordinates.addressCountry}</div>
+                        <div class="text text-center" id="date">${tracks[i].date}</div>
                     </div>
                     <div class="col-sm-12 col-md-6" id="idTrack">
                         <h3>${tracks[i].name}</h3>
