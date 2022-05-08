@@ -1006,3 +1006,31 @@ section {
   display: inline-block;
   width: 50%;
 }
+
+
+.estadisticas h1 {
+  font: 24px sans-serif;
+  color: #e0e0e0;
+}
+.estadisticas .bar {
+  fill: #d81c3f;
+}
+
+.estadisticas .bar:hover {
+  fill: darkgray;
+}
+
+.estadisticas .axis {
+  font: 10px sans-serif;
+}
+
+.estadisticas .axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.estadisticas .x.axis path {
+  display: none;
+}
