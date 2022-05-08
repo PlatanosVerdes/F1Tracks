@@ -197,20 +197,20 @@
                             <div class="title">Tiempo</div>
                         </div>
                         <div class="row-md-2 d-flex ">
-                            <div class="col-md-4 text-center" id="colTiempo">
+                            <div class="col-md-3 text-center" id="colTiempo">
                                 
                                 <h1>Hoy</h1>
-                                <img src="http://openweathermap.org/img/wn/10d@2x.png"></img>
-                                <h2 >Cielo claro</h2>
+                                <img id="TiempoHoyImg" src="http://openweathermap.org/img/wn/10d@2x.png"></img>
+                                <h2 id="TiempoHoyDesc"></h2>
 
                             </div>
-                            <div class="col-md-2" id="tiempoForecast2">
+                            <div class="col-md-3" id="tiempoForecast2">
 
                                 <div class="row-cols-md-auto text-center max">
-                                    <h2>12</h2>
+                                    <h2 id="TiempoHoyMax"></h2>
                                 </div>
                                 <div class="row-cols-md-auto text-center min">
-                                    <h2>12</h2>
+                                    <h2 id="TiempoHoyMin"></h2>
                                 </div>
 
                             </div>
@@ -219,10 +219,10 @@
                                 <div class="row d-flex">
                                     
                                     <div class="col-6 text-end">
-                                        <img class="icon" src="assets/img/weather/humity.png"></img>
+                                        <img class="icon" src="assets/img/weather/humidity.png"></img>
                                     </div>
-                                    <div class="col-6 text-start">
-                                        12
+                                    <div class="col-6 text-start" id="TiempoHoyHumidity">
+                                        
                                     </div>
                                     
                                 </div>
@@ -231,8 +231,8 @@
                                     <div class="col-6 text-end">
                                         <img class="icon" src="assets/img/weather/feel.png"></img>
                                     </div>
-                                    <div class="col-6 text-start">
-                                        12
+                                    <div class="col-6 text-start" id="TiempoHoyFeel">
+                                        
                                     </div>
                                     
                                 </div>
@@ -244,8 +244,8 @@
                                     <div class="col-6 text-end">
                                         <img class="icon" src="assets/img/weather/wind.png"></img>
                                     </div>
-                                    <div class="col-6 text-start">
-                                        12
+                                    <div class="col-6 text-start" id="TiempoHoyWind">
+                                    
                                     </div>
                                     
                                 </div>
@@ -254,56 +254,13 @@
                                     <div class="col-6 text-end">
                                         <img class="icon" src="assets/img/weather/pressure.png"></img>
                                     </div>
-                                    <div class="col-6 text-start">
-                                        12
+                                    <div class="col-6 text-start" id="TiempoHoyPressure">
+                                        
                                     </div>                                    
                                 </div>
                             </div>
                         </div>
-                        <div class="row-md-2 d-flex ">
-                            <div class="col-md-3 text-center" id="tiempoForecast">
-                                03 may
-                                <img src="http://openweathermap.org/img/wn/10d@2x.png"></img>
-                                <div class="row-cols-md-auto text-center max">
-                                    12
-                                </div>
-                                <div class="row-cols-md-auto text-center min">
-                                    12
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-3 text-center" id="tiempoForecast">
-                                03 may
-                                <img src="http://openweathermap.org/img/wn/10d@2x.png"></img>
-                                <div class="row-cols-md-auto text-center max">
-                                    12
-                                </div>
-                                <div class="row-cols-md-auto text-center min">
-                                    12
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-3 text-center" id="tiempoForecast">
-                                03 may
-                                <img src="http://openweathermap.org/img/wn/10d@2x.png"></img>
-                                <div class="row-cols-md-auto text-center max">
-                                    12
-                                </div>
-                                <div class="row-cols-md-auto text-center min">
-                                    12
-                                </div>
-                            </div>
-                            
-                            <div class="col-md-3 text-center" id="tiempoForecast">
-                                03 may
-                                <img src="http://openweathermap.org/img/wn/10d@2x.png"></img>
-                                <div class="row-cols-md-auto text-center max">
-                                    12
-                                </div>
-                                <div class="row-cols-md-auto text-center min">
-                                    12
-                                </div>
-                            </div>
+                        <div class="row-md-2 d-flex" id="TiempoForecast">
                             
                         </div>
 

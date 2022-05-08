@@ -725,6 +725,8 @@ section {
   box-shadow: none;
   color: white;
   float: right;
+  margin: 5px;
+
 }
 .trackView .title .button2 {
   border-radius: 5px;
@@ -732,6 +734,8 @@ section {
   box-shadow: none;
   color: white;
   float: right;
+  margin: 5px;
+
 }
 
 .trackView iframe {
@@ -804,11 +808,10 @@ section {
 .trackView #colTiempo img{
   width: 7vw;
   height: 7vw;
-
 }
 
 .trackView #colTiempo2 {
-  margin-top: 5vw;
+  margin-top: 6vw;
 
 }
 
