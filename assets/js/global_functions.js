@@ -6,7 +6,6 @@ function remove(item) {
     }
 }
 
-
 function currentDate() {
     let currentDate = new Date();
     let cDay = currentDate.getDate();
@@ -68,6 +67,22 @@ function orderTracksBy(tracks, order) {
         tracks.sort((a, b) => new Date(a.date) - new Date(b.date));
     }
     return tracks;
+}
+
+function getAllYears(track) {
+    let years = track.datos_extra.years;
+    let allYears = [];
+    for (var i = 0; i < years.length; i++) {
+        let auxYears = years[i].split("-");
+        if (auxYears.length > 1) {
+            for (let j = auxYears[0]; j <= auxYears[1]; j++) {
+                allYears.push(parseInt(j));
+            }
+        } else {
+            allYears.push(parseInt(years[i]));
+        }
+    }
+    return allYears;
 }
 
 /* Metodo que cambia los tracks en el indice y los muestra ordenados */
@@ -157,9 +172,21 @@ async function ordenarBy(order, data) {
 
     } else {
         //Años
-        console.log(order);
-    }
+        newTitle.innerHTML = `  
+            <h4>CIRCUITOS</h4>
+                <br>
+            <h3>TEMPORADA ${order}</h3>
+        `;
 
+        let tracks =[];
+        for (let i = 0; i < data.track.length; i++) {
+            let allYears = getAllYears(data.track[i]);
+            if(allYears.includes(parseInt(order))){
+                tracks.push(data.track[i]);
+            }
+        }
+        printTracksOrderBy(tracks);
+    }
 }
 
 function printTracksOrderBy(tracks) {
@@ -187,11 +214,11 @@ function printTracksOrderBy(tracks) {
     }
 }
 
-
 async function addEventOnChange() {
     let data = await fetchJSON();
     document.getElementById('plh-search').addEventListener('change', () => buscarContenido(data));
 }
+addEventOnChange();
 
 function buscarContenido(data) {
     tracks = data.track;
@@ -200,7 +227,7 @@ function buscarContenido(data) {
         let search = data.track.filter(track => track.name.toLowerCase().includes(text) || track.alternateName.toLowerCase().includes(text));
         if (search.length > 0) {
             document.getElementById('title-trackslist').innerText = `Resultado de la búsqueda`;
-            
+
             //Borrar los tracks
             //Si hay circuitos ya hechos:
             let oldTracks = document.getElementById('parent-track-list-old');
@@ -219,6 +246,3 @@ function buscarContenido(data) {
         }
     }
 }
-
-
-addEventOnChange();

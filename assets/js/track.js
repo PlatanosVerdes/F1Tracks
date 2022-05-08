@@ -2,13 +2,13 @@ const nameTrack = sessionStorage.getItem("idTrack");
 const posTrack = sessionStorage.getItem("posTrack");
 
 function getYears(data) {
-    var year = data.datos_extra.years;
-    var s = "";
+    let year = data.datos_extra.years;
+    let s = "";
     for (var i = 0; i < year.length; i++) {
         if (i == year.length - 1) {
             s += year[i];
         } else {
-            s += year[i] + " ,";
+            s += year[i] + ", ";
         }
     }
     return s;
@@ -102,11 +102,7 @@ function getClassification(data) {
         }
         pos.appendChild(divParent);
     } else {
-        let text = document.createElement("p");
-        text.setAttribute("class", "title-body");
-        text.innerHTML =
-            "Actualmente, no hay dados  debido a todavía no se ha disputado este gran premio.";
-        pos.appendChild(text);
+        document.getElementById("secction-posiciones").remove();
     }
 }
 
@@ -222,7 +218,7 @@ window.addEventListener("load", initTrack);
 async function initTrack() {
     let data = await fetchJSON();
     printTrackMainInfo(data);
-    createMenuCircuitsTrack(3, data);
+    createMenuCircuitsTrack(4, data);
     playAudio();
 }
 
@@ -277,22 +273,21 @@ function trackfav() {
 
     if (tracksFav != null) {
         if (tracksFav.includes(nameTrack)) {
-            console.log("esta");
+            /*Esta*/
             tracksFav = removeItemArray(tracksFav, nameTrack);
             icon.className = "bi bi-star";
         } else {
-            console.log("no esta");
+            /*No esta*/
             tracksFav.push(nameTrack);
             icon.className = "bi bi-star-fill";
         }
     } else {
-        console.log("vacio");
+        /*Vacio*/
         tracksFav = [nameTrack];
         icon.className = "bi bi-star-fill";
     }
 
     localStorage.setItem("favs", JSON.stringify(tracksFav));
-    console.log(tracksFav);
 }
 
 function videosTrack(data, i) {
@@ -300,14 +295,10 @@ function videosTrack(data, i) {
         document.getElementById("video-title").innerHTML = `Video
         <button style="visibility:hidden; onclick="document.getElementById('video-track').src = '${data[i].video[0]}'">TrackView</button>`;
     } else {
-        document.getElementById(
-            "video-title"
-        ).innerHTML = ` Video <button class="button2" onclick="document.getElementById('video-track').src = '${data[i].video[0]}'">TrackView</button>
-            <button class="button1" onclick="document.getElementById('video-track').src = '${data[i].video[1]}'">Highlight</button>`;
+        document.getElementById("video-title").innerHTML = ` Video <button class="button2" onclick="document.getElementById('video-track').src = '${data[i].video[0]}'">TrackView</button>
+            <button class="button1" onclick="document.getElementById('video-track').src = '${data[i].video[1]}'">Highlights</button>`;
     }
-    document.getElementById(
-        "iframe-video"
-    ).innerHTML = `<iframe id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe>`;
+    document.getElementById("iframe-video").innerHTML = `<iframe id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe>`;
 }
 
 function tiempoAPIForecast(track, i) {
@@ -403,7 +394,7 @@ function processTiempoForecast(data) {
                 forecast5days.push(tiempoDia(forecastDay));
                 forecastDay.length = 0;
                 dateDay = dateForecast.getDate();
-                
+
             }
 
             forecastDay.push(infoForecast);
@@ -447,7 +438,6 @@ function showTiempoToday(data) {
 
 function showTiempoForecast(data) {
     let forecast = document.getElementById("TiempoForecast");
-    console.log("hola");
     for (var i = 0; i < data.length; i++) {
         let dayForecast = document.createElement("div");
         dayForecast.setAttribute("class", "col-md-3 text-center");

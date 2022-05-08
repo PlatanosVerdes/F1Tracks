@@ -619,9 +619,8 @@ section {
 .track-item .text {
   transition: .5s ease;
   opacity: 0;
-  color: #ff0000;
-  font-size: 20px;
-  font-weight: bold;
+  color: #ffffffc4;
+  transform: translateY(-6rem);
 }
 
 .track-item #imagencircuito {
@@ -716,7 +715,11 @@ section {
   background: #282c34;
   padding: 10px;
   border-radius: 2px;
-  margin-bottom: 2px;
+  margin-top: 1rem;
+}
+
+.trackView #name-track {
+  font-size: large;
 }
 
 .trackView .title .button1 {
@@ -726,7 +729,6 @@ section {
   color: white;
   float: right;
   margin: 5px;
-
 }
 .trackView .title .button2 {
   border-radius: 5px;
@@ -770,6 +772,10 @@ section {
   width: 80%;
 }
 
+.trackView #description-track{
+  margin-top: 0.5rem;
+}
+
 .trackView .posicion .card {
   background-color: #202020;
   border-color: #202020;
@@ -798,7 +804,6 @@ section {
   margin-right: 3px;
   margin-bottom: 1rem;
 }
-
 
 .trackView #containerTiempo{
   padding: 0%;

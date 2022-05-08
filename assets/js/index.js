@@ -19,10 +19,12 @@ function printTrackAlternateName(track, trackpos, whereId) {
 
     trackItem.innerHTML = `
         <div class="row">
-            <div class="col-sm-12 col-md-6">
+            <div class="col-sm-12 col-md-6" id="hidden">
                 <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${track.identifier}.png" alt="${track.identifier}" data-track-pos="${trackpos}" onclick="getIdTrackClick(this)" id="imagencircuito">
-                <div class="text">${track.date}</div>
-                <div class="text">${track.GeoCoordinates.addressCountry}</div>
+                
+                <div class="text text-center" id="name">${track.name}</div>
+                <div class="text text-center" id="location">${track.GeoCoordinates.addressCountry}</div>
+                <div class="text text-center" id="date">${track.date}</div>
             </div>
             <div class="col-sm-12 col-md-6">
                 <h3>${track.alternateName}</h3>
@@ -37,6 +39,7 @@ function printTrackAlternateName(track, trackpos, whereId) {
 /* Funcion que crea e iyecta todos los tracks del JSON en el INDEX */
 function createTracksIndex(data) {
     let tracks = data.track;
+    //Para guardar los ya cursados en orden:
     let tracksAux = [];
     let posTracksAux = [];
 
@@ -228,20 +231,6 @@ function createMenuCircuitsIndex(year, data) {
     document.getElementById("bt-favs").addEventListener("click", () => ordenarBy("favs", data));
 }
 
-/* //Funcion que le el JSON de nuestros datos
-async function fetchJSON() {
-    const response = await fetch('f1tracks.json');
-    if (!response.ok) {
-        const message = `An error has occured: ${response.status}`;
-        throw new Error(message);
-    }
-    const data = await response.json();
-    return data;
-}
-fetchJSON().catch(error => {
-    error.message; // 'An error has occurred: 404'
-}); */
-
 window.addEventListener('load', initIndex)
 async function initIndex() {
     let navClicked = sessionStorage.getItem('navClicked');
@@ -254,22 +243,12 @@ async function initIndex() {
         createTracksIndex(data);
     }
     
-    createMenuCircuitsIndex(3, data);
+    createMenuCircuitsIndex(4, data);
     playAudio();
     mapsIndex(data);
     carrouselEscuderias(data);
     twitter();
 }
-
-
-
-window.addEventListener('storage', function (e) {
-    console.log(e.key);
-    console.log(e.oldValue);
-    console.log(e.newValue);
-    console.log(e.url);
-    console.log(JSON.stringify(e.storageArea));
-}, false);
 
 /*API MAPS*/
 function mapsIndex(data) {
