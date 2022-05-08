@@ -333,7 +333,35 @@ function carrouselEscuderias(data) {
 
 /* API TWITTER ENSEÑAR 10 TWITTS MÁS RECIENTES */
 function twitter() {
-    var tweets;
+    /*CUARTA FORMA*/
+    /*var url = "http://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1";
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+
+    xhr.setRequestHeader("Accept", "application/json");
+    xhr.setRequestHeader("Authorization", "Bearer {AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B}");
+
+    xhr.onreadystatechange = function () {
+   if (xhr.readyState === 4) {
+      console.log(xhr.status);
+      console.log(xhr.responseText);
+   }};
+
+    xhr.send();*/
+
+
+    /*TERCERA FORMA*/
+    /*const response = await fetch('https://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1');
+    if (!response.ok) {
+        const message = `An error has occured: ${response.status}`;
+        throw new Error(message);
+    }
+    const data = await response.json();
+    console.log(data);*/
+
+    /*SEGUNDA FORMA*/
+    /*var tweets;
     const req = "https://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1";
     const request = new XMLHttpRequest();
     request.onreadystatechange = function(){
@@ -344,23 +372,26 @@ function twitter() {
     }
     request.open("GET",req);
     request.responseType = 'text';
-    request.setRequestHeader("Authorization", "AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B");
-    request.send();
-    
-    //var xhr = new XMLHttpRequest();
-    //var Twit = fetch('twit');
+    request.setRequestHeader("Authorization", "Bearer {AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B}");
+    request.send();*/
 
-    /*xhr.setRequestHeader({
-        consumer_key: 'hYki2ZOYFDo7lCcWYFxY3GHiD',
-        consumer_secret: 'Nq50V1zVI3ka6SdmotuSvIX5kGznLZWPeu2fOjcXjZViQYaJzH',
-        access_token: '1376221813-xC5cTmFDFphzghw6NLvhneuefYpPA8OwTyRqLsx',
-        access_token_secret: 'oBQVsioE5djzQOmuZO7z9iqnno5PnRRmn5OMEu294opzo'
-    });*/
 
-    //xhr.open("GET", "https://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1");
-    
+    /*PRIMERA FORMA NO FUNCIONA*/
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
 
-    //xhr.send();
+    xhr.addEventListener("readystatechange", function () {
+    if (this.readyState === 4) {
+      //console.log(this.responseText);
+      var tweets = JSON.parse(this.responseText);
+      console.log(tweets);
+    }
+    });
+
+    xhr.open("GET", "https://api.twitter.com/2/users/19066345/tweets?max_results=5");
+    xhr.setRequestHeader("Authorization", "Bearer AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B");
+
+    xhr.send();
 
     /*T.get('search/tweets', { q: '#F1 since:2020-07-11', count: 10 }, function (err, data, response) {
         console.log(data)
