@@ -1007,27 +1007,30 @@ section {
   width: 50%;
 }
 
-
+/*--------------------------------------------------------------
+# ESTADISTICAS
+--------------------------------------------------------------*/
 .estadisticas h1 {
   font: 24px sans-serif;
   color: #e0e0e0;
 }
 .estadisticas .bar {
-  fill: #e0e0e0;
+  fill: #dc0708;
 }
 
 .estadisticas .bar:hover {
-  fill: darkgray;
+  fill: #f55a5a;
 }
 
 .estadisticas .axis {
   font: 10px sans-serif;
+  color: white;
 }
 
 .estadisticas .axis path,
 .axis line {
   fill: none;
-  stroke: #000;
+  stroke: rgb(255, 255, 255);
   shape-rendering: crispEdges;
 }
 
