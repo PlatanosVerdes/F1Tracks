@@ -225,12 +225,9 @@ async function initTrack() {
     createMenuCircuitsTrack(4, data);
     playAudio();
 
-    //let jsonpelis = await fetchJSONExterno();
     let jsonvideojuegos = await fetchJSONExterno();
     console.log(jsonpelis);
     //extraerinfoJSON(jsonpelis,jsonvideojuegos);
-
-
 }
 
 //API MAPS

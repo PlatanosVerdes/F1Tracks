@@ -64,13 +64,13 @@ async function fetchJSONExterno() {
     let calas = "https://calasdemallorca.netlify.app/_json/index.json";
     let museo = "https://museosdemallorca.netlify.app/museos.json";
     let pelis = "https://hollypedia.000webhostapp.com/json/peliculas.json";
-    const response = await fetch(pelis);
+    let pelisN = "https://hollypedia.netlify.app/json/peliculas.json";
+    const response = await fetch(pelisN);
     if (!response.ok) {
         const message = `An error has occured: ${response.status}`;
         throw new Error(message);
     }
     const data = await response.json();
-    console.log(data);
     return data;
 }
 fetchJSONExterno().catch(error => {
