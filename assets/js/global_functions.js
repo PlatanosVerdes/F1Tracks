@@ -1,3 +1,29 @@
+/* const CORS_HEADERS = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers':
+        'Origin, X-Requested-With, Content-Type, Accept',
+}
+
+exports.handler = async (event, _context) => {
+    if (event.httpMethod === 'OPTIONS') {
+        return {
+            statusCode: 200,
+            headers: CORS_HEADERS,
+        }
+    }
+
+    return {
+        statusCode: 200,
+        headers: {
+            ...CORS_HEADERS,
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            hello: 'browser!'
+        })
+    }
+} */
+
 function currentDate() {
     let currentDate = new Date();
     let cDay = currentDate.getDate();
@@ -38,13 +64,13 @@ async function fetchJSONExterno() {
     let calas = "https://calasdemallorca.netlify.app/_json/index.json";
     let museo = "https://museosdemallorca.netlify.app/museos.json";
     let pelis = "https://hollypedia.000webhostapp.com/json/peliculas.json";
-    const response = await fetch(calas);
+    const response = await fetch(pelis);
     if (!response.ok) {
         const message = `An error has occured: ${response.status}`;
         throw new Error(message);
     }
     const data = await response.json();
-    console.log(data); 
+    console.log(data);
     return data;
 }
 fetchJSONExterno().catch(error => {
@@ -273,7 +299,7 @@ function buscarContenido(data, text = document.getElementById('plh-search').valu
         if (search.length > 0) {
 
             let title = document.getElementById('title-trackslist');
-            
+
             if (title != null) {
                 title.innerText = `Resultado de la búsqueda`;
                 //Borrar los tracks

@@ -1,6 +1,6 @@
 const nameTrack = sessionStorage.getItem("idTrack");
 var posTrack;
-async function getPos(){
+async function getPos() {
     posTrack = await posTrackInJSON(nameTrack);
 }
 getPos();
@@ -223,12 +223,14 @@ async function initTrack() {
     let data = await fetchJSON();
     printTrackMainInfo(data);
     createMenuCircuitsTrack(4, data);
-
     playAudio();
-    let jsonpelis = await fetchJSONExterno();
-    //let jsonvideojuegos = await fetchJSONExterno();
+
+    //let jsonpelis = await fetchJSONExterno();
+    let jsonvideojuegos = await fetchJSONExterno();
     console.log(jsonpelis);
     //extraerinfoJSON(jsonpelis,jsonvideojuegos);
+
+
 }
 
 //API MAPS
@@ -317,7 +319,7 @@ function videosTrack(data, i) {
         let carouselItem = document.createElement("div");
         carouselItem.setAttribute("class", "carousel-item active");
         carouselItem.setAttribute("data-bs-interval", "10000");
-        carouselItem.innerHTML=`<iframe id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe>`;
+        carouselItem.innerHTML = `<iframe id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe>`;
         carouselInner.appendChild(carouselItem);
     } else {
         title.innerHTML = `Videos`;
@@ -325,45 +327,45 @@ function videosTrack(data, i) {
         let carouselItemActive = document.createElement("div");
         carouselItemActive.setAttribute("class", "carousel-item active");
         carouselItemActive.setAttribute("data-bs-interval", "5000");
-        carouselItemActive.innerHTML=`<iframe id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe>`;
+        carouselItemActive.innerHTML = `<iframe id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe>`;
         carouselInner.appendChild(carouselItemActive);
 
         //Add un item
         let carouselItem = document.createElement("div");
         carouselItem.setAttribute("class", "carousel-item");
         carouselItem.setAttribute("data-bs-interval", "5000");
-        carouselItem.innerHTML=`<iframe id="video-track" src="${data[i].video[1]}" frameborder="0" allowfullscreen controls=2 ></iframe>`;
+        carouselItem.innerHTML = `<iframe id="video-track" src="${data[i].video[1]}" frameborder="0" allowfullscreen controls=2 ></iframe>`;
         carouselInner.appendChild(carouselItem);
 
         //Boton izquierdo
         let btPrev = document.createElement("button");
-        btPrev.setAttribute("class","carousel-control-prev");
-        btPrev.setAttribute("type","button");
-        btPrev.setAttribute("data-bs-target","#carouselExampleInterval");
-        btPrev.setAttribute("data-bs-slide","prev");
+        btPrev.setAttribute("class", "carousel-control-prev");
+        btPrev.setAttribute("type", "button");
+        btPrev.setAttribute("data-bs-target", "#carouselExampleInterval");
+        btPrev.setAttribute("data-bs-slide", "prev");
         let spanControlPrev = document.createElement("span");
-        spanControlPrev.setAttribute("class","carousel-control-prev-icon");
-        spanControlPrev.setAttribute("aria-hidden","true");
+        spanControlPrev.setAttribute("class", "carousel-control-prev-icon");
+        spanControlPrev.setAttribute("aria-hidden", "true");
         btPrev.appendChild(spanControlPrev);
         let visuallyPrev = document.createElement("span");
-        visuallyPrev.setAttribute("class","visually-hidden");
-        visuallyPrev.innerHTML="Previous";
+        visuallyPrev.setAttribute("class", "visually-hidden");
+        visuallyPrev.innerHTML = "Previous";
         btPrev.appendChild(visuallyPrev);
         carousel.appendChild(btPrev);
 
         //Boton derecho
         let btNext = document.createElement("button");
-        btNext.setAttribute("class","carousel-control-next");
-        btNext.setAttribute("type","button");
-        btNext.setAttribute("data-bs-target","#carouselExampleInterval");
-        btNext.setAttribute("data-bs-slide","next");
+        btNext.setAttribute("class", "carousel-control-next");
+        btNext.setAttribute("type", "button");
+        btNext.setAttribute("data-bs-target", "#carouselExampleInterval");
+        btNext.setAttribute("data-bs-slide", "next");
         let spanControlNext = document.createElement("span");
-        spanControlNext.setAttribute("class","carousel-control-next-icon");
-        spanControlNext.setAttribute("aria-hidden","true");
+        spanControlNext.setAttribute("class", "carousel-control-next-icon");
+        spanControlNext.setAttribute("aria-hidden", "true");
         btNext.appendChild(spanControlNext);
         let visuallyNext = document.createElement("span");
-        visuallyNext.setAttribute("class","visually-hidden");
-        visuallyNext.innerHTML="Next";
+        visuallyNext.setAttribute("class", "visually-hidden");
+        visuallyNext.innerHTML = "Next";
         btNext.appendChild(visuallyNext);
         carousel.appendChild(btNext);
 
@@ -578,11 +580,11 @@ function F1ConstructorStanding() {
         .catch((error) => console.log("error", error));
 }
 
-function extraerinfoJSON(datapelis, datajuegos){
+function extraerinfoJSON(datapelis, datajuegos) {
     for (var i = 0; i < datapelis.length; i++) {
         for (var j = 0; j < datapelis.genre.length; j++) {
-            if(datapelis[i].genre[j] === "F1"){
-                
+            if (datapelis[i].genre[j] === "F1") {
+
             }
         }
     }
