@@ -340,7 +340,7 @@ function twitter() {
     console.log(data);*/
 
     /*SEGUNDA FORMA*/
-    /*var tweets;
+    var tweets;
     const req = "https://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1";
     const request = new XMLHttpRequest();
     request.onreadystatechange = function(){
@@ -350,13 +350,15 @@ function twitter() {
         }
     }
     request.open("GET",req);
-    request.responseType = 'text';
-    request.setRequestHeader("Authorization", "Bearer {AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B}");
-    request.send();*/
+    request.responseType = "text";
+    request.setRequestHeader("Authorization", "Bearer AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B");
+    request.send();
 
+    /*var data = JSON.parse(responseBody);
+    postman.setEnvironmentVariable("id", data.clientId);*/
 
     /*PRIMERA FORMA NO FUNCIONA*/
-    var xhr = new XMLHttpRequest();
+    /*var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
 
     xhr.addEventListener("readystatechange", function () {
@@ -370,7 +372,7 @@ function twitter() {
     xhr.open("GET", "https://api.twitter.com/2/users/19066345/tweets?max_results=5");
     xhr.setRequestHeader("Authorization", "Bearer AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B");
 
-    xhr.send();
+    xhr.send();*/
 
     /*T.get('search/tweets', { q: '#F1 since:2020-07-11', count: 10 }, function (err, data, response) {
         console.log(data)
