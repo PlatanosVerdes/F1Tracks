@@ -224,11 +224,11 @@ async function initTrack() {
     printTrackMainInfo(data);
     createMenuCircuitsTrack(4, data);
     playAudio();
-
-    let jsonpelis = await fetchJSONExterno("https://hollypedia.netlify.app/json/peliculas.json");
-    let jsonvjuegos = await fetchJSONExterno("https://calasdemallorca.netlify.app/_json/index.json");
-    //console.log(jsonpelis);
-    extraerinfoJSON(jsonpelis,jsonvjuegos);
+    let jsonpelis = await fetchJSONExterno();
+    //let jsonpelis = await fetchJSONExterno("https://hollypedia.netlify.app/json/peliculas.json");
+    //let jsonvjuegos = await fetchJSONExterno("https://calasdemallorca.netlify.app/_json/index.json");
+    console.log(jsonpelis);
+    //extraerinfoJSON(jsonpelis,jsonvjuegos);
 }
 
 //API MAPS
