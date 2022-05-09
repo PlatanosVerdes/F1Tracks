@@ -60,12 +60,12 @@ fetchJSON().catch(error => {
     error.message; // 'An error has occurred: 404'
 });
 
-async function fetchJSONExterno() {
-    let calas = "https://calasdemallorca.netlify.app/_json/index.json";
-    let museo = "https://museosdemallorca.netlify.app/museos.json";
-    let pelis = "https://hollypedia.000webhostapp.com/json/peliculas.json";
-    let pelisN = "https://hollypedia.netlify.app/json/peliculas.json";
-    const response = await fetch(pelisN);
+async function fetchJSONExterno(jsonExt) {
+    //let calas = "https://calasdemallorca.netlify.app/_json/index.json";
+    //let museo = "https://museosdemallorca.netlify.app/museos.json";
+    //let pelis = "https://hollypedia.000webhostapp.com/json/peliculas.json";
+    //let pelisN = "https://hollypedia.netlify.app/json/peliculas.json";
+    const response = await fetch(jsonExt);
     if (!response.ok) {
         const message = `An error has occured: ${response.status}`;
         throw new Error(message);

@@ -225,9 +225,10 @@ async function initTrack() {
     createMenuCircuitsTrack(4, data);
     playAudio();
 
-    let jsonvideojuegos = await fetchJSONExterno();
-    console.log(jsonpelis);
-    //extraerinfoJSON(jsonpelis,jsonvideojuegos);
+    let jsonpelis = await fetchJSONExterno("https://hollypedia.netlify.app/json/peliculas.json");
+    let jsonvjuegos = await fetchJSONExterno("https://calasdemallorca.netlify.app/_json/index.json");
+    //console.log(jsonpelis);
+    extraerinfoJSON(jsonpelis,jsonvjuegos);
 }
 
 //API MAPS
@@ -577,20 +578,27 @@ function F1ConstructorStanding() {
         .catch((error) => console.log("error", error));
 }
 
-function extraerinfoJSON(datapelis, datajuegos) {
-    for (var i = 0; i < datapelis.length; i++) {
-        for (var j = 0; j < datapelis.genre.length; j++) {
-            if (datapelis[i].genre[j] === "F1") {
-
+function extraerinfoJSON(jsonpelis,jsonvjuegos) {
+    let arrayimagenes = new Array();
+    let x = 0;
+    for (var i = 0; i < jsonpelis.length; i++) {
+        var peli = jsonpelis[i];
+        for (var j = 0; j < peli.genre.length; j++) {
+            if (peli.genre[j] === "Action") {
+                arrayimagenes[x] = jsonpelis[i].image[0];
+                x++;
             }
         }
     }
+    console.log(arrayimagenes);
 
-    for (var i = 0; i < datajuegos.length; i++) {
-        /*for (var j = 0; j < datajuegoss.genre.length; j++) {
-            if(datajuegos[i].genre[j] === "F1"){
-                
+    /*for (var i = 0; i < jsonvjuegos.length; i++) {
+        var vjuego = jsonvjuegos[i];
+        for (var j = 0; j < vjuego.genre.length; j++) {
+            if(vjuego.genre[j] === "F1"){
+                arrayimagenes[x] = jsonvjuegos[i];
+                x++;
             }
-        }*/
-    }
+        }
+    }*/
 }

@@ -184,7 +184,7 @@ function carrouselEscuderias(data) {
 }
 
 /* API TWITTER ENSEÑAR 10 TWITTS MÁS RECIENTES */
-function twitter() {
+async function twitter() {
     /*CUARTA FORMA*/
     /*var url = "http://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1";
     var xhr = new XMLHttpRequest();
@@ -200,16 +200,16 @@ function twitter() {
 
 
     /*TERCERA FORMA*/
-    /*const response = await fetch('https://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1');
+    const response = await fetch('https://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1',{method:'GET',mode: 'no-cors',headers:{'Authorization':'Bearer AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B'}});
     if (!response.ok) {
         const message = `An error has occured: ${response.status}`;
         throw new Error(message);
     }
     const data = await response.json();
-    console.log(data);*/
+    console.log(data);
 
     /*SEGUNDA FORMA*/
-    var tweets;
+    /*var tweets;
     const req = "https://api.twitter.com/2/tweets/search/recent?query=%23f1";
     
     //const req = "https://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1";
@@ -223,7 +223,7 @@ function twitter() {
     request.open("GET",req);
     request.responseType = "text";
     request.setRequestHeader("Authorization", "Bearer AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B");
-    request.send();
+    request.send();*/
 
     /*var data = JSON.parse(responseBody);
     postman.setEnvironmentVariable("id", data.clientId);*/
