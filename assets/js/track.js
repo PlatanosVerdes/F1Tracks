@@ -579,5 +579,19 @@ function F1ConstructorStanding() {
 }
 
 function extraerinfoJSON(datapelis, datajuegos){
-    console.log(datapelis);
+    for (var i = 0; i < datapelis.length; i++) {
+        for (var j = 0; j < datapelis.genre.length; j++) {
+            if(datapelis[i].genre[j] === "F1"){
+                
+            }
+        }
+    }
+
+    for (var i = 0; i < datajuegos.length; i++) {
+        /*for (var j = 0; j < datajuegoss.genre.length; j++) {
+            if(datajuegos[i].genre[j] === "F1"){
+                
+            }
+        }*/
+    }
 }

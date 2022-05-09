@@ -35,21 +35,16 @@ fetchJSON().catch(error => {
 });
 
 async function fetchJSONExterno() {
-    const response = await fetch("https://hollypedia.000webhostapp.com/json/peliculas.json");
+    let calas = "https://calasdemallorca.netlify.app/_json/index.json";
+    let museo = "https://museosdemallorca.netlify.app/museos.json";
+    let pelis = "https://hollypedia.000webhostapp.com/json/peliculas.json";
+    const response = await fetch(calas);
     if (!response.ok) {
         const message = `An error has occured: ${response.status}`;
         throw new Error(message);
     }
     const data = await response.json();
-    console.log(data); /*PAraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa XDD El XML NO TE VA A IR BIEN, PARA ENPEZAR
-    ESTA MAL HEHCO, bueno, tienes un async sin un await. Cuando tenfas acceso los datos no te iran bien,
-    porque como te he dicho es seccencial, ejecutara este metodo y saltara al siguiente, pero este metodo
-    necesita un tiempo para acceder a la web y pillar los datos por eso el await. y el async. Te estan dando
-    los mismos fallos en ambos metodos. No puedes hacer esto hasta que no habiliren las cors. Cabron, no es 
-    que falle mas o menos, es que falla, y con un metodo u optro falla de una maenra o de otra.
-    PUES CON FETCH FALLA MAS XD*/
-    //NO ES PROBLEMA DE LOS CORS PERRO JSJSJSJSJS EN TOERIA FALLA PERO NO TIENE PQ PETAR TODO LO OTRO que es
-    //que es lo otro?
+    console.log(data); 
     return data;
 }
 fetchJSONExterno().catch(error => {
