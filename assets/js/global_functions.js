@@ -1,11 +1,3 @@
-//Funcion para remover un elemento
-function remove(item) {
-    var elem = document.querySelectorAll(item);
-    for (var i = 0; i < elem.length; i++) {
-        var del = elem[i]; del.parentNode.removeChild(del);
-    }
-}
-
 function currentDate() {
     let currentDate = new Date();
     let cDay = currentDate.getDate();
@@ -85,10 +77,10 @@ function getAllYears(track) {
     return allYears;
 }
 
-async function posTrackInJSON(track) {
+async function posTrackInJSON(idTrack) {
     let data = await fetchJSON();
     for (var i = 0; i < data.track.length; i++) {
-        if (track.identifier === data.track[i].identifier) {
+        if (idTrack === data.track[i].identifier) {
             return i;
         }
     }
@@ -137,7 +129,7 @@ async function ordenarBy(order, data) {
 
         //Ordenamos los tracks por nombre
         tracks = orderTracksBy(tracks, order);
-        printTracksOrderBy(tracks);
+        printTracks(tracks);
 
     } else if (order === "favs") {
         newTitle.innerHTML = `  
@@ -154,7 +146,7 @@ async function ordenarBy(order, data) {
                     auxTracks.push(tracks[i]);
                 }
             }
-            printTracksOrderBy(auxTracks);
+            printTracks(auxTracks);
         } else {
             //Ponemos los Tracks
             let newTrackList = document.getElementById('track-list');
@@ -194,38 +186,46 @@ async function ordenarBy(order, data) {
                 tracks.push(data.track[i]);
             }
         }
-        printTracksOrderBy(tracks);
+        printTracks(tracks);
     }
 }
 
-async function printTracksOrderBy(tracks) {
+/* Inyectar en el html los tracks con el titulo que
+tienen en el campeonato (AlternateName)
+@track: el track del JSON
+@trackPos: la posicion del Array del JSON
+@whereId: El ID de la etiqueta del HTML donde se quiere inyectar
+*/
+function printTrackAlternateName(track, whereId) {
+    let trackItem = document.createElement("div");
+    trackItem.setAttribute("class", "track-item");
+    trackItem.setAttribute("id", "track-item");
+
+    trackItem.innerHTML = `
+        <div class="row" onclick="getIdTrackClick(this)">
+            <div class="col-sm-12 col-md-6" id="img">
+                <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${track.identifier}.png" alt="${track.identifier}" id="imagencircuito">
+                
+                <div class="text text-center" id="name">${track.name}</div>
+                <div class="text text-center" id="location">${track.GeoCoordinates.addressCountry}</div>
+                <div class="text text-center" id="date">${track.date}</div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <h3>${track.alternateName}</h3>
+                <p>${track.description}</p>
+            </div>
+        </div>
+    `;
+
+    whereId.appendChild(trackItem);
+}
+
+async function printTracks(tracks) {
     let newTrackList = document.getElementById('track-list');
     newTrackList.innerHTML = '';
 
     for (let i = 0; i < tracks.length; i++) {
-
-        let trackpos = await posTrackInJSON(tracks[i]);
-        let trackItem = document.createElement("div");
-        trackItem.setAttribute("class", "track-item");
-        trackItem.setAttribute("id", "track-item");
-
-        trackItem.innerHTML = `
-                <div class="row">
-                    <div class="col-sm-12 col-md-6" id="img">
-                        <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${tracks[i].identifier}.png" alt="${tracks[i].identifier}"  data-track-pos="${trackpos}" onclick="getIdTrackClick(this)"  id="imagencircuito">
-
-                        <div class="text text-center" id="name">${tracks[i].name}</div>
-                        <div class="text text-center" id="location">${tracks[i].GeoCoordinates.addressCountry}</div>
-                        <div class="text text-center" id="date">${tracks[i].date}</div>
-                    </div>
-                    <div class="col-sm-12 col-md-6" id="idTrack">
-                        <h3>${tracks[i].name}</h3>
-                        <p>${tracks[i].description}</p>
-                    </div>
-                </div>
-                `;
-
-        newTrackList.appendChild(trackItem);
+        printTrackAlternateName(tracks[i],newTrackList);
     }
 }
 
@@ -255,7 +255,7 @@ function buscarContenido(data) {
             if (document.getElementById('row-old-tracks-list') != null) {
                 document.getElementById('row-old-tracks-list').remove();
             }
-            printTracksOrderBy(search);
+            printTracks(search);
         } else {
             window.confirm("No se han encontrado coincidencias");
         }

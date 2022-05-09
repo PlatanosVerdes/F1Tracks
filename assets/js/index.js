@@ -1,39 +1,11 @@
 //Funcion que se ejecuta al clicckar una imagen de un track
-function getIdTrackClick(img) {
+function getIdTrackClick(row) {
+    
+    let img= row.firstChild.nextElementSibling.firstChild.nextElementSibling;
     sessionStorage.setItem('idTrack', img.alt);
-    sessionStorage.setItem('posTrack', img.getAttribute("data-track-pos"));
+    /* sessionStorage.setItem('posTrack', img.getAttribute("data-track-pos")); */
     
     location.href = "track.html";
-}
-
-/* Inyectar en el html los tracks con el titulo que
-tienen en el campeonato (AlternateName)
-@track: el track del JSON
-@trackPos: la posicion del Array del JSON
-@whereId: El ID de la etiqueta del HTML donde se quiere inyectar
-*/
-function printTrackAlternateName(track, trackpos, whereId) {
-    let trackItem = document.createElement("div");
-    trackItem.setAttribute("class", "track-item");
-    trackItem.setAttribute("id", "track-item");
-
-    trackItem.innerHTML = `
-        <div class="row">
-            <div class="col-sm-12 col-md-6" id="img">
-                <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${track.identifier}.png" alt="${track.identifier}" data-track-pos="${trackpos}" onclick="getIdTrackClick(this)" id="imagencircuito">
-                
-                <div class="text text-center" id="name">${track.name}</div>
-                <div class="text text-center" id="location">${track.GeoCoordinates.addressCountry}</div>
-                <div class="text text-center" id="date">${track.date}</div>
-            </div>
-            <div class="col-sm-12 col-md-6">
-                <h3>${track.alternateName}</h3>
-                <p>${track.description}</p>
-            </div>
-        </div>
-    `;
-
-    whereId.appendChild(trackItem);
 }
 
 /* Funcion que crea e iyecta todos los tracks del JSON en el INDEX */
@@ -41,7 +13,6 @@ function createTracksIndex(data) {
     let tracks = data.track;
     //Para guardar los ya cursados en orden:
     let tracksAux = [];
-    let posTracksAux = [];
 
     //Ordenamos los tracks por orden de fecha
     tracks = orderTracksBy(tracks, 'date');
@@ -54,10 +25,9 @@ function createTracksIndex(data) {
         if ((new Date(tracks[i].date) - currentDate()) < 0) {
             /* Guardar */
             tracksAux.push(tracks[i]);
-            posTracksAux.push(i);
         } else {
             /* Print */
-            printTrackAlternateName(tracks[i], i, trackList);
+            printTrackAlternateName(tracks[i], trackList);
         }
     }
 
@@ -104,105 +74,8 @@ function createTracksIndex(data) {
         let trackListOld = document.getElementById('track-list-old');
         trackListOld.innerHTML = '';
         for (var i = 0; i < tracksAux.length; i++) {
-            printTrackAlternateName(tracksAux[i], posTracksAux[i], trackListOld);
+            printTrackAlternateName(tracksAux[i], trackListOld);
         }
-    }
-}
-
-/* Metodo que cambia los tracks en el indice y los muestra ordenados */
-/* PENDIENTE ORDENAR POR AÑOS */
-async function ordenar(order) {
-    orderBy = order.currentTarget.myParam;
-
-    //Borrar el titulo
-    document.getElementById('presentation').remove();
-
-    var hero = document.getElementById('hero');
-
-    let newTitle = document.createElement("div");
-    newTitle.setAttribute("class", "container-fluid");
-    newTitle.setAttribute("id", "presentation");
-
-
-    //Penemos nuevo titulo
-    hero.appendChild(newTitle);
-
-    //Eliminar titulo de la lista
-    var titleTracksList = document.getElementById('title-trackslist');
-    titleTracksList.innerHTML = "";
-
-    //Borrar los tracks
-    //Si hay circuitos ya hechos:
-    let oldTracks = document.getElementById('parent-track-list-old');
-    if (oldTracks) {
-        oldTracks.remove();
-        document.getElementById('row-old-tracks-list').remove();
-    }
-
-    var trackList = document.getElementById('track-list');
-    trackList.initIndex = "";
-    if (document.getElementById('row-old-tracks-list') != null) {
-        document.getElementById('row-old-tracks-list').remove();
-    }
-
-    let data = await fetchJSON();
-
-    //Cargar los tracks
-    let tracks = data.track;
-
-    if (orderBy == 'name') {
-        newTitle.innerHTML = `  
-            <h4>CIRCUITOS</h4>
-                <br>
-            <h3>TEMPORADA ${currentDate().getFullYear()}</h3>
-        `;
-        //Ordenamos los tracks por nombre
-        tracks = orderTracksBy(tracks, orderBy);
-    } else {
-        //FAVS: PENDIENTE DE CAMBIAR ESTE ELSE
-        newTitle.innerHTML = `  
-            <h4>CIRCUITOS</h4>
-                <br>
-            <h3>TUS CIRCUITOS FAVORITOS</h3>
-        `;
-        let auxTracks = [];
-        let tracksFav = JSON.parse(localStorage.getItem("favs"));
-
-        if (tracksFav.length > 0) {
-            for (let i = 0; i < tracks.length; i++) {
-                if (tracksFav.includes(tracks[i].identifier)) {
-                    auxTracks.push(tracks[i]);
-                }
-            }
-            tracks = auxTracks;
-        } else {
-            alert("No tienes circutos favoritos");
-            location.href = "index.html";
-        }
-
-    }
-
-    let newTrackList = document.getElementById('track-list');
-    newTrackList.innerHTML = '';
-
-    for (let i = 0; i < tracks.length; i++) {
-        let trackItem = document.createElement("div");
-        trackItem.setAttribute("class", "track-item");
-        trackItem.setAttribute("id", "track-item");
-
-        trackItem.innerHTML = `
-                    <div class="row">
-                        <div class="col-sm-12 col-md-6">
-                        <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${tracks[i].identifier}.png" alt="${tracks[i].identifier}" onclick="getIdTrackClick(this)">
-                        </div>
-                        <div class="col-sm-12 col-md-6" id="idTrack">
-                            <h3>${tracks[i].name}</h3>
-                            <p>${tracks[i].description}</p>
-                        </div>
-                    </div>
-                `;
-
-        newTrackList.appendChild(trackItem);
     }
 }
 

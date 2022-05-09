@@ -1,5 +1,9 @@
 const nameTrack = sessionStorage.getItem("idTrack");
-const posTrack = sessionStorage.getItem("posTrack");
+var posTrack;
+async function getPos(){
+    posTrack = await posTrackInJSON(nameTrack);
+}
+getPos();
 
 function getYears(data) {
     let year = data.datos_extra.years;
