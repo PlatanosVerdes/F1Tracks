@@ -34,18 +34,42 @@ fetchJSON().catch(error => {
     error.message; // 'An error has occurred: 404'
 });
 
-/*async function fetchJSONExterno(jsonext) {
-    const response = await fetch(jsonext);
+async function fetchJSONExterno() {
+    const response = await fetch("https://hollypedia.000webhostapp.com/json/peliculas.json");
     if (!response.ok) {
         const message = `An error has occured: ${response.status}`;
         throw new Error(message);
     }
     const data = await response.json();
+    console.log(data); /*PAraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa XDD El XML NO TE VA A IR BIEN, PARA ENPEZAR
+    ESTA MAL HEHCO, bueno, tienes un async sin un await. Cuando tenfas acceso los datos no te iran bien,
+    porque como te he dicho es seccencial, ejecutara este metodo y saltara al siguiente, pero este metodo
+    necesita un tiempo para acceder a la web y pillar los datos por eso el await. y el async. Te estan dando
+    los mismos fallos en ambos metodos. No puedes hacer esto hasta que no habiliren las cors. Cabron, no es 
+    que falle mas o menos, es que falla, y con un metodo u optro falla de una maenra o de otra.
+    PUES CON FETCH FALLA MAS XD*/
+    //NO ES PROBLEMA DE LOS CORS PERRO JSJSJSJSJS EN TOERIA FALLA PERO NO TIENE PQ PETAR TODO LO OTRO que es
+    //que es lo otro?
     return data;
 }
 fetchJSONExterno().catch(error => {
     error.message; // 'An error has occurred: 404'
-});*/
+});
+
+/*async function fetchJSONExterno() {
+    var xmlhttp = new XMLHttpRequest();
+    var url = "https://hollypedia.000webhostapp.com/json/peliculas.json";
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var myArr = JSON.parse(xmlhttp.responseText);
+            console.log(myArr);
+
+        }
+    }
+    xmlhttp.open("GET", url);
+    //xmlhttp.responseType = "text";
+    xmlhttp.send();
+}*/
 
 //Funcion que ordena los tracks por az o por date (fecha)
 function orderTracksBy(tracks, order) {
@@ -137,9 +161,13 @@ async function ordenarBy(order, data) {
                 <br>
             <h3>TUS CIRCUITOS FAVORITOS</h3>
         `;
-        let idTracksFav = JSON.parse(localStorage.getItem("favs"));
+        let newTrackList = document.getElementById('track-list');
+        newTrackList.innerHTML = '';
 
-        if (idTracksFav.length > 0) {
+        let idTracksFav = JSON.parse(localStorage.getItem("favs"));
+        console.log(idTracksFav);
+
+        if (idTracksFav != null) {
             let auxTracks = [];
             for (let i = 0; i < tracks.length; i++) {
                 if (idTracksFav.includes(tracks[i].identifier)) {
@@ -171,7 +199,12 @@ async function ordenarBy(order, data) {
             newTrackList.appendChild(div);
         }
 
+    } else if (order === "search") {
+        let title = sessionStorage.getItem('search');
+        sessionStorage.removeItem('search');
+        buscarContenido(data, title);
     } else {
+
         //Años
         newTitle.innerHTML = `  
             <h4>CIRCUITOS</h4>
@@ -226,7 +259,7 @@ async function printTracks(tracks) {
     newTrackList.innerHTML = '';
 
     for (let i = 0; i < tracks.length; i++) {
-        printTrackAlternateName(tracks[i],newTrackList);
+        printTrackAlternateName(tracks[i], newTrackList);
     }
 }
 
@@ -236,29 +269,41 @@ async function addEventOnChange() {
 }
 addEventOnChange();
 
-function buscarContenido(data) {
+function buscarContenido(data, text = document.getElementById('plh-search').value.toLowerCase()) {
     tracks = data.track;
-    let text = document.getElementById('plh-search').value.toLowerCase();
+
     if (text.length >= 2) {
+
         let search = data.track.filter(track => track.name.toLowerCase().includes(text) || track.alternateName.toLowerCase().includes(text));
         if (search.length > 0) {
-            document.getElementById('title-trackslist').innerText = `Resultado de la búsqueda`;
 
-            //Borrar los tracks
-            //Si hay circuitos ya hechos:
-            let oldTracks = document.getElementById('parent-track-list-old');
-            if (oldTracks) {
-                oldTracks.remove();
-                document.getElementById('row-old-tracks-list').remove();
+            let title = document.getElementById('title-trackslist');
+            
+            if (title != null) {
+                title.innerText = `Resultado de la búsqueda`;
+                //Borrar los tracks
+                //Si hay circuitos ya hechos:
+                let oldTracks = document.getElementById('parent-track-list-old');
+                if (oldTracks) {
+                    oldTracks.remove();
+                    document.getElementById('row-old-tracks-list').remove();
+                }
+                var trackList = document.getElementById('track-list');
+                trackList.initIndex = "";
+                if (document.getElementById('row-old-tracks-list') != null) {
+                    document.getElementById('row-old-tracks-list').remove();
+                }
+                printTracks(search);
+            } else {
+                //Estamos en un track
+                sessionStorage.setItem("navClicked", "search");
+                sessionStorage.setItem("search", text);
+
+                location.href = "index.html";
             }
-            var trackList = document.getElementById('track-list');
-            trackList.initIndex = "";
-            if (document.getElementById('row-old-tracks-list') != null) {
-                document.getElementById('row-old-tracks-list').remove();
-            }
-            printTracks(search);
         } else {
             window.confirm("No se han encontrado coincidencias");
         }
+
     }
 }

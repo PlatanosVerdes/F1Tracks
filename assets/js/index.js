@@ -210,7 +210,9 @@ function twitter() {
 
     /*SEGUNDA FORMA*/
     var tweets;
-    const req = "https://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1";
+    const req = "https://api.twitter.com/2/tweets/search/recent?query=%23f1";
+    
+    //const req = "https://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1";
     const request = new XMLHttpRequest();
     request.onreadystatechange = function(){
         if(request.readyState == 4 && request.status == 200){

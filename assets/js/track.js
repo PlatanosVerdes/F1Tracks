@@ -18,11 +18,6 @@ function getYears(data) {
     return s;
 }
 
-function sessionVarWhenClickNav(save) {
-    sessionStorage.setItem("navClicked", save);
-    location.href = "index.html";
-}
-
 function getPilot(data, idPilot) {
     let pilot = data.participant;
 
@@ -187,6 +182,11 @@ async function printTrackMainInfo(data) {
     tiempoAPIForecast(tracks, posTrack);
 }
 
+function sessionVarWhenClickNav(save) {
+    sessionStorage.setItem("navClicked", save);
+    location.href = "index.html";
+}
+
 function createMenuCircuitsTrack(year) {
     let index = document.getElementById("years");
     indexYear = currentDate().getFullYear() - year;
@@ -223,7 +223,12 @@ async function initTrack() {
     let data = await fetchJSON();
     printTrackMainInfo(data);
     createMenuCircuitsTrack(4, data);
+
     playAudio();
+    let jsonpelis = await fetchJSONExterno();
+    //let jsonvideojuegos = await fetchJSONExterno();
+    console.log(jsonpelis);
+    //extraerinfoJSON(jsonpelis,jsonvideojuegos);
 }
 
 //API MAPS
@@ -316,18 +321,21 @@ function videosTrack(data, i) {
         carouselInner.appendChild(carouselItem);
     } else {
         title.innerHTML = `Videos`;
+        //Add primer item (active)
         let carouselItemActive = document.createElement("div");
         carouselItemActive.setAttribute("class", "carousel-item active");
         carouselItemActive.setAttribute("data-bs-interval", "5000");
         carouselItemActive.innerHTML=`<iframe id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe>`;
         carouselInner.appendChild(carouselItemActive);
 
+        //Add un item
         let carouselItem = document.createElement("div");
         carouselItem.setAttribute("class", "carousel-item");
         carouselItem.setAttribute("data-bs-interval", "5000");
         carouselItem.innerHTML=`<iframe id="video-track" src="${data[i].video[1]}" frameborder="0" allowfullscreen controls=2 ></iframe>`;
         carouselInner.appendChild(carouselItem);
 
+        //Boton izquierdo
         let btPrev = document.createElement("button");
         btPrev.setAttribute("class","carousel-control-prev");
         btPrev.setAttribute("type","button");
@@ -341,7 +349,9 @@ function videosTrack(data, i) {
         visuallyPrev.setAttribute("class","visually-hidden");
         visuallyPrev.innerHTML="Previous";
         btPrev.appendChild(visuallyPrev);
+        carousel.appendChild(btPrev);
 
+        //Boton derecho
         let btNext = document.createElement("button");
         btNext.setAttribute("class","carousel-control-next");
         btNext.setAttribute("type","button");
@@ -355,10 +365,10 @@ function videosTrack(data, i) {
         visuallyNext.setAttribute("class","visually-hidden");
         visuallyNext.innerHTML="Next";
         btNext.appendChild(visuallyNext);
-
-        carousel.appendChild(btPrev);
         carousel.appendChild(btNext);
+
     }
+    //Add cousel en el nodo padre
     iframes.appendChild(carousel);
 
     /*  if (data[i].video[1] == null) {
@@ -566,4 +576,8 @@ function F1ConstructorStanding() {
         .then((response) => response.text())
         .then((result) => console.log(result))
         .catch((error) => console.log("error", error));
+}
+
+function extraerinfoJSON(datapelis, datajuegos){
+    console.log(datapelis);
 }
