@@ -608,7 +608,6 @@ section {
 .track .tile {
   color: #ffffff;
   margin-left: 7vw;
-
 }
 
 .track-item {
@@ -621,6 +620,10 @@ section {
   opacity: 0;
   color: #ffffffc4;
   transform: translateY(-6rem);
+}
+
+.track-item #hidden {
+  margin: -2rem;
 }
 
 .track-item #imagencircuito {
@@ -667,8 +670,6 @@ section {
   /* background-color:#ffffff;  
 } 
 */
-
-
 
 
 /*--------------------------------------------------------------

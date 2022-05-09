@@ -205,10 +205,11 @@ function printTrackAlternateName(track, whereId) {
         <div class="row" onclick="getIdTrackClick(this)">
             <div class="col-sm-12 col-md-6" id="img">
                 <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${track.identifier}.png" alt="${track.identifier}" id="imagencircuito">
-                
-                <div class="text text-center" id="name">${track.name}</div>
-                <div class="text text-center" id="location">${track.GeoCoordinates.addressCountry}</div>
-                <div class="text text-center" id="date">${track.date}</div>
+                <div id="hidden">
+                    <div class="text text-center" id="name">${track.name.bold()}</div>
+                    <div class="text text-center" id="location">${track.GeoCoordinates.addressCountry}</div>
+                    <div class="text text-center" id="date">${track.date}</div>
+                </div>
             </div>
             <div class="col-sm-12 col-md-6">
                 <h3>${track.alternateName}</h3>
