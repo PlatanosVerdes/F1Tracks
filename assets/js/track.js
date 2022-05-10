@@ -553,29 +553,7 @@ function parseDate(month, day) {
     return (fecha = day.toString() + " " + months[month]);
 }
 
-function F1DriverStanding() {
-    var requestOptions = {
-        method: "GET",
-        redirect: "follow",
-    };
 
-    fetch("https://ergast.com/api/f1/2022/driverStandings.json", requestOptions)
-        .then((response) => response.text())
-        .then((result) => console.log(result))
-        .catch((error) => console.log("error", error));
-}
-
-function F1ConstructorStanding() {
-    var requestOptions = {
-        method: "GET",
-        redirect: "follow",
-    };
-
-    fetch("https://ergast.com/api/f1/current/driverStandings", requestOptions)
-        .then((response) => response.text())
-        .then((result) => console.log(result))
-        .catch((error) => console.log("error", error));
-}
 
 function extraerinfoJSON(jsonpelis,jsonvjuegos) {
     /*let arrayimagenes = new Array();
