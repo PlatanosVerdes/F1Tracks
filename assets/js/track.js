@@ -317,7 +317,7 @@ function videosTrack(data, i) {
         let carouselItem = document.createElement("div");
         carouselItem.setAttribute("class", "carousel-item active");
         carouselItem.setAttribute("data-bs-interval", "10000");
-        carouselItem.innerHTML = `<iframe id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe>`;
+        carouselItem.innerHTML = `<div class="row"><iframe id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe></div>`;
         carouselInner.appendChild(carouselItem);
     } else {
         title.innerHTML = `Videos`;
@@ -325,14 +325,14 @@ function videosTrack(data, i) {
         let carouselItemActive = document.createElement("div");
         carouselItemActive.setAttribute("class", "carousel-item active");
         carouselItemActive.setAttribute("data-bs-interval", "5000");
-        carouselItemActive.innerHTML = `<iframe id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe>`;
+        carouselItemActive.innerHTML = `<div class="row"><iframe id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe></div>`;
         carouselInner.appendChild(carouselItemActive);
 
         //Add un item
         let carouselItem = document.createElement("div");
         carouselItem.setAttribute("class", "carousel-item");
         carouselItem.setAttribute("data-bs-interval", "5000");
-        carouselItem.innerHTML = `<iframe id="video-track" src="${data[i].video[1]}" frameborder="0" allowfullscreen controls=2 ></iframe>`;
+        carouselItem.innerHTML = `<div class="row"><iframe id="video-track" src="${data[i].video[1]}" frameborder="0" allowfullscreen controls=2 ></iframe></div>`;
         carouselInner.appendChild(carouselItem);
 
         //Boton izquierdo
@@ -504,7 +504,7 @@ function processTiempoDia(data) {
 function showTiempoToday(data) {
     document.getElementById(
         "TiempoHoyImg"
-    ).src = `http://openweathermap.org/img/wn/${data.icon}@2x.png`;
+    ).src = `https://openweathermap.org/img/wn/${data.icon}@2x.png`;
     document.getElementById("TiempoHoyImg").alt = null;
     document.getElementById("TiempoHoyDesc").innerHTML = `${data.description}`;
     document.getElementById("TiempoHoyMax").innerHTML = `${data.temp_max} ºC`;
@@ -523,7 +523,7 @@ function showTiempoForecast(data) {
         dayForecast.setAttribute("class", "col-md-3 text-center");
         dayForecast.setAttribute("id", "tiempoForecast");
         dayForecast.innerHTML = `${data[i].date} 
-        <img src="http://openweathermap.org/img/wn/${data[i].icon}@2x.png"></img>
+        <img src="https://openweathermap.org/img/wn/${data[i].icon}@2x.png"></img>
         <div class="row-cols-md-auto text-center max">
             ${data[i].temp_max}
         </div>
@@ -560,7 +560,7 @@ function F1DriverStanding() {
         redirect: "follow",
     };
 
-    fetch("http://ergast.com/api/f1/2022/driverStandings.json", requestOptions)
+    fetch("https://ergast.com/api/f1/2022/driverStandings.json", requestOptions)
         .then((response) => response.text())
         .then((result) => console.log(result))
         .catch((error) => console.log("error", error));
@@ -572,7 +572,7 @@ function F1ConstructorStanding() {
         redirect: "follow",
     };
 
-    fetch("http://ergast.com/api/f1/current/driverStandings", requestOptions)
+    fetch("https://ergast.com/api/f1/current/driverStandings", requestOptions)
         .then((response) => response.text())
         .then((result) => console.log(result))
         .catch((error) => console.log("error", error));
