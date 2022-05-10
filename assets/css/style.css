@@ -743,7 +743,7 @@ section {
 
 .trackView iframe {
   width: 100%;
-  height: 17.5vw;
+  height: 20rem;
 }
 
 /* 
@@ -814,7 +814,7 @@ section {
 .trackView #colTiempo img{
   width: 7vw;
   height: 7vw;
-  padding: 0px;
+  padding: 1px;
 }
 
 .trackView #colTiempo2 {
