@@ -814,6 +814,7 @@ section {
 .trackView #colTiempo img{
   width: 7vw;
   height: 7vw;
+  padding: 0px;
 }
 
 .trackView #colTiempo2 {
