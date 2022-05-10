@@ -810,7 +810,6 @@ section {
   padding: 0%;
 }
 
-
 .trackView #colTiempo img{
   width: 7vw;
   height: 7vw;
@@ -1008,6 +1007,26 @@ section {
   display: inline-block;
   width: 50%;
 }
+
+/*--------------------------------------------------------------
+# FOOTER
+--------------------------------------------------------------*/
+#facebook{
+  background-color: #3b5998; border: #333333;
+}
+#twitter{
+  background-color: #55acee; border: #333333;
+}
+#youtube{
+  background-color: #dd4b39; border: #333333;
+}
+#instagram{
+  background-color: #ac2bac; border: #333333;
+}
+#github{
+  background-color: #333333; border: #333333;
+}
+
 
 /*--------------------------------------------------------------
 # ESTADISTICAS
