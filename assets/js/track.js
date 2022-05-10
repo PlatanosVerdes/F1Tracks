@@ -224,11 +224,10 @@ async function initTrack() {
     printTrackMainInfo(data);
     createMenuCircuitsTrack(4, data);
     playAudio();
-    let jsonpelis = await fetchJSONExterno();
-    //let jsonpelis = await fetchJSONExterno("https://hollypedia.netlify.app/json/peliculas.json");
-    //let jsonvjuegos = await fetchJSONExterno("https://calasdemallorca.netlify.app/_json/index.json");
-    console.log(jsonpelis);
-    //extraerinfoJSON(jsonpelis,jsonvjuegos);
+    //let jsonpelis = await fetchJSONExterno();
+    let jsonpelis = await fetchJSONExterno("https://hollypedia.netlify.app/json/peliculas.json");
+    let jsonvjuegos = await fetchJSONExterno("https://calasdemallorca.netlify.app/_json/index.json");
+    extraerinfoJSON(jsonpelis,jsonvjuegos);
 }
 
 //API MAPS
@@ -579,7 +578,7 @@ function F1ConstructorStanding() {
 }
 
 function extraerinfoJSON(jsonpelis,jsonvjuegos) {
-    let arrayimagenes = new Array();
+    /*let arrayimagenes = new Array();
     let x = 0;
     for (var i = 0; i < jsonpelis.length; i++) {
         var peli = jsonpelis[i];
@@ -590,7 +589,7 @@ function extraerinfoJSON(jsonpelis,jsonvjuegos) {
             }
         }
     }
-    console.log(arrayimagenes);
+    console.log(arrayimagenes);*/
 
     /*for (var i = 0; i < jsonvjuegos.length; i++) {
         var vjuego = jsonvjuegos[i];
@@ -600,5 +599,16 @@ function extraerinfoJSON(jsonpelis,jsonvjuegos) {
                 x++;
             }
         }
+    }*/
+    var arraypelis = jsonpelis.filter(checkpeli);
+    console.log(arraypelis);
+    function checkpeli(jsonpelis){
+        return jsonpelis.genre.includes("Action");
+    }
+
+    /*var arrayjuegos = jsonvjuegos.filter(checkvjuego);
+    console.log(arrayjuegos);
+    function checkvjuego(jsonvjuegos){
+        return jsonvjuegos.includes("Action");
     }*/
 }

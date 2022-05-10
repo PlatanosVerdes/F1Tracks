@@ -120,7 +120,8 @@ async function initIndex() {
     playAudio();
     mapsIndex(data);
     carrouselEscuderias(data);
-    twitter();
+    //twitter();
+    noticias();
 }
 
 /*API MAPS*/
@@ -262,3 +263,15 @@ async function twitter() {
 /*twitter().catch(error => {
     error.message; // 'An error has occurred: 404'
 });*/
+
+async function noticias(){
+    const response = await fetch('https://api.currentsapi.services/v1/search?' +
+    'keywords=F1&page_size=10&'+ 
+    'apiKey=N59WCalcBtNE7Nu2xDtbxkC_BaUtplDjUmTOz0bGWRBC9W9Y');
+    if (!response.ok) {
+        const message = `An error has occured: ${response.status}`;
+        throw new Error(message);
+    }
+    const data = await response.json();
+    console.log(data);
+}

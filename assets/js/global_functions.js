@@ -60,13 +60,8 @@ fetchJSON().catch(error => {
     error.message; // 'An error has occurred: 404'
 });
 
-async function fetchJSONExterno() {
-    
-    //let calas = "https://calasdemallorca.netlify.app/_json/index.json";
-    //let museo = "https://museosdemallorca.netlify.app/museos.json";
-    let pelis = 'https://hollypedia.000webhostapp.com/json/peliculas.json';
-    //let pelisN = "https://hollypedia.netlify.app/json/peliculas.json";
-    const response = await fetch('https://hollypedia.000webhostapp.com/json/peliculas.json',{method:'GET',mode: 'no-cors'});
+async function fetchJSONExterno(vari) {
+    const response = await fetch(vari);
     if (!response.ok) {
         const message = `An error has occured: ${response.status}`;
         throw new Error(message);
@@ -77,21 +72,6 @@ async function fetchJSONExterno() {
 fetchJSONExterno().catch(error => {
     error.message; // 'An error has occurred: 404'
 });
-
-/*async function fetchJSONExterno() {
-    var xmlhttp = new XMLHttpRequest();
-    var url = "https://hollypedia.000webhostapp.com/json/peliculas.json";
-    xmlhttp.onreadystatechange = function () {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            var myArr = JSON.parse(xmlhttp.responseText);
-            console.log(myArr);
-
-        }
-    }
-    xmlhttp.open("GET", url);
-    //xmlhttp.responseType = "text";
-    xmlhttp.send();
-}*/
 
 //Funcion que ordena los tracks por az o por date (fecha)
 function orderTracksBy(tracks, order) {
