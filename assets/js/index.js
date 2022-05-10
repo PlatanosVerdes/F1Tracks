@@ -200,14 +200,14 @@ async function twitter() {
 
 
     /*TERCERA FORMA*/
-    const response = await fetch('https://hollypedia.netlify.app/json/peliculas.json',{mode: 'no-cors'});
+    /*const response = await fetch('https://hollypedia.netlify.app/json/peliculas.json',{mode: 'no-cors'});
     //const response = await fetch('https://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1',{method:'GET',mode: 'no-cors',headers:{'Authorization':'Bearer AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B'}});
     if (!response.ok) {
         const message = `An error has occured: ${response.status}`;
         throw new Error(message);
     }
     const data = await response.json();
-    console.log(data);
+    console.log(data);*/
 
 
 
@@ -234,7 +234,7 @@ async function twitter() {
 
 
     /*PRIMERA FORMA NO FUNCIONA*/
-    /*var xhr = new XMLHttpRequest();
+    var xhr = new XMLHttpRequest();
     xhr.withCredentials = true;
     xhr.addEventListener("readystatechange", function () {
     if (this.readyState === 4) {
@@ -245,7 +245,7 @@ async function twitter() {
     });
     xhr.open("GET", "https://api.twitter.com/2/users/19066345/tweets?max_results=5");
     xhr.setRequestHeader("Authorization", "Bearer AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B");
-    xhr.send();*/
+    xhr.send();
 
     /*T.get('search/tweets', { q: '#F1 since:2020-07-11', count: 10 }, function (err, data, response) {
         console.log(data)
@@ -254,6 +254,6 @@ async function twitter() {
     //user:profile_image_url,username
     //tweet:text,created_at
 }
-twitter().catch(error => {
+/*twitter().catch(error => {
     error.message; // 'An error has occurred: 404'
-});
+});*/
