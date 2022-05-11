@@ -117,7 +117,6 @@ async function initIndex() {
     }
     
     createMenuCircuitsIndex(4, data);
-    playAudio();
     mapsIndex(data);
     carrouselEscuderias(data);
     //twitter();

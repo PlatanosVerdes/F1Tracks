@@ -218,17 +218,51 @@ function createMenuCircuitsTrack(year) {
         .addEventListener("click", () => sessionVarWhenClickNav("favs"));
 }
 
+function initJSONLD(data){
+    document.querySelector("script[type='application/ld+json']").innerHTML = `
+    "@context": "http://www.schema.org",
+    "@type": "Track",
+    "name": "${data.track[posTrack].name}",
+    "identifier": "${data.track[posTrack].identifier}",
+    "image": "${data.track[posTrack].image}",
+    "video": "${data.track[posTrack].video}",
+    "alternateName": "${data.track[posTrack].alternateName}",
+    "description": "${data.track[posTrack].description}",
+    "date": "${data.track[posTrack].date}",
+    "GeoCoordinates": {
+        "@type":"GeoCoordinates",
+        "longitude": "${data.track[posTrack].GeoCoordinates.longitude}",
+        "latitude": "${data.track[posTrack].GeoCoordinates.latitude}",
+        "addressCountry": "${data.track[posTrack].GeoCoordinates.addressCountry}",
+        "addresRegion": "${data.track[posTrack].GeoCoordinates.addresRegion}",
+        "addressLocality": "${data.track[posTrack].GeoCoordinates.addressLocality}"
+    },
+    "datos_extra": {
+        "numberLaps": "${data.track[posTrack].datos_extra.numberLaps}",
+        "trackDistance": "${data.track[posTrack].datos_extra.trackDistance}",
+        "years": "${data.track[posTrack].datos_extra.years}",
+        "lapRecord": {
+            "time": "${data.track[posTrack].datos_extra.lapRecord.time}",
+            "pilot": "${data.track[posTrack].datos_extra.lapRecord.pilot}",
+            "year": "${data.track[posTrack].datos_extra.lapRecord.year}"
+        },
+        "classification": "${data.track[posTrack].classification}"
+    }
+    `;
+}
+
 window.addEventListener("load", initTrack);
 async function initTrack() {
     let data = await fetchJSON();
     printTrackMainInfo(data);
     createMenuCircuitsTrack(4, data);
-    playAudio();
+    initJSONLD(data);
     //let jsonpelis = await fetchJSONExterno();
     let jsonpelis = await fetchJSONExterno("https://hollypedia.netlify.app/json/peliculas.json");
     let jsonvjuegos = await fetchJSONExterno("https://calasdemallorca.netlify.app/_json/index.json");
     extraerinfoJSON(jsonpelis,jsonvjuegos);
 }
+playAudio();
 
 //API MAPS
 function maps(listacirc, num) {
@@ -315,7 +349,7 @@ function videosTrack(data, i) {
         title.innerHTML = `Video`;
         let carouselItem = document.createElement("div");
         carouselItem.setAttribute("class", "carousel-item active");
-        carouselItem.setAttribute("data-bs-interval", "10000");
+        carouselItem.setAttribute("data-bs-interval", "999999999");
         carouselItem.innerHTML = `<div class="row"><iframe id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe></div>`;
         carouselInner.appendChild(carouselItem);
     } else {
@@ -323,14 +357,14 @@ function videosTrack(data, i) {
         //Add primer item (active)
         let carouselItemActive = document.createElement("div");
         carouselItemActive.setAttribute("class", "carousel-item active");
-        carouselItemActive.setAttribute("data-bs-interval", "5000");
+        carouselItemActive.setAttribute("data-bs-interval", "999999999");
         carouselItemActive.innerHTML = `<div class="row"><iframe id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe></div>`;
         carouselInner.appendChild(carouselItemActive);
 
         //Add un item
         let carouselItem = document.createElement("div");
         carouselItem.setAttribute("class", "carousel-item");
-        carouselItem.setAttribute("data-bs-interval", "5000");
+        carouselItem.setAttribute("data-bs-interval", "999999999");
         carouselItem.innerHTML = `<div class="row"><iframe id="video-track" src="${data[i].video[1]}" frameborder="0" allowfullscreen controls=2 ></iframe></div>`;
         carouselInner.appendChild(carouselItem);
 
@@ -369,15 +403,6 @@ function videosTrack(data, i) {
     }
     //Add cousel en el nodo padre
     iframes.appendChild(carousel);
-
-    /*  if (data[i].video[1] == null) {
-         document.getElementById("video-title").innerHTML = `Video
-         <button style="visibility:hidden; onclick="document.getElementById('video-track').src = '${data[i].video[0]}'">TrackView</button>`;
-     } else {
-         document.getElementById("video-title").innerHTML = ` Video <button class="button2" onclick="document.getElementById('video-track').src = '${data[i].video[0]}'">TrackView</button>
-             <button class="button1" onclick="document.getElementById('video-track').src = '${data[i].video[1]}'">Highlights</button>`;
-     }
-     document.getElementById("iframe-video").innerHTML = `<iframe id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe>`; */
 }
 
 function tiempoAPIForecast(track, i) {
