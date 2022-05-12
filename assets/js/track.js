@@ -115,6 +115,7 @@ async function printTrackMainInfo(data) {
 
     let parentIcoFav = document.getElementById("col-ico-fav");
     let bt = document.createElement("button");
+    bt.setAttribute("aria-label","Favorite");
 
     let icon = document.createElement("i");
     icon.setAttribute("id", "ico-fav");
