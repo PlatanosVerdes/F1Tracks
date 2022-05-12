@@ -120,7 +120,7 @@ async function initIndex() {
     mapsIndex(data);
     carrouselEscuderias(data);
     let noticias = jsonnoticias();
-    carrouselNoticias(noticias);
+    carrouselNoticias(data);
 }
 
 /*API MAPS*/
@@ -128,16 +128,10 @@ function mapsIndex(data) {
     let listacircuitos = data.track;
     let tracks = listacircuitos;
     tracks = orderTracksBy(tracks, 'date');
-    let c = tracks[0].GeoCoordinates;
-    let lo = c.longitude;
-    let la = c.latitude;
-    const bounds = [
-        [-74.72371974567177, -159.6901903462776], // [west, south]
-        [82.25330477102183, 176.85430047701885]  // [east, north]
-    ];
-    var map = L.map('map1').setView([la, lo], 1);
-    map.setMaxBounds(bounds);
-    //map.setZoom(0);
+    //let c = tracks[0].GeoCoordinates;
+    //let lo = c.longitude;
+    //let la = c.latitude;
+    var map = L.map('map1').setView([29.422157492346255, -12.87843904797674], 1);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: "Global Map",
         maxZoom: 18,
@@ -153,9 +147,7 @@ function mapsIndex(data) {
         let longitud = coordenadas.longitude;
         let latitud = coordenadas.latitude;
 
-        var marker = L.marker([latitud, longitud], {
-            color: 'red'
-        }).addTo(map);
+        var marker = L.marker([latitud, longitud]).addTo(map);
         marker.bindPopup(`<b>${listacircuitos[i].name}</b><br>${listacircuitos[i].alternateName}`);
     }
 }
@@ -198,20 +190,21 @@ async function jsonnoticias(){
 
 /*Carrousel noticias*/
 function carrouselNoticias(data) {
+    let esc = data.organitation;
     let notList = document.getElementById('carousel');
     notList.innerHTML += ``;
 
-    for (var i = 0; i < data.length; i++) {
+    for (var i = 0; i < esc.length; i++) {
         if (i == 0) {
             notList.innerHTML += `
                 <div class="carousel-item active" data-bs-interval="9000">
-                <img src="${data[i].image}" class="d-block w-100" alt="${data[i].image}">
+                <img src="assets/img/escurerias/${esc[i].logo}" class="d-block w-100" alt="${esc[i].logo}">
                 </div>
             `;
         } else {
             notList.innerHTML += `
                 <div class="carousel-item" data-bs-interval="5000">
-                <img src="${data[i].image}" class="d-block w-100" alt="${data[i].image}">
+                <img src="assets/img/escurerias/${esc[i].logo}" class="d-block w-100" alt="${esc[i].logo}">
                 </div>
             `;
         }
