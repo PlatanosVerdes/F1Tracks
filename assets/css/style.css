@@ -622,6 +622,12 @@ section {
   transform: translateY(-6rem);
 }
 
+.track-item h1{
+  font-weight: 700;
+  font-size: 34px;
+  color: #fff;
+}
+
 .track-item #hidden {
   margin: -2rem;
 }

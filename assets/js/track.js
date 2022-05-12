@@ -118,7 +118,6 @@ async function printTrackMainInfo(data) {
 
     let icon = document.createElement("i");
     icon.setAttribute("id", "ico-fav");
-    icon.setAttribute("aria-label", "F1 Tracks");
     let name = document.createElement("h10");
     name.setAttribute("id", "alterName-track");
     name.innerHTML = `${tracks[posTrack].alternateName}`;
@@ -351,7 +350,7 @@ function videosTrack(data, i) {
         let carouselItem = document.createElement("div");
         carouselItem.setAttribute("class", "carousel-item active");
         carouselItem.setAttribute("data-bs-interval", "999999999");
-        carouselItem.innerHTML = `<div class="row"><iframe id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe></div>`;
+        carouselItem.innerHTML = `<div class="row"><iframe title="HightLight" id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe></div>`;
         carouselInner.appendChild(carouselItem);
     } else {
         title.innerHTML = `Videos`;
@@ -359,14 +358,14 @@ function videosTrack(data, i) {
         let carouselItemActive = document.createElement("div");
         carouselItemActive.setAttribute("class", "carousel-item active");
         carouselItemActive.setAttribute("data-bs-interval", "999999999");
-        carouselItemActive.innerHTML = `<div class="row"><iframe id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe></div>`;
+        carouselItemActive.innerHTML = `<div class="row"><iframe title="HightLight" id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe></div>`;
         carouselInner.appendChild(carouselItemActive);
 
         //Add un item
         let carouselItem = document.createElement("div");
         carouselItem.setAttribute("class", "carousel-item");
         carouselItem.setAttribute("data-bs-interval", "999999999");
-        carouselItem.innerHTML = `<div class="row"><iframe id="video-track" src="${data[i].video[1]}" frameborder="0" allowfullscreen controls=2 ></iframe></div>`;
+        carouselItem.innerHTML = `<div class="row"><iframe title="Summary" id="video-track" src="${data[i].video[1]}" frameborder="0" allowfullscreen controls=2 ></iframe></div>`;
         carouselInner.appendChild(carouselItem);
 
         //Boton izquierdo

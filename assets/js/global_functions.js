@@ -247,7 +247,7 @@ function printTrackAlternateName(track, whereId) {
                 </div>
             </div>
             <div class="col-sm-12 col-md-6">
-                <h3>${track.alternateName}</h3>
+                <h1>${track.alternateName}</h1>
                 <p>${track.description}</p>
             </div>
         </div>
