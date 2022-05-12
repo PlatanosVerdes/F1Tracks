@@ -528,7 +528,6 @@ function processTiempoDia(data) {
 
 function showTiempoToday(data) {
     document.getElementById("TiempoHoyImg").src = `https://openweathermap.org/img/wn/${data.icon}@2x.png`;
-    document.getElementById("TiempoHoyImg").alt = "TiempoHoy";
     document.getElementById("TiempoHoyDesc").innerHTML = `${data.description}`;
     document.getElementById("TiempoHoyMax").innerHTML = `${data.temp_max} ºC`;
     document.getElementById("TiempoHoyMin").innerHTML = `${data.temp_min} ºC`;
@@ -545,7 +544,7 @@ function showTiempoForecast(data) {
         dayForecast.setAttribute("class", "col-md-3 text-center");
         dayForecast.setAttribute("id", "tiempoForecast");
         dayForecast.innerHTML = `${data[i].date} 
-        <img src="https://openweathermap.org/img/wn/${data[i].icon}@2x.png" alt="${data[i].icon}"></img>
+        <img src="https://openweathermap.org/img/wn/${data[i].icon}@2x.png" alt="No hay datos"></img>
         <div class="row-cols-md-auto text-center max">
             ${data[i].temp_max}
         </div>
