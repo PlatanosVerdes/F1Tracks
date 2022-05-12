@@ -43,7 +43,7 @@ function playAudio() {
     audio = document.getElementById("index-audio");
     audio.muted = false;
     audio.play();
-    audio.volume = 0.35;
+    audio.volume = 0.15;
 }
 
 //Funcion que le el JSON de nuestros datos

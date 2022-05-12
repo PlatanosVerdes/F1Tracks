@@ -118,6 +118,7 @@ async function printTrackMainInfo(data) {
 
     let icon = document.createElement("i");
     icon.setAttribute("id", "ico-fav");
+    icon.setAttribute("aria-label", "F1 Tracks");
     let name = document.createElement("h10");
     name.setAttribute("id", "alterName-track");
     name.innerHTML = `${tracks[posTrack].alternateName}`;
@@ -254,8 +255,8 @@ function initJSONLD(data){
 window.addEventListener("load", initTrack);
 async function initTrack() {
     let data = await fetchJSON();
-    printTrackMainInfo(data);
     createMenuCircuitsTrack(4, data);
+    printTrackMainInfo(data);
     initJSONLD(data);
     //let jsonpelis = await fetchJSONExterno();
     let jsonpelis = await fetchJSONExterno("https://hollypedia.netlify.app/json/peliculas.json");
@@ -526,18 +527,15 @@ function processTiempoDia(data) {
 }
 
 function showTiempoToday(data) {
-    document.getElementById(
-        "TiempoHoyImg"
-    ).src = `https://openweathermap.org/img/wn/${data.icon}@2x.png`;
-    document.getElementById("TiempoHoyImg").alt = null;
+    document.getElementById("TiempoHoyImg").src = `https://openweathermap.org/img/wn/${data.icon}@2x.png`;
+    document.getElementById("TiempoHoyImg").alt = "TiempoHoy";
     document.getElementById("TiempoHoyDesc").innerHTML = `${data.description}`;
     document.getElementById("TiempoHoyMax").innerHTML = `${data.temp_max} ºC`;
     document.getElementById("TiempoHoyMin").innerHTML = `${data.temp_min} ºC`;
     document.getElementById("TiempoHoyHumidity").innerHTML = `${data.humidity}%`;
     document.getElementById("TiempoHoyFeel").innerHTML = `${data.feels_like} ºC`;
     document.getElementById("TiempoHoyWind").innerHTML = `${data.wind} km/h`;
-    document.getElementById("TiempoHoyPressure").innerHTML = `${data.pressure}
-      hPa`;
+    document.getElementById("TiempoHoyPressure").innerHTML = `${data.pressure} hPa`;
 }
 
 function showTiempoForecast(data) {
@@ -547,7 +545,7 @@ function showTiempoForecast(data) {
         dayForecast.setAttribute("class", "col-md-3 text-center");
         dayForecast.setAttribute("id", "tiempoForecast");
         dayForecast.innerHTML = `${data[i].date} 
-        <img src="https://openweathermap.org/img/wn/${data[i].icon}@2x.png"></img>
+        <img src="https://openweathermap.org/img/wn/${data[i].icon}@2x.png" alt="${data[i].icon}"></img>
         <div class="row-cols-md-auto text-center max">
             ${data[i].temp_max}
         </div>
@@ -574,7 +572,6 @@ function parseDate(month, day) {
         "NOV",
         "DIC",
     ];
-
     return (fecha = day.toString() + " " + months[month]);
 }
 
