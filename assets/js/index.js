@@ -119,8 +119,8 @@ async function initIndex() {
     createMenuCircuitsIndex(4, data);
     mapsIndex(data);
     carrouselEscuderias(data);
-    //twitter();
-    noticias();
+    let noticias = jsonnoticias();
+    carrouselNoticias(noticias);
 }
 
 /*API MAPS*/
@@ -160,7 +160,7 @@ function mapsIndex(data) {
     }
 }
 
-/*Carrousel*/
+/*Carrousel Escuderias*/
 function carrouselEscuderias(data) {
     let esc = data.organitation;
     let escList = document.getElementById('carousel-inner');
@@ -183,87 +183,7 @@ function carrouselEscuderias(data) {
     }
 }
 
-/* API TWITTER ENSEÑAR 10 TWITTS MÁS RECIENTES */
-async function twitter() {
-    /*CUARTA FORMA*/
-    /*var url = "http://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1";
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", url);
-    xhr.setRequestHeader("Accept", "application/json");
-    xhr.setRequestHeader("Authorization", "Bearer {AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B}");
-    xhr.onreadystatechange = function () {
-   if (xhr.readyState === 4) {
-      console.log(xhr.status);
-      console.log(xhr.responseText);
-   }};
-    xhr.send();*/
-
-
-    /*TERCERA FORMA*/
-    //const response = await fetch('https://hollypedia.netlify.app/json/peliculas.json',{mode: 'no-cors'});
-    const response = await fetch('https://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1',
-    {mode:'no-cors',
-    headers:{'Authorization':'Bearer AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B',
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Types':'*',
-    'Access-Control-Allow-Methods':'GET,POST,OPTIONS'}});
-    if (!response.ok) {
-        const message = `An error has occured: ${response.status}`;
-        throw new Error(message);
-    }
-    const data = await response.json();
-    console.log(data);
-
-
-
-    /*SEGUNDA FORMA*/
-    /*var tweets;
-    const req = "https://api.twitter.com/2/tweets/search/recent?query=%23f1";
-    
-    //const req = "https://api.twitter.com/2/tweets/search/recent?tweet.fields=created_at&expansions=author_id&user.fields=profile_image_url,username&query=%23f1";
-    const request = new XMLHttpRequest();
-    request.onreadystatechange = function(){
-        if(request.readyState == 4 && request.status == 200){
-            tweets = JSON.parse(request.responseText);
-            console.log(tweets);
-        }
-    }
-    request.open("GET",req);
-    request.responseType = "text";
-    request.setRequestHeader("Authorization", "Bearer AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B");
-    request.send();*/
-
-    /*var data = JSON.parse(responseBody);
-    postman.setEnvironmentVariable("id", data.clientId);*/
-
-
-
-    /*PRIMERA FORMA NO FUNCIONA*/
-    /*var xhr = new XMLHttpRequest();
-    xhr.withCredentials = true;
-    xhr.addEventListener("readystatechange", function () {
-    if (this.readyState === 4) {
-      //console.log(this.responseText);
-      var tweets = JSON.parse(this.responseText);
-      console.log(tweets);
-    }
-    });
-    xhr.open("GET", "https://api.twitter.com/2/users/19066345/tweets?max_results=5");
-    xhr.setRequestHeader("Authorization", "Bearer AAAAAAAAAAAAAAAAAAAAAFqsbwEAAAAALZT6ZmPRdRMBdVCuRY0im%2BEVF9Q%3Dri9P3NrF49frbmJzVQgV38gpfkoAwGmsoy6DKbi55pBw26Uj3B");
-    xhr.send();*/
-
-    /*T.get('search/tweets', { q: '#F1 since:2020-07-11', count: 10 }, function (err, data, response) {
-        console.log(data)
-    });*/
-    //created_at, text, user.screen_name, location, profile_image_url_https
-    //user:profile_image_url,username
-    //tweet:text,created_at
-}
-/*twitter().catch(error => {
-    error.message; // 'An error has occurred: 404'
-});*/
-
-async function noticias(){
+async function jsonnoticias(){
     const response = await fetch('https://api.currentsapi.services/v1/search?' +
     'keywords=F1&page_size=10&'+ 
     'apiKey=N59WCalcBtNE7Nu2xDtbxkC_BaUtplDjUmTOz0bGWRBC9W9Y');
@@ -273,6 +193,29 @@ async function noticias(){
     }
     const data = await response.json();
     console.log(data);
+    return data;  
+}
+
+/*Carrousel noticias*/
+function carrouselNoticias(data) {
+    let notList = document.getElementById('carousel');
+    notList.innerHTML += ``;
+
+    for (var i = 0; i < data.length; i++) {
+        if (i == 0) {
+            notList.innerHTML += `
+                <div class="carousel-item active" data-bs-interval="9000">
+                <img src="${data[i].image}" class="d-block w-100" alt="${data[i].image}">
+                </div>
+            `;
+        } else {
+            notList.innerHTML += `
+                <div class="carousel-item" data-bs-interval="5000">
+                <img src="${data[i].image}" class="d-block w-100" alt="${data[i].image}">
+                </div>
+            `;
+        }
+    }
 }
 
 function F1DriverStanding() {

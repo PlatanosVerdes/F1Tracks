@@ -258,10 +258,11 @@ async function initTrack() {
     createMenuCircuitsTrack(4, data);
     printTrackMainInfo(data);
     initJSONLD(data);
-    //let jsonpelis = await fetchJSONExterno();
-    let jsonpelis = await fetchJSONExterno("https://hollypedia.netlify.app/json/peliculas.json");
-    let jsonvjuegos = await fetchJSONExterno("https://calasdemallorca.netlify.app/_json/index.json");
-    extraerinfoJSON(jsonpelis,jsonvjuegos);
+    let jsonpeliculas = await fetchJSONExterno("https://hollypedia.netlify.app/json/peliculas.json");
+    //let jsonvjuegos = await fetchJSONExterno("https://calasdemallorca.netlify.app/_json/index.json");
+    let listapeliculas = extraerinfoJSONPeliculas(jsonpeliculas);
+    //let listajuegos = extraerinfoJSONJuegos(jsonvjuegos);
+    carrouselContenidoRelacionado(listapeliculas);
 }
 playAudio();
 
@@ -576,38 +577,43 @@ function parseDate(month, day) {
 
 
 
-function extraerinfoJSON(jsonpelis,jsonvjuegos) {
-    /*let arrayimagenes = new Array();
-    let x = 0;
-    for (var i = 0; i < jsonpelis.length; i++) {
-        var peli = jsonpelis[i];
-        for (var j = 0; j < peli.genre.length; j++) {
-            if (peli.genre[j] === "Action") {
-                arrayimagenes[x] = jsonpelis[i].image[0];
-                x++;
-            }
-        }
-    }
-    console.log(arrayimagenes);*/
+function extraerinfoJSONPeliculas(peliculas) {
+    
+    var arraypeliculas = peliculas.filter(checkpeli);
+    function checkpeli(peliculas){
+        return peliculas.genre.includes("Action");
+    }  
+    return arraypeliculas; 
+}
 
-    /*for (var i = 0; i < jsonvjuegos.length; i++) {
-        var vjuego = jsonvjuegos[i];
-        for (var j = 0; j < vjuego.genre.length; j++) {
-            if(vjuego.genre[j] === "F1"){
-                arrayimagenes[x] = jsonvjuegos[i];
-                x++;
-            }
-        }
-    }*/
-    var arraypelis = jsonpelis.filter(checkpeli);
-    console.log(arraypelis);
-    function checkpeli(jsonpelis){
-        return jsonpelis.genre.includes("Action");
-    }
-
-    /*var arrayjuegos = jsonvjuegos.filter(checkvjuego);
+/*function extraerinfoJSONJuegos(jsonvjuegos) {
+    var arrayjuegos = jsonvjuegos.filter(checkvjuego);
     console.log(arrayjuegos);
     function checkvjuego(jsonvjuegos){
         return jsonvjuegos.includes("Action");
-    }*/
+    }
+}*/
+
+/*Carrousel Contenido Relacionado*/
+function carrouselContenidoRelacionado(data) {
+    console.log(data);
+    let contList = document.getElementById('carousel-inner');
+    contList.innerHTML += ``;
+
+    for (var i = 0; i < data.length; i++) {
+        console.log(data[i].image[0]);
+        if (i == 0) {
+            contList.innerHTML += `
+                <div class="carousel-item active" data-bs-interval="9000">
+                <img src="${data[i].image[0]}" href = "https://hollypedia.netlify.app/movies.html" class="d-block w-100" alt="${data[i].image[0]}">
+                </div>
+            `;
+        } else {
+            contList.innerHTML += `
+                <div class="carousel-item" data-bs-interval="5000">
+                <img src="${data[i].image[0]}" href = "https://hollypedia.netlify.app/movies.html" class="d-block w-100" alt="${data[i].image[0]}">
+                </div>
+            `;
+        }
+    }
 }
