@@ -184,7 +184,7 @@ button {
   justify-content: space-between;
   padding: 10px 0 10px 30px;
   font-size: 15px;
-  color: #ec3d3d;
+  color: #FFFFFF;
   white-space: nowrap;
   transition: 0.3s;
 }
@@ -200,7 +200,7 @@ button {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: #ffffff;
+  color: #dc0708;
 }
 
 .navbar .getstarted,
@@ -241,6 +241,7 @@ button {
   padding: 10px 20px;
   font-size: 15px;
   text-transform: none;
+  color: #282c34;
 }
 
 .navbar .dropdown ul a i {
@@ -250,7 +251,7 @@ button {
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover>a {
-  color: #282c34;
+  color: #FF4B4B;
 }
 
 .navbar .dropdown:hover>ul {
@@ -702,6 +703,9 @@ section {
   font-size: small;
   text-align: center;
   vertical-align: bottom;
+}
+.footer h1{
+  font-size: medium;
 }
 
 /*--------------------------------------------------------------

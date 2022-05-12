@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
     <title>F1 Tracks</title>
-    <meta name="descripción" content="Todos los datos de tu circuito! Así como la ubicación, el tiempo, los años que ha estado en la F1, la calcificación final, los quilómetros, vueltas y muchas más cosas!">
+    <meta name="description" content="Todos los datos de tu circuito! Así como la ubicación, el tiempo, los años que ha estado en la F1, la calcificación final, los quilómetros, vueltas y muchas más cosas!">
 
     <!-- Favicons -->
     <link href="assets/img/miniicon.png" rel="icon">
@@ -40,7 +40,12 @@
         crossorigin="" />
 
     <!--Tiempo-->
-    <link rel="preconnect" href="https://openweathermap.org">
+    <link async="true" rel="dns-prefetch" href="https://openweathermap.org">
+
+    <!--Request Optimization-->
+    <link async="true" rel="dns-prefetch" href="https://hollypedia.netlify.app">
+    <link async="true" rel="dns-prefetch" href="https://use.fontawesome.com">
+    <link async="true" rel="dns-prefetch" href="https://fonts.gstatic.com">
 
     <!-- Template Main JS File -->
     <script defer src="assets/js/global_functions.js"></script>
@@ -331,7 +336,7 @@
                 </div>
                 <!-- INFROMACION ADICIONAL -->
                 <div class="col-md-3">
-                    <h5 class="text-uppercase text-center text-white">información adicional</h5>
+                    <h1 class="text-uppercase text-center text-white">información adicional</h1>
                     <p class="text-center">
                         Esta página web se ha realizado con fines académicos. La información
                         publicada puede ser errónea o falsa.
@@ -340,7 +345,7 @@
 
                 <!-- REDES SOCIALES -->
                 <div class="col-md-4 text-center">
-                    <h5 class="text-uppercase text-center text-white">Redes sociales</h5>
+                    <h1 class="text-uppercase text-center text-white">Redes sociales</h1>
                     <!-- Facebook -->
                     <a class="btn btn-primary btn-floating m-1 bi bi-facebook" id="facebook" aria-label="Facebook"
                         target="_blank" rel="noopener" href="https://www.facebook.com/Formula1/" role="button"
@@ -366,7 +371,7 @@
 
                 <!-- CONTACTO -->
                 <div class="col-md-3">
-                    <h5 class="text-uppercase text-center text-white">contacto</h5>
+                    <h1 class="text-uppercase text-center text-white">contacto</h1>
                     <div class="row">
                         <i class="bi bi-telephone text-center">&nbsp;&nbsp;+ 34 234 567 89</i>
                         <i class="bi bi-envelope text-center">&nbsp;&nbsp;info@f1tracks.com</i>

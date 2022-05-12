@@ -42,7 +42,7 @@ function getRandomArbitrary(min, max) {
 function playAudio() {
     audio = document.getElementById("index-audio");
     audio.muted = false;
-    audio.play();
+    //audio.play();
     audio.volume = 0.15;
 }
 
@@ -53,7 +53,7 @@ async function fetchJSON() {
         const message = `An error has occured: ${response.status}`;
         throw new Error(message);
     }
-    const data = await response.json();
+    const data =     response.json();
     return data;
 }
 fetchJSON().catch(error => {
