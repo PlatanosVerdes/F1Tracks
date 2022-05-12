@@ -211,26 +211,38 @@ function carrouselNoticias(data) {
     }
 }
 
-function F1DriverStanding() {
+function stadisticsF1Drivers(data){
+    console.log(data);
+    var standing = data.MRData.StandingsTable.StandingsLists[0].DriverStandings;
+    console.log(standing);
+}
+
+function stadisticsF1Constructor(data){
+    console.log(data);
+    var standing = data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
+    console.log(standing);
+}
+
+async function F1DriverStanding() {
     var requestOptions = {
         method: "GET",
         redirect: "follow",
     };
 
-    fetch("https://ergast.com/api/f1/2022/driverStandings.json", requestOptions)
-        .then((response) => response.text())
-        .then((result) => console.log(result))
+    await fetch("https://ergast.com/api/f1/2022/driverStandings.json", requestOptions)
+        .then((response) => response.json())
+        .then((result) => stadisticsF1Drivers(result))
         .catch((error) => console.log("error", error));
 }
 
-function F1ConstructorStanding() {
+async function F1ConstructorStanding() {
     var requestOptions = {
         method: "GET",
         redirect: "follow",
     };
 
-    fetch("https://ergast.com/api/f1/current/driverStandings", requestOptions)
-        .then((response) => response.text())
-        .then((result) => console.log(result))
+    await fetch("https://ergast.com/api/f1/2022/constructorStandings.json", requestOptions)
+        .then((response) => response.json())
+        .then((result) => stadisticsF1Constructor(result))
         .catch((error) => console.log("error", error));
 }

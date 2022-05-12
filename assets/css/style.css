@@ -1065,6 +1065,11 @@ section {
   fill: #f55a5a;
 }
 
+.estadisticas .bar:hover .text{
+  opacity: 1;
+  color: #000000;
+}
+
 .estadisticas .axis {
   font: 10px sans-serif;
   color: white;
