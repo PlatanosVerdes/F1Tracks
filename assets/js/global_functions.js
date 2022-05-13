@@ -167,9 +167,8 @@ async function ordenarBy(order, data) {
         newTrackList.innerHTML = '';
 
         let idTracksFav = JSON.parse(localStorage.getItem("favs"));
-        console.log(idTracksFav);
 
-        if (idTracksFav != null) {
+        if (idTracksFav != null || idTracksFav.length > 0) {
             let auxTracks = [];
             for (let i = 0; i < tracks.length; i++) {
                 if (idTracksFav.includes(tracks[i].identifier)) {
