@@ -53,7 +53,7 @@ async function fetchJSON() {
         const message = `An error has occured: ${response.status}`;
         throw new Error(message);
     }
-    const data =     response.json();
+    const data = response.json();
     return data;
 }
 fetchJSON().catch(error => {
@@ -167,16 +167,7 @@ async function ordenarBy(order, data) {
         newTrackList.innerHTML = '';
 
         let idTracksFav = JSON.parse(localStorage.getItem("favs"));
-
-        if (idTracksFav != null || idTracksFav.length > 0) {
-            let auxTracks = [];
-            for (let i = 0; i < tracks.length; i++) {
-                if (idTracksFav.includes(tracks[i].identifier)) {
-                    auxTracks.push(tracks[i]);
-                }
-            }
-            printTracks(auxTracks);
-        } else {
+        if (idTracksFav == null || idTracksFav.length < 1) {
             //Ponemos los Tracks
             let newTrackList = document.getElementById('track-list');
             newTrackList.innerHTML = '';
@@ -198,6 +189,14 @@ async function ordenarBy(order, data) {
             div.appendChild(gif);
 
             newTrackList.appendChild(div);
+        } else {
+            let auxTracks = [];
+            for (let i = 0; i < tracks.length; i++) {
+                if (idTracksFav.includes(tracks[i].identifier)) {
+                    auxTracks.push(tracks[i]);
+                }
+            }
+            printTracks(auxTracks);
         }
 
     } else if (order === "search") {
