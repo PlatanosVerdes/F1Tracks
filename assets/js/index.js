@@ -40,7 +40,6 @@ function createTracksIndex(data) {
             <a href="#title-old-tracks" class="btn-get-started scrollto">Circuitos anteriores</a>
         `;
 
-
         let content = document.getElementById('page-content');
 
         /* AÑADIMOS UNA NUEVA FILA */

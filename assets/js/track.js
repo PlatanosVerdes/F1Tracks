@@ -607,10 +607,7 @@ function carrouselContenidoRelacionado(data) {
                 <div class="carousel-item active" data-bs-interval="9000">
                 <img src="https://hollypedia.netlify.app/${data[i].image[0].name}" href = "https://hollypedia.netlify.app/movies.html" class="d-block w-100" alt="${data[i].image[0].name}" id="imagenpelicula">
                 </div>
-                <div id="hidden">
-                    <div class="text text-center" id="name">${data[i].name.bold()}</div>
-                    <div class="text text-center" id="date">${data[i].datePublished}</div>
-                </div>
+                
             `;
         } else {
             contList.innerHTML += `
@@ -620,5 +617,10 @@ function carrouselContenidoRelacionado(data) {
                 
             `;
         }
+
+        /*<div id="hidden">
+                    <div class="text text-center" id="name">${data[i].name.bold()}</div>
+                    <div class="text text-center" id="date">${data[i].datePublished}</div>
+                </div>*/
     }
 }
