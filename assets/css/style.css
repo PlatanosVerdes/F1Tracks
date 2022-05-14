@@ -1087,80 +1087,43 @@ section {
   display: none;
 }
 
-/*--------------------------------------------------------------
-# CARROUSEL VERTICAL
---------------------------------------------------------------*/
-.carousel.vertical .carousel {
-  height: 100%;
+
+.carousel-item .text{
+  transition: .5s ease;
+  opacity: 0;
+  color: white;
+  font-size: 16px;
 }
-.carousel.vertical .carousel > .item {
-  transition: .6s ease-in-out top;
+
+.carousel-item .img{
+  transition: .5s ease;
+  backface-visibility: hidden;
 }
-@media all and (transform-3d) {
-.carousel.vertical .carousel > .item {
-    transition: transform .6s ease-in-out;
-    backface-visibility: hidden;
-    perspective: 1000;
-  }
-.carousel.vertical .carousel > .item.next,
-.carousel.vertical .carousel > .item.active.right {
-    top: 0;
-    transform: translate3d(0, 100%, 0);
-  }
-.carousel.vertical .carousel > .item.prev,
-.carousel.vertical .carousel > .item.active.left {
-    top: 0;
-    transform: translate3d(0, -100%, 0);
-  }
-.carousel.vertical .carousel > .item.next.left,
-.carousel.vertical .carousel > .item.prev.right,
-.carousel.vertical .carousel > .item.active {
-    top: 0;
-    transform: translate3d(0, 0, 0);
-  }
+.carousel-item:hover .img {
+  opacity: 0.3;
 }
-.carousel.vertical .carousel > .active {
-  top: 0;
+
+.carousel-item:hover .text {
+  opacity: 1;
 }
-.carousel.vertical .carousel > .next,
-.carousel.vertical .carousel > .prev {
-  top: 0;
-  height: 100%;
-  width: 100%;
+
+.carousel-item #hidden {
+  margin: -2rem;
 }
-.carousel.vertical .carousel > .next {
-  left: 0;
-  top: 100%;
+
+.carousel-item #imagenpelicula {
+  transition: .5s ease;
+  backface-visibility: hidden;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
 }
-.carousel.vertical .carousel > .prev {
-  left: 0;
-  top: -100%
+
+.carousel-item #img:hover #imagenpelicula {
+  opacity: .4;
 }
-.carousel.vertical .carousel > .next.left,
-.carousel.vertical .carousel > .prev.right {
-  top: 0;
-}
-.carousel.vertical .carousel > .active.left {
-  left: 0;
-  top: -100%;
-}
-.carousel.vertical .carousel > .active.right {
-  left: 0;
-  top: 100%;
-}
-.carousel.vertical .carousel-indicators {
-  right: 20px;
-  top: 50%;
-  transform: translate(-50%);
-  bottom: auto;
-  left: auto;
-  width: auto;
-  margin: 0;
-  padding: 0;
-}
-.carousel.vertical .carousel-indicators li {
-  display: block;
-  margin: 5px 0;
+
+.carousel-item #img:hover .text {
+  opacity: 1;
 }
 
 

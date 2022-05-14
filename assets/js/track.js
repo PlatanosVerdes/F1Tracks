@@ -601,18 +601,23 @@ function carrouselContenidoRelacionado(data) {
     contList.innerHTML += ``;
 
     for (var i = 0; i < data.length; i++) {
-        console.log(data[i].image[0]);
+        //console.log(data[i].image[0].name);
         if (i == 0) {
             contList.innerHTML += `
                 <div class="carousel-item active" data-bs-interval="9000">
-                <img src="${data[i].image[0]}" href = "https://hollypedia.netlify.app/movies.html" class="d-block w-100" alt="${data[i].image[0]}">
+                <img src="https://hollypedia.netlify.app/${data[i].image[0].name}" href = "https://hollypedia.netlify.app/movies.html" class="d-block w-100" alt="${data[i].image[0].name}" id="imagenpelicula">
+                </div>
+                <div id="hidden">
+                    <div class="text text-center" id="name">${data[i].name.bold()}</div>
+                    <div class="text text-center" id="date">${data[i].datePublished}</div>
                 </div>
             `;
         } else {
             contList.innerHTML += `
                 <div class="carousel-item" data-bs-interval="5000">
-                <img src="${data[i].image[0]}" href = "https://hollypedia.netlify.app/movies.html" class="d-block w-100" alt="${data[i].image[0]}">
+                <img src="https://hollypedia.netlify.app/${data[i].image[0].name}" href = "https://hollypedia.netlify.app/movies.html" class="d-block w-100" alt="${data[i].image[0].name}">
                 </div>
+                
             `;
         }
     }
