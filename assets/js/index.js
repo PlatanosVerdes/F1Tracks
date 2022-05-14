@@ -124,6 +124,7 @@ async function initIndex() {
     //'keywords=F1&page_size=10&'+ 
     //'apiKey=N59WCalcBtNE7Nu2xDtbxkC_BaUtplDjUmTOz0bGWRBC9W9Y');
     carrouselNoticias(noticias);
+
 }
 
 /*API MAPS*/
@@ -132,6 +133,11 @@ function mapsIndex(data) {
     let tracks = listacircuitos;
     tracks = orderTracksBy(tracks, 'date');
     var map = L.map('map1').setView([29.422157492346255, -12.87843904797674], 1);
+    /*const bounds = [
+        [-122.66336, 37.492987], // Southwest coordinates
+        [-122.250481, 37.871651] // Northeast coordinates
+        ];
+    map.setMaxBounds(bounds);*/ 
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: "Global Map",
         maxZoom: 18,
@@ -176,14 +182,16 @@ function carrouselEscuderias(data) {
 }
 
 async function jsonnoticias(){
-    const response = await fetch('https://api.currentsapi.services/v1/search?' +
-    'keywords=F1&page_size=10&'+ 
-    'apiKey=N59WCalcBtNE7Nu2xDtbxkC_BaUtplDjUmTOz0bGWRBC9W9Y');
+    /*const response = await fetch('https://api.currentsapi.services/v1/search?' +
+    'keywords=Formula1&page_size=10&'+ 
+    'apiKey=N59WCalcBtNE7Nu2xDtbxkC_BaUtplDjUmTOz0bGWRBC9W9Y');*/
+    const response = await fetch('https://newsapi.org/v2/everything?q=Formula1&sortBy=popularity&apiKey=f7fac1e5d56f49f28405fba01dccf8cb');
     if (!response.ok) {
         const message = `An error has occured: ${response.status}`;
         throw new Error(message);
     }
     const data = await response.json();
+    console.log(data);
     return data;  
 }
 
@@ -191,7 +199,7 @@ async function jsonnoticias(){
 function carrouselNoticias(data) {
     let notList = document.getElementById('carousel');
     notList.innerHTML += ``;
-    for (var i = 0; i < data.news.length; i++) {
+    /*for (var i = 0; i < data.news.length; i++) {
         if (i == 0 && data.news[i].image != "None") {
             notList.innerHTML += `
                 <div class="carousel-item active" data-bs-interval="9000">
@@ -207,6 +215,24 @@ function carrouselNoticias(data) {
         }else{
 
         }
+    }*/
+
+    for (var i = 0; i < data.articles.length; i++) {
+        if (i == 0) {
+            notList.innerHTML += `
+                <div class="carousel-item active" data-bs-interval="9000">
+                <img src="${data.articles[i].urlToImage}" class="d-block w-100" alt="${data.articles[i].urlToImage}">
+                </div>
+            `;
+        } else{
+            notList.innerHTML += `
+                <div class="carousel-item" data-bs-interval="5000">
+                <img src="${data.articles[i].urlToImage}" class="d-block w-100" alt="${data.articles[i].urlToImage}">
+                </div>
+            `;
+        }
+
+        
     }
 }
 
