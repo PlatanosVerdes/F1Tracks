@@ -119,8 +119,11 @@ async function initIndex() {
     createMenuCircuitsIndex(4, data);
     mapsIndex(data);
     carrouselEscuderias(data);
-    let noticias = jsonnoticias();
-    carrouselNoticias(data);
+    let noticias = await jsonnoticias();
+    //let noticias = fetchJSONExterno('https://api.currentsapi.services/v1/search?' +
+    //'keywords=F1&page_size=10&'+ 
+    //'apiKey=N59WCalcBtNE7Nu2xDtbxkC_BaUtplDjUmTOz0bGWRBC9W9Y');
+    carrouselNoticias(noticias);
 }
 
 /*API MAPS*/
@@ -128,9 +131,6 @@ function mapsIndex(data) {
     let listacircuitos = data.track;
     let tracks = listacircuitos;
     tracks = orderTracksBy(tracks, 'date');
-    //let c = tracks[0].GeoCoordinates;
-    //let lo = c.longitude;
-    //let la = c.latitude;
     var map = L.map('map1').setView([29.422157492346255, -12.87843904797674], 1);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: "Global Map",
@@ -184,29 +184,28 @@ async function jsonnoticias(){
         throw new Error(message);
     }
     const data = await response.json();
-    console.log(data);
     return data;  
 }
 
 /*Carrousel noticias*/
 function carrouselNoticias(data) {
-    let esc = data.organitation;
     let notList = document.getElementById('carousel');
     notList.innerHTML += ``;
-
-    for (var i = 0; i < esc.length; i++) {
-        if (i == 0) {
+    for (var i = 0; i < data.news.length; i++) {
+        if (i == 0 && data.news[i].image != "None") {
             notList.innerHTML += `
                 <div class="carousel-item active" data-bs-interval="9000">
-                <img src="assets/img/escurerias/${esc[i].logo}" class="d-block w-100" alt="${esc[i].logo}">
+                <img src="${data.news[i].image}" class="d-block w-100" alt="${data.news[i].image}">
                 </div>
             `;
-        } else {
+        } else if(data.news[i].image != "None"){
             notList.innerHTML += `
                 <div class="carousel-item" data-bs-interval="5000">
-                <img src="assets/img/escurerias/${esc[i].logo}" class="d-block w-100" alt="${esc[i].logo}">
+                <img src="${data.news[i].image}" class="d-block w-100" alt="${data.news[i].image}">
                 </div>
             `;
+        }else{
+
         }
     }
 }
