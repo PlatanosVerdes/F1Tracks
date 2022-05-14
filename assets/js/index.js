@@ -133,11 +133,11 @@ function mapsIndex(data) {
     let tracks = listacircuitos;
     tracks = orderTracksBy(tracks, 'date');
     var map = L.map('map1').setView([29.422157492346255, -12.87843904797674], 1);
-    /*const bounds = [
-        [-122.66336, 37.492987], // Southwest coordinates
-        [-122.250481, 37.871651] // Northeast coordinates
-        ];
-    map.setMaxBounds(bounds);*/ 
+    const bounds = [
+        [-74.72371974567177, -210], // [west, south]
+        [82.25330477102183, 250]  // [east, north]
+    ];
+    map.setMaxBounds(bounds);
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
         attribution: "Global Map",
         maxZoom: 18,

@@ -920,6 +920,7 @@ section {
   height: 400px;
   width: 100%;
   border-radius: 3px;
+  border-color: #ff0000;
 }
 
 #map2 {
@@ -995,7 +996,7 @@ section {
 --------------------------------------------------------------*/
 .scroll {
   height: 200px;
-  overflow: auto;
+  overflow: hidden;
   color: #C0C0C0;
 }
 
