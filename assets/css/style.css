@@ -1105,42 +1105,49 @@ section {
 /*--------------------------------------------------------------
 # CONTENIDO RELACIONADO
 --------------------------------------------------------------*/
-.carousel-item .text{
+.hover-effect {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #3b3b3b4f;
+  overflow: hidden;
+  width: 100%;
+  height: 0;
   transition: .5s ease;
-  opacity: 0;
+}
+
+.carousel-item:hover .hover-effect {
+  height: 100%;
+}
+
+.hover-effect .text {
   color: white;
-  font-size: 16px;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
 }
 
-.carousel-item .img{
-  transition: .5s ease;
-  backface-visibility: hidden;
-}
-.carousel-item:hover .img {
-  opacity: 0.3;
+/*.hover-effect .text b{
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}*/
+
+.hover-effect .text a{
+  color: white;
+  font-size: 20px;
+  text-decoration: underline;
 }
 
-.carousel-item:hover .text {
-  opacity: 1;
-}
-
-.carousel-item #hidden {
-  margin: -2rem;
-}
-
-.carousel-item #imagenpelicula {
-  transition: .5s ease;
-  backface-visibility: hidden;
-  -webkit-transition: .3s ease-in-out;
-  transition: .3s ease-in-out;
-}
-
-.carousel-item #img:hover #imagenpelicula {
-  opacity: .4;
-}
-
-.carousel-item #img:hover .text {
-  opacity: 1;
+.hover-effect .text a:hover{
+  color: red;
+  font-size: 20px;
 }
 
 
