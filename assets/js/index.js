@@ -114,14 +114,10 @@ async function initIndex() {
     }
     
     createMenuCircuitsIndex(4, data);
+    let noticias = await jsonNoticias();
+    carrouselNoticias(noticias);
     mapsIndex(data);
     carrouselEscuderias(data);
-    let noticias = await jsonnoticias();
-    //let noticias = fetchJSONExterno('https://api.currentsapi.services/v1/search?' +
-    //'keywords=F1&page_size=10&'+ 
-    //'apiKey=N59WCalcBtNE7Nu2xDtbxkC_BaUtplDjUmTOz0bGWRBC9W9Y');
-    carrouselNoticias(noticias);
-
 }
 
 /*API MAPS*/
@@ -179,17 +175,15 @@ function carrouselEscuderias(data) {
     }
 }
 
-async function jsonnoticias(){
+async function jsonNoticias(){
     const response = await fetch('https://api.currentsapi.services/v1/search?' +
     'keywords=Formula One&page_size=10&'+ 
     'apiKey=N59WCalcBtNE7Nu2xDtbxkC_BaUtplDjUmTOz0bGWRBC9W9Y');
-    //const response = await fetch('https://newsapi.org/v2/everything?q=Formula1&sortBy=popularity&apiKey=f7fac1e5d56f49f28405fba01dccf8cb');
     if (!response.ok) {
         const message = `An error has occured: ${response.status}`;
         throw new Error(message);
     }
     const data = await response.json();
-    console.log(data);
     return data;  
 }
 
@@ -227,41 +221,6 @@ function carrouselNoticias(data) {
             `;
         }
     }
-
-    //<div>${data.news[i].author}</div>
-    
-    /*for (var i = 0; i < data.articles.length; i++) {
-        let date = new Date(data.articles[i].publishedAt);
-        if (i == 0) {
-            notList.innerHTML += `
-                <div class="carousel-item active" data-bs-interval="9000">
-                    <img src="${data.articles[i].urlToImage}" class="d-block w-100" id="new-img" alt="${data.articles[i].title}">
-                    <div class="overlay">                        
-                        <div class="text">
-                            <a href="${data.articles[i].url}"" target="_blank">${data.articles[i].title}</a>
-                            <div>${data.articles[i].author}</div>
-                            <div>${date.getFullYear()}-${date.getMonth()}-${date.getDate()}</div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        } else{
-            notList.innerHTML += `
-                <div class="carousel-item" data-bs-interval="5000">
-                    <img src="${data.articles[i].urlToImage}" class="d-block w-100" id="new-img" alt="${data.articles[i].title}">
-                    <div class="overlay">                        
-                        <div class="text">
-                            <a href="${data.articles[i].url}"" target="_blank">${data.articles[i].title}</a>
-                            <div>${data.articles[i].author}</div>
-                            <div>${date.getFullYear()}-${date.getMonth()}-${date.getDate()}</div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        
-    }*/
 }
 
 function stadisticsF1Drivers(data){

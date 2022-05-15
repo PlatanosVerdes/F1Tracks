@@ -579,7 +579,7 @@ function parseDate(month, day) {
 
 
 
-function extraerinfoJSONPeliculas(peliculas) {
+function extraerInfoJSONPeliculas(peliculas) {
     
     var arraypeliculas = peliculas.filter(checkpeli);
     function checkpeli(peliculas){
@@ -590,20 +590,17 @@ function extraerinfoJSONPeliculas(peliculas) {
 
 function extraerinfoJSONJuegos(jsonvjuegos) {
     var arrayjuegos = jsonvjuegos.filter(checkvjuego);
-    console.log(arrayjuegos);
     function checkvjuego(jsonvjuegos){
         return jsonvjuegos.includes("Fornite");
     }
+    return arrayjuegos;
 }
 
 /*Carrousel Contenido Relacionado*/
 function carrouselContenidoRelacionado(data) {
-    console.log(data);
     let contList = document.getElementById('carousel-relacionado');
     contList.innerHTML += ``;
-
     for (var i = 0; i < data.length; i++) {
-        //console.log(data[i].image[0].name);
         if (i == 0) {
             contList.innerHTML += `
                 <div class="carousel-item active" data-bs-interval="9000">
@@ -615,9 +612,7 @@ function carrouselContenidoRelacionado(data) {
                         <div>${data[i].datePublished}</div>
                     </div>
                 </div>
-                </div>
-                
-                
+                </div>   
             `;
         } else {
             contList.innerHTML += `
@@ -630,9 +625,7 @@ function carrouselContenidoRelacionado(data) {
                         <div>${data[i].datePublished}</div>
                     </div>
                 </div>
-                </div>
-                
-                
+                </div>  
             `;
         }
     }
