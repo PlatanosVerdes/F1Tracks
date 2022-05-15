@@ -1082,7 +1082,7 @@ section {
 
 .overlay .text {
   color: white;
-  font-size: 20px;
+  font-size: 15px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1094,12 +1094,13 @@ section {
 
 .overlay .text a{
   color: white;
-  font-size: 20px;
+  font-size: 15px;
+  text-decoration: underline;
 }
 
 .overlay .text a:hover{
   color: red;
-  font-size: 20px;
+  font-size: 15px;
 }
 
 /*--------------------------------------------------------------

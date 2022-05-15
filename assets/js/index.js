@@ -180,10 +180,10 @@ function carrouselEscuderias(data) {
 }
 
 async function jsonnoticias(){
-    /*const response = await fetch('https://api.currentsapi.services/v1/search?' +
-    'keywords=Formula1&page_size=10&'+ 
-    'apiKey=N59WCalcBtNE7Nu2xDtbxkC_BaUtplDjUmTOz0bGWRBC9W9Y');*/
-    const response = await fetch('https://newsapi.org/v2/everything?q=Formula1&sortBy=popularity&apiKey=f7fac1e5d56f49f28405fba01dccf8cb');
+    const response = await fetch('https://api.currentsapi.services/v1/search?' +
+    'keywords=Formula One&page_size=10&'+ 
+    'apiKey=N59WCalcBtNE7Nu2xDtbxkC_BaUtplDjUmTOz0bGWRBC9W9Y');
+    //const response = await fetch('https://newsapi.org/v2/everything?q=Formula1&sortBy=popularity&apiKey=f7fac1e5d56f49f28405fba01dccf8cb');
     if (!response.ok) {
         const message = `An error has occured: ${response.status}`;
         throw new Error(message);
@@ -197,26 +197,40 @@ async function jsonnoticias(){
 function carrouselNoticias(data) {
     let notList = document.getElementById('carousel-noticias-content');
     notList.innerHTML += ``;
-    /*for (var i = 0; i < data.news.length; i++) {
+    for (var i = 0; i < data.news.length; i++) {
+        let date = new Date(data.news[i].published);
         if (i == 0 && data.news[i].image != "None") {
             notList.innerHTML += `
                 <div class="carousel-item active" data-bs-interval="9000">
-                <img src="${data.news[i].image}" class="d-block w-100" alt="${data.news[i].image}">
+                <img src="${data.news[i].image}" class="d-block w-100" alt="${data.news[i].title}">
+                <div class="overlay">                        
+                        <div class="text">
+                            <a href="${data.news[i].url}" target="_blank">${data.news[i].title}</a>
+                            
+                            <div>${date.getFullYear()}-${date.getMonth()}-${date.getDate()}</div>
+                        </div>
+                    </div>
                 </div>
             `;
         } else if(data.news[i].image != "None"){
             notList.innerHTML += `
                 <div class="carousel-item" data-bs-interval="5000">
-                <img src="${data.news[i].image}" class="d-block w-100" alt="${data.news[i].image}">
+                <img src="${data.news[i].image}" class="d-block w-100" alt="${data.news[i].title}">
+                <div class="overlay">                        
+                        <div class="text">
+                            <a href="${data.news[i].url}" target="_blank">${data.news[i].title}</a>
+                            
+                            <div>${date.getFullYear()}-${date.getMonth()}-${date.getDate()}</div>
+                        </div>
+                    </div>
                 </div>
             `;
-        }else{
-
         }
-    }*/
+    }
 
-    console.log(data);
-    for (var i = 0; i < data.articles.length; i++) {
+    //<div>${data.news[i].author}</div>
+    
+    /*for (var i = 0; i < data.articles.length; i++) {
         let date = new Date(data.articles[i].publishedAt);
         if (i == 0) {
             notList.innerHTML += `
@@ -247,7 +261,7 @@ function carrouselNoticias(data) {
         }
 
         
-    }
+    }*/
 }
 
 function stadisticsF1Drivers(data){
