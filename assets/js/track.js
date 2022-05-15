@@ -597,7 +597,7 @@ function extraerinfoJSONPeliculas(peliculas) {
 /*Carrousel Contenido Relacionado*/
 function carrouselContenidoRelacionado(data) {
     console.log(data);
-    let contList = document.getElementById('carousel-inner');
+    let contList = document.getElementById('carousel-relacionado');
     contList.innerHTML += ``;
 
     for (var i = 0; i < data.length; i++) {

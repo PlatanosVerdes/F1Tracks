@@ -2,9 +2,7 @@
 function getIdTrackClick(row) {
     
     let img= row.firstChild.nextElementSibling.firstChild.nextElementSibling;
-    sessionStorage.setItem('idTrack', img.alt);
-    /* sessionStorage.setItem('posTrack', img.getAttribute("data-track-pos")); */
-    
+    sessionStorage.setItem('idTrack', img.alt);    
     location.href = "track.html";
 }
 
@@ -196,7 +194,7 @@ async function jsonnoticias(){
 
 /*Carrousel noticias*/
 function carrouselNoticias(data) {
-    let notList = document.getElementById('carousel');
+    let notList = document.getElementById('carousel-noticias-content');
     notList.innerHTML += ``;
     /*for (var i = 0; i < data.news.length; i++) {
         if (i == 0 && data.news[i].image != "None") {
@@ -216,17 +214,33 @@ function carrouselNoticias(data) {
         }
     }*/
 
+    console.log(data);
     for (var i = 0; i < data.articles.length; i++) {
+        let date = new Date(data.articles[i].publishedAt);
         if (i == 0) {
             notList.innerHTML += `
                 <div class="carousel-item active" data-bs-interval="9000">
-                <img src="${data.articles[i].urlToImage}" class="d-block w-100" alt="${data.articles[i].urlToImage}">
+                    <img src="${data.articles[i].urlToImage}" class="d-block w-100" id="new-img" alt="${data.articles[i].title}">
+                    <div class="overlay">                        
+                        <div class="text">
+                            <a href="${data.articles[i].url}"" target="_blank">${data.articles[i].title}</a>
+                            <div>${data.articles[i].author}</div>
+                            <div>${date.getFullYear()}-${date.getMonth()}-${date.getDate()}</div>
+                        </div>
+                    </div>
                 </div>
             `;
         } else{
             notList.innerHTML += `
                 <div class="carousel-item" data-bs-interval="5000">
-                <img src="${data.articles[i].urlToImage}" class="d-block w-100" alt="${data.articles[i].urlToImage}">
+                    <img src="${data.articles[i].urlToImage}" class="d-block w-100" id="new-img" alt="${data.articles[i].title}">
+                    <div class="overlay">                        
+                        <div class="text">
+                            <a href="${data.articles[i].url}"" target="_blank">${data.articles[i].title}</a>
+                            <div>${data.articles[i].author}</div>
+                            <div>${date.getFullYear()}-${date.getMonth()}-${date.getDate()}</div>
+                        </div>
+                    </div>
                 </div>
             `;
         }
