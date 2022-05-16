@@ -121,7 +121,6 @@ async function initIndex() {
     mapsIndex(data);
     carrouselEscuderias(data);
     F1DriverStanding();
-    createSVG(stadisticsF1Drivers());
 
 }
 
@@ -316,7 +315,7 @@ function createSVG(data) {
 
 
 function stadisticsF1Constructor(data) {
-    console.log(data);
+
     var standing =
         data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
     console.log(standing);
@@ -335,6 +334,7 @@ async function F1DriverStanding() {
         .then((response) => response.json())
         .then((result) => {
             sessionStorage.setItem("driverStanding", JSON.stringify(result));
+            createSVG(stadisticsF1Drivers());
         })
         .catch((error) => console.log("error", error));
 }
