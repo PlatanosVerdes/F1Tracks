@@ -116,12 +116,10 @@ async function initIndex() {
     }
 
     createMenuCircuitsIndex(4, data);
-    let noticias = await jsonNoticias();
-    carrouselNoticias(noticias);
     mapsIndex(data);
     carrouselEscuderias(data);
     F1DriverStanding();
-
+    carrouselNoticias(await jsonNoticias());
 }
 
 window.addEventListener("resize", stadisticsResize);
@@ -207,35 +205,19 @@ async function jsonNoticias() {
 
 /*Carrousel noticias*/
 function carrouselNoticias(data) {
+    document.getElementById("carousel-noticias-content").classList.remove("loading");
+    document.getElementById("loading").remove();
     let notList = document.getElementById("carousel-noticias-content");
     notList.innerHTML += ``;
     for (var i = 0; i < data.news.length; i++) {
         let date = new Date(data.news[i].published);
-        if (i == 0 && data.news[i].image != "None") {
+        if (data.news[i].image != "None") {
             notList.innerHTML += `
-                <div class="carousel-item active" data-bs-interval="9000">
-                <img src="${data.news[i].image}" loading="lazy" class="d-block w-100" alt="${data.news[i].title
-                }">
+                <div class="carousel-item ${i == 0 ? "active" : ""}" data-bs-interval="5000">
+                <img src="${data.news[i].image}" loading="lazy" class="d-block w-100" id="new-img" alt="${data.news[i].title}">
                 <div class="overlay">                        
                         <div class="text">
-                            <a href="${data.news[i].url}" target="_blank">${data.news[i].title
-                }</a>
-                            
-                            <div>${date.getFullYear()}-${date.getMonth()}-${date.getDate()}</div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        } else if (data.news[i].image != "None") {
-            notList.innerHTML += `
-                <div class="carousel-item" data-bs-interval="5000">
-                <img src="${data.news[i].image}" loading="lazy" class="d-block w-100" alt="${data.news[i].title
-                }">
-                <div class="overlay">                        
-                        <div class="text">
-                            <a href="${data.news[i].url}" target="_blank">${data.news[i].title
-                }</a>
-                            
+                            <a href="${data.news[i].url}" target="_blank">${data.news[i].title}</a>
                             <div>${date.getFullYear()}-${date.getMonth()}-${date.getDate()}</div>
                         </div>
                     </div>
@@ -345,7 +327,7 @@ async function F1ConstructorStanding() {
         redirect: "follow",
     };
 
-    await fetch("https://ergast.com/api/f1/2022/constructorStandings.json",requestOptions)
+    await fetch("https://ergast.com/api/f1/2022/constructorStandings.json", requestOptions)
         .then((response) => response.json())
         .then((result) => stadisticsF1Constructor(result))
         .catch((error) => console.log("error", error));

@@ -613,7 +613,7 @@ section {
 
 .track-item {
   margin: 10px;
-  border-bottom: 2px solid #ff0000;
+  border-bottom: 2px solid #dc0708;
 }
 
 .track-item .text {
@@ -730,7 +730,6 @@ section {
   color: white;
   float: right;
   margin: 5px;
-
 }
 
 .trackView iframe {
@@ -891,10 +890,10 @@ section {
 # MAPS API
 --------------------------------------------------------------*/
 #map1 {
+  margin-bottom: 1rem;
   height: 400px;
   width: 100%;
-  border-radius: 3px;
-  border-color: #ff0000;
+  border-radius: 5px;
 }
 
 #map2 {
@@ -923,8 +922,6 @@ section {
 }
 
 .detail .detail-info img {
-  /* width: 2.5vw;
-  height: 1.5vw; */
   width: 2rem;
   height: 1rem;
 }
@@ -1069,12 +1066,20 @@ section {
 /*--------------------------------------------------------------
 # NOTICIAS
 --------------------------------------------------------------*/
+#carouselNoticias{
+  margin-bottom: 1rem;
+}
+
+#new-img{
+  border-radius: 5px;
+}
+
 .overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: #3b3b3b4f;
+  background-color: #3b3b3bab;
   overflow: hidden;
   width: 100%;
   height: 0;
@@ -1100,12 +1105,12 @@ section {
 .overlay .text a{
   color: white;
   font-size: 15px;
-  text-decoration: underline;
+
 }
 
 .overlay .text a:hover{
-  color: red;
-  font-size: 15px;
+  color: rgba(255, 255, 255, 0.753);
+  text-decoration: underline;
 }
 
 /*--------------------------------------------------------------
@@ -1142,13 +1147,58 @@ section {
 .hover-effect .text a{
   color: white;
   font-size: 20px;
-  text-decoration: underline;
 }
 
 .hover-effect .text a:hover{
-  color: red;
-  font-size: 20px;
+  color: rgba(255, 255, 255, 0.753);
+  text-decoration: underline;
 }
 
+/*--------------------------------------------------------------
+# LOADING
+--------------------------------------------------------------*/
+.lds-facebook {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 8px;
+  width: 16px;
+  background: #fff;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 8px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 32px;
+  animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 56px;
+  animation-delay: 0;
+}
+@keyframes lds-facebook {
+  0% {
+    top: 8px;
+    height: 64px;
+  }
+  50%, 100% {
+    top: 24px;
+    height: 32px;
+  }
+}
 
-
+/*--------------------------------------------------------------
+# CAROUSEL
+--------------------------------------------------------------*/
+.carousel-inner.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
