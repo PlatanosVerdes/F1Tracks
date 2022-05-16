@@ -164,7 +164,7 @@ function mapsIndex(data) {
 
         var marker = L.marker([latitud, longitud]).addTo(map);
         marker.bindPopup(
-            `<b>${listacircuitos[i].name}</b><br>${listacircuitos[i].alternateName}<br><img src="assets/img/flags/${listacircuitos[i].datos_extra.flag}" width="30px" hight="30px" style="border:1px solid black;">`
+            `<b>${listacircuitos[i].name}</b><br>${listacircuitos[i].alternateName}<br><img loading="lazy" src="assets/img/flags/${listacircuitos[i].datos_extra.flag}" width="30px" hight="30px" style="border:1px solid black;">`
         );
     }
 }
@@ -179,13 +179,13 @@ function carrouselEscuderias(data) {
         if (i == 0) {
             escList.innerHTML += `
                 <div class="carousel-item active" data-bs-interval="9000">
-                <img src="assets/img/escurerias/${esc[i].logo}" class="d-block w-100" alt="${esc[i].logo}">
+                <img src="assets/img/escurerias/${esc[i].logo}" loading="lazy" class="d-block w-100" alt="${esc[i].logo}">
                 </div>
             `;
         } else {
             escList.innerHTML += `
                 <div class="carousel-item" data-bs-interval="5000">
-                <img src="assets/img/escurerias/${esc[i].logo}" class="d-block w-100" alt="${esc[i].logo}">
+                <img src="assets/img/escurerias/${esc[i].logo}" loading="lazy" class="d-block w-100" alt="${esc[i].logo}">
                 </div>
             `;
         }
@@ -215,7 +215,7 @@ function carrouselNoticias(data) {
         if (i == 0 && data.news[i].image != "None") {
             notList.innerHTML += `
                 <div class="carousel-item active" data-bs-interval="9000">
-                <img src="${data.news[i].image}" class="d-block w-100" alt="${data.news[i].title
+                <img src="${data.news[i].image}" loading="lazy" class="d-block w-100" alt="${data.news[i].title
                 }">
                 <div class="overlay">                        
                         <div class="text">
@@ -230,7 +230,7 @@ function carrouselNoticias(data) {
         } else if (data.news[i].image != "None") {
             notList.innerHTML += `
                 <div class="carousel-item" data-bs-interval="5000">
-                <img src="${data.news[i].image}" class="d-block w-100" alt="${data.news[i].title
+                <img src="${data.news[i].image}" loading="lazy" class="d-block w-100" alt="${data.news[i].title
                 }">
                 <div class="overlay">                        
                         <div class="text">
@@ -345,10 +345,7 @@ async function F1ConstructorStanding() {
         redirect: "follow",
     };
 
-    await fetch(
-        "https://ergast.com/api/f1/2022/constructorStandings.json",
-        requestOptions
-    )
+    await fetch("https://ergast.com/api/f1/2022/constructorStandings.json",requestOptions)
         .then((response) => response.json())
         .then((result) => stadisticsF1Constructor(result))
         .catch((error) => console.log("error", error));

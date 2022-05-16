@@ -160,6 +160,7 @@ async function printTrackMainInfo(data) {
     let img = document.createElement("img");
     img.setAttribute("class", "img-fluid rounded");
     img.setAttribute("alt", "Flag Country");
+    img.setAttribute("loading","lazy");
     img.src = "assets/img/flags/" + pilot.nationality + ".svg";
 
     let detailLapRecord = document.createElement("div");
@@ -547,7 +548,7 @@ function showTiempoForecast(data) {
         dayForecast.setAttribute("class", "col-md-3 text-center");
         dayForecast.setAttribute("id", "tiempoForecast");
         dayForecast.innerHTML = `${data[i].date} 
-        <img src="https://openweathermap.org/img/wn/${data[i].icon}@2x.png" alt="No hay datos"></img>
+        <img src="https://openweathermap.org/img/wn/${data[i].icon}@2x.png" loading="lazy" alt="No hay datos"></img>
         <div class="row-cols-md-auto text-center max">
             ${data[i].temp_max}
         </div>
@@ -604,7 +605,7 @@ function carrouselContenidoRelacionado(data) {
         if (i == 0) {
             contList.innerHTML += `
                 <div class="carousel-item active" data-bs-interval="9000">
-                <img src="https://hollypedia.netlify.app/${data[i].image[0].name}" class="d-block w-100" alt="${data[i].image[0].name}" id="imagenpelicula">
+                <img src="https://hollypedia.netlify.app/${data[i].image[0].name}" loading="lazy" class="d-block w-100" alt="${data[i].image[0].name}" id="imagenpelicula">
                 <div class="hover-effect">
                     <div class="text">
                     <div><b>Película:</b></div>
@@ -617,7 +618,7 @@ function carrouselContenidoRelacionado(data) {
         } else {
             contList.innerHTML += `
                 <div class="carousel-item" data-bs-interval="5000">
-                <img src="https://hollypedia.netlify.app/${data[i].image[0].name}" class="d-block w-100" alt="${data[i].image[0].name}" id="imagenpelicula">
+                <img src="https://hollypedia.netlify.app/${data[i].image[0].name}" loading="lazy" class="d-block w-100" alt="${data[i].image[0].name}" id="imagenpelicula">
                 <div class="hover-effect">
                     <div class="text">
                     <div><b>Película:</b></div>

@@ -183,6 +183,7 @@ async function ordenarBy(order, data) {
             let gif = document.createElement("img");
             gif.setAttribute("class", "img-fluid animated");
             gif.setAttribute("id", "gif-empty");
+            git.setAttribute("loading","lazy");
             let id = getRandomArbitrary(0, 5);
 
             gif.src = `assets/img/gifs/gif${id}.gif`;
@@ -237,7 +238,7 @@ function printTrackAlternateName(track, whereId) {
     trackItem.innerHTML = `
         <div class="row" onclick="getIdTrackClick(this)">
             <div class="col-sm-12 col-md-6" id="img">
-                <img class="img-fluid rounded mb-3 mb-md-0" src="assets/img/tracks/${track.identifier}.png" alt="${track.identifier}" id="imagencircuito">
+                <img class="img-fluid rounded mb-3 mb-md-0" loading="lazy" src="assets/img/tracks/${track.identifier}.png" alt="${track.identifier}" id="imagencircuito">
                 <div id="hidden">
                     <div class="text text-center" id="name">${track.name.bold()}</div>
                     <div class="text text-center" id="location">${track.GeoCoordinates.addressCountry}</div>
