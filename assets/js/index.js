@@ -120,6 +120,7 @@ async function initIndex() {
     carrouselNoticias(noticias);
     mapsIndex(data);
     carrouselEscuderias(data);
+    F1DriverStanding();
     createSVG(stadisticsF1Drivers());
 
 }
