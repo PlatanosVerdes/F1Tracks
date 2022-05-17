@@ -121,7 +121,6 @@ async function printTrackMainInfo(data) {
   icon.setAttribute("id", "ico-fav");
   let name = document.createElement("h10");
   name.setAttribute("id", "alterName-track");
-  name.setAttribute("itemprop","name");
   name.innerHTML = `${tracks[posTrack].alternateName}`;
 
   var tracksFav = [];
