@@ -684,7 +684,8 @@ section {
   text-align: center;
   vertical-align: bottom;
 }
-.footer h1{
+
+.footer h1 {
   font-size: medium;
 }
 
@@ -962,6 +963,10 @@ section {
   margin-right: auto;
 }
 
+#img-escuderias {
+  border-radius: 10px;
+}
+
 /*--------------------------------------------------------------
 # API TWITTER
 --------------------------------------------------------------*/
@@ -1037,17 +1042,17 @@ section {
   fill: #f55a5a;
 }
 
-.estadisticas .bar:hover .text{
+.estadisticas .bar:hover .text {
   opacity: 1;
   color: white;
 }
 
-.estadisticas .svg .g .text{
+.estadisticas .svg .g .text {
   opacity: 1;
   color: white;
 }
 
-.estadisticas .svg .g .text #points{
+.estadisticas .svg .g .text #points {
   opacity: 1;
   color: rgb(188, 184, 184);
 }
@@ -1071,11 +1076,11 @@ section {
 /*--------------------------------------------------------------
 # NOTICIAS
 --------------------------------------------------------------*/
-#carouselNoticias{
+#carouselNoticias {
   margin-bottom: 1rem;
 }
 
-#new-img{
+#new-img {
   border-radius: 5px;
 }
 
@@ -1107,13 +1112,13 @@ section {
   text-align: center;
 }
 
-.overlay .text a{
+.overlay .text a {
   color: white;
   font-size: 15px;
 
 }
 
-.overlay .text a:hover{
+.overlay .text a:hover {
   color: rgba(255, 255, 255, 0.753);
   text-decoration: underline;
 }
@@ -1149,12 +1154,12 @@ section {
   text-align: center;
 }
 
-.hover-effect .text a{
+.hover-effect .text a {
   color: white;
   font-size: 20px;
 }
 
-.hover-effect .text a:hover{
+.hover-effect .text a:hover {
   color: rgba(255, 255, 255, 0.753);
   text-decoration: underline;
 }
@@ -1168,6 +1173,7 @@ section {
   width: 80px;
   height: 80px;
 }
+
 .lds-facebook div {
   display: inline-block;
   position: absolute;
@@ -1176,24 +1182,30 @@ section {
   background: #fff;
   animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
 }
+
 .lds-facebook div:nth-child(1) {
   left: 8px;
   animation-delay: -0.24s;
 }
+
 .lds-facebook div:nth-child(2) {
   left: 32px;
   animation-delay: -0.12s;
 }
+
 .lds-facebook div:nth-child(3) {
   left: 56px;
   animation-delay: 0;
 }
+
 @keyframes lds-facebook {
   0% {
     top: 8px;
     height: 64px;
   }
-  50%, 100% {
+
+  50%,
+  100% {
     top: 24px;
     height: 32px;
   }
@@ -1202,7 +1214,7 @@ section {
 /*--------------------------------------------------------------
 # CAROUSEL
 --------------------------------------------------------------*/
-.carousel-inner.loading{
+.carousel-inner.loading {
   display: flex;
   justify-content: center;
   align-items: center;

@@ -42,7 +42,7 @@ function getRandomArbitrary(min, max) {
 function playAudio() {
     audio = document.getElementById("index-audio");
     audio.muted = false;
-    //audio.play();
+    audio.play();
     audio.volume = 0.15;
 }
 

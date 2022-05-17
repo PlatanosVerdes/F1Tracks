@@ -1,5 +1,6 @@
 //Funcion que se ejecuta al clicckar una imagen de un track
 function getIdTrackClick(row) {
+    playAudio()
     let img = row.firstChild.nextElementSibling.firstChild.nextElementSibling;
     sessionStorage.setItem("idTrack", img.alt);
     location.href = "track.html";
@@ -173,19 +174,11 @@ function carrouselEscuderias(data) {
     escList.innerHTML += ``;
 
     for (var i = 0; i < esc.length; i++) {
-        if (i == 0) {
-            escList.innerHTML += `
-                <div class="carousel-item active" data-bs-interval="9000">
-                <img src="assets/img/escurerias/${esc[i].logo}" loading="lazy" class="d-block w-100" alt="${esc[i].logo}">
-                </div>
-            `;
-        } else {
-            escList.innerHTML += `
-                <div class="carousel-item" data-bs-interval="5000">
-                <img src="assets/img/escurerias/${esc[i].logo}" loading="lazy" class="d-block w-100" alt="${esc[i].logo}">
-                </div>
-            `;
-        }
+        escList.innerHTML += `
+            <div class="carousel-item ${i == 0 ? "active" : ""}"" data-bs-interval="9000">
+            <img id="img-escuderias"  src="assets/img/escurerias/${esc[i].logo}" loading="lazy" class="d-block w-100" alt="${esc[i].logo}">
+            </div>
+        `;
     }
 }
 
@@ -296,8 +289,8 @@ function createSVG(data) {
         text2.setAttribute("transform", "translate(5,40)");
         text2.setAttribute("style", "fill: #B8B8B8;");
         svgElem.appendChild(text2);
-        text2.setAttribute( "y", 5 + i * 40);
-        text2.setAttribute( "x", (data[i].points * maxPoints) + 170);
+        text2.setAttribute("y", 5 + i * 40);
+        text2.setAttribute("x", (data[i].points * maxPoints) + 170);
         text2.innerHTML = `${data[i].points} p`;
 
         driverStats.appendChild(svgElem);
