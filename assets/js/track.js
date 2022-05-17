@@ -254,18 +254,43 @@ function initJSONLD(data) {
     `;
 }
 
+function extraerInfoJSONPeliculas(peliculas) {
+  var arraypeliculas = peliculas.filter((pelicula) => pelicula.description.includes("car"));
+  return arraypeliculas;
+}
+
+/* function extraerInfoJSONPeliculas(peliculas) {
+  var arraypeliculas = peliculas.filter((pelicula) => pelicula.genre.some((genero) => genero.toLowerCase().includes("action")));
+  return arraypeliculas;
+} */
+
+/* function extraerInfoJSONPeliculas(peliculas) {
+  var arraypeliculas = peliculas.filter(checkpeli);
+  function checkpeli(peliculas) {
+    return peliculas.genre.includes("Action");
+  }
+  return arraypeliculas;
+}
+*/
+
+function extraerInfoJSONJuegos(jsonvjuegos) {
+  var arrayjuegos = jsonvjuegos.filter(checkvjuego);
+  function checkvjuego(jsonvjuegos) {
+    return jsonvjuegos.includes("Fornite");
+  }
+  return arrayjuegos;
+}
+
 window.addEventListener("load", initTrack);
 async function initTrack() {
   let data = await fetchJSON();
   createMenuCircuitsTrack(4, data);
   printTrackMainInfo(data);
   initJSONLD(data);
-  let jsonpeliculas = await fetchJSONExterno(
-    "https://hollypedia.netlify.app/json/peliculas.json"
-  );
+  let jsonpeliculas = await fetchJSONExterno("https://hollypedia.netlify.app/json/peliculas.json");
   //let jsonvjuegos = await fetchJSONExterno("https://calasdemallorca.netlify.app/_json/index.json");
-  let listapeliculas = extraerinfoJSONPeliculas(jsonpeliculas);
-  //let listajuegos = extraerinfoJSONJuegos(jsonvjuegos);
+  let listapeliculas = extraerInfoJSONPeliculas(jsonpeliculas);
+  //let listajuegos = extraerInfoJSONJuegos(jsonvjuegos);
   carrouselContenidoRelacionado(listapeliculas);
 }
 playAudio();
@@ -353,63 +378,63 @@ function videosTrack(data, i) {
   carousel.appendChild(carouselInner);
 
 
-    if (!data[i].video[1]) {
-      title.innerHTML = `Video`;
-      let carouselItem = document.createElement("div");
-      carouselItem.setAttribute("class", "carousel-item active");
-      carouselItem.setAttribute("data-bs-interval", "9999999");
-      carouselItem.innerHTML = `<div class="row"><iframe title="HightLight" id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe></div>`;
-      carouselInner.appendChild(carouselItem);
-    } else {
-      title.innerHTML = `Videos`;
-      //Add primer item (active)
-      let carouselItemActive = document.createElement("div");
-      carouselItemActive.setAttribute("class", "carousel-item active");
-      carouselItemActive.setAttribute("data-bs-interval", "9999999");
-      carouselItemActive.innerHTML = `<div class="row"><iframe title="HightLight" id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe></div>`;
-      carouselInner.appendChild(carouselItemActive);
+  if (!data[i].video[1]) {
+    title.innerHTML = `Video`;
+    let carouselItem = document.createElement("div");
+    carouselItem.setAttribute("class", "carousel-item active");
+    carouselItem.setAttribute("data-bs-interval", "9999999");
+    carouselItem.innerHTML = `<div class="row"><iframe title="HightLight" id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe></div>`;
+    carouselInner.appendChild(carouselItem);
+  } else {
+    title.innerHTML = `Videos`;
+    //Add primer item (active)
+    let carouselItemActive = document.createElement("div");
+    carouselItemActive.setAttribute("class", "carousel-item active");
+    carouselItemActive.setAttribute("data-bs-interval", "9999999");
+    carouselItemActive.innerHTML = `<div class="row"><iframe title="HightLight" id="video-track" src="${data[i].video[0]}" frameborder="0" allowfullscreen controls=2 ></iframe></div>`;
+    carouselInner.appendChild(carouselItemActive);
 
-      //Add un item
-      let carouselItem = document.createElement("div");
-      carouselItem.setAttribute("class", "carousel-item");
-      carouselItem.setAttribute("data-bs-interval", "9999999");
-      carouselItem.innerHTML = `<div class="row"><iframe title="Summary" id="video-track" src="${data[i].video[1]}" frameborder="0" allowfullscreen controls=2 ></iframe></div>`;
-      carouselInner.appendChild(carouselItem);
+    //Add un item
+    let carouselItem = document.createElement("div");
+    carouselItem.setAttribute("class", "carousel-item");
+    carouselItem.setAttribute("data-bs-interval", "9999999");
+    carouselItem.innerHTML = `<div class="row"><iframe title="Summary" id="video-track" src="${data[i].video[1]}" frameborder="0" allowfullscreen controls=2 ></iframe></div>`;
+    carouselInner.appendChild(carouselItem);
 
-      //Boton izquierdo
-      let btPrev = document.createElement("button");
-      btPrev.setAttribute("class", "carousel-control-prev");
-      btPrev.setAttribute("type", "button");
-      btPrev.setAttribute("data-bs-target", "#carouselExampleInterval");
-      btPrev.setAttribute("data-bs-slide", "prev");
-      let spanControlPrev = document.createElement("span");
-      spanControlPrev.setAttribute("class", "carousel-control-prev-icon");
-      spanControlPrev.setAttribute("aria-hidden", "true");
-      btPrev.appendChild(spanControlPrev);
-      let visuallyPrev = document.createElement("span");
-      visuallyPrev.setAttribute("class", "visually-hidden");
-      visuallyPrev.innerHTML = "Previous";
-      btPrev.appendChild(visuallyPrev);
-      carousel.appendChild(btPrev);
+    //Boton izquierdo
+    let btPrev = document.createElement("button");
+    btPrev.setAttribute("class", "carousel-control-prev");
+    btPrev.setAttribute("type", "button");
+    btPrev.setAttribute("data-bs-target", "#carouselExampleInterval");
+    btPrev.setAttribute("data-bs-slide", "prev");
+    let spanControlPrev = document.createElement("span");
+    spanControlPrev.setAttribute("class", "carousel-control-prev-icon");
+    spanControlPrev.setAttribute("aria-hidden", "true");
+    btPrev.appendChild(spanControlPrev);
+    let visuallyPrev = document.createElement("span");
+    visuallyPrev.setAttribute("class", "visually-hidden");
+    visuallyPrev.innerHTML = "Previous";
+    btPrev.appendChild(visuallyPrev);
+    carousel.appendChild(btPrev);
 
-      //Boton derecho
-      let btNext = document.createElement("button");
-      btNext.setAttribute("class", "carousel-control-next");
-      btNext.setAttribute("type", "button");
-      btNext.setAttribute("data-bs-target", "#carouselExampleInterval");
-      btNext.setAttribute("data-bs-slide", "next");
-      let spanControlNext = document.createElement("span");
-      spanControlNext.setAttribute("class", "carousel-control-next-icon");
-      spanControlNext.setAttribute("aria-hidden", "true");
-      btNext.appendChild(spanControlNext);
-      let visuallyNext = document.createElement("span");
-      visuallyNext.setAttribute("class", "visually-hidden");
-      visuallyNext.innerHTML = "Next";
-      btNext.appendChild(visuallyNext);
-      carousel.appendChild(btNext);
-    }
-    //Add cousel en el nodo padre
-    iframes.appendChild(carousel);
+    //Boton derecho
+    let btNext = document.createElement("button");
+    btNext.setAttribute("class", "carousel-control-next");
+    btNext.setAttribute("type", "button");
+    btNext.setAttribute("data-bs-target", "#carouselExampleInterval");
+    btNext.setAttribute("data-bs-slide", "next");
+    let spanControlNext = document.createElement("span");
+    spanControlNext.setAttribute("class", "carousel-control-next-icon");
+    spanControlNext.setAttribute("aria-hidden", "true");
+    btNext.appendChild(spanControlNext);
+    let visuallyNext = document.createElement("span");
+    visuallyNext.setAttribute("class", "visually-hidden");
+    visuallyNext.innerHTML = "Next";
+    btNext.appendChild(visuallyNext);
+    carousel.appendChild(btNext);
+  }
+  //Add cousel en el nodo padre
+  iframes.appendChild(carousel);
 }
 
 function tiempoAPIForecast(track, i) {
@@ -582,22 +607,6 @@ function parseDate(month, day) {
   return (fecha = day.toString() + " " + months[month]);
 }
 
-function extraerInfoJSONPeliculas(peliculas) {
-  var arraypeliculas = peliculas.filter(checkpeli);
-  function checkpeli(peliculas) {
-    return peliculas.genre.includes("Action");
-  }
-  return arraypeliculas;
-}
-
-function extraerinfoJSONJuegos(jsonvjuegos) {
-  var arrayjuegos = jsonvjuegos.filter(checkvjuego);
-  function checkvjuego(jsonvjuegos) {
-    return jsonvjuegos.includes("Fornite");
-  }
-  return arrayjuegos;
-}
-
 /*Carrousel Contenido Relacionado*/
 function carrouselContenidoRelacionado(data) {
   let contList = document.getElementById("carousel-relacionado");
@@ -606,17 +615,15 @@ function carrouselContenidoRelacionado(data) {
     if (i == 0) {
       contList.innerHTML += `
                 <div class="carousel-item active" data-bs-interval="9000">
-                <img src="https://hollypedia.netlify.app/${
-                  data[i].image[0].name
-                }" loading="lazy" class="d-block w-100" alt="${
-        data[i].image[0].name
-      }" id="imagenpelicula">
+                <img src="https://hollypedia.netlify.app/${data[i].image[0].name
+        }" loading="lazy" class="d-block w-100" alt="${data[i].image[0].name
+        }" id="imagenpelicula">
                 <div class="hover-effect">
                     <div class="text">
                     <div><b>Película:</b></div>
                         <a href="https://hollypedia.netlify.app/movies.html" target="_blank">${data[
-                          i
-                        ].name.bold()}</a>
+          i
+        ].name.bold()}</a>
                         <div>${data[i].datePublished}</div>
                     </div>
                 </div>
@@ -625,17 +632,15 @@ function carrouselContenidoRelacionado(data) {
     } else {
       contList.innerHTML += `
                 <div class="carousel-item" data-bs-interval="5000">
-                <img src="https://hollypedia.netlify.app/${
-                  data[i].image[0].name
-                }" loading="lazy" class="d-block w-100" alt="${
-        data[i].image[0].name
-      }" id="imagenpelicula">
+                <img src="https://hollypedia.netlify.app/${data[i].image[0].name
+        }" loading="lazy" class="d-block w-100" alt="${data[i].image[0].name
+        }" id="imagenpelicula">
                 <div class="hover-effect">
                     <div class="text">
                     <div><b>Película:</b></div>
                         <a href="https://hollypedia.netlify.app/movies.html" target="_blank">${data[
-                          i
-                        ].name.bold()}</a>
+          i
+        ].name.bold()}</a>
                         <div>${data[i].datePublished}</div>
                     </div>
                 </div>

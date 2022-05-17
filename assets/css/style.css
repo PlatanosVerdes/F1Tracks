@@ -997,6 +997,12 @@ section {
   width: 50%;
 }
 
+.twitter-timeline{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /*--------------------------------------------------------------
 # FOOTER
 --------------------------------------------------------------*/
