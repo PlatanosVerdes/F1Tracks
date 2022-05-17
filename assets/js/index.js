@@ -255,12 +255,12 @@ function createSVG(data) {
 
     var w;
     if (x <= 750) {
-        w = parseInt(x * 0.9);
+        w = parseInt(x * 0.80);
     } else {
         w = parseInt(x * (1 / 2));
     }
     var h = 1000;
-    var maxPoints = (w / data[0].points) * 0.7;
+    var maxPoints = (w / data[0].points) * 0.60;
 
     let driverStats = document.getElementById("estadisticas");
     var svgElem = document.createElementNS(xmlns, "svg");
@@ -290,6 +290,14 @@ function createSVG(data) {
         text.setAttributeNS(null, "y", 5 + i * 40);
         text.setAttributeNS(null, "x", "1");
         text.innerHTML = `${i + 1} ${data[i].driver.givenName} ${data[i].driver.familyName}`;
+
+        var text2 = document.createElementNS(xmlns, "text");
+        text2.setAttribute("transform", "translate(5,40)");
+        text2.setAttribute("style", "fill: #ffffff;")
+        svgElem.appendChild(text2);
+        text2.setAttribute( "y", 5 + i * 40);
+        text2.setAttribute( "x", (data[i].points * maxPoints) + 170);
+        text2.innerHTML = `${data[i].points} p`;
 
         driverStats.appendChild(svgElem);
     }
