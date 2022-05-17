@@ -278,7 +278,7 @@ function createSVG(data) {
         var recta = document.createElementNS(xmlns, "rect");
         recta.setAttribute("class", "bar");
         recta.setAttribute("x", "10");
-        recta.setAttribute("width", data[i].points * maxPoints);
+        recta.setAttribute("width", (data[i].points * maxPoints));
         recta.setAttribute("y", 5 + i * 40);
         recta.setAttribute("height", "30");
         bar.appendChild(recta);
