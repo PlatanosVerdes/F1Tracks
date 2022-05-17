@@ -1047,6 +1047,11 @@ section {
   color: white;
 }
 
+.estadisticas .svg .g .text #points{
+  opacity: 1;
+  color: rgb(188, 184, 184);
+}
+
 .estadisticas .axis {
   font: 10px sans-serif;
   color: white;

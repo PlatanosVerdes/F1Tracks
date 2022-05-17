@@ -285,15 +285,16 @@ function createSVG(data) {
 
         var text = document.createElementNS(xmlns, "text");
         text.setAttributeNS(null, "transform", "translate(5,40)");
-        text.setAttributeNS(null, "style", "fill: #ffffff;")
+        text.setAttributeNS(null, "style", "fill: #ffffff;");
         svgElem.appendChild(text);
         text.setAttributeNS(null, "y", 5 + i * 40);
         text.setAttributeNS(null, "x", "1");
         text.innerHTML = `${i + 1} ${data[i].driver.givenName} ${data[i].driver.familyName}`;
 
         var text2 = document.createElementNS(xmlns, "text");
+        text2.setAttribute("id", "points");
         text2.setAttribute("transform", "translate(5,40)");
-        text2.setAttribute("style", "fill: #ffffff;")
+        text2.setAttribute("style", "fill: #B8B8B8;");
         svgElem.appendChild(text2);
         text2.setAttribute( "y", 5 + i * 40);
         text2.setAttribute( "x", (data[i].points * maxPoints) + 170);
