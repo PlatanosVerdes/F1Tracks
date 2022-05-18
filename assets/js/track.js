@@ -255,8 +255,8 @@ function initJSONLD(data) {
 }
 
 function extraerInfoJSONPeliculas(peliculas) {
-  var arraypeliculas = peliculas.filter((pelicula) => pelicula.description.includes("car"));
-  return arraypeliculas;
+  var arrayPeliculas = peliculas.filter((pelicula) => pelicula.description.includes("Formula"));
+  return arrayPeliculas;
 }
 
 /* function extraerInfoJSONPeliculas(peliculas) {
@@ -611,19 +611,19 @@ function parseDate(month, day) {
 function carrouselContenidoRelacionado(data) {
   let contList = document.getElementById("carousel-relacionado");
   contList.innerHTML += ``;
+  if(data.length < 2){
+    document.getElementById("cr-prev").remove();
+    document.getElementById("cr-next").remove();
+  }
   for (var i = 0; i < data.length; i++) {
     if (i == 0) {
       contList.innerHTML += `
                 <div class="carousel-item active" data-bs-interval="9000">
-                <img src="https://hollypedia.netlify.app/${data[i].image[0].name
-        }" loading="lazy" class="d-block w-100" alt="${data[i].image[0].name
-        }" id="imagenpelicula">
+                <img src="https://hollypedia.netlify.app/${data[i].image[0].name}" loading="lazy" class="d-block w-100" alt="${data[i].image[0].name}" id="imagenpelicula">
                 <div class="hover-effect">
                     <div class="text">
                     <div><b>Película:</b></div>
-                        <a href="https://hollypedia.netlify.app/movies.html" target="_blank">${data[
-          i
-        ].name.bold()}</a>
+                        <a href="https://hollypedia.netlify.app/movies.html" target="_blank">${data[i].name.bold()}</a>
                         <div>${data[i].datePublished}</div>
                     </div>
                 </div>
@@ -632,15 +632,11 @@ function carrouselContenidoRelacionado(data) {
     } else {
       contList.innerHTML += `
                 <div class="carousel-item" data-bs-interval="5000">
-                <img src="https://hollypedia.netlify.app/${data[i].image[0].name
-        }" loading="lazy" class="d-block w-100" alt="${data[i].image[0].name
-        }" id="imagenpelicula">
+                <img src="https://hollypedia.netlify.app/${data[i].image[0].name}" loading="lazy" class="d-block w-100" alt="${data[i].image[0].name}" id="imagenpelicula">
                 <div class="hover-effect">
                     <div class="text">
                     <div><b>Película:</b></div>
-                        <a href="https://hollypedia.netlify.app/movies.html" target="_blank">${data[
-          i
-        ].name.bold()}</a>
+                        <a href="https://hollypedia.netlify.app/movies.html" target="_blank">${data[i].name.bold()}</a>
                         <div>${data[i].datePublished}</div>
                     </div>
                 </div>
