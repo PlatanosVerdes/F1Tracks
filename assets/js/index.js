@@ -247,7 +247,7 @@ function createSVG(data) {
         y = win.innerHeight || docElem.clientHeight || body.clientHeight;
 
     var w;
-    if (x <= 750) {
+    if (x <= 767) {
         w = parseInt(x * 0.80);
     } else {
         w = parseInt(x * (1 / 2));
