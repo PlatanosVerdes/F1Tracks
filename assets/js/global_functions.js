@@ -183,7 +183,6 @@ async function ordenarBy(order, data) {
             let gif = document.createElement("img");
             gif.setAttribute("class", "img-fluid animated");
             gif.setAttribute("id", "gif-empty");
-            git.setAttribute("loading","lazy");
             let id = getRandomArbitrary(0, 5);
 
             gif.src = `assets/img/gifs/gif${id}.gif`;
