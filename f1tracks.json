@@ -340,7 +340,8 @@
                 "JCC.png"
             ],
             "video": [
-                "https://www.youtube.com/embed/WvxgV6JhdzQ"
+                "https://www.youtube.com/embed/WvxgV6JhdzQ",
+                "https://www.youtube.com/embed/7L2Jr4eZ3O0"
             ],
             "alternateName": "STC SAUDI ARABIAN GRAND PRIX 2022",
             "description": "Fue anunciado en diciembre de 2020 y es sede del Gran Premio de Arabia Saudita de Fórmula 1 desde 2021.\n\nLa confirmación de la celebración del Gran Premio de Arabia Saudita trajo consigo críticas hacia la F1 por temas relacionados de los derechos humanos en este país, entre otros, por parte de Amnistía Internacional y Human Rights Watch.",
@@ -392,7 +393,8 @@
                 "JCC.png"
             ],
             "video": [
-                "https://www.youtube.com/embed/ms8EVDVLkJI"
+                "https://www.youtube.com/embed/ms8EVDVLkJI",
+                "https://www.youtube.com/embed/UnqDBgXv-rI"
             ],
             "alternateName": "HEINEKEN AUSTRALIAN GRAND PRIX 2022",
             "description": "A pesar de ser un trazado urbano la pista es relativamente ancha y rápida. El circuito es bastante liso en comparación con otras pistas de la máxima categoría.\n\nEl piloto con más victorias en el Gran Premio de Australia es Michael Schumacher con cuatro, seguido de Jenson Button y Sebastian Vettel con tres.",
@@ -445,7 +447,8 @@
                 "AEDF.png"
             ],
             "video": [
-                "https://www.youtube.com/embed/4z4BGeNMqug"
+                "https://www.youtube.com/embed/4z4BGeNMqug",
+                "https://www.youtube.com/embed/YxzCWjCd3KE"
             ],
             "alternateName": "ROLEX GRAN PREMIO DEL MADE IN ITALY E DELL'EMILIA-ROMAGNA 2022",
             "description": "Es uno de los principales de su país, habiendo albergado carreras de numerosos campeonatos mundiales y europeos de automovilismo de velocidad y motociclismo de velocidad además de italianos. El circuito llevaba originalmente el nombre de Autodromo di Castellaccio. Luego se llamó Autodromo Dino Ferrari en honor a Dino Ferrari, hijo de Enzo Ferrari",
@@ -471,7 +474,24 @@
                     "pilot": "D001",
                     "year": "2020"
                 },
-                "classification": []
+                "classification": [
+                    [
+                        "D006",
+                        "1:32:07.986"
+                    ],
+                    [
+                        "D005",
+                        "16.527"
+                    ],
+                    [
+                        "D008",
+                        "34.834"
+                    ],
+                    [
+                        "D002",
+                        "42.506"
+                    ]
+                ]
             }
         },
         {
@@ -506,7 +526,24 @@
                     "pilot": "D006",
                     "year": "2022"
                 },
-                "classification": []
+                "classification": [
+                    [
+                        "D006",
+                        "1:34:24.258"
+                    ],
+                    [
+                        "D003",
+                        "3.786"
+                    ],
+                    [
+                        "D004",
+                        "8.229"
+                    ],
+                    [
+                        "D005",
+                        "10.638"
+                    ]
+                ]
             }
         },
         {
@@ -516,7 +553,8 @@
                 "CBC.png"
             ],
             "video": [
-                "https://www.youtube.com/embed/pBfrDoUMTvk"
+                "https://www.youtube.com/embed/pBfrDoUMTvk",
+                "https://www.youtube.com/embed/jqdt8-WySdQ"
             ],
             "alternateName": "PIRELLI GRAN PREMIO DE ESPAÑA 2022",
             "description": "Inaugurado en el año 1991, tiene un aforo de 131.000 espectadores, y acoge diversas competiciones entre las que destacan el Gran Premio de España de Fórmula 1 y el Gran Premio de Cataluña de Motociclismo del Campeonato Mundial de Motociclismo. También es uno de los circuitos más utilizados para los ensayos de los diferentes equipos europeos durante el receso de invierno.\n\nDurante los Juegos Olímpicos de Barcelona 1992, el Circuito fue el punto de partida y la meta de la prueba de 100 kilómetros contrarreloj por equipos de ciclismo en ruta. También se utilizó como final de la última etapa de la Volta a Cataluña de 2009 y 2010.",
@@ -545,7 +583,24 @@
                     "pilot": "D006",
                     "year": "2021"
                 },
-                "classification": []
+                "classification": [
+                    [
+                        "D006",
+                        "1:37:20.475"
+                    ],
+                    [
+                        "D005",
+                        "13.072"
+                    ],
+                    [
+                        "D002",
+                        "32.927"
+                    ],
+                    [
+                        "D004",
+                        "45.208"
+                    ]
+                ]
             }
         },
         {
