@@ -28,10 +28,10 @@
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link async="true" rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
         integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
-    <link async="true" href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link async="true" href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
     <link async="true" href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link async="true" href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-<!--     <link async="true" href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link async="true" href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet"> 
+    <!--     <link async="true" href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link async="true" href="assets/vendor/aos/aos.css" rel="stylesheet">
     <link async="true" href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"> -->
 
@@ -47,8 +47,8 @@
 
     <!--Request Optimization-->
     <link async="true" rel="dns-prefetch" href="https://hollypedia.netlify.app">
-    <!-- <link async="true" rel="dns-prefetch" href="https://use.fontawesome.com"> -->
-    <!-- <link async="true" rel="dns-prefetch" href="https://fonts.gstatic.com"> -->
+    <link async="true" rel="preload" as="font" href="https://use.fontawesome.com">
+    <link async="true" rel="preload" as="font" href="https://fonts.gstatic.com">
 
     <!-- Template Main JS File -->
     <script defer src="assets/js/global_functions.js"></script>
@@ -56,7 +56,7 @@
     <script defer src="assets/js/track.js"></script>
 
     <!-- JS Files -->
-    <script async src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>    
+    <script async src="assets/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script async src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- <script async src="assets/vendor/aos/aos.js"></script>
     <script async src="assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -129,74 +129,73 @@
                     </div>
                     <!-- IZQUIERDA -->
                     <div class="col-md-6">
-                            <div class="track-content" id="track-content">
-                                <div class="title-track">
-                                    <div class="row ">
-                                        <div class="col" id="col-ico-fav">
-                                            <!-- ICON FAVORITE-->
-                                        </div>
+                        <div class="track-content" id="track-content">
+                            <div class="title-track">
+                                <div class="row ">
+                                    <div class="col" id="col-ico-fav">
+                                        <!-- ICON FAVORITE-->
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <img class="img-fluid rounded mb-3 mb-md-0" loading="lazy" id="img-track" src=""
-                                alt="Track">
+                        <img class="img-fluid rounded mb-3 mb-md-0" loading="lazy" id="img-track" src="" alt="Track">
 
 
-                            <div class="title">
-                                <div class="sub-title-track">
-                                    <h1 id="name-track"></h1>
+                        <div class="title">
+                            <div class="sub-title-track">
+                                <h1 id="name-track"></h1>
+                            </div>
+                        </div>
+
+                        <div class="detail">
+                            <div class="row align-items-start">
+                                <div class="col">
+                                    <div class="detail-info">
+                                        <div class="detail-info-title">País</div>
+                                        <div class="detail-info-content" id="location-track"></div>
+                                    </div>
+
+                                    <div class="detail-info">
+                                        <div class="detail-info-title">Distancia</div>
+                                        <div class="detail-info-content" id="distance-track"></div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="detail-info">
+                                        <div class="detail-info-title">Vueltas</div>
+                                        <div class="detail-info-content" id="laps-track"></div>
+                                    </div>
+                                    <div class="detail-info">
+                                        <div class="detail-info-title">Años</div>
+                                        <div class="detail-info-content" id="years-track"></div>
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="detail">
-                                <div class="row align-items-start">
-                                    <div class="col">
-                                        <div class="detail-info">
-                                            <div class="detail-info-title">País</div>
-                                            <div class="detail-info-content" id="location-track"></div>
-                                        </div>
-
-                                        <div class="detail-info">
-                                            <div class="detail-info-title">Distancia</div>
-                                            <div class="detail-info-content" id="distance-track"></div>
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="detail-info">
-                                            <div class="detail-info-title">Vueltas</div>
-                                            <div class="detail-info-content" id="laps-track"></div>
-                                        </div>
-                                        <div class="detail-info">
-                                            <div class="detail-info-title">Años</div>
-                                            <div class="detail-info-content" id="years-track"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <div class="detail-info">
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="detail-info-title">Vuelta rápida</div>
-                                                    <div class="detail-info-content" id="record-time-track"></div>
-                                                </div>
-                                                <div class="col" id="pilot-record-track"></div>
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <div class="detail-info">
+                                        <div class="row">
+                                            <div class="col">
+                                                <div class="detail-info-title">Vuelta rápida</div>
+                                                <div class="detail-info-content" id="record-time-track"></div>
                                             </div>
+                                            <div class="col" id="pilot-record-track"></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <div class="title">
-                                <h1>Descripción pista</h1>
-                            </div>
-                            <p id="description-track"></p>
+                        <div class="title">
+                            <h1>Descripción pista</h1>
+                        </div>
+                        <p id="description-track"></p>
 
-                            <div class="title">
-                                <h1>Localización</h1>
-                            </div>
-                            <div id="map2"></div>
+                        <div class="title">
+                            <h1>Localización</h1>
+                        </div>
+                        <div id="map2"></div>
                     </div>
                     <!-- END IZQUIERDA -->
 
