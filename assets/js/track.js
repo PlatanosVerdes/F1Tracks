@@ -437,14 +437,14 @@ function videosTrack(data, i) {
   iframes.appendChild(carousel);
 }
 
-function tiempoAPIForecast(track, i) {
+async function tiempoAPIForecast(track, i) {
   var URL1 =
     "https://api.openweathermap.org/data/2.5/forecast?lat=" +
     track[i].GeoCoordinates.latitude +
     "&lon=" +
     track[i].GeoCoordinates.longitude +
     "&units=metric&appid=bb95d1c6a9cadc0d98a84cf2a738c977&lang=es";
-  fetch(URL1)
+  await fetch(URL1)
     .then((response) => response.json())
     .then((data) => {
       var forecast = processTiempoForecast(data);
@@ -452,14 +452,14 @@ function tiempoAPIForecast(track, i) {
     });
 }
 
-function tiempoAPIDia(track, i) {
+async function tiempoAPIDia(track, i) {
   var URL2 =
     "https://api.openweathermap.org/data/2.5/weather?lat=" +
     track[i].GeoCoordinates.latitude +
     "&lon=" +
     track[i].GeoCoordinates.longitude +
     "&units=metric&appid=bb95d1c6a9cadc0d98a84cf2a738c977&lang=es";
-  fetch(URL2)
+  await fetch(URL2)
     .then((response) => response.json())
     .then((data) => {
       var dia = processTiempoDia(data);
