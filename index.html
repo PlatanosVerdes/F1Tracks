@@ -107,8 +107,7 @@
 
     <div class="container-fluid" id="presentation">
       <div class="row gy-5">
-        <div class="col-lg-1 order-2 order-lg-1 d-flex flex-column justify-content-center">
-        </div>
+        <div class="col-lg-1 order-2 order-lg-1 d-flex flex-column justify-content-center"></div>
         <div class="col-lg-4 order-2 order-lg-1 d-flex flex-column justify-content-center">
           <h1>Todos los circuitos de la F1</h1>
           <h2>¡Encuentra toda la información sobre ellos!</h2>
@@ -161,7 +160,11 @@
             <!-- NOTICIAS -->
             <div id="carouselNoticias" class="carousel slide" data-bs-ride="carousel">
               <div class="carousel-inner loading" id="carousel-noticias-content">
-                <div class="lds-facebook" id="loading"><div></div><div></div><div></div></div>
+                <div class="lds-facebook" id="loading">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
               </div>
               <button class="carousel-control-prev" type="button" data-bs-target="#carouselNoticias"
                 data-bs-slide="prev">
@@ -177,10 +180,12 @@
 
             <!-- MAPS -->
             <div class="map1" id="map1"></div>
-            
+
             <!-- CRONOLOGIA TWITTER F1 -->
             <!-- data-width="400" data-height="500" -->
-            <a class="twitter-timeline" data-width="400" data-height="500" data-chrome=“noscrollbar” data-dnt="true" data-theme="dark" data-border-color="#FF0000" href="https://twitter.com/F1?ref_src=twsrc%5Etfw">Tweets by F1</a> 
+            <a class="twitter-timeline" data-width="400" data-height="500" data-chrome=“noscrollbar” data-dnt="true"
+              data-theme="dark" data-border-color="#FF0000" href="https://twitter.com/F1?ref_src=twsrc%5Etfw">Tweets by
+              F1</a>
             <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
           </div>
           <!-- END APIS -->
@@ -236,6 +241,7 @@
               <h1>Puntuaciones pilotos 2022</h1>
 
               <div class="estadisticas" id="estadisticas" onresize="stadisticsResize()">
+              </div>
 
             </div>
             <!-- END ESTADISTICAS -->
@@ -244,6 +250,7 @@
           </div>
 
         </div>
+      </div>
 
     </section>
 
@@ -256,9 +263,9 @@
         <div class="col-md-1">
           <!-- Espacio -->
         </div>
-        <!-- INFROMACION ADICIONAL -->
+        <!-- INFORMACION ADICIONAL -->
         <div class="col-md-3">
-          <h1 class="text-center text-white">INFROMACIÓN ADICIONAL</h1>
+          <h1 class="text-center text-white">INFORMACIÓN ADICIONAL</h1>
           <p class="text-center">
             Esta página web se ha realizado con fines académicos. La información
             publicada puede ser errónea o falsa.
@@ -274,7 +281,7 @@
 
           <!-- Twitter -->
           <a class="btn btn-primary btn-floating m-1 bi bi-twitter" id="twitter" aria-label="Twitter" target="_blank"
-            rel="noopener" href="https://twitter.com/F1" role="button"alt="Twitter"></a>
+            rel="noopener" href="https://twitter.com/F1" role="button" alt="Twitter"></a>
 
           <!-- Youtube -->
           <a class="btn btn-primary btn-floating m-1 bi bi-youtube" id="youtube" aria-label="Youtube" target="_blank"
