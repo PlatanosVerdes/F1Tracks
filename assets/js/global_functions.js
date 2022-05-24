@@ -77,7 +77,7 @@ function getAllYears(track) {
     return allYears;
 }
 
-function posTrackInJSON(idTrack) {
+async function posTrackInJSON(idTrack) {
     let data = await fetchJSON();
     for (var i = 0; i < data.track.length; i++) {
         if (idTrack === data.track[i].identifier) {
@@ -87,7 +87,7 @@ function posTrackInJSON(idTrack) {
 }
 
 /* Metodo que cambia los tracks en el indice y los muestra ordenados */
-function ordenarBy(order, data) {
+async function ordenarBy(order, data) {
 
     //Borrar el titulo
     document.getElementById('presentation').remove();
@@ -226,7 +226,7 @@ function printTrackAlternateName(track, whereId) {
     whereId.appendChild(trackItem);
 }
 
-function printTracks(tracks) {
+async function printTracks(tracks) {
     let newTrackList = document.getElementById('track-list');
     newTrackList.innerHTML = '';
 
