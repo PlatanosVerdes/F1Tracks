@@ -1,29 +1,3 @@
-/* const CORS_HEADERS = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers':
-        'Origin, X-Requested-With, Content-Type, Accept',
-}
-
-exports.handler = async (event, _context) => {
-    if (event.httpMethod === 'OPTIONS') {
-        return {
-            statusCode: 200,
-            headers: CORS_HEADERS,
-        }
-    }
-
-    return {
-        statusCode: 200,
-        headers: {
-            ...CORS_HEADERS,
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            hello: 'browser!'
-        })
-    }
-} */
-
 function currentDate() {
     let currentDate = new Date();
     let cDay = currentDate.getDate();
@@ -103,7 +77,7 @@ function getAllYears(track) {
     return allYears;
 }
 
-async function posTrackInJSON(idTrack) {
+function posTrackInJSON(idTrack) {
     let data = await fetchJSON();
     for (var i = 0; i < data.track.length; i++) {
         if (idTrack === data.track[i].identifier) {
@@ -113,8 +87,7 @@ async function posTrackInJSON(idTrack) {
 }
 
 /* Metodo que cambia los tracks en el indice y los muestra ordenados */
-/* PENDIENTE ORDENAR POR AÑOS */
-async function ordenarBy(order, data) {
+function ordenarBy(order, data) {
 
     //Borrar el titulo
     document.getElementById('presentation').remove();
@@ -226,7 +199,6 @@ async function ordenarBy(order, data) {
 /* Inyectar en el html los tracks con el titulo que
 tienen en el campeonato (AlternateName)
 @track: el track del JSON
-@trackPos: la posicion del Array del JSON
 @whereId: El ID de la etiqueta del HTML donde se quiere inyectar
 */
 function printTrackAlternateName(track, whereId) {
@@ -254,7 +226,7 @@ function printTrackAlternateName(track, whereId) {
     whereId.appendChild(trackItem);
 }
 
-async function printTracks(tracks) {
+function printTracks(tracks) {
     let newTrackList = document.getElementById('track-list');
     newTrackList.innerHTML = '';
 

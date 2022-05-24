@@ -105,7 +105,7 @@ function getClassification(data) {
   }
 }
 
-async function printTrackMainInfo(data) {
+function printTrackMainInfo(data) {
   let tracks = data.track;
 
   maps(tracks, posTrack);
@@ -289,7 +289,7 @@ async function initTrack() {
   initJSONLD(data);
   let jsonpeliculas = await fetchJSONExterno("https://hollypedia.netlify.app/json/peliculas.json");
   //let jsonvjuegos = await fetchJSONExterno("https://calasdemallorca.netlify.app/_json/index.json");
-  let listapeliculas = extraerInfoJSONPeliculas(jsonpeliculas);
+  let listapeliculas = await extraerInfoJSONPeliculas(jsonpeliculas);
   //let listajuegos = extraerInfoJSONJuegos(jsonvjuegos);
   carrouselContenidoRelacionado(listapeliculas);
 }
@@ -618,30 +618,30 @@ function carrouselContenidoRelacionado(data) {
   for (var i = 0; i < data.length; i++) {
     if (i == 0) {
       contList.innerHTML += `
-                <div class="carousel-item active" data-bs-interval="9000">
-                <img src="https://hollypedia.netlify.app/${data[i].image[0].name}" loading="lazy" class="d-block w-100" alt="${data[i].image[0].name}" id="imagenpelicula">
-                <div class="hover-effect">
-                    <div class="text">
-                    <div><b>Película:</b></div>
-                        <a href="https://hollypedia.netlify.app/movies.html" target="_blank">${data[i].name.bold()}</a>
-                        <div>${data[i].datePublished}</div>
-                    </div>
-                </div>
-                </div>   
-            `;
+        <div class="carousel-item active" data-bs-interval="9000">
+        <img src="https://hollypedia.netlify.app/${data[i].image[0].name}" loading="lazy" class="d-block w-100" alt="${data[i].image[0].name}" id="imagenpelicula">
+        <div class="hover-effect">
+            <div class="text">
+            <div><b>Película:</b></div>
+                <a href="https://hollypedia.netlify.app/movies.html" target="_blank">${data[i].name.bold()}</a>
+                <div>${data[i].datePublished}</div>
+            </div>
+        </div>
+        </div>   
+      `;
     } else {
       contList.innerHTML += `
-                <div class="carousel-item" data-bs-interval="5000">
-                <img src="https://hollypedia.netlify.app/${data[i].image[0].name}" loading="lazy" class="d-block w-100" alt="${data[i].image[0].name}" id="imagenpelicula">
-                <div class="hover-effect">
-                    <div class="text">
-                    <div><b>Película:</b></div>
-                        <a href="https://hollypedia.netlify.app/movies.html" target="_blank">${data[i].name.bold()}</a>
-                        <div>${data[i].datePublished}</div>
-                    </div>
-                </div>
-                </div>  
-            `;
+        <div class="carousel-item" data-bs-interval="5000">
+        <img src="https://hollypedia.netlify.app/${data[i].image[0].name}" loading="lazy" class="d-block w-100" alt="${data[i].image[0].name}" id="imagenpelicula">
+        <div class="hover-effect">
+            <div class="text">
+            <div><b>Película:</b></div>
+                <a href="https://hollypedia.netlify.app/movies.html" target="_blank">${data[i].name.bold()}</a>
+                <div>${data[i].datePublished}</div>
+            </div>
+        </div>
+        </div>  
+      `;
     }
   }
 }
