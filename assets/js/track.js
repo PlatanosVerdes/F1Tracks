@@ -202,6 +202,14 @@ function sessionVarWhenClickNav(save) {
   location.href = "index.html";
 }
 
+/* Funcion que reproduce un audio al cargar la pagina */
+async function playAudio() {
+  audio = document.getElementById("index-audio");
+  audio.muted = false;
+  audio.play();
+  audio.volume = 0.15;
+}
+
 function createMenuCircuitsTrack(year) {
   let index = document.getElementById("years");
   indexYear = 2022 - year;
