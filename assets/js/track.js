@@ -276,7 +276,7 @@ function initJSONLD(data) {
 }
 
 function extraerInfoJSONPeliculas(peliculas) {
-  var arrayPeliculas = peliculas.filter((pelicula) => pelicula.description.includes("car"));
+  var arrayPeliculas = peliculas.filter((pelicula) => pelicula.description.includes("Formula"));
   return arrayPeliculas;
 }
 
