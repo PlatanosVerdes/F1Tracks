@@ -85,7 +85,7 @@ function createTracksIndex(data) {
 
 function createMenuCircuitsIndex(year, data) {
     let index = document.getElementById("years");
-    indexYear = currentDate().getFullYear() - year;
+    indexYear = 2022 - year;
     index.innerHTML = ``;
     for (let i = 1; i < year + 1; i++) {
         let li = document.createElement("li");
