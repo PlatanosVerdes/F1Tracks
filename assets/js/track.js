@@ -18,6 +18,19 @@ function getYears(data) {
   return s;
 }
 
+async function fetchJSONExterno(url) {
+  const response = await fetch(url);
+  if (!response.ok) {
+      const message = `An error has occured: ${response.status}`;
+      throw new Error(message);
+  }
+  const data = await response.json();
+  return data;
+}
+fetchJSONExterno().catch(error => {
+  error.message; // 'An error has occurred: 404'
+});
+
 function getPilot(data, idPilot) {
   let pilot = data.participant;
 

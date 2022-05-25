@@ -34,19 +34,6 @@ fetchJSON().catch(error => {
     error.message; // 'An error has occurred: 404'
 });
 
-async function fetchJSONExterno(vari) {
-    const response = await fetch(vari);
-    if (!response.ok) {
-        const message = `An error has occured: ${response.status}`;
-        throw new Error(message);
-    }
-    const data = await response.json();
-    return data;
-}
-fetchJSONExterno().catch(error => {
-    error.message; // 'An error has occurred: 404'
-});
-
 //Funcion que ordena los tracks por az o por date (fecha)
 function orderTracksBy(tracks, order) {
     if (order === 'name') {

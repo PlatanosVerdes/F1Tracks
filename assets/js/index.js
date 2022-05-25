@@ -30,28 +30,36 @@ function createTracksIndex(data) {
 
     //Si hay elementos:
     if (tracksAux.length > 0) {
-        //Añadir boton al Hero
         let btnHero = document.getElementById("btn-hero");
-        btnHero.innerHTML = `
-            <a href="#col-track-list" class="btn-get-started scrollto">Próximo circuito</a>
-            <a href="#title-old-tracks" class="btn-get-started scrollto">Circuitos anteriores</a>
-        `;
+        let titleCircuits = "Circuitos Anteriores";
+        //Si ya se han corrido todos
+        if (tracksAux.length === tracks.length) {
+            btnHero.remove();
+            document.getElementById("title-trackslist").remove();
+            titleCircuits = "Circuitos de la temporada 2022";
+        } else {
+            //Añadir boton al Hero
+            btnHero.innerHTML = `
+                <a href="#col-track-list" class="btn-get-started scrollto">Próximo circuito</a>
+                <a href="#title-old-tracks" class="btn-get-started scrollto">Circuitos anteriores</a>
+            `;
+        }
 
         let content = document.getElementById("page-content");
 
-        /* AÑADIMOS UNA NUEVA FILA */
+        /* Añadimos una nueva fila */
         let title = document.createElement("div");
         title.setAttribute("class", "row");
         title.setAttribute("id", "row-old-tracks-list");
         title.innerHTML = `
             <div clas="col-md-3">
-                <h1 class="tile" id="title-old-tracks"> Circuitos Anteriores
+                <h1 class="tile" id="title-old-tracks"> ${titleCircuits}
                 </h1>
             </div>
         `;
         content.appendChild(title);
 
-        /* AÑADIMOS EL ESQUELETO DE LOS TRACKS ANTERIORES*/
+        /* Añadimos el esqueleto para los circuitos anteriores*/
         let rowOldTracks = document.createElement("div");
         rowOldTracks.setAttribute("class", "row");
         rowOldTracks.setAttribute("id", "parent-track-list-old");
@@ -66,7 +74,7 @@ function createTracksIndex(data) {
         `;
         content.appendChild(rowOldTracks);
 
-        /* AÑADIMOS LOS TRACKS ANTERIORES */
+        /* Añadimos los circuitos */
         let trackListOld = document.getElementById("track-list-old");
         trackListOld.innerHTML = "";
         for (var i = 0; i < tracksAux.length; i++) {
@@ -202,11 +210,13 @@ function carrouselNoticias(data) {
     document.getElementById("loading").remove();
     let notList = document.getElementById("carousel-noticias-content");
     notList.innerHTML += ``;
-    for (var i = 0; i < data.news.length; i++) {
-        let date = new Date(data.news[i].published);
-        if (data.news[i].image != "None") {
-            notList.innerHTML += `
-                <div class="carousel-item ${i == 0 ? "active" : ""}" data-bs-interval="5000">
+    if (data.news.length > 0) {
+        let first = true;
+        for (var i = 0; i < data.news.length; i++) {
+            let date = new Date(data.news[i].published);
+            if (data.news[i].image != "None") {
+                notList.innerHTML += `
+                <div class="carousel-item ${first ? "active" : ""}" data-bs-interval="5000">
                 <img src="${data.news[i].image}" loading="lazy" class="d-block w-100" id="new-img" alt="${data.news[i].title}">
                 <div class="overlay">                        
                         <div class="text">
@@ -216,7 +226,12 @@ function carrouselNoticias(data) {
                     </div>
                 </div>
             `;
+            first = false;
+            }
         }
+    }else{
+        document.getElementById("bt-cr-new-prev").remove();
+        document.getElementById("bt-cr-new-next").remove();
     }
 }
 
