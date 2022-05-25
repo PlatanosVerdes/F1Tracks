@@ -21,8 +21,8 @@ function getYears(data) {
 async function fetchJSONExterno(url) {
   const response = await fetch(url);
   if (!response.ok) {
-      const message = `An error has occured: ${response.status}`;
-      throw new Error(message);
+    const message = `An error has occured: ${response.status}`;
+    throw new Error(message);
   }
   const data = await response.json();
   return data;
@@ -268,7 +268,7 @@ function initJSONLD(data) {
 }
 
 function extraerInfoJSONPeliculas(peliculas) {
-  var arrayPeliculas = peliculas.filter((pelicula) => pelicula.description.includes("Formula"));
+  var arrayPeliculas = peliculas.filter((pelicula) => pelicula.description.includes("car"));
   return arrayPeliculas;
 }
 
@@ -296,6 +296,7 @@ function extraerInfoJSONJuegos(jsonvjuegos) {
 
 window.addEventListener("load", initTrack);
 async function initTrack() {
+  playAudio();
   let data = await fetchJSON();
   createMenuCircuitsTrack(4, data);
   printTrackMainInfo(data);
@@ -306,7 +307,6 @@ async function initTrack() {
   //let listajuegos = extraerInfoJSONJuegos(jsonvjuegos);
   carrouselContenidoRelacionado(listapeliculas);
 }
-playAudio();
 
 //API MAPS
 function maps(listacirc, num) {
@@ -383,7 +383,7 @@ function videosTrack(data, i) {
 
   let carousel = document.createElement("div");
   carousel.setAttribute("class", "carousel slide");
-  carousel.setAttribute("id", "carouselExampleInterval");
+  carousel.setAttribute("id", "carouselVideosTrack");
   carousel.setAttribute("data-bs-ride", "carousel");
   let carouselInner = document.createElement("div");
   carouselInner.setAttribute("class", "carousel-inner");
@@ -418,7 +418,7 @@ function videosTrack(data, i) {
     let btPrev = document.createElement("button");
     btPrev.setAttribute("class", "carousel-control-prev");
     btPrev.setAttribute("type", "button");
-    btPrev.setAttribute("data-bs-target", "#carouselExampleInterval");
+    btPrev.setAttribute("data-bs-target", "#carouselVideosTrack");
     btPrev.setAttribute("data-bs-slide", "prev");
     let spanControlPrev = document.createElement("span");
     spanControlPrev.setAttribute("class", "carousel-control-prev-icon");
@@ -621,40 +621,25 @@ function parseDate(month, day) {
 }
 
 /*Carrousel Contenido Relacionado*/
-function carrouselContenidoRelacionado(data) {
+function carrouselContenidoRelacionado(peliculas) {
   let contList = document.getElementById("carousel-relacionado");
   contList.innerHTML += ``;
-  if(data.length < 2){
+  if (peliculas.length < 2) {
     document.getElementById("cr-prev").remove();
     document.getElementById("cr-next").remove();
   }
-  for (var i = 0; i < data.length; i++) {
-    if (i == 0) {
-      contList.innerHTML += `
-        <div class="carousel-item active" data-bs-interval="9000">
-        <img src="https://hollypedia.netlify.app/${data[i].image[0].name}" loading="lazy" class="d-block w-100" alt="${data[i].image[0].name}" id="imagenpelicula">
+  for (var i = 0; i < peliculas.length; i++) {
+    contList.innerHTML += `
+        <div class="carousel-item  ${i == 0 ? "active" : ""}""" data-bs-interval="9000">
+        <img src="https://hollypedia.netlify.app/${peliculas[i].image[0].name}" loading="lazy" class="d-block w-100" alt="${peliculas[i].image[0].name}" id="imagenpelicula">
         <div class="hover-effect">
             <div class="text">
-            <div><b>Película:</b></div>
-                <a href="https://hollypedia.netlify.app/movies.html" target="_blank">${data[i].name.bold()}</a>
-                <div>${data[i].datePublished}</div>
+            <div>Película:</div>
+                <a href="https://hollypedia.netlify.app/movies.html" target="_blank">${peliculas[i].name}</a>
+                <div>${peliculas[i].datePublished}</div>
             </div>
         </div>
         </div>   
       `;
-    } else {
-      contList.innerHTML += `
-        <div class="carousel-item" data-bs-interval="5000">
-        <img src="https://hollypedia.netlify.app/${data[i].image[0].name}" loading="lazy" class="d-block w-100" alt="${data[i].image[0].name}" id="imagenpelicula">
-        <div class="hover-effect">
-            <div class="text">
-            <div><b>Película:</b></div>
-                <a href="https://hollypedia.netlify.app/movies.html" target="_blank">${data[i].name.bold()}</a>
-                <div>${data[i].datePublished}</div>
-            </div>
-        </div>
-        </div>  
-      `;
-    }
   }
 }
