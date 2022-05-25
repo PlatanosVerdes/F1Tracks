@@ -1,6 +1,5 @@
 //Funcion que se ejecuta al clicckar una imagen de un track
 function getIdTrackClick(row) {
-    playAudio()
     let img = row.firstChild.nextElementSibling.firstChild.nextElementSibling;
     sessionStorage.setItem("idTrack", img.alt);
     location.href = "track.html";
