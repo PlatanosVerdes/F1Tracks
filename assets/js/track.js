@@ -434,7 +434,7 @@ function videosTrack(data, i) {
     let btNext = document.createElement("button");
     btNext.setAttribute("class", "carousel-control-next");
     btNext.setAttribute("type", "button");
-    btNext.setAttribute("data-bs-target", "#carouselExampleInterval");
+    btNext.setAttribute("data-bs-target", "#carouselVideosTrack");
     btNext.setAttribute("data-bs-slide", "next");
     let spanControlNext = document.createElement("span");
     spanControlNext.setAttribute("class", "carousel-control-next-icon");

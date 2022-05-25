@@ -13,10 +13,10 @@ function getRandomArbitrary(min, max) {
 }
 
 /* Funcion que reproduce un audio al cargar la pagina */
-function playAudio() {
+async function playAudio() {
     audio = document.getElementById("index-audio");
     audio.muted = false;
-    audio.play();
+    await audio.play();
     audio.volume = 0.15;
 }
 
