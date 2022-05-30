@@ -275,15 +275,15 @@ function initJSONLD(data) {
     `;
 }
 
-function extraerInfoJSONPeliculas(peliculas) {
+/* function extraerInfoJSONPeliculas(peliculas) {
   var arrayPeliculas = peliculas.filter((pelicula) => pelicula.description.includes("Formula"));
   return arrayPeliculas;
-}
-
-/* function extraerInfoJSONPeliculas(peliculas) {
-  var arraypeliculas = peliculas.filter((pelicula) => pelicula.genre.some((genero) => genero.toLowerCase().includes("action")));
-  return arraypeliculas;
 } */
+
+function extraerInfoJSONPeliculas(peliculas) {
+  var arraypeliculas = peliculas.filter((pelicula) => pelicula.genre.some((genero) => genero.toLowerCase().includes("sport")));
+  return arraypeliculas;
+}
 
 /* function extraerInfoJSONPeliculas(peliculas) {
   var arraypeliculas = peliculas.filter(checkpeli);
