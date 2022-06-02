@@ -18,8 +18,8 @@ function getYears(data) {
   return s;
 }
 
-async function fetchJSONExterno(url) {
-  const response = await fetch(url);
+async function fetchJSONExterno() {
+  const response = await fetch("https://hollypedia.netlify.app/json/peliculas.json");
   if (!response.ok) {
     const message = `An error has occured: ${response.status}`;
     throw new Error(message);
@@ -309,10 +309,8 @@ async function initTrack() {
   createMenuCircuitsTrack(4, data);
   printTrackMainInfo(data);
   initJSONLD(data);
-  let jsonpeliculas = await fetchJSONExterno("https://hollypedia.netlify.app/json/peliculas.json");
-  //let jsonvjuegos = await fetchJSONExterno("https://calasdemallorca.netlify.app/_json/index.json");
+  let jsonpeliculas = await fetchJSONExterno();
   let listapeliculas = await extraerInfoJSONPeliculas(jsonpeliculas);
-  //let listajuegos = extraerInfoJSONJuegos(jsonvjuegos);
   carrouselContenidoRelacionado(listapeliculas);
 }
 
