@@ -243,56 +243,45 @@ function createMenuCircuitsTrack(year) {
 
 function initJSONLD(data) {
   document.querySelector("script[type='application/ld+json']").innerHTML = `
-    "@context": "http://www.schema.org",
-    "@type": "Track",
-    "name": "${data.track[posTrack].name}",
-    "identifier": "${data.track[posTrack].identifier}",
-    "image": "${data.track[posTrack].image}",
-    "video": "${data.track[posTrack].video}",
-    "alternateName": "${data.track[posTrack].alternateName}",
-    "description": "${data.track[posTrack].description}",
-    "date": "${data.track[posTrack].date}",
-    "GeoCoordinates": {
-        "@type":"GeoCoordinates",
-        "longitude": "${data.track[posTrack].GeoCoordinates.longitude}",
-        "latitude": "${data.track[posTrack].GeoCoordinates.latitude}",
-        "addressCountry": "${data.track[posTrack].GeoCoordinates.addressCountry}",
-        "addresRegion": "${data.track[posTrack].GeoCoordinates.addresRegion}",
-        "addressLocality": "${data.track[posTrack].GeoCoordinates.addressLocality}"
-    },
-    "datos_extra": {
-        "flag":"${data.track[posTrack].datos_extra.flag}",
-        "numberLaps": "${data.track[posTrack].datos_extra.numberLaps}",
-        "trackDistance": "${data.track[posTrack].datos_extra.trackDistance}",
-        "years": "${data.track[posTrack].datos_extra.years}",
-        "lapRecord": {
+      {
+        "@context": "http://www.schema.org",
+        "@type": "Track",
+        "name": "${data.track[posTrack].name}",
+        "identifier": "${data.track[posTrack].identifier}",
+        "image": "${data.track[posTrack].image}",
+        "video": "${data.track[posTrack].video}",
+        "alternateName": "${data.track[posTrack].alternateName}",
+        "description": "${data.track[posTrack].description}",
+        "date": "${data.track[posTrack].date}",
+        "GeoCoordinates": {
+          "@type": "GeoCoordinates",
+          "longitude": "${data.track[posTrack].GeoCoordinates.longitude}",
+          "latitude": "${data.track[posTrack].GeoCoordinates.latitude}",
+          "addressCountry": "${data.track[posTrack].GeoCoordinates.addressCountry}",
+          "addresRegion": "${data.track[posTrack].GeoCoordinates.addresRegion}",
+          "addressLocality": "${data.track[posTrack].GeoCoordinates.addressLocality}"
+        },
+        "datos_extra": {
+          "flag": "${data.track[posTrack].datos_extra.flag}",
+          "numberLaps": "${data.track[posTrack].datos_extra.numberLaps}",
+          "trackDistance": "${data.track[posTrack].datos_extra.trackDistance}",
+          "years": "${data.track[posTrack].datos_extra.years}",
+          "lapRecord": {
             "time": "${data.track[posTrack].datos_extra.lapRecord.time}",
             "pilot": "${data.track[posTrack].datos_extra.lapRecord.pilot}",
             "year": "${data.track[posTrack].datos_extra.lapRecord.year}"
-        },
-        "classification": "${data.track[posTrack].classification}"
-    }
+          },
+          "classification": "${data.track[posTrack].classification}"
+        }
+      }
     `;
 }
 
-/* function extraerInfoJSONPeliculas(peliculas) {
-  var arrayPeliculas = peliculas.filter((pelicula) => pelicula.description.includes("Formula"));
-  return arrayPeliculas;
-} */
-
 function extraerInfoJSONPeliculas(peliculas) {
+  //Segun genero "sport"
   var arraypeliculas = peliculas.filter((pelicula) => pelicula.genre.some((genero) => genero.toLowerCase().includes("sport")));
   return arraypeliculas;
 }
-
-/* function extraerInfoJSONPeliculas(peliculas) {
-  var arraypeliculas = peliculas.filter(checkpeli);
-  function checkpeli(peliculas) {
-    return peliculas.genre.includes("Action");
-  }
-  return arraypeliculas;
-}
-*/
 
 function extraerInfoJSONJuegos(jsonvjuegos) {
   var arrayjuegos = jsonvjuegos.filter(checkvjuego);
