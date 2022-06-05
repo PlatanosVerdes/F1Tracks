@@ -168,8 +168,8 @@ function mapsIndex(data) {
         let latitud = coordenadas.latitude;
 
         var marker = L.marker([latitud, longitud]).addTo(map);
-        marker.bindPopup(
-            `<b>${listacircuitos[i].name}</b><br>${listacircuitos[i].alternateName}<br><img loading="lazy" src="assets/img/flags/${listacircuitos[i].datos_extra.flag}" width="30px" hight="30px" style="border:1px solid black;">`
+        marker.bindPopup(`<b>${listacircuitos[i].name}</b><br>${listacircuitos[i].alternateName}<br><img loading="lazy" 
+        src="assets/img/flags/${listacircuitos[i].datos_extra.flag}" width="30px" hight="30px" style="border:1px solid black;">`
         );
     }
 }
