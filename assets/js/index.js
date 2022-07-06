@@ -127,6 +127,7 @@ async function initIndex() {
     mapsIndex(data);
     carrouselEscuderias(data);
     F1DriverStanding();
+    F1Data();
     carrouselNoticias(await jsonNoticias());
 }
 
@@ -225,10 +226,10 @@ function carrouselNoticias(data) {
                     </div>
                 </div>
             `;
-            first = false;
+                first = false;
             }
         }
-    }else{
+    } else {
         document.getElementById("bt-cr-new-prev").remove();
         document.getElementById("bt-cr-new-next").remove();
     }
@@ -311,9 +312,7 @@ function createSVG(data) {
     }
 }
 
-
 function stadisticsF1Constructor(data) {
-
     var standing =
         data.MRData.StandingsTable.StandingsLists[0].ConstructorStandings;
     console.log(standing);
@@ -326,7 +325,7 @@ async function F1DriverStanding() {
     };
 
     await fetch(
-        "https://ergast.com/api/f1/2022/driverStandings.json",
+        "https://ergast.com/api/f1/current/driverStandings.json",
         requestOptions
     )
         .then((response) => response.json())
@@ -343,8 +342,20 @@ async function F1ConstructorStanding() {
         redirect: "follow",
     };
 
-    await fetch("https://ergast.com/api/f1/2022/constructorStandings.json", requestOptions)
+    await fetch("https://ergast.com/api/f1/current/constructorStandings.json", requestOptions)
         .then((response) => response.json())
         .then((result) => stadisticsF1Constructor(result))
+        .catch((error) => console.log("error", error));
+}
+
+async function F1Data() {
+    var requestOptions = {
+        method: "GET",
+        redirect: "follow",
+    };
+
+    await fetch("https://ergast.com/api/f1/current/circuits.json", requestOptions)
+        .then((response) => response.json())
+        .then((result) => { console.log(result.MRData.CircuitTable.Circuits) })
         .catch((error) => console.log("error", error));
 }
